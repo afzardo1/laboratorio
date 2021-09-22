@@ -9,7 +9,6 @@
      *
      * @package    Sessao
      * @author     Alexandre Farinelli Zardo
-     * @copyright  TK TELECOM
     */
     final class Sessao {
         /**
