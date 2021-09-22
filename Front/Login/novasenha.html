@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> .::. PROVIDER .::. </title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta http-equiv="pragma" content="no-cache">
+		<link rel="icon" href="../../Front/Imag/favicon.ico" type="image/x-icon" sizes="16x16"/>
+    	<link rel="shortcut icon" href="../../Front/Imag/favicon.ico" type="image/x-icon" sizes="24x24"/>
+		<link rel="stylesheet" href="../../Front/import.css">
+		<link rel="stylesheet" href="../../Front/Login/login.css">
+		<script src="../../Front/Dependencias/jquery/jquery.min.js" ></script>
+		<script src="../../Front/Dependencias/bootstrap/js/bootstrap.bundle.min.js" ></script>
+		<script src="../../Front/Login/novasenha.js" type="module"></script>
+	</head>
+	<body>
+		<div id="NSenhaConta" class="container-fluid">
+			<div id="NSenhaRow" class="row d-flex justify-content-center d-flex align-items-center">
+				<div class="col-xl-4">
+					<form id="NSenhaForm" class="mb-5 mt-5 ms-5 me-5 needs-validation">
+						<div class="card shadow-lg mb-5 bg-body rounded rounded-3">
+							<div class="card-header fs-1 text-center">
+								ALTERAÇÃO DE SENHA
+							</div>
+							<div class="card-body">
+							  	<h5 class="card-title w-100 d-flex justify-content-center">
+									<div id="UsuaNSenha" class="mb-3 text-center">
+									</div>
+								</h5>
+							  	<p class="card-text">
+									<div class="form-floating mb-4">
+										<input id="SenhaNovaIpt" type="password" class="form-control" placeholder="Digitar Senha" required data-obriga="S">
+										<label for="SenhaNovaIpt" >Digite a senha Nova</label>
+										<div class="invalid-feedback">
+											Senha não pode ficar em branco
+										</div>
+									</div>
+									<div class="form-floating mb-4">
+										<input id="SenhaRptIpt" type="password" class="form-control" placeholder="Digitar Senha Novamente" required data-obriga="S">
+										<label for="SenhaRptIpt" >Digite a Senha Novamente</label>
+										<div class="invalid-feedback">
+											Senha não pode ficar em branco
+										</div>
+									</div>
+								</p>
+							</div>
+							<div class="card-footer">
+								<div class="d-grid gap-2 col-6 mx-auto">
+									<button id="SalvEntraBtn" type="button" class="btn bg-primary bg-gradient btn-lg active"><i class="fas fa-sign-in-alt"></i> Salvar e Entrar</button>
+								  </div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</body>
+	<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 5">
+		<div id="AletNSenha" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+		  <div class="toast-header">
+			<i class="fas fa-flask rounded me-2"></i>
+			<strong class="me-auto"> .::. PROVIDER .::. </strong>
+			<small></small>
+			<button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+		  </div>
+		  <div class="toast-body">
+		  </div>
+		</div>
+	</div>
+	<div id="LoadNSenha" class="modal" tabindex="-1">
+		<div class="modal-dialog modal-sm">
+			  <div class="modal-content">
+				<div class="text-center">
+					<div class="spinner-border" role="status"></div>
+					<span>Carregando...</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</html>

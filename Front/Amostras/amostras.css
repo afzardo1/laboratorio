@@ -1,0 +1,20 @@
+#TableAmos {
+	width: 100% !important;
+}
+
+#TableAmos .bg-danger{
+	background-color: rgba( 255, 0, 0, 0.7 ) !important;
+	color: black !important;
+}
+
+#FormAmos input{
+	text-transform: uppercase;
+}
+
+#DescrAmos, #ObsAmos{
+	text-transform: uppercase;
+}
+
+#DistrAmos {
+	text-transform: lowercase;
+}

@@ -1,0 +1,35 @@
+#TableDure, #AnexTableDure {
+	width: 100% !important;
+}
+
+#TableDure .bg-danger{
+	background-color: rgba( 255, 0, 0, 0.7 ) !important;
+	color: black !important;
+}
+
+#TableDure .bg-success{
+	background-color: rgba( 25, 135, 84, 0.7 ) !important;
+	color: black !important;
+}
+
+#TableDure .bg-warning{
+	background-color: rgba( 255, 193, 7, 0.7 ) !important;
+	color: black !important;
+}
+
+#TableDure .bg-info{
+	background-color: rgba( 13, 202, 240, 0.7 ) !important;
+	color: black !important;
+}
+
+#FormDure input{
+	text-transform: uppercase;
+}
+
+#FormDure textarea{
+	text-transform: uppercase;
+}
+
+#FormDure #TituAnexDure{
+	padding: 0.5rem;
+}

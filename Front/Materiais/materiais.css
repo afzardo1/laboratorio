@@ -1,0 +1,12 @@
+#TableMate {
+	width: 100% !important;
+}
+
+#TableMate .bg-danger{
+	background-color: rgba( 255, 0, 0, 0.7 ) !important;
+	color: black !important;
+}
+
+#FormMate input{
+	text-transform: uppercase;
+}

@@ -1,0 +1,67 @@
+<link rel="stylesheet" href="../Clientes/clientes.css">
+<form id="FormClie" class="ps-2 pe-2">
+	<ul class="nav nav-tabs bg-light" role="tablist">
+		<li class="nav-item" role="presentation">
+		  <button class="nav-link active" id="TabClie" data-bs-toggle="tab" data-bs-target="#ListClie" type="button" role="tab" aria-controls="home" aria-selected="true"> <i class="nav-icon fas fa-briefcase"></i> CADASTRO CLIENTES </button>
+		</li>
+	</ul>
+	<div class="tab-content bg-white">
+		<div class="tab-pane fade show active" id="ListClie" role="tabpanel" aria-labelledby="tab-clientes">
+			<div class="row p-3" >
+				<div class="col-xl-6">
+					<div class="input-group input-group-lg">
+						<label class="input-group-text" for="FiltTenanClie">Tenant</label>
+						<select class="form-select" id="FiltTenanClie" aria-label="Floating label select example" uppercase>
+						</select>
+					</div>
+				</div>
+				<div class="col-xl-6">
+					<div class="input-group input-group-lg">
+						<label class="input-group-text" for="FiltEmpreClie">Empresa</label>
+						<select class="form-select" id="FiltEmpreClie" aria-label="Floating label select example" uppercase>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="row p-3" >
+				<div class="col-xl-8">
+					<div class="form-floating">
+						<input type="text" class="form-control" id="FiltDadoClie" placeholder="Digite o Nome ou CNPJ ou Código IOntegração para filtrar" autofocus>
+						<label for="FiltDadoClie">Nome ou CNPJ ou Código Integração</label>
+					</div>
+				</div>
+				<div class="col-xl-2"></div>
+				<div class="col-xl-2">
+					<div class="d-grid gap-2">
+						<button id="FiltBtnClie" type="button" class="btn btn-lg btn-primary"> <i class="fas fa-filter"></i> Filtrar </button>
+					</div>
+				</div>
+			</div>
+			<div class="row p-3" >
+				<div class="col-xl-1">
+					<button id="AddBtnClie" type="button" class="btn btn-lg btn-primary" title="INCLUIR"> <i class="fas fa-user-plus"></i> </button>
+				</div>
+			</div>
+			<div class="row p-3">
+				<div class="col-xl-12">
+					<div class="table-responsive-sm">
+						<table id="TableClie" class="display row-border responsive no-wrap">
+						<thead>
+							<tr>
+								<th scope="col"></th>
+								<th scope="col">Id</th>
+								<th scope="col">Cód. Integração</th>
+								<th scope="col">CNPJ / CPF</th>
+								<th scope="col">Mome</th>
+								<th scope="col">Status</th>
+							</tr>
+						</thead>
+						<tbody id="TabeDataClie">
+						</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>

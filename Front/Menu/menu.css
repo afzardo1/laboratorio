@@ -1,0 +1,11 @@
+#AlertMenu{
+    display: none;
+}
+
+#SairMenu{
+    cursor: pointer;
+}
+
+html{
+    width: 100%;
+}

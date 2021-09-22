@@ -1,0 +1,35 @@
+#TableDobra, #AnexTableDobra {
+	width: 100% !important;
+}
+
+#TableDobra .bg-danger{
+	background-color: rgba( 255, 0, 0, 0.7 ) !important;
+	color: black !important;
+}
+
+#TableDobra .bg-success{
+	background-color: rgba( 25, 135, 84, 0.7 ) !important;
+	color: black !important;
+}
+
+#TableDobra .bg-warning{
+	background-color: rgba( 255, 193, 7, 0.7 ) !important;
+	color: black !important;
+}
+
+#TableDobra .bg-info{
+	background-color: rgba( 13, 202, 240, 0.7 ) !important;
+	color: black !important;
+}
+
+#FormDobra input{
+	text-transform: uppercase;
+}
+
+#FormDobra textarea{
+	text-transform: uppercase;
+}
+
+#FormDobra #TituAnexDobra{
+	padding: 0.5rem;
+}

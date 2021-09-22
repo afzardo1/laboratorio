@@ -1,0 +1,51 @@
+<link rel="stylesheet" href="../Tenant/tenant.css">
+<form id="FormTenan" class="ps-2 pe-2">
+	<ul class="nav nav-tabs bg-light" role="tablist">
+		<li class="nav-item" role="presentation">
+		  <button class="nav-link active" id="TabTenan" data-bs-toggle="tab" data-bs-target="#ListTenan" type="button" role="tab" aria-controls="home" aria-selected="true"> <i class="fas fa-gopuram"></i> CADASTRO TENANTS </button>
+		</li>
+	</ul>
+	<div class="tab-content bg-white">
+		<div class="tab-pane fade show active" id="ListTenan" role="tabpanel" aria-labelledby="tab-Tenant">
+			<div class="row p-3" >
+				<div class="col-xl-8">
+					<div class="form-floating">
+						<input type="text" class="form-control" id="FiltDadoTenan" placeholder="Digite o nome ou documento para filtrar" autofocus>
+						<label for="FiltDadoTenan">Nome ou documento</label>
+					</div>
+				</div>
+				<div class="col-xl-2"></div>
+				<div class="col-xl-2">
+					<div class="d-grid gap-2">
+						<button id="FiltBtnTenan" type="button" class="btn btn-lg btn-primary"> <i class="fas fa-filter"></i> Filtrar </button>
+					</div>
+				</div>
+			</div>
+			<div class="row p-3" >
+				<div class="col-xl-1">
+					<button id="AddBtnTenan" type="button" class="btn btn-lg btn-primary" title="INCLUIR"> <i class="fas fa-plus"></i> </button>
+				</div>
+			</div>
+			<div class="row p-3">
+				<div class="col-xl-12">
+					<div class="table-responsive-sm">
+						<table id="TableTenan" class="display row-border responsive no-wrap">
+						<thead>
+							<tr>
+							<th scope="col"></th>
+							<th scope="col">Id</th>
+							<th scope="col">Nome</th>
+							<th scope="col">Documento</th>
+							<th scope="col">Responsavel</th>
+							<th scope="col">Status</th>
+							</tr>
+						</thead>
+						<tbody id="TabeDataTenan">
+						</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>

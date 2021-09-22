@@ -1,0 +1,12 @@
+#TableArea {
+	width: 100% !important;
+}
+
+#TableArea .bg-danger{
+	background-color: rgba( 255, 0, 0, 0.7 ) !important;
+	color: black !important;
+}
+
+#FormArea input{
+	text-transform: uppercase;
+}

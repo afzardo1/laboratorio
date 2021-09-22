@@ -1,0 +1,12 @@
+#TableFabr {
+	width: 100% !important;
+}
+
+#TableFabr .bg-danger{
+	background-color: rgba( 255, 0, 0, 0.7 ) !important;
+	color: black !important;
+}
+
+#FormFabr input{
+	text-transform: uppercase;
+}

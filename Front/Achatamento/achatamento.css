@@ -1,0 +1,35 @@
+#TableAchat, #AnexTableAchat {
+	width: 100% !important;
+}
+
+#TableAchat .bg-danger{
+	background-color: rgba( 255, 0, 0, 0.7 ) !important;
+	color: black !important;
+}
+
+#TableAchat .bg-success{
+	background-color: rgba( 25, 135, 84, 0.7 ) !important;
+	color: black !important;
+}
+
+#TableAchat .bg-warning{
+	background-color: rgba( 255, 193, 7, 0.7 ) !important;
+	color: black !important;
+}
+
+#TableAchat .bg-info{
+	background-color: rgba( 13, 202, 240, 0.7 ) !important;
+	color: black !important;
+}
+
+#FormAchat input{
+	text-transform: uppercase;
+}
+
+#FormAchat textarea{
+	text-transform: uppercase;
+}
+
+#FormAchat #TituAnexAchat{
+	padding: 0.5rem;
+}

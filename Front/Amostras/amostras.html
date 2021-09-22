@@ -1,0 +1,87 @@
+<link rel="stylesheet" href="../Amostras/amostras.css">
+<form id="FormAmos" class="ps-2 pe-2">
+	<ul class="nav nav-tabs bg-light" role="tablist">
+		<li class="nav-item" role="presentation">
+		  <button class="nav-link active" id="TabAmos" data-bs-toggle="tab" data-bs-target="#ListAmos" type="button" role="tab" aria-controls="home" aria-selected="true"> <i class="nav-icon fas fa-fill-drip"></i> CADASTRO AMOSTRAS </button>
+		</li>
+	</ul>
+	<div class="tab-content bg-white">
+		<div class="tab-pane fade show active" id="ListAmos" role="tabpanel" aria-labelledby="tab-clientes">
+			<div class="row p-3" >
+				<div class="col-xl-6">
+					<div class="input-group input-group-lg">
+						<label class="input-group-text" for="FiltTenanAmos">Tenant</label>
+						<select class="form-select" id="FiltTenanAmos" aria-label="Floating label select example" uppercase>
+						</select>
+					</div>
+				</div>
+				<div class="col-xl-6">
+					<div class="input-group input-group-lg">
+						<label class="input-group-text" for="FiltEmpreAmos">Empresa</label>
+						<select class="form-select" id="FiltEmpreAmos" aria-label="Floating label select example" uppercase placeholder="">
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="row p-3" >
+				<div class="col-xl-2">
+					<div class="form-floating">
+						<input type="text" class="form-control" id="FiltRgAmos" placeholder="" autofocus>
+						<label for="FiltRgAmos">Registro Geral</label>
+					</div>
+				</div>
+				<div class="col-xl-2">
+					<div class="form-floating">
+						<input type="text" class="form-control" id="FiltOsAmos" placeholder="" autofocus>
+						<label for="FiltOsAmos">Ordem de Serviço</label>
+					</div>
+				</div>
+				<div class="col-xl-2">
+					<div class="form-floating">
+						<input type="text" class="form-control" id="FiltEmisIniAmos" placeholder="" autofocus>
+						<label for="FiltEmisIniAmos">Emissão Inicial</label>
+					</div>
+				</div>
+				<div class="col-xl-2">
+					<div class="form-floating">
+						<input type="text" class="form-control" id="FiltEmisFimAmos" placeholder="" autofocus>
+						<label for="FiltEmisFimAmos">Emissão Final</label>
+					</div>
+				</div>
+				<div class="col-xl-2"></div>
+				<div class="col-xl-2">
+					<div class="d-grid gap-2">
+						<button id="FiltBtnAmos" type="button" class="btn btn-lg btn-primary"> <i class="fas fa-filter"></i> Filtrar </button>
+					</div>
+				</div>
+			</div>
+			<div class="row p-3" >
+				<div class="col-xl-1">
+					<button id="AddBtnAmos" type="button" class="btn btn-lg btn-primary" title="INCLUIR"> <i class="fas fa-user-plus"></i> </button>
+				</div>
+			</div>
+			<div class="row p-3">
+				<div class="col-xl-12">
+					<div class="table-responsive-sm">
+						<table id="TableAmos" class="display row-border responsive no-wrap">
+						<thead>
+							<tr>
+								<th scope="col"></th>
+								<th scope="col">Id</th>
+								<th scope="col">Emissão</th>
+								<th scope="col">Reg. Geral</th>
+								<th scope="col">Ordem Serv.</th>
+								<th scope="col">Descrição</th>
+								<th scope="col">Status</th>
+								<th scope="col">Conclusão</th>
+							</tr>
+						</thead>
+						<tbody id="TabeDataAmos">
+						</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>

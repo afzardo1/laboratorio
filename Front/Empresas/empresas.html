@@ -1,0 +1,60 @@
+<link rel="stylesheet" href="../Empresas/empresas.css">
+<form id="FormEmpre" class="ps-2 pe-2">
+	<ul class="nav nav-tabs bg-light" role="tablist">
+		<li class="nav-item" role="presentation">
+		  <button class="nav-link active" id="TabEmpre" data-bs-toggle="tab" data-bs-target="#ListEmpre" type="button" role="tab" aria-controls="home" aria-selected="true"> <i class="far fa-building"></i> CADASTRO EMPRESAS </button>
+		</li>
+	</ul>
+	<div class="tab-content bg-white">
+		<div class="tab-pane fade show active" id="ListEmpre" role="tabpanel" aria-labelledby="tab-Empresas">
+			<div class="row p-3 d-flex justify-content-center" >
+				<div class="col-xl-8">
+					<div class="input-group input-group-lg">
+						<label class="input-group-text" for="FiltTenanEmpre">Tenant</label>
+						<select class="form-select" id="FiltTenanEmpre" aria-label="Floating label select example" uppercase>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="row p-3" >
+				<div class="col-xl-8">
+					<div class="form-floating">
+						<input type="text" class="form-control" id="FiltDadoEmpre" placeholder="Digite o nome ou documento para filtrar" autofocus>
+						<label for="FiltDadoEmpre">Nome ou documento</label>
+					</div>
+				</div>
+				<div class="col-xl-2"></div>
+				<div class="col-xl-2">
+					<div class="d-grid gap-2">
+						<button id="FiltBtnEmpre" type="button" class="btn btn-lg btn-primary"> <i class="fas fa-filter"></i> Filtrar </button>
+					</div>
+				</div>
+			</div>
+			<div class="row p-3" >
+				<div class="col-xl-1">
+					<button id="AddBtnEmpre" type="button" class="btn btn-lg btn-primary" title="INCLUIR"> <i class="fas fa-plus"></i> </button>
+				</div>
+			</div>
+			<div class="row p-3">
+				<div class="col-xl-12">
+					<div class="table-responsive-sm">
+						<table id="TableEmpre" class="display row-border responsive no-wrap">
+						<thead>
+							<tr>
+								<th scope="col"></th>
+								<th scope="col">Id</th>
+								<th scope="col">Nome</th>
+								<th scope="col">Documento</th>
+								<th scope="col">Responsavel</th>
+								<th scope="col">Status</th>
+							</tr>
+						</thead>
+						<tbody id="TabeDataEmpre">
+						</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>

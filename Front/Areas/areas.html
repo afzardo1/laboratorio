@@ -1,0 +1,66 @@
+<link rel="stylesheet" href="../Areas/areas.css">
+<form id="FormArea" class="ps-2 pe-2">
+	<ul class="nav nav-tabs bg-light" role="tablist">
+		<li class="nav-item" role="presentation">
+		  <button class="nav-link active" id="TabArea" data-bs-toggle="tab" data-bs-target="#ListArea" type="button" role="tab" aria-controls="home" aria-selected="true"> <i class="nav-icon fas fa-briefcase"></i> CADASTRO ÁREAS </button>
+		</li>
+	</ul>
+	<div class="tab-content bg-white">
+		<div class="tab-pane fade show active" id="ListArea" role="tabpanel" aria-labelledby="tab-clientes">
+			<div class="row p-3" >
+				<div class="col-xl-6">
+					<div class="input-group input-group-lg">
+						<label class="input-group-text" for="FiltTenanArea">Tenant</label>
+						<select class="form-select" id="FiltTenanArea" aria-label="Floating label select example" uppercase>
+						</select>
+					</div>
+				</div>
+				<div class="col-xl-6">
+					<div class="input-group input-group-lg">
+						<label class="input-group-text" for="FiltEmpreArea">Empresa</label>
+						<select class="form-select" id="FiltEmpreArea" aria-label="Floating label select example" uppercase placeholder="">
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="row p-3" >
+				<div class="col-xl-8">
+					<div class="form-floating">
+						<input type="text" class="form-control" id="FiltDadoArea" placeholder="" autofocus>
+						<label for="FiltDadoArea">Descrição ou Código Integração</label>
+					</div>
+				</div>
+				<div class="col-xl-2"></div>
+				<div class="col-xl-2">
+					<div class="d-grid gap-2">
+						<button id="FiltBtnArea" type="button" class="btn btn-lg btn-primary"> <i class="fas fa-filter"></i> Filtrar </button>
+					</div>
+				</div>
+			</div>
+			<div class="row p-3" >
+				<div class="col-xl-1">
+					<button id="AddBtnArea" type="button" class="btn btn-lg btn-primary" title="INCLUIR"> <i class="fas fa-user-plus"></i> </button>
+				</div>
+			</div>
+			<div class="row p-3">
+				<div class="col-xl-12">
+					<div class="table-responsive-sm">
+						<table id="TableArea" class="display row-border responsive no-wrap">
+						<thead>
+							<tr>
+								<th scope="col"></th>
+								<th scope="col">Id</th>
+								<th scope="col">Cód. Integração</th>
+								<th scope="col">Descrição</th>
+								<th scope="col">Status</th>
+							</tr>
+						</thead>
+						<tbody id="TabeDataArea">
+						</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>

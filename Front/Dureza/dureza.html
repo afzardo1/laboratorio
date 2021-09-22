@@ -1,0 +1,115 @@
+<link rel="stylesheet" href="../Dureza/dureza.css">
+<form id="FormDure" class="ps-2 pe-2">
+	<ul class="nav nav-tabs bg-light" role="tablist">
+		<li class="nav-item" role="presentation">
+		  <button class="nav-link active" id="TabDure" data-bs-toggle="tab" data-bs-target="#ListDure" type="button" role="tab" aria-controls="home" aria-selected="true"> <i class="fab fa-creative-commons-remix"></i> DUREZA </button>
+		</li>
+	</ul>
+	<div class="tab-content bg-white">
+		<div class="tab-pane fade show active" id="ListDure" role="tabpanel" aria-labelledby="tab-clientes">
+			<div class="row p-3" >
+				<div class="col-xl-6">
+					<div class="input-group input-group-lg">
+						<label class="input-group-text" for="FiltTenanDure">Tenant</label>
+						<select class="form-select" id="FiltTenanDure" aria-label="Floating label select example" uppercase>
+						</select>
+					</div>
+				</div>
+				<div class="col-xl-6">
+					<div class="input-group input-group-lg">
+						<label class="input-group-text" for="FiltEmpreDure">Empresa</label>
+						<select class="form-select" id="FiltEmpreDure" aria-label="Floating label select example" uppercase>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="row p-3" >
+				<div class="col-xl-6">
+					<div class="input-group input-group-lg">
+						<label class="input-group-text" for="FiltClieDure">Clientes</label>
+						<select class="form-select" id="FiltClieDure" aria-label="Floating label select example" uppercase>
+						</select>
+					</div>
+				</div>
+				<div class="col-xl-6">
+					<div class="input-group input-group-lg">
+						<label class="input-group-text" for="FiltFabrDure">Fabricante</label>
+						<select class="form-select" id="FiltFabrDure" aria-label="Floating label select example" uppercase>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="row p-3" >
+				<div class="col-xl-6">
+					<div class="input-group input-group-lg">
+						<label class="input-group-text" for="FiltAreDure">Área</label>
+						<select class="form-select" id="FiltAreDure" aria-label="Floating label select example" uppercase>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="row p-3" >
+				<div class="col-xl-2">
+					<div class="form-floating">
+						<input type="text" class="form-control" id="FiltRgDure" placeholder="" autofocus>
+						<label for="FiltRgDure">Registro Geral</label>
+					</div>
+				</div>
+				<div class="col-xl-2">
+					<div class="form-floating">
+						<input type="text" class="form-control" id="FiltOsDure" placeholder="" autofocus>
+						<label for="FiltOsDure">Ordem de Serviço</label>
+					</div>
+				</div>
+				<div class="col-xl-2">
+					<div class="form-floating">
+						<input type="text" class="form-control" id="FiltEmisIniDure" placeholder="" autofocus>
+						<label for="FiltEmisIniDure">Emissão Inicial</label>
+					</div>
+				</div>
+				<div class="col-xl-2">
+					<div class="form-floating">
+						<input type="text" class="form-control" id="FiltEmisFimDure" placeholder="" autofocus>
+						<label for="FiltEmisFimDure">Emissão Final</label>
+					</div>
+				</div>
+				<div class="col-xl-2">
+					<div class="form-floating">
+						<select class="form-select" id="StatDure" aria-label="Floating label select example">
+							<option value="0">NÃO</option>
+							<option value="1">SIM</option>
+						</select>
+						<label for="StatDure">Finalizado</label>
+					</div>
+				</div>
+				<div class="col-xl-2">
+					<div class="d-grid gap-2">
+						<button id="FiltBtnDure" type="button" class="btn btn-lg btn-primary"> <i class="fas fa-filter"></i> Filtrar </button>
+					</div>
+				</div>
+			</div>
+			<div class="row p-3">
+				<div class="col-xl-12">
+					<div class="table-responsive-sm">
+						<table id="TableDure" class="display row-border responsive no-wrap">
+						<thead>
+							<tr>
+								<th scope="col"></th>
+								<th scope="col">Id</th>
+								<th scope="col">Emissão</th>
+								<th scope="col">Amostra</th>
+								<th scope="col">Ordem Serv.</th>
+								<th scope="col">Descrição</th>
+								<th scope="col">Finalizado</th>
+								<th scope="col">Resultado</th>
+							</tr>
+						</thead>
+						<tbody id="TabeDataDure">
+						</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>

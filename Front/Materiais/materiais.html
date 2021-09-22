@@ -1,0 +1,65 @@
+<link rel="stylesheet" href="../Materiais/materiais.css">
+<form id="FormMate" class="ps-2 pe-2">
+	<ul class="nav nav-tabs bg-light" role="tablist">
+		<li class="nav-item" role="presentation">
+		  <button class="nav-link active" id="TabMate" data-bs-toggle="tab" data-bs-target="#ListMate" type="button" role="tab" aria-controls="home" aria-selected="true"> <i class="nav-icon fas fa-atom"></i> CADASTRO MATERIAIS </button>
+		</li>
+	</ul>
+	<div class="tab-content bg-white">
+		<div class="tab-pane fade show active" id="ListMate" role="tabpanel" aria-labelledby="tab-clientes">
+			<div class="row p-3" >
+				<div class="col-xl-6">
+					<div class="input-group input-group-lg">
+						<label class="input-group-text" for="FiltTenanMate">Tenant</label>
+						<select class="form-select" id="FiltTenanMate" aria-label="Floating label select example" uppercase>
+						</select>
+					</div>
+				</div>
+				<div class="col-xl-6">
+					<div class="input-group input-group-lg">
+						<label class="input-group-text" for="FiltEmpreMate">Empresa</label>
+						<select class="form-select" id="FiltEmpreMate" aria-label="Floating label select example" uppercase>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="row p-3" >
+				<div class="col-xl-8">
+					<div class="form-floating">
+						<input type="text" class="form-control" id="FiltDadoMate" placeholder="" autofocus>
+						<label for="FiltDadoMate">Descrição Material Ou Fornecedor</label>
+					</div>
+				</div>
+				<div class="col-xl-2"></div>
+				<div class="col-xl-2">
+					<div class="d-grid gap-2">
+						<button id="FiltBtnMate" type="button" class="btn btn-lg btn-primary"> <i class="fas fa-filter"></i> Filtrar </button>
+					</div>
+				</div>
+			</div>
+			<div class="row p-3" >
+				<div class="col-xl-1">
+					<button id="AddBtnMate" type="button" class="btn btn-lg btn-primary" title="INCLUIR"> <i class="fas fa-user-plus"></i> </button>
+				</div>
+			</div>
+			<div class="row p-3">
+				<div class="col-xl-12">
+					<div class="table-responsive-sm">
+						<table id="TableMate" class="display row-border responsive no-wrap">
+						<thead>
+							<tr>
+								<th scope="col"></th>
+								<th scope="col">Id</th>
+								<th scope="col">Descrição</th>
+								<th scope="col">Fornecedor</th>
+							</tr>
+						</thead>
+						<tbody id="TabeDataMate">
+						</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> .::. LABORATÓRIO .::. </title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta http-equiv="pragma" content="no-cache">
+		<link rel="icon" href="Front/Imag/favicon.ico" type="image/x-icon" sizes="16x16"/>
+    	<link rel="shortcut icon" href="Front/Imag/favicon.ico" type="image/x-icon" sizes="24x24"/>
+		<link rel="stylesheet" href="Front/import.css">
+		<link rel="stylesheet" href="Front/Login/login.css">
+		<script src="Front/Dependencias/jquery/jquery.min.js" ></script>
+		<script src="Front/Dependencias/bootstrap/js/bootstrap.bundle.min.js" ></script>
+		<script src="Front/Login/login.js" type="module"></script>
+	</head>
+	<body>
+		<div id="LogiConta" class="container-fluid">
+			<div id="LogiRow" class="row d-flex justify-content-center d-flex align-items-center">
+				<div class="col-xl-4">
+					<form id="LogiForm" class="mb-5 mt-5 ms-5 me-5 needs-validation">
+						<div class="card shadow-lg mb-5 bg-body rounded rounded-3">
+							<div class="card-header fs-1 text-center">
+								BEM VINDO
+							</div>
+							<div class="card-body">
+							  	<h5 class="card-title w-100 d-flex justify-content-center">
+									<div class="mb-3 text-center">
+										.::. LABORATÓRIO .::.
+									</div>
+								</h5>
+							  	<p class="card-text">
+									<div class="form-floating mb-4">
+										<input id="EmailIpt" type="email" class="form-control" placeholder="Digitar E-mail" required autofocus autocomplete="on" data-obriga="S">
+										<label for="EmailIpt" >Email </label>
+										<div class="invalid-feedback">
+											E-mail não pode ficar em branco
+										</div>
+									</div>
+									<div class="form-floating mb-4">
+										<input id="SenhaIpt" type="password" class="form-control" placeholder="Digitar Senha" required data-obriga="S">
+										<label for="SenhaIpt" >Senha</label>
+										<div class="invalid-feedback">
+											Senha não pode ficar em branco
+										</div>
+									</div>
+								</p>
+								<div class="w-100 d-flex justify-content-center">
+									<a href="#" class="link-warning">Esqueceu a Senha</a>
+								</div>
+							</div>
+							<div class="card-footer">
+								<div class="d-grid gap-2 col-6 mx-auto">
+									<button id="EntraBtn" type="button" class="btn bg-primary bg-gradient btn-lg active"><i class="fas fa-sign-in-alt"></i> Entrar</button>
+								  </div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</body>
+	<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 5">
+		<div id="AletLogi" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+		  <div class="toast-header">
+			<i class="fas fa-flask rounded me-2"></i>
+			<strong class="me-auto"> .::. LABORATÓRIO .::. </strong>
+			<small></small>
+			<button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+		  </div>
+		  <div class="toast-body">
+		  </div>
+		</div>
+	</div>
+</html>

@@ -1,0 +1,12 @@
+#TableTenan {
+	width: 100% !important;
+}
+
+#TableEmpre .bg-danger{
+	background-color: rgba( 255, 0, 0, 0.7 ) !important;
+	color: black !important;
+}
+
+#FormEmpre input{
+	text-transform: uppercase;
+}

@@ -1,0 +1,12 @@
+#TableClie {
+	width: 100% !important;
+}
+
+#TableClie .bg-danger{
+	background-color: rgba( 255, 0, 0, 0.7 ) !important;
+	color: black !important;
+}
+
+#FormClie input{
+	text-transform: uppercase;
+}

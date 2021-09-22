@@ -1,0 +1,116 @@
+<link rel="stylesheet" href="../Achatamento/achatamento.css">
+<form id="FormAchat" class="ps-2 pe-2">
+	<ul class="nav nav-tabs bg-light" role="tablist">
+		<li class="nav-item" role="presentation">
+		  <button class="nav-link active" id="TabAchat" data-bs-toggle="tab" data-bs-target="#ListAchat" type="button" role="tab" aria-controls="home" aria-selected="true"> <i class="nav-icon fas fa-compress-arrows-alt"></i> ACHATAMENTO/ESPANSÃO </button>
+		</li>
+	</ul>
+	<div class="tab-content bg-white">
+		<div class="tab-pane fade show active" id="ListAchat" role="tabpanel" aria-labelledby="tab-clientes">
+			<div class="row p-3" >
+				<div class="col-xl-6">
+					<div class="input-group input-group-lg">
+						<label class="input-group-text" for="FiltTenanAchat">Tenant</label>
+						<select class="form-select" id="FiltTenanAchat" aria-label="Floating label select example" uppercase>
+						</select>
+					</div>
+				</div>
+				<div class="col-xl-6">
+					<div class="input-group input-group-lg">
+						<label class="input-group-text" for="FiltEmpreAchat">Empresa</label>
+						<select class="form-select" id="FiltEmpreAchat" aria-label="Floating label select example" uppercase>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="row p-3" >
+				<div class="col-xl-6">
+					<div class="input-group input-group-lg">
+						<label class="input-group-text" for="FiltClieAchat">Clientes</label>
+						<select class="form-select" id="FiltClieAchat" aria-label="Floating label select example" uppercase>
+						</select>
+					</div>
+				</div>
+				<div class="col-xl-6">
+					<div class="input-group input-group-lg">
+						<label class="input-group-text" for="FiltFabrAchat">Fabricante</label>
+						<select class="form-select" id="FiltFabrAchat" aria-label="Floating label select example" uppercase>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="row p-3" >
+				<div class="col-xl-6">
+					<div class="input-group input-group-lg">
+						<label class="input-group-text" for="FiltAreAchat">Área</label>
+						<select class="form-select" id="FiltAreAchat" aria-label="Floating label select example" uppercase>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="row p-3" >
+				<div class="col-xl-2">
+					<div class="form-floating">
+						<input type="text" class="form-control" id="FiltRgAchat" placeholder="" autofocus>
+						<label for="FiltRgAchat">Registro Geral</label>
+					</div>
+				</div>
+				<div class="col-xl-2">
+					<div class="form-floating">
+						<input type="text" class="form-control" id="FiltOsAchat" placeholder="" autofocus>
+						<label for="FiltOsAchat">Ordem de Serviço</label>
+					</div>
+				</div>
+				<div class="col-xl-2">
+					<div class="form-floating">
+						<input type="text" class="form-control" id="FiltEmisIniAchat" placeholder="" autofocus>
+						<label for="FiltEmisIniAchat">Emissão Inicial</label>
+					</div>
+				</div>
+				<div class="col-xl-2">
+					<div class="form-floating">
+						<input type="text" class="form-control" id="FiltEmisFimAchat" placeholder="" autofocus>
+						<label for="FiltEmisFimAchat">Emissão Final</label>
+					</div>
+				</div>
+				<div class="col-xl-2">
+					<div class="form-floating">
+						<select class="form-select" id="StatAchat" aria-label="Floating label select example">
+							<option value="0">NÃO</option>
+							<option value="1">SIM</option>
+						</select>
+						<label for="StatAchat">Finalizado</label>
+					</div>
+				</div>
+				<div class="col-xl-2">
+					<div class="d-grid gap-2">
+						<button id="FiltBtnAchat" type="button" class="btn btn-lg btn-primary"> <i class="fas fa-filter"></i> Filtrar </button>
+					</div>
+				</div>
+			</div>
+			<div class="row p-3">
+				<div class="col-xl-12">
+					<div class="table-responsive-sm">
+						<table id="TableAchat" class="display row-border responsive no-wrap">
+						<thead>
+							<tr>
+								<th scope="col"></th>
+								<th scope="col">Id</th>
+								<th scope="col">Emissão</th>
+								<th scope="col">Amostra</th>
+								<th scope="col">Ordem Serv.</th>
+								<th scope="col">Descrição</th>
+								<th scope="col">Finalizado</th>
+								<th scope="col">Resul. Achat.</th>
+								<th scope="col">Resul. Expansão</th>
+							</tr>
+						</thead>
+						<tbody id="TabeDataAchat">
+						</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>
