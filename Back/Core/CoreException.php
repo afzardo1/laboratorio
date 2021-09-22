@@ -11,7 +11,6 @@
      *
      * @package    CoreException
      * @author     Alexandre Farinelli Zardo
- 	 * @copyright  TK TELECOM
     */
     class CoreException extends Exception {
         public function __construct( $message, $code ){
