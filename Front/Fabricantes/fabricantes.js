@@ -38,7 +38,7 @@ $(document).ready(function( ) {
     });
     /*--INICIALIZAÇÃO*/
     Core.LoadMenu.show();
-    Core.SetAjax( { evento: { tenant_cada_stat: '%%' } }, '../../Fabricantes/GetTenanFabr/', function( Resposta ){
+    Core.SetAjax( { evento: { tenant_cada_stat: '%%' } }, '../../Laboratorio/Fabricantes/GetTenanFabr/', function( Resposta ){
         Core.SetSele2( $( '#FiltTenanFabr' ), Resposta.registros, function(){
             $( '#FiltTenanFabr' ).val( Core.Login.GetUsuaSess( 'usua_cada_tenant' ) ).trigger( 'change' );
             if ( Core.Login.GetUsuaSess( 'usua_cada_tenant' ) != 0 ){
@@ -47,7 +47,7 @@ $(document).ready(function( ) {
             Core.SetAjax( { evento: 
               { empre_cada_stat: '%%',
                 empre_cada_tenant: $( '#FiltTenanFabr' ).val() 
-              } }, '../../Fabricantes/GetEmpreFabr/', function( Resposta ){
+              } }, '../../Laboratorio/Fabricantes/GetEmpreFabr/', function( Resposta ){
                 Core.SetSele2( $( '#FiltEmpreFabr' ), Resposta.registros, function(){
                     $( '#FiltEmpreFabr' ).val( Core.Login.GetUsuaSess( 'usua_cada_empre' ) ).trigger( 'change' );
                     if ( Core.Login.GetUsuaSess( 'usua_cada_empre' ) != 0 ){
@@ -65,7 +65,7 @@ $(document).ready(function( ) {
         Core.SetAjax( { evento: 
            { empre_cada_stat: '%%',
              empre_cada_tenant: $( this ).val() 
-           } }, '../../Fabricantes/GetEmprefabr/', function( Resposta ){
+           } }, '../../Laboratorio/Fabricantes/GetEmprefabr/', function( Resposta ){
             Core.SetSele2( $( '#FiltEmpreFabr' ), Resposta.registros, function(){
                 Core.LoadMenu.hide();
             });
@@ -103,7 +103,7 @@ $(document).ready(function( ) {
         Core.SetAjax( { evento: 
            { empre_cada_stat: '%%',
              empre_cada_tenant: $( this ).val() 
-           } }, '../../Fabricantes/GetEmpreFabr/', function( Resposta ){
+           } }, '../../Laboratorio/Fabricantes/GetEmpreFabr/', function( Resposta ){
             Core.SetSele2( $( '#EmpreFabr' ), Resposta.registros, function(){
                 Core.LoadMenu.hide();
             });

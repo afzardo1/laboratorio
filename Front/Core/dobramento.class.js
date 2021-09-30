@@ -95,7 +95,7 @@ export default class Dobramento {
 	static GetTableDobra( vTabela, vFiltros, vResp ) {
 		Core.SetAjax(
 			vFiltros,
-			'../../Dobramento/GetDobra/', function( vRespAjax ){
+			'../../Laboratorio/Dobramento/GetDobra/', function( vRespAjax ){
 				if ( vRespAjax.status == 'sucesso' ){
 					vTabela = $( vTabela ).DataTable({
 						fixedHeader: true,
@@ -416,7 +416,7 @@ export default class Dobramento {
 				  { usua_cada_status: '1',
 				  	usua_cada_tenant: Core.Dobramento.GetDataTableDobra( '#TableDobra', vLinha, 'amos_cada_tenan' ),
 					usua_cada_empre: Core.Dobramento.GetDataTableDobra( '#TableDobra', vLinha, 'amos_cada_empre' ),
-				  } }, '../../Dobramento/GetUsuaDobra/', function( Resposta ){
+				  } }, '../../Laboratorio/Dobramento/GetUsuaDobra/', function( Resposta ){
 				  	Core.SetSele2( $( '#ExcutDobra' ), Resposta.registros, function(){
 						if ( Core.Dobramento.GetDataTableDobra( '#TableDobra', vLinha, 'amos_meta_cada_fina' ) == 1 ){
 							$( ResObjPai ).find( '#SalvDobra' ).css( { 'display':'none' } );
@@ -513,7 +513,7 @@ export default class Dobramento {
 	*/
 	static SetSalvDobra( VThis, vLinha, vResp ) {
 		Core.GetObjtPai( VThis, [ 'AddListDobra', 'EdtListDobra' ], function( ResObjPai ){
-			Core.GetCampObri( ResObjPai, [ '', '-1', '0' ], '[data-obriga="S"]', function( ResObjVali ){
+			Core.GetCampObri( ResObjPai, [ '', '-1' ], '[data-obriga="S"]', function( ResObjVali ){
 				$( '.has-validated' ).removeClass( 'has-validated' );
                 $( '.is-invalid' ).removeClass( 'is-invalid' );
 				if ( ResObjVali != 'validado' ){
@@ -537,7 +537,7 @@ export default class Dobramento {
 								anexo_ensa_tabe: 'DOBRAMENTO',
 								AnexosDobra: JSON.stringify( RespAnexos ),
 							}},
-							'../../Dobramento/SetSalvDobra/', function( vRespAjax ){
+							'../../Laboratorio/Dobramento/SetSalvDobra/', function( vRespAjax ){
 								Core.SetMensMenu( vRespAjax.detalhes, vRespAjax.registros, 'AVISO')
 								Core.MensMenu.show();
 								setTimeout( function(){
@@ -562,7 +562,7 @@ export default class Dobramento {
 	*/
 	static SetImpreDobra( vFiltros, vResp ) {
 		Core.SetAjax( vFiltros,
-			'../../Dobramento/SetImpreDobra/', function( vRespAjax ){
+			'../../Laboratorio/Dobramento/SetImpreDobra/', function( vRespAjax ){
 				setTimeout( function(){
 					vResp( vRespAjax );
 				}, 300);

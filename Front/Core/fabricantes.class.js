@@ -56,7 +56,7 @@ export default class Fabricantes {
 	static GetTableFabr( vTabela, vFiltros, vResp ) {
 		Core.SetAjax(
 			vFiltros,
-			'../../Fabricantes/GetFabr/', function( vRespAjax ){
+			'../../Laboratorio/Fabricantes/GetFabr/', function( vRespAjax ){
 				if ( vRespAjax.status == 'sucesso' ){
 					vTabela = $( vTabela ).DataTable({
 						fixedHeader: true,
@@ -238,7 +238,7 @@ export default class Fabricantes {
 	static GetAddFabr( VThis, vResp ) {
 		Core.GetObjtPai( VThis, [ 'FormFabr' ], function( ResObjPai ){
 			Fabricantes.GetForm( ResObjPai, 'Add', 'INCLUSÃO FABRICANTE', function( ResObjPai ){
-				Core.SetAjax( { evento: { tenant_cada_stat: '1' } }, '../../Fabricantes/GetTenanFabr/', function( Resposta ){
+				Core.SetAjax( { evento: { tenant_cada_stat: '1' } }, '../../Laboratorio/Fabricantes/GetTenanFabr/', function( Resposta ){
 					Core.SetSele2( $( ResObjPai ).find( '#TenanFabr' ), Resposta.registros, function(){
 						$( ResObjPai ).find( '#TenanFabr' ).val( Core.Login.GetUsuaSess( 'usua_cada_tenant' ) ).trigger( 'change' );
 						if ( Core.Login.GetUsuaSess( 'usua_cada_tenant' ) != 0 ){
@@ -247,7 +247,7 @@ export default class Fabricantes {
 						Core.SetAjax( { evento: {
 							empre_cada_stat: '1',
 							empre_cada_tenant: $( ResObjPai ).find( '#TenanFabr' ).val(),
-						  } }, '../../Fabricantes/GetEmpreFabr/', function( Resposta ){
+						  } }, '../../Laboratorio/Fabricantes/GetEmpreFabr/', function( Resposta ){
 							Core.SetSele2( $( ResObjPai ).find( '#EmpreFabr' ), Resposta.registros, function(){
 								if ( Core.Login.GetUsuaSess( 'usua_cada_empre' ) != 0 ){
 									$( ResObjPai ).find( '#EmpreFabr' ).prop( 'disabled', true );
@@ -277,7 +277,7 @@ export default class Fabricantes {
 		var vLinha = $( VThis ).parent().parent();
 		Core.GetObjtPai( VThis, [ 'FormFabr' ], function( ResObjPai ){
 			Fabricantes.GetForm( ResObjPai, 'Edt', 'ALTERAÇÃO FABRICANTE', function( ResObjPai ){
-				Core.SetAjax( { evento: { tenant_cada_stat: '%%' } }, '../../Fabricantes/GetTenanFabr/', function( Resposta ){
+				Core.SetAjax( { evento: { tenant_cada_stat: '%%' } }, '../../Laboratorio/Fabricantes/GetTenanFabr/', function( Resposta ){
 					Core.SetSele2( $( ResObjPai ).find( '#TenanFabr' ), Resposta.registros, function(){
 						$( ResObjPai ).find( '#TenanFabr' ).val( Core.Fabricantes.GetDataTableFabr( '#TableFabr', vLinha, 'fabr_cada_tenan' ) ).trigger( 'change' );
 						if ( Core.Login.GetUsuaSess( 'usua_cada_tenant' ) != 0 ){
@@ -286,7 +286,7 @@ export default class Fabricantes {
 						Core.SetAjax( { evento: {
 							empre_cada_stat: '1',
 							empre_cada_tenant: $( ResObjPai ).find( '#TenanFabr' ).val(),
-						  } }, '../../Fabricantes/GetEmpreFabr/', function( Resposta ){
+						  } }, '../../Laboratorio/Fabricantes/GetEmpreFabr/', function( Resposta ){
 							Core.SetSele2( $( ResObjPai ).find( '#EmpreFabr' ), Resposta.registros, function(){
 								$( ResObjPai ).find( '#IdenFabr' ).val( Core.Fabricantes.GetDataTableFabr( '#TableFabr', vLinha, 'fabr_cada_iden' ) );
 								$( ResObjPai ).find( '#RefeFabr' ).val( Core.Fabricantes.GetDataTableFabr( '#TableFabr', vLinha, 'fabr_cada_refe' ) );
@@ -357,7 +357,7 @@ export default class Fabricantes {
 							TenanFabr: $( ResObjPai ).find( '#TenanFabr' ).val(),
 							EmpreFabr: $( ResObjPai ).find( '#EmpreFabr' ).val(),
 						}},
-						'../../Fabricantes/SetSalvFabr/', function( vRespAjax ){
+						'../../Laboratorio/Fabricantes/SetSalvFabr/', function( vRespAjax ){
 							Core.SetMensMenu( vRespAjax.detalhes, vRespAjax.registros, 'AVISO')
 							Core.MensMenu.show();
 							setTimeout( function(){
@@ -385,7 +385,7 @@ export default class Fabricantes {
 			evento:{
 				IdenFabr: Core.Fabricantes.GetDataTableFabr( '#TableFabr', vLinha, 'fabr_cada_iden' ),
 			}},
-			'../../Fabricantes/SetDeleFabr/', function( vRespAjax ){
+			'../../Laboratorio/Fabricantes/SetDeleFabr/', function( vRespAjax ){
 				Core.SetMensMenu( vRespAjax.detalhes, vRespAjax.registros, 'AVISO')
 				Core.MensMenu.show();
 				setTimeout( function(){

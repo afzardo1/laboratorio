@@ -56,7 +56,7 @@ export default class Clientes {
 	static GetTableClie( vTabela, vFiltros, vResp ) {
 		Core.SetAjax(
 			vFiltros,
-			'../../Clientes/GetClie/', function( vRespAjax ){
+			'../../Laboratorio/Clientes/GetClie/', function( vRespAjax ){
 				if ( vRespAjax.status == 'sucesso' ){
 					vTabela = $( vTabela ).DataTable({
 						fixedHeader: true,
@@ -238,7 +238,7 @@ export default class Clientes {
 	static GetAddClie( VThis, vResp ) {
 		Core.GetObjtPai( VThis, [ 'FormClie' ], function( ResObjPai ){
 			Clientes.GetForm( ResObjPai, 'Add', 'INCLUSÃO CLIENTE', function( ResObjPai ){
-				Core.SetAjax( { evento: { tenant_cada_stat: '1' } }, '../../Clientes/GetTenanClie/', function( Resposta ){
+				Core.SetAjax( { evento: { tenant_cada_stat: '1' } }, '../../Laboratorio/Clientes/GetTenanClie/', function( Resposta ){
 					Core.SetSele2( $( ResObjPai ).find( '#TenanClie' ), Resposta.registros, function(){
 						$( ResObjPai ).find( '#TenanClie' ).val( Core.Login.GetUsuaSess( 'usua_cada_tenant' ) ).trigger( 'change' );
 						if ( Core.Login.GetUsuaSess( 'usua_cada_tenant' ) != 0 ){
@@ -247,7 +247,7 @@ export default class Clientes {
 						Core.SetAjax( { evento: {
 							empre_cada_stat: '1',
 							empre_cada_tenant: $( ResObjPai ).find( '#TenanClie' ).val(),
-						  } }, '../../Clientes/GetEmpreClie/', function( Resposta ){
+						  } }, '../../Laboratorio/Clientes/GetEmpreClie/', function( Resposta ){
 							Core.SetSele2( $( ResObjPai ).find( '#EmpreClie' ), Resposta.registros, function(){
 								if ( Core.Login.GetUsuaSess( 'usua_cada_empre' ) != 0 ){
 									$( ResObjPai ).find( '#EmpreClie' ).prop( 'disabled', true );
@@ -277,7 +277,7 @@ export default class Clientes {
 		var vLinha = $( VThis ).parent().parent();
 		Core.GetObjtPai( VThis, [ 'FormClie' ], function( ResObjPai ){
 			Clientes.GetForm( ResObjPai, 'Edt', 'ALTERAÇÃO CLIENTE', function( ResObjPai ){
-				Core.SetAjax( { evento: { tenant_cada_stat: '%%' } }, '../../Clientes/GetTenanClie/', function( Resposta ){
+				Core.SetAjax( { evento: { tenant_cada_stat: '%%' } }, '../../Laboratorio/Clientes/GetTenanClie/', function( Resposta ){
 					Core.SetSele2( $( ResObjPai ).find( '#TenanClie' ), Resposta.registros, function(){
 						$( ResObjPai ).find( '#TenanClie' ).val( Core.Clientes.GetDataTableClie( '#TableClie', vLinha, 'clie_cada_tenan' ) ).trigger( 'change' );
 						if ( Core.Login.GetUsuaSess( 'usua_cada_tenant' ) != 0 ){
@@ -286,7 +286,7 @@ export default class Clientes {
 						Core.SetAjax( { evento: {
 							empre_cada_stat: '1',
 							empre_cada_tenant: $( ResObjPai ).find( '#TenanClie' ).val(),
-						  } }, '../../Clientes/GetEmpreClie/', function( Resposta ){
+						  } }, '../../Laboratorio/Clientes/GetEmpreClie/', function( Resposta ){
 							Core.SetSele2( $( ResObjPai ).find( '#EmpreClie' ), Resposta.registros, function(){
 								$( ResObjPai ).find( '#IdenClie' ).val( Core.Clientes.GetDataTableClie( '#TableClie', vLinha, 'clie_cada_iden' ) );
 								$( ResObjPai ).find( '#RefeClie' ).val( Core.Clientes.GetDataTableClie( '#TableClie', vLinha, 'clie_cada_refe' ) );
@@ -357,7 +357,7 @@ export default class Clientes {
 							TenanClie: $( ResObjPai ).find( '#TenanClie' ).val(),
 							EmpreClie: $( ResObjPai ).find( '#EmpreClie' ).val(),
 						}},
-						'../../Clientes/SetSalvClie/', function( vRespAjax ){
+						'../../Laboratorio/Clientes/SetSalvClie/', function( vRespAjax ){
 							Core.SetMensMenu( vRespAjax.detalhes, vRespAjax.registros, 'AVISO')
 							Core.MensMenu.show();
 							setTimeout( function(){
@@ -385,7 +385,7 @@ export default class Clientes {
 			evento:{
 				IdenClie: Core.Clientes.GetDataTableClie( '#TableClie', vLinha, 'clie_cada_iden' ),
 			}},
-			'../../Clientes/SetDeleClie/', function( vRespAjax ){
+			'../../Laboratorio/Clientes/SetDeleClie/', function( vRespAjax ){
 				Core.SetMensMenu( vRespAjax.detalhes, vRespAjax.registros, 'AVISO')
 				Core.MensMenu.show();
 				setTimeout( function(){

@@ -50,7 +50,7 @@ export default class Anexos {
 	static GetTableAnex( vTabela, vFiltros, vResp ) {
 		Core.SetAjax(
 			vFiltros,
-			'../../Anexos/GetAnex/', function( vRespAjax ){
+			'../../Comum/Anexos/GetAnex/', function( vRespAjax ){
 				if ( vRespAjax.status == 'sucesso' ){
 					vTabela = $( vTabela ).DataTable({
 						fixedHeader: true,
@@ -182,6 +182,16 @@ export default class Anexos {
 				5: 'FileAnexLabeDure',
 			};
 		};
+		if ( $( vTabela ).attr( 'id' ) == 'AnexTableCharp' ){
+			NomeIten = {
+				0: 'DeleAnexBtnCharp',
+				1: 'DownAnexBtnCharp',
+				2: 'TipoAnexCharp',
+				3: 'DescrAnexCharp',
+				4: 'FileAnexCharp',
+				5: 'FileAnexLabeCharp',
+			};
+		};
 		var DataIten = {
 			'anexo_botao': 
 				'<button id="' + NomeIten[0] + '" type="button" class="btn btn-danger" title="EXCLUIR"><i class="fas fa-minus"></i></button>' +
@@ -248,6 +258,14 @@ export default class Anexos {
 				3: 'FileAnexLabeDure',
 			};
 		};
+		if ( $( vTabela ).attr( 'id' ) == 'AnexTableCharp' ){
+			NomeIten = {
+				0: 'TipoAnexCharp',
+				1: 'DescrAnexCharp',
+				2: 'FileAnexCharp',
+				3: 'FileAnexLabeCharp',
+			};
+		};
 		var Anexos = {};
 		var TabeData = Core.Anexos.AtuaTableAnex( vTabela );
 		TabeData.rows().every( function ( rowIdx, tableLoop, rowLoop ) {
@@ -300,13 +318,16 @@ export default class Anexos {
 			if ( vParam[ 'IdenDure' ] != undefined ){
 				IdenAnex = vParam[ 'IdenDure' ];
 			};
+			if ( vParam[ 'IdenCharp' ] != undefined ){
+				IdenAnex = vParam[ 'IdenCharp' ];
+			};
 			Core.SetAjax({
 				evento:{
 					IdenAnex: IdenAnex,
 					FileAnexLabe: vParam[ 'FileAnexLabe' ],
 					anexo_ensa_tabe: vParam[ 'anexo_ensa_tabe' ],
 				}},
-				'../../Anexos/GetDonwAnex/', function( vRespAjax ){
+				'../../Comum/Anexos/GetDonwAnex/', function( vRespAjax ){
 					if ( vRespAjax.status == 'sucesso' ){
 						var DowDoc = document.createElement('a');
 						DowDoc.setAttribute( 'href', vRespAjax.registros );
@@ -359,6 +380,11 @@ export default class Anexos {
 		if ( $( vTabela ).attr( 'id' ) == 'AnexTableDure' ){
 			NomeIten = {
 				0: 'TipoAnexDure',
+			};
+		};
+		if ( $( vTabela ).attr( 'id' ) == 'AnexTableCharp' ){
+			NomeIten = {
+				0: 'TipoAnexCharp',
 			};
 		};
 		$( TabeData.row( vLinha ).node() ).find( '#' + NomeIten[0] ).append( '<option value="-1">EXCLUIR</option>' );

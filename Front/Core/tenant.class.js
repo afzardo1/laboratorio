@@ -75,7 +75,7 @@ export default class Tenant {
 	static GetTableTenan( vTabela, vFiltros, vResp ) {
 		Core.SetAjax(
 			vFiltros,
-			'../../Tenant/GetTenan/', function( vRespAjax ){
+			'../../Comum/Tenant/GetTenan/', function( vRespAjax ){
 				if ( vRespAjax.status == 'sucesso' ){
 					vTabela = $( vTabela ).DataTable({
 						fixedHeader: true,
@@ -330,7 +330,7 @@ export default class Tenant {
 	static GetAddTenan( VThis, vResp ) {
 		Core.GetObjtPai( VThis, [ 'FormTenan' ], function( ResObjPai ){
 			Tenant.GetForm( ResObjPai, 'Add', 'INCLUSÃO TENANT', function( ResObjPai ){
-				Core.SetAjax( { evento: { usua_cada_status: '1' } }, '../../Tenant/GetUsuaTenan/', function( Resposta ){
+				Core.SetAjax( { evento: { usua_cada_status: '1' } }, '../../Comum/Tenant/GetUsuaTenan/', function( Resposta ){
 					Core.SetSele2( $( ResObjPai ).find( '#RespTenan' ), Resposta.registros, function(){
 						Core.ValiDocu( $( ResObjPai ).find( '#DocTenan' ) );
 						Core.SetMask( '#CepTenan', 'CEP' );
@@ -356,7 +356,7 @@ export default class Tenant {
 		var vLinha = $( VThis ).parent().parent();
 		Core.GetObjtPai( VThis, [ 'FormTenan' ], function( ResObjPai ){
 			Tenant.GetForm( ResObjPai, 'Edt', 'ALTERAÇÃO TENANT', function( ResObjPai ){
-				Core.SetAjax( { evento: { usua_cada_status: '%%' } }, '../../Tenant/GetUsuaTenan/', function( Resposta ){
+				Core.SetAjax( { evento: { usua_cada_status: '%%' } }, '../../Comum/Tenant/GetUsuaTenan/', function( Resposta ){
 					Core.SetSele2( $( ResObjPai ).find( '#RespTenan' ), Resposta.registros, function(){
 						$( ResObjPai ).find( '#IdenTenan' ).val(  Core.Tenant.GetDataTableTenan( '#TableTenan', vLinha, 'tenant_cada_iden' ) );
 						$( ResObjPai ).find( '#DocTenan' ).val(  Core.Tenant.GetDataTableTenan( '#TableTenan', vLinha, 'tenant_cada_docu' ) );
@@ -433,7 +433,7 @@ export default class Tenant {
 							EstTenan: $( ResObjPai ).find( '#EstTenan' ).val(),
 							RespTenan: $( ResObjPai ).find( '#RespTenan' ).val(),
 						}},
-						'../../Tenant/SetSalvTenan/', function( vRespAjax ){
+						'../../Comum/Tenant/SetSalvTenan/', function( vRespAjax ){
 							Core.SetMensMenu( vRespAjax.detalhes, vRespAjax.registros, 'AVISO')
 							Core.MensMenu.show();
 							setTimeout( function(){
@@ -461,7 +461,7 @@ export default class Tenant {
 			evento:{
 				IdenTenan: Core.Tenant.GetDataTableTenan( '#TableTenan', vLinha, 'tenant_cada_iden' ),
 			}},
-			'../../Tenant/SetDeleTenan/', function( vRespAjax ){
+			'../../Comum/Tenant/SetDeleTenan/', function( vRespAjax ){
 				Core.SetMensMenu( vRespAjax.detalhes, vRespAjax.registros, 'AVISO')
 				Core.MensMenu.show();
 				setTimeout( function(){

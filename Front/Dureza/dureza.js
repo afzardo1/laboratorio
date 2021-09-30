@@ -48,7 +48,7 @@ $(document).ready(function( ) {
     });
 /*--INICIALIZAÇÃO*/
     Core.LoadMenu.show();
-    Core.SetAjax( { evento: { tenant_cada_stat: '%%' } }, '../../Dureza/GetTenanDure/', function( Resposta ){
+    Core.SetAjax( { evento: { tenant_cada_stat: '%%' } }, '../../Laboratorio/Dureza/GetTenanDure/', function( Resposta ){
         Core.SetSele2( $( '#FiltTenanDure' ), Resposta.registros, function(){
             $( '#FiltTenanDure' ).val( Core.Login.GetUsuaSess( 'usua_cada_tenant' ) ).trigger( 'change' );
             if ( Core.Login.GetUsuaSess( 'usua_cada_tenant' ) != 0 ){
@@ -57,7 +57,7 @@ $(document).ready(function( ) {
             Core.SetAjax( { evento: 
               { empre_cada_stat: '%%',
                 empre_cada_tenant: $( '#FiltTenanDure' ).val() 
-              } }, '../../Dureza/GetEmpreDure/', function( Resposta ){
+              } }, '../../Laboratorio/Dureza/GetEmpreDure/', function( Resposta ){
                 Core.SetSele2( $( '#FiltEmpreDure' ), Resposta.registros, function(){
                     $( '#FiltEmpreDure' ).val( Core.Login.GetUsuaSess( 'usua_cada_empre' ) ).trigger( 'change' );
                     if ( Core.Login.GetUsuaSess( 'usua_cada_empre' ) != 0 ){
@@ -67,19 +67,19 @@ $(document).ready(function( ) {
                       { clie_cada_stat: '%%',
                         clie_cada_tenan: $( '#FiltTenanDure' ).val(),
                         clie_cada_empre: $( '#FiltEmpreDure' ).val(),
-                      } }, '../../Dureza/GetClieDure/', function( Resposta ){
+                      } }, '../../Laboratorio/Dureza/GetClieDure/', function( Resposta ){
                         Core.SetSele2( $( '#FiltClieDure' ), Resposta.registros, function(){
                             Core.SetAjax( { evento: 
                               { fabr_cada_stat: '%%',
                                 fabr_cada_tenan: $( '#FiltTenanDure' ).val(),
                                 fabr_cada_empre: $( '#FiltEmpreDure' ).val(),
-                              } }, '../../Dureza/GetFabrDure/', function( Resposta ){
+                              } }, '../../Laboratorio/Dureza/GetFabrDure/', function( Resposta ){
                                 Core.SetSele2( $( '#FiltFabrDure' ), Resposta.registros, function(){
                                     Core.SetAjax( { evento: 
                                       { area_cada_stat: '%%',
                                         area_cada_tenan: $( '#FiltTenanDure' ).val(),
                                         area_cada_empre: $( '#FiltEmpreDure' ).val(),
-                                      } }, '../../Dureza/GetAreaDure/', function( Resposta ){
+                                      } }, '../../Laboratorio/Dureza/GetAreaDure/', function( Resposta ){
                                         Core.SetSele2( $( '#FiltAreDure' ), Resposta.registros, function(){
                                             Core.SetMask( '#FiltEmisIniDure, #FiltEmisFimDure', 'DATA' );
                                             $( '#FiltEmisIniDure' ).val ( Core.Data().subtract ( 30, 'days' ).format('L') );
@@ -102,25 +102,25 @@ $(document).ready(function( ) {
         Core.SetAjax( { evento: 
           { empre_cada_stat: '%%',
             empre_cada_tenant: $( this ).val() 
-          } }, '../../Dureza/GetEmpreDure/', function( Resposta ){
+          } }, '../../Laboratorio/Dureza/GetEmpreDure/', function( Resposta ){
             Core.SetSele2( $( '#FiltEmpreDure' ), Resposta.registros, function(){
                 Core.SetAjax( { evento: 
                   { clie_cada_stat: '%%',
                     clie_cada_tenan: $( '#FiltTenanDure' ).val(),
                     clie_cada_empre: $( '#FiltEmpreDure' ).val(),
-                  } }, '../../Dureza/GetClieDure/', function( Resposta ){
+                  } }, '../../Laboratorio/Dureza/GetClieDure/', function( Resposta ){
                     Core.SetSele2( $( '#FiltClieDure' ), Resposta.registros, function(){
                         Core.SetAjax( { evento: 
                           { fabr_cada_stat: '%%',
                             fabr_cada_tenan: $( '#FiltTenanDure' ).val(),
                             fabr_cada_empre: $( '#FiltEmpreDure' ).val(),
-                          } }, '../../Dureza/GetFabrDure/', function( Resposta ){
+                          } }, '../../Laboratorio/Dureza/GetFabrDure/', function( Resposta ){
                             Core.SetSele2( $( '#FiltFabrDure' ), Resposta.registros, function(){
                                 Core.SetAjax( { evento: 
                                   { area_cada_stat: '%%',
                                     area_cada_tenan: $( '#FiltTenanDure' ).val(),
                                     area_cada_empre: $( '#FiltEmpreDure' ).val(),
-                                  } }, '../../Dureza/GetAreaDure/', function( Resposta ){
+                                  } }, '../../Laboratorio/Dureza/GetAreaDure/', function( Resposta ){
                                     Core.SetSele2( $( '#FiltAreDure' ), Resposta.registros, function(){
                                         Core.LoadMenu.hide();
                                     });
@@ -140,19 +140,19 @@ $(document).ready(function( ) {
           { clie_cada_stat: '%%',
             clie_cada_tenan: $( '#FiltTenanDure' ).val(),
             clie_cada_empre: $( '#FiltEmpreDure' ).val(),
-          } }, '../../Dureza/GetClieDure/', function( Resposta ){
+          } }, '../../Laboratorio/Dureza/GetClieDure/', function( Resposta ){
             Core.SetSele2( $( '#FiltClieDure' ), Resposta.registros, function(){
                 Core.SetAjax( { evento: 
                   { fabr_cada_stat: '%%',
                     fabr_cada_tenan: $( '#FiltTenanDure' ).val(),
                     fabr_cada_empre: $( '#FiltEmpreDure' ).val(),
-                  } }, '../../Dureza/GetFabrDure/', function( Resposta ){
+                  } }, '../../Laboratorio/Dureza/GetFabrDure/', function( Resposta ){
                     Core.SetSele2( $( '#FiltFabrDure' ), Resposta.registros, function(){
                         Core.SetAjax( { evento: 
                           { area_cada_stat: '%%',
                             area_cada_tenan: $( '#FiltTenanDure' ).val(),
                             area_cada_empre: $( '#FiltEmpreDure' ).val(),
-                          } }, '../../Dureza/GetAreaDure/', function( Resposta ){
+                          } }, '../../Laboratorio/Dureza/GetAreaDure/', function( Resposta ){
                             Core.SetSele2( $( '#FiltAreDure' ), Resposta.registros, function(){
                                 Core.LoadMenu.hide();
                             });
@@ -250,7 +250,7 @@ $(document).ready(function( ) {
         Core.LoadMenu.show()
         Core.Dureza.SetImpreDure( { 
             evento:{
-                IdenDure: Core.Dureza.GetDataTableDure( '#TableDure', vLinha, 'amos_dure_cada_iden' ),
+                IdenDure: Core.Dureza.GetDataTableDure( '#TableDure', vLinha, 'amos_cada_iden' ),
 				RGDure: Core.Dureza.GetDataTableDure( '#TableDure', vLinha, 'amos_cada_regi' ), 
             }
         }, function( vRespLogi ){
@@ -276,7 +276,7 @@ $(document).ready(function( ) {
 			        evento:{
 				        ArquiExcl: vRespLogi.registros,
 			        }},
-			      '../../Dureza/SetExclArqu/', function( vRespAjax ){}
+			      '../../Laboratorio/Dureza/SetExclArqu/', function( vRespAjax ){}
                 );
             };            
             $( '#FiltBtnDure' ).click();

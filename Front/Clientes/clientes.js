@@ -38,7 +38,7 @@ $(document).ready(function( ) {
     });
     /*--INICIALIZAÇÃO*/
     Core.LoadMenu.show();
-    Core.SetAjax( { evento: { tenant_cada_stat: '%%' } }, '../../Clientes/GetTenanClie/', function( Resposta ){
+    Core.SetAjax( { evento: { tenant_cada_stat: '%%' } }, '../../Laboratorio/Clientes/GetTenanClie/', function( Resposta ){
         Core.SetSele2( $( '#FiltTenanClie' ), Resposta.registros, function(){
             $( '#FiltTenanClie' ).val( Core.Login.GetUsuaSess( 'usua_cada_tenant' ) ).trigger( 'change' );
             if ( Core.Login.GetUsuaSess( 'usua_cada_tenant' ) != 0 ){
@@ -47,7 +47,7 @@ $(document).ready(function( ) {
             Core.SetAjax( { evento: 
               { empre_cada_stat: '%%',
                 empre_cada_tenant: $( '#FiltTenanClie' ).val() 
-              } }, '../../Clientes/GetEmpreClie/', function( Resposta ){
+              } }, '../../Laboratorio/Clientes/GetEmpreClie/', function( Resposta ){
                 Core.SetSele2( $( '#FiltEmpreClie' ), Resposta.registros, function(){
                     $( '#FiltEmpreClie' ).val( Core.Login.GetUsuaSess( 'usua_cada_empre' ) ).trigger( 'change' );
                     if ( Core.Login.GetUsuaSess( 'usua_cada_empre' ) != 0 ){
@@ -65,7 +65,7 @@ $(document).ready(function( ) {
         Core.SetAjax( { evento: 
            { empre_cada_stat: '%%',
              empre_cada_tenant: $( this ).val() 
-           } }, '../../Clientes/GetEmpreClie/', function( Resposta ){
+           } }, '../../Laboratorio/Clientes/GetEmpreClie/', function( Resposta ){
             Core.SetSele2( $( '#FiltEmpreClie' ), Resposta.registros, function(){
                 Core.LoadMenu.hide();
             });
@@ -103,7 +103,7 @@ $(document).ready(function( ) {
         Core.SetAjax( { evento: 
            { empre_cada_stat: '%%',
              empre_cada_tenant: $( this ).val() 
-           } }, '../../Clientes/GetEmpreClie/', function( Resposta ){
+           } }, '../../Laboratorio/Clientes/GetEmpreClie/', function( Resposta ){
             Core.SetSele2( $( '#EmpreClie' ), Resposta.registros, function(){
                 Core.LoadMenu.hide();
             });

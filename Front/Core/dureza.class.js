@@ -116,7 +116,7 @@ export default class Dureza {
 	static GetTableDure( vTabela, vFiltros, vResp ) {
 		Core.SetAjax(
 			vFiltros,
-			'../../Dureza/GetDure/', function( vRespAjax ){
+			'../../Laboratorio/Dureza/GetDure/', function( vRespAjax ){
 				if ( vRespAjax.status == 'sucesso' ){
 					vTabela = $( vTabela ).DataTable({
 						fixedHeader: true,
@@ -488,7 +488,7 @@ export default class Dureza {
 				  { usua_cada_status: '1',
 				  	usua_cada_tenant: Core.Dureza.GetDataTableDure( '#TableDure', vLinha, 'amos_cada_tenan' ),
 					usua_cada_empre: Core.Dureza.GetDataTableDure( '#TableDure', vLinha, 'amos_cada_empre' ),
-				  } }, '../../Dureza/GetUsuaDure/', function( Resposta ){
+				  } }, '../../Laboratorio/Dureza/GetUsuaDure/', function( Resposta ){
 				  	Core.SetSele2( $( '#ExcutDure' ), Resposta.registros, function(){
 						if ( Core.Dureza.GetDataTableDure( '#TableDure', vLinha, 'amos_meta_cada_fina' ) == 1 ){
 							$( ResObjPai ).find( '#SalvDure' ).css( { 'display':'none' } );
@@ -595,7 +595,7 @@ export default class Dureza {
 	*/
 	static SetSalvDure( VThis, vLinha, vResp ) {
 		Core.GetObjtPai( VThis, [ 'AddListDure', 'EdtListDure' ], function( ResObjPai ){
-			Core.GetCampObri( ResObjPai, [ '', '-1', '0' ], '[data-obriga="S"]', function( ResObjVali ){
+			Core.GetCampObri( ResObjPai, [ '', '-1' ], '[data-obriga="S"]', function( ResObjVali ){
 				$( '.has-validated' ).removeClass( 'has-validated' );
                 $( '.is-invalid' ).removeClass( 'is-invalid' );
 				if ( ResObjVali != 'validado' ){
@@ -626,7 +626,7 @@ export default class Dureza {
 								anexo_ensa_tabe: 'DUREZA',
 								AnexosDure: JSON.stringify( RespAnexos ),
 							}},
-							'../../Dureza/SetSalvDure/', function( vRespAjax ){
+							'../../Laboratorio/Dureza/SetSalvDure/', function( vRespAjax ){
 								Core.SetMensMenu( vRespAjax.detalhes, vRespAjax.registros, 'AVISO')
 								Core.MensMenu.show();
 								setTimeout( function(){
@@ -651,7 +651,7 @@ export default class Dureza {
 	*/
 	static SetImpreDure( vFiltros, vResp ) {
 		Core.SetAjax( vFiltros,
-			'../../Dureza/SetImpreDure/', function( vRespAjax ){
+			'../../Laboratorio/Dureza/SetImpreDure/', function( vRespAjax ){
 				setTimeout( function(){
 					vResp( vRespAjax );
 				}, 300);

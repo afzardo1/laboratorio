@@ -9,7 +9,7 @@
 	use Back\Core\CoreException;
 	use Back\Core\Relatorio;
 	
-	use Back\Modulos\Usuarios\Usuarios;
+	use Back\Modulos\Comum\Usuarios\Usuarios;
 
 	use PDO;
 	use PDOException;
@@ -230,11 +230,14 @@
 
 				if ( count( $_Rota ) > 0 ){
 
-					$NameSpace = 'Back\Modulos';
+  					$NameSpace = 'Back\Modulos';
 
 					$NameSpacePasta = mb_convert_case( $_Rota[ count( $_Rota ) - 3 ], MB_CASE_TITLE, 'UTF-8' ).'\\';
-
 					$Pasta = mb_convert_case( $_Rota[ count( $_Rota ) - 3 ], MB_CASE_TITLE, 'UTF-8' ).'/';
+					
+					$NameSpacePasta = mb_convert_case( $_Rota[ count( $_Rota ) - 4 ], MB_CASE_TITLE, 'UTF-8' ).'\\'.$NameSpacePasta;
+					$Pasta = mb_convert_case( $_Rota[ count( $_Rota ) - 4 ], MB_CASE_TITLE, 'UTF-8' ).'/'.$Pasta;
+
 					$Arquivo = mb_convert_case( $_Rota[ count( $_Rota ) - 3 ], MB_CASE_TITLE, 'UTF-8' ).'.php';
 					$Modulo = 'Modulos/';
 					$Dir = str_replace( array( 'Core' ), '', __DIR__ );
@@ -249,11 +252,14 @@
 						$Dir = 'Back/';
 					};
 
+					//echo $Dir.$Modulo.$Pasta.$Arquivo;
+
 					if ( file_exists( $Dir.$Modulo.$Pasta.$Arquivo ) ) {
 						
 						$Classe = $NameSpace.'\\'.$NameSpacePasta.$_Rota[ count( $_Rota ) - 3 ];
 				
 						$Metodo = $_Rota[ count( $_Rota ) - 2 ];
+						
 						if ( method_exists ( new $Classe, $Metodo ) ){
 
 							$Classe = new ReflectionClass( $Classe );							

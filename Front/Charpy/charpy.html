@@ -1,0 +1,115 @@
+<link rel="stylesheet" href="../Charpy/charpy.css">
+<form id="FormCharp" class="ps-2 pe-2">
+	<ul class="nav nav-tabs bg-light" role="tablist">
+		<li class="nav-item" role="presentation">
+		  <button class="nav-link active" id="TabCharp" data-bs-toggle="tab" data-bs-target="#ListCharp" type="button" role="tab" aria-controls="home" aria-selected="true"> <i class="fas fa-weight"></i> CHAARPY </button>
+		</li>
+	</ul>
+	<div class="tab-content bg-white">
+		<div class="tab-pane fade show active" id="ListCharp" role="tabpanel" aria-labelledby="tab-clientes">
+			<div class="row p-3" >
+				<div class="col-xl-6">
+					<div class="input-group input-group-lg">
+						<label class="input-group-text" for="FiltTenanCharp">Tenant</label>
+						<select class="form-select" id="FiltTenanCharp" aria-label="Floating label select example" uppercase>
+						</select>
+					</div>
+				</div>
+				<div class="col-xl-6">
+					<div class="input-group input-group-lg">
+						<label class="input-group-text" for="FiltEmpreCharp">Empresa</label>
+						<select class="form-select" id="FiltEmpreCharp" aria-label="Floating label select example" uppercase>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="row p-3" >
+				<div class="col-xl-6">
+					<div class="input-group input-group-lg">
+						<label class="input-group-text" for="FiltClieCharp">Clientes</label>
+						<select class="form-select" id="FiltClieCharp" aria-label="Floating label select example" uppercase>
+						</select>
+					</div>
+				</div>
+				<div class="col-xl-6">
+					<div class="input-group input-group-lg">
+						<label class="input-group-text" for="FiltFabrCharp">Fabricante</label>
+						<select class="form-select" id="FiltFabrCharp" aria-label="Floating label select example" uppercase>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="row p-3" >
+				<div class="col-xl-6">
+					<div class="input-group input-group-lg">
+						<label class="input-group-text" for="FiltAreCharp">Área</label>
+						<select class="form-select" id="FiltAreCharp" aria-label="Floating label select example" uppercase>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="row p-3" >
+				<div class="col-xl-2">
+					<div class="form-floating">
+						<input type="text" class="form-control" id="FiltRgCharp" placeholder="" autofocus>
+						<label for="FiltRgCharp">Registro Geral</label>
+					</div>
+				</div>
+				<div class="col-xl-2">
+					<div class="form-floating">
+						<input type="text" class="form-control" id="FiltOsCharp" placeholder="" autofocus>
+						<label for="FiltOsCharp">Ordem de Serviço</label>
+					</div>
+				</div>
+				<div class="col-xl-2">
+					<div class="form-floating">
+						<input type="text" class="form-control" id="FiltEmisIniCharp" placeholder="" autofocus>
+						<label for="FiltEmisIniCharp">Emissão Inicial</label>
+					</div>
+				</div>
+				<div class="col-xl-2">
+					<div class="form-floating">
+						<input type="text" class="form-control" id="FiltEmisFimCharp" placeholder="" autofocus>
+						<label for="FiltEmisFimCharp">Emissão Final</label>
+					</div>
+				</div>
+				<div class="col-xl-2">
+					<div class="form-floating">
+						<select class="form-select" id="StatCharp" aria-label="Floating label select example">
+							<option value="0">NÃO</option>
+							<option value="1">SIM</option>
+						</select>
+						<label for="StatCharp">Finalizado</label>
+					</div>
+				</div>
+				<div class="col-xl-2">
+					<div class="d-grid gap-2">
+						<button id="FiltBtnCharp" type="button" class="btn btn-lg btn-primary"> <i class="fas fa-filter"></i> Filtrar </button>
+					</div>
+				</div>
+			</div>
+			<div class="row p-3">
+				<div class="col-xl-12">
+					<div class="table-responsive-sm">
+						<table id="TableCharp" class="display row-border responsive no-wrap">
+						<thead>
+							<tr>
+								<th scope="col"></th>
+								<th scope="col">Id</th>
+								<th scope="col">Emissão</th>
+								<th scope="col">Amostra</th>
+								<th scope="col">Ordem Serv.</th>
+								<th scope="col">Descrição</th>
+								<th scope="col">Finalizado</th>
+								<th scope="col">Resultado</th>
+							</tr>
+						</thead>
+						<tbody id="TabeDataCharp">
+						</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>

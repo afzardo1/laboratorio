@@ -48,7 +48,7 @@ $(document).ready(function( ) {
     });
 /*--INICIALIZAÇÃO*/
     Core.LoadMenu.show();
-    Core.SetAjax( { evento: { tenant_cada_stat: '%%' } }, '../../Dobramento/GetTenanDobra/', function( Resposta ){
+    Core.SetAjax( { evento: { tenant_cada_stat: '%%' } }, '../../Laboratorio/Dobramento/GetTenanDobra/', function( Resposta ){
         Core.SetSele2( $( '#FiltTenanDobra' ), Resposta.registros, function(){
             $( '#FiltTenanDobra' ).val( Core.Login.GetUsuaSess( 'usua_cada_tenant' ) ).trigger( 'change' );
             if ( Core.Login.GetUsuaSess( 'usua_cada_tenant' ) != 0 ){
@@ -57,7 +57,7 @@ $(document).ready(function( ) {
             Core.SetAjax( { evento: 
               { empre_cada_stat: '%%',
                 empre_cada_tenant: $( '#FiltTenanDobra' ).val() 
-              } }, '../../Dobramento/GetEmpreDobra/', function( Resposta ){
+              } }, '../../Laboratorio/Dobramento/GetEmpreDobra/', function( Resposta ){
                 Core.SetSele2( $( '#FiltEmpreDobra' ), Resposta.registros, function(){
                     $( '#FiltEmpreDobra' ).val( Core.Login.GetUsuaSess( 'usua_cada_empre' ) ).trigger( 'change' );
                     if ( Core.Login.GetUsuaSess( 'usua_cada_empre' ) != 0 ){
@@ -67,19 +67,19 @@ $(document).ready(function( ) {
                       { clie_cada_stat: '%%',
                         clie_cada_tenan: $( '#FiltTenanDobra' ).val(),
                         clie_cada_empre: $( '#FiltEmpreDobra' ).val(),
-                      } }, '../../Dobramento/GetClieDobra/', function( Resposta ){
+                      } }, '../../Laboratorio/Dobramento/GetClieDobra/', function( Resposta ){
                         Core.SetSele2( $( '#FiltClieDobra' ), Resposta.registros, function(){
                             Core.SetAjax( { evento: 
                               { fabr_cada_stat: '%%',
                                 fabr_cada_tenan: $( '#FiltTenanDobra' ).val(),
                                 fabr_cada_empre: $( '#FiltEmpreDobra' ).val(),
-                              } }, '../../Dobramento/GetFabrDobra/', function( Resposta ){
+                              } }, '../../Laboratorio/Dobramento/GetFabrDobra/', function( Resposta ){
                                 Core.SetSele2( $( '#FiltFabrDobra' ), Resposta.registros, function(){
                                     Core.SetAjax( { evento: 
                                       { area_cada_stat: '%%',
                                         area_cada_tenan: $( '#FiltTenanDobra' ).val(),
                                         area_cada_empre: $( '#FiltEmpreDobra' ).val(),
-                                      } }, '../../Dobramento/GetAreaDobra/', function( Resposta ){
+                                      } }, '../../Laboratorio/Dobramento/GetAreaDobra/', function( Resposta ){
                                         Core.SetSele2( $( '#FiltAreDobra' ), Resposta.registros, function(){
                                             Core.SetMask( '#FiltEmisIniDobra, #FiltEmisFimDobra', 'DATA' );
                                             $( '#FiltEmisIniDobra' ).val ( Core.Data().subtract ( 30, 'days' ).format('L') );
@@ -102,25 +102,25 @@ $(document).ready(function( ) {
         Core.SetAjax( { evento: 
           { empre_cada_stat: '%%',
             empre_cada_tenant: $( this ).val() 
-          } }, '../../Dobramento/GetEmpreDobra/', function( Resposta ){
+          } }, '../../Laboratorio/Dobramento/GetEmpreDobra/', function( Resposta ){
             Core.SetSele2( $( '#FiltEmpreDobra' ), Resposta.registros, function(){
                 Core.SetAjax( { evento: 
                   { clie_cada_stat: '%%',
                     clie_cada_tenan: $( '#FiltTenanDobra' ).val(),
                     clie_cada_empre: $( '#FiltEmpreDobra' ).val(),
-                  } }, '../../Dobramento/GetClieDobra/', function( Resposta ){
+                  } }, '../../Laboratorio/Dobramento/GetClieDobra/', function( Resposta ){
                     Core.SetSele2( $( '#FiltClieDobra' ), Resposta.registros, function(){
                         Core.SetAjax( { evento: 
                           { fabr_cada_stat: '%%',
                             fabr_cada_tenan: $( '#FiltTenanDobra' ).val(),
                             fabr_cada_empre: $( '#FiltEmpreDobra' ).val(),
-                          } }, '../../Dobramento/GetFabrDobra/', function( Resposta ){
+                          } }, '../../Laboratorio/Dobramento/GetFabrDobra/', function( Resposta ){
                             Core.SetSele2( $( '#FiltFabrDobra' ), Resposta.registros, function(){
                                 Core.SetAjax( { evento: 
                                   { area_cada_stat: '%%',
                                     area_cada_tenan: $( '#FiltTenanDobra' ).val(),
                                     area_cada_empre: $( '#FiltEmpreDobra' ).val(),
-                                  } }, '../../Dobramento/GetAreaDobra/', function( Resposta ){
+                                  } }, '../../Laboratorio/Dobramento/GetAreaDobra/', function( Resposta ){
                                     Core.SetSele2( $( '#FiltAreDobra' ), Resposta.registros, function(){
                                         Core.LoadMenu.hide();
                                     });
@@ -140,19 +140,19 @@ $(document).ready(function( ) {
           { clie_cada_stat: '%%',
             clie_cada_tenan: $( '#FiltTenanDobra' ).val(),
             clie_cada_empre: $( '#FiltEmpreDobra' ).val(),
-          } }, '../../Dobramento/GetClieDobra/', function( Resposta ){
+          } }, '../../Laboratorio/Dobramento/GetClieDobra/', function( Resposta ){
             Core.SetSele2( $( '#FiltClieDobra' ), Resposta.registros, function(){
                 Core.SetAjax( { evento: 
                   { fabr_cada_stat: '%%',
                     fabr_cada_tenan: $( '#FiltTenanDobra' ).val(),
                     fabr_cada_empre: $( '#FiltEmpreDobra' ).val(),
-                  } }, '../../Dobramento/GetFabrDobra/', function( Resposta ){
+                  } }, '../../Laboratorio/Dobramento/GetFabrDobra/', function( Resposta ){
                     Core.SetSele2( $( '#FiltFabrDobra' ), Resposta.registros, function(){
                         Core.SetAjax( { evento: 
                           { area_cada_stat: '%%',
                             area_cada_tenan: $( '#FiltTenanDobra' ).val(),
                             area_cada_empre: $( '#FiltEmpreDobra' ).val(),
-                          } }, '../../Dobramento/GetAreaDobra/', function( Resposta ){
+                          } }, '../../Laboratorio/Dobramento/GetAreaDobra/', function( Resposta ){
                             Core.SetSele2( $( '#FiltAreDobra' ), Resposta.registros, function(){
                                 Core.LoadMenu.hide();
                             });
@@ -250,7 +250,7 @@ $(document).ready(function( ) {
         Core.LoadMenu.show()
         Core.Dobramento.SetImpreDobra( { 
             evento:{
-                IdenDobra: Core.Dobramento.GetDataTableDobra( '#TableDobra', vLinha, 'amos_dobra_cada_iden' ),
+                IdenDobra: Core.Dobramento.GetDataTableDobra( '#TableDobra', vLinha, 'amos_cada_iden' ),
 				RGDobra: Core.Dobramento.GetDataTableDobra( '#TableDobra', vLinha, 'amos_cada_regi' ), 
             }
         }, function( vRespLogi ){
@@ -276,7 +276,7 @@ $(document).ready(function( ) {
 			        evento:{
 				        ArquiExcl: vRespLogi.registros,
 			        }},
-			      '../../Dobramento/SetExclArqu/', function( vRespAjax ){}
+			      '../../Laboratorio/Dobramento/SetExclArqu/', function( vRespAjax ){}
                 );
             };            
             $( '#FiltBtnDobra' ).click();

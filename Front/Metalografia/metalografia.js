@@ -48,7 +48,7 @@ $(document).ready(function( ) {
     });
 /*--INICIALIZAÇÃO*/
     Core.LoadMenu.show();
-    Core.SetAjax( { evento: { tenant_cada_stat: '%%' } }, '../../Metalografia/GetTenanMeta/', function( Resposta ){
+    Core.SetAjax( { evento: { tenant_cada_stat: '%%' } }, '../../Laboratorio/Metalografia/GetTenanMeta/', function( Resposta ){
         Core.SetSele2( $( '#FiltTenanMeta' ), Resposta.registros, function(){
             $( '#FiltTenanMeta' ).val( Core.Login.GetUsuaSess( 'usua_cada_tenant' ) ).trigger( 'change' );
             if ( Core.Login.GetUsuaSess( 'usua_cada_tenant' ) != 0 ){
@@ -57,7 +57,7 @@ $(document).ready(function( ) {
             Core.SetAjax( { evento: 
               { empre_cada_stat: '%%',
                 empre_cada_tenant: $( '#FiltTenanMeta' ).val() 
-              } }, '../../Metalografia/GetEmpreMeta/', function( Resposta ){
+              } }, '../../Laboratorio/Metalografia/GetEmpreMeta/', function( Resposta ){
                 Core.SetSele2( $( '#FiltEmpreMeta' ), Resposta.registros, function(){
                     $( '#FiltEmpreMeta' ).val( Core.Login.GetUsuaSess( 'usua_cada_empre' ) ).trigger( 'change' );
                     if ( Core.Login.GetUsuaSess( 'usua_cada_empre' ) != 0 ){
@@ -67,19 +67,19 @@ $(document).ready(function( ) {
                       { clie_cada_stat: '%%',
                         clie_cada_tenan: $( '#FiltTenanMeta' ).val(),
                         clie_cada_empre: $( '#FiltEmpreMeta' ).val(),
-                      } }, '../../Metalografia/GetClieMeta/', function( Resposta ){
+                      } }, '../../Laboratorio/Metalografia/GetClieMeta/', function( Resposta ){
                         Core.SetSele2( $( '#FiltClieMeta' ), Resposta.registros, function(){
                             Core.SetAjax( { evento: 
                               { fabr_cada_stat: '%%',
                                 fabr_cada_tenan: $( '#FiltTenanMeta' ).val(),
                                 fabr_cada_empre: $( '#FiltEmpreMeta' ).val(),
-                              } }, '../../Metalografia/GetFabrMeta/', function( Resposta ){
+                              } }, '../../Laboratorio/Metalografia/GetFabrMeta/', function( Resposta ){
                                 Core.SetSele2( $( '#FiltFabrMeta' ), Resposta.registros, function(){
                                     Core.SetAjax( { evento: 
                                       { area_cada_stat: '%%',
                                         area_cada_tenan: $( '#FiltTenanMeta' ).val(),
                                         area_cada_empre: $( '#FiltEmpreMeta' ).val(),
-                                      } }, '../../Metalografia/GetAreaMeta/', function( Resposta ){
+                                      } }, '../../Laboratorio/Metalografia/GetAreaMeta/', function( Resposta ){
                                         Core.SetSele2( $( '#FiltAreMeta' ), Resposta.registros, function(){
                                             Core.SetMask( '#FiltEmisIniMeta, #FiltEmisFimMeta', 'DATA' );
                                             $( '#FiltEmisIniMeta' ).val ( Core.Data().subtract ( 30, 'days' ).format('L') );
@@ -102,25 +102,25 @@ $(document).ready(function( ) {
         Core.SetAjax( { evento: 
           { empre_cada_stat: '%%',
             empre_cada_tenant: $( this ).val() 
-          } }, '../../Metalografia/GetEmpreMeta/', function( Resposta ){
+          } }, '../../Laboratorio/Metalografia/GetEmpreMeta/', function( Resposta ){
             Core.SetSele2( $( '#FiltEmpreMeta' ), Resposta.registros, function(){
                 Core.SetAjax( { evento: 
                   { clie_cada_stat: '%%',
                     clie_cada_tenan: $( '#FiltTenanMeta' ).val(),
                     clie_cada_empre: $( '#FiltEmpreMeta' ).val(),
-                  } }, '../../Metalografia/GetClieMeta/', function( Resposta ){
+                  } }, '../../Laboratorio/Metalografia/GetClieMeta/', function( Resposta ){
                     Core.SetSele2( $( '#FiltClieMeta' ), Resposta.registros, function(){
                         Core.SetAjax( { evento: 
                           { fabr_cada_stat: '%%',
                             fabr_cada_tenan: $( '#FiltTenanMeta' ).val(),
                             fabr_cada_empre: $( '#FiltEmpreMeta' ).val(),
-                          } }, '../../Metalografia/GetFabrMeta/', function( Resposta ){
+                          } }, '../../Laboratorio/Metalografia/GetFabrMeta/', function( Resposta ){
                             Core.SetSele2( $( '#FiltFabrMeta' ), Resposta.registros, function(){
                                 Core.SetAjax( { evento: 
                                   { area_cada_stat: '%%',
                                     area_cada_tenan: $( '#FiltTenanMeta' ).val(),
                                     area_cada_empre: $( '#FiltEmpreMeta' ).val(),
-                                  } }, '../../Metalografia/GetAreaMeta/', function( Resposta ){
+                                  } }, '../../Laboratorio/Metalografia/GetAreaMeta/', function( Resposta ){
                                     Core.SetSele2( $( '#FiltAreMeta' ), Resposta.registros, function(){
                                         Core.LoadMenu.hide();
                                     });
@@ -140,19 +140,19 @@ $(document).ready(function( ) {
           { clie_cada_stat: '%%',
             clie_cada_tenan: $( '#FiltTenanMeta' ).val(),
             clie_cada_empre: $( '#FiltEmpreMeta' ).val(),
-          } }, '../../Metalografia/GetClieMeta/', function( Resposta ){
+          } }, '../../Laboratorio/Metalografia/GetClieMeta/', function( Resposta ){
             Core.SetSele2( $( '#FiltClieMeta' ), Resposta.registros, function(){
                 Core.SetAjax( { evento: 
                   { fabr_cada_stat: '%%',
                     fabr_cada_tenan: $( '#FiltTenanMeta' ).val(),
                     fabr_cada_empre: $( '#FiltEmpreMeta' ).val(),
-                  } }, '../../Metalografia/GetFabrMeta/', function( Resposta ){
+                  } }, '../../Laboratorio/Metalografia/GetFabrMeta/', function( Resposta ){
                     Core.SetSele2( $( '#FiltFabrMeta' ), Resposta.registros, function(){
                         Core.SetAjax( { evento: 
                           { area_cada_stat: '%%',
                             area_cada_tenan: $( '#FiltTenanMeta' ).val(),
                             area_cada_empre: $( '#FiltEmpreMeta' ).val(),
-                          } }, '../../Metalografia/GetAreaMeta/', function( Resposta ){
+                          } }, '../../Laboratorio/Metalografia/GetAreaMeta/', function( Resposta ){
                             Core.SetSele2( $( '#FiltAreMeta' ), Resposta.registros, function(){
                                 Core.LoadMenu.hide();
                             });
@@ -250,7 +250,7 @@ $(document).ready(function( ) {
         Core.LoadMenu.show()
         Core.Metalografia.SetImpreMeta( { 
             evento:{
-                IdenMeta: Core.Metalografia.GetDataTableMeta( '#TableMeta', vLinha, 'amos_meta_cada_iden' ),
+                IdenMeta: Core.Metalografia.GetDataTableMeta( '#TableMeta', vLinha, 'amos_cada_iden' ),
 				RGMeta: Core.Metalografia.GetDataTableMeta( '#TableMeta', vLinha, 'amos_cada_regi' ), 
             }
         }, function( vRespLogi ){
@@ -276,7 +276,7 @@ $(document).ready(function( ) {
 			        evento:{
 				        ArquiExcl: vRespLogi.registros,
 			        }},
-			      '../../Metalografia/SetExclArqu/', function( vRespAjax ){
+			      '../../Laboratorio/Metalografia/SetExclArqu/', function( vRespAjax ){
                 });
             };            
             $( '#FiltBtnMeta' ).click();

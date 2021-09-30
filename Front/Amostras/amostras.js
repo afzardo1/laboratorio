@@ -42,7 +42,7 @@ $(document).ready(function( ) {
     });
 /*--INICIALIZAÇÃO*/
     Core.LoadMenu.show();
-    Core.SetAjax( { evento: { tenant_cada_stat: '%%' } }, '../../Amostras/GetTenanAmos/', function( Resposta ){
+    Core.SetAjax( { evento: { tenant_cada_stat: '%%' } }, '../../Laboratorio/Amostras/GetTenanAmos/', function( Resposta ){
         Core.SetSele2( $( '#FiltTenanAmos' ), Resposta.registros, function(){
             $( '#FiltTenanAmos' ).val( Core.Login.GetUsuaSess( 'usua_cada_tenant' ) ).trigger( 'change' );
             if ( Core.Login.GetUsuaSess( 'usua_cada_tenant' ) != 0 ){
@@ -51,7 +51,7 @@ $(document).ready(function( ) {
             Core.SetAjax( { evento: 
               { empre_cada_stat: '%%',
                 empre_cada_tenant: $( '#FiltTenanAmos' ).val() 
-              } }, '../../Amostras/GetEmpreAmos/', function( Resposta ){
+              } }, '../../Laboratorio/Amostras/GetEmpreAmos/', function( Resposta ){
                 Core.SetSele2( $( '#FiltEmpreAmos' ), Resposta.registros, function(){
                     $( '#FiltEmpreAmos' ).val( Core.Login.GetUsuaSess( 'usua_cada_empre' ) ).trigger( 'change' );
                     if ( Core.Login.GetUsuaSess( 'usua_cada_empre' ) != 0 ){
@@ -72,7 +72,7 @@ $(document).ready(function( ) {
         Core.SetAjax( { evento: 
            { empre_cada_stat: '%%',
              empre_cada_tenant: $( this ).val() 
-           } }, '../../Amostras/GetEmpreAmos/', function( Resposta ){
+           } }, '../../Laboratorio/Amostras/GetEmpreAmos/', function( Resposta ){
             Core.SetSele2( $( '#FiltEmpreAmos' ), Resposta.registros, function(){
                 Core.LoadMenu.hide();
             });
@@ -115,30 +115,30 @@ $(document).ready(function( ) {
                 Core.SetAjax( { evento: 
                   { empre_cada_stat: vTipoOpera,
                     empre_cada_tenant: $( VThis ).val(),
-                  } }, '../../Amostras/GetEmpreAmos/', function( Resposta ){
+                  } }, '../../Laboratorio/Amostras/GetEmpreAmos/', function( Resposta ){
                     Core.SetSele2( $( ResObjPai ).find( '#EmpreAmos' ), Resposta.registros, function(){
                         Core.SetAjax( { evento: {
                             clie_cada_stat: vTipoOpera,
                             clie_cada_tenan: $( VThis ).val(),
                             clie_cada_empre: $( ResObjPai ).find( '#EmpreAmos' ).val(),
-                        } }, '../../Amostras/GetClieAmos/', function( Resposta ){
+                        } }, '../../Laboratorio/Amostras/GetClieAmos/', function( Resposta ){
                             Core.SetSele2( $( ResObjPai ).find( '#ClieAmos' ), Resposta.registros, function(){
                                 Core.SetAjax( { evento: {
                                     fabr_cada_stat: vTipoOpera,
                                     fabr_cada_tenan: $( VThis ).val(),
                                     fabr_cada_empre: $( ResObjPai ).find( '#EmpreAmos' ).val(),
-                                } }, '../../Amostras/GetFabrAmos/', function( Resposta ){
+                                } }, '../../Laboratorio/Amostras/GetFabrAmos/', function( Resposta ){
                                     Core.SetSele2( $( ResObjPai ).find( '#FabrAmos' ), Resposta.registros, function(){
                                         Core.SetAjax( { evento: {
                                             mate_cada_tenant_iden: $( VThis ).val(),
                                             mate_cada_empre_iden: $( ResObjPai ).find( '#EmpreAmos' ).val(),
-                                          } }, '../../Amostras/GetMateAmos/', function( Resposta ){
+                                          } }, '../../Laboratorio/Amostras/GetMateAmos/', function( Resposta ){
                                             Core.SetSele2( $( ResObjPai ).find( '#MateAmos' ), Resposta.registros, function(){
                                                 Core.SetAjax( { evento: {
                                                     area_cada_stat: vTipoOpera,
                                                     area_cada_tenan: $( VThis ).val(),
                                                     area_cada_empre: $( ResObjPai ).find( '#EmpreAmos' ).val(),
-                                                  } }, '../../Amostras/GetAreaAmos/', function( Resposta ){
+                                                  } }, '../../Laboratorio/Amostras/GetAreaAmos/', function( Resposta ){
                                                     Core.SetSele2( $( ResObjPai ).find( '#AreaAmos' ), Resposta.registros, function(){
                                                         Core.LoadMenu.hide();
                                                     });
@@ -165,24 +165,24 @@ $(document).ready(function( ) {
                     clie_cada_stat: vTipoOpera,
                     clie_cada_tenan: $( ResObjPai ).find( '#TenanAmos' ).val(),
                     clie_cada_empre: $( VThis ).val()
-                   } }, '../../Amostras/GetClieAmos/', function( Resposta ){
+                   } }, '../../Laboratorio/Amostras/GetClieAmos/', function( Resposta ){
                     Core.SetSele2( $( ResObjPai ).find( '#ClieAmos' ), Resposta.registros, function(){
                         Core.SetAjax( { evento: {
                             fabr_cada_stat: vTipoOpera,
                             fabr_cada_tenan: $( ResObjPai ).find( '#TenanAmos' ).val(),
                             fabr_cada_empre: $( VThis ).val()
-                          } }, '../../Amostras/GetFabrAmos/', function( Resposta ){
+                          } }, '../../Laboratorio/Amostras/GetFabrAmos/', function( Resposta ){
                             Core.SetSele2( $( ResObjPai ).find( '#FabrAmos' ), Resposta.registros, function(){
                                 Core.SetAjax( { evento: {
                                     mate_cada_tenant_iden: $( ResObjPai ).find( '#TenanAmos' ).val(),
                                     mate_cada_empre_iden: $( VThis ).val()
-                                  } }, '../../Amostras/GetMateAmos/', function( Resposta ){
+                                  } }, '../../Laboratorio/Amostras/GetMateAmos/', function( Resposta ){
                                     Core.SetSele2( $( ResObjPai ).find( '#MateAmos' ), Resposta.registros, function(){
                                         Core.SetAjax( { evento: {
                                             area_cada_stat: vTipoOpera,
                                             area_cada_tenan: $( ResObjPai ).find( '#TenanAmos' ).val(),
                                             area_cada_empre: $( VThis ).val()
-                                          } }, '../../Amostras/GetAreaAmos/', function( Resposta ){
+                                          } }, '../../Laboratorio/Amostras/GetAreaAmos/', function( Resposta ){
                                             Core.SetSele2( $( ResObjPai ).find( '#AreaAmos' ), Resposta.registros, function(){
                                                 Core.LoadMenu.hide();
                                             });
@@ -378,7 +378,7 @@ $(document).ready(function( ) {
 			        evento:{
 				        ArquiExcl: vRespLogi.registros,
 			        }},
-			      '../../Amostras/SetExclArqu/', function( vRespAjax ){
+			      '../../Laboratorio/Amostras/SetExclArqu/', function( vRespAjax ){
                 });
             };            
             $( '#FiltBtnAmos' ).click();

@@ -113,7 +113,7 @@ export default class Metalografia {
 	static GetTableMeta( vTabela, vFiltros, vResp ) {
 		Core.SetAjax(
 			vFiltros,
-			'../../Metalografia/GetMeta/', function( vRespAjax ){
+			'../../Laboratorio/Metalografia/GetMeta/', function( vRespAjax ){
 				if ( vRespAjax.status == 'sucesso' ){
 					vTabela = $( vTabela ).DataTable({
 						fixedHeader: true,
@@ -480,7 +480,7 @@ export default class Metalografia {
 				  { usua_cada_status: '1',
 				  	usua_cada_tenant: Core.Metalografia.GetDataTableMeta( '#TableMeta', vLinha, 'amos_cada_tenan' ),
 					usua_cada_empre: Core.Metalografia.GetDataTableMeta( '#TableMeta', vLinha, 'amos_cada_empre' ),
-				  } }, '../../Metalografia/GetUsuaMeta/', function( Resposta ){
+				  } }, '../../Laboratorio/Metalografia/GetUsuaMeta/', function( Resposta ){
 				  	Core.SetSele2( $( '#ExcutMeta' ), Resposta.registros, function(){
 						if ( Core.Metalografia.GetDataTableMeta( '#TableMeta', vLinha, 'amos_meta_cada_fina' ) == 1 ){
 							$( ResObjPai ).find( '#SalvMeta' ).css( { 'display':'none' } );
@@ -585,7 +585,7 @@ export default class Metalografia {
 	*/
 	static SetSalvMeta( VThis, vLinha, vResp ) {
 		Core.GetObjtPai( VThis, [ 'AddListMeta', 'EdtListMeta' ], function( ResObjPai ){
-			Core.GetCampObri( ResObjPai, [ '', '-1', '0' ], '[data-obriga="S"]', function( ResObjVali ){
+			Core.GetCampObri( ResObjPai, [ '', '-1' ], '[data-obriga="S"]', function( ResObjVali ){
 				$( '.has-validated' ).removeClass( 'has-validated' );
                 $( '.is-invalid' ).removeClass( 'is-invalid' );
 				if ( ResObjVali != 'validado' ){
@@ -615,7 +615,7 @@ export default class Metalografia {
 								anexo_ensa_tabe: 'METALOGRAFIA',
 								AnexosMeta: JSON.stringify( RespAnexos ),
 							}},
-							'../../Metalografia/SetSalvMeta/', function( vRespAjax ){
+							'../../Laboratorio/Metalografia/SetSalvMeta/', function( vRespAjax ){
 								Core.SetMensMenu( vRespAjax.detalhes, vRespAjax.registros, 'AVISO')
 								Core.MensMenu.show();
 								setTimeout( function(){
@@ -640,7 +640,7 @@ export default class Metalografia {
 	*/
 	static SetImpreMeta( vFiltros, vResp ) {
 		Core.SetAjax( vFiltros,
-			'../../Metalografia/SetImpreMeta/', function( vRespAjax ){
+			'../../Laboratorio/Metalografia/SetImpreMeta/', function( vRespAjax ){
 				setTimeout( function(){
 					vResp( vRespAjax );
 				}, 300);

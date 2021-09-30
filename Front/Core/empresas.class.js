@@ -78,7 +78,7 @@ export default class Empresas {
 	static GetTableEmpre( vTabela, vFiltros, vResp ) {
 		Core.SetAjax(
 			vFiltros,
-			'../../Empresas/GetEmpre/', function( vRespAjax ){
+			'../../Comum/Empresas/GetEmpre/', function( vRespAjax ){
 				if ( vRespAjax.status == 'sucesso' ){
 					vTabela = $( vTabela ).DataTable({
 						fixedHeader: true,
@@ -343,9 +343,9 @@ export default class Empresas {
 	static GetAddEmpre( VThis, vResp ) {
 		Core.GetObjtPai( VThis, [ 'FormEmpre' ], function( ResObjPai ){
 			Empresas.GetForm( ResObjPai, 'Add', 'INCLUSÃO EMPRESA', function( ResObjPai ){
-				Core.SetAjax( { evento: { usua_cada_status: '1' } }, '../../Empresas/GetUsuaEmpre/', function( Resposta ){
+				Core.SetAjax( { evento: { usua_cada_status: '1' } }, '../../Comum/Empresas/GetUsuaEmpre/', function( Resposta ){
 					Core.SetSele2( $( ResObjPai ).find( '#RespEmpre' ), Resposta.registros, function(){
-						Core.SetAjax( { evento: { tenant_cada_stat: '1' } }, '../../Empresas/GetTenanEmpre/', function( Resposta ){
+						Core.SetAjax( { evento: { tenant_cada_stat: '1' } }, '../../Comum/Empresas/GetTenanEmpre/', function( Resposta ){
 							Core.SetSele2( $( ResObjPai ).find( '#TenanEmpre' ), Resposta.registros, function(){
 								Core.ValiDocu( $( ResObjPai ).find( '#DocEmpre' ) );
 								Core.SetMask( '#CepEmpre', 'CEP' );
@@ -377,9 +377,9 @@ export default class Empresas {
 		var vLinha = $( VThis ).parent().parent();
 		Core.GetObjtPai( VThis, [ 'FormEmpre' ], function( ResObjPai ){
 			Empresas.GetForm( ResObjPai, 'Edt', 'ALTERAÇÃO EMPRESA', function( ResObjPai ){
-				Core.SetAjax( { evento: { usua_cada_status: '%%' } }, '../../Empresas/GetUsuaEmpre/', function( Resposta ){
+				Core.SetAjax( { evento: { usua_cada_status: '%%' } }, '../../Comum/Empresas/GetUsuaEmpre/', function( Resposta ){
 					Core.SetSele2( $( ResObjPai ).find( '#RespEmpre' ), Resposta.registros, function(){
-						Core.SetAjax( { evento: { tenant_cada_stat: '%%' } }, '../../Empresas/GetTenanEmpre/', function( Resposta ){
+						Core.SetAjax( { evento: { tenant_cada_stat: '%%' } }, '../../Comum/Empresas/GetTenanEmpre/', function( Resposta ){
 							Core.SetSele2( $( ResObjPai ).find( '#TenanEmpre' ), Resposta.registros, function(){
 								$( ResObjPai ).find( '#IdenEmpre' ).val(  Core.Empresas.GetDataTableEmpre( '#TableEmpre', vLinha, 'empre_cada_iden' ) );
 								$( ResObjPai ).find( '#DocEmpre' ).val(  Core.Empresas.GetDataTableEmpre( '#TableEmpre', vLinha, 'empre_cada_docu' ) );
@@ -463,7 +463,7 @@ export default class Empresas {
 							RespEmpre: $( ResObjPai ).find( '#RespEmpre' ).val(),
 							TenanEmpre: $( ResObjPai ).find( '#TenanEmpre' ).val(),
 						}},
-						'../../Empresas/SetSalvEmpre/', function( vRespAjax ){
+						'../../Comum/Empresas/SetSalvEmpre/', function( vRespAjax ){
 							Core.SetMensMenu( vRespAjax.detalhes, vRespAjax.registros, 'AVISO')
 							Core.MensMenu.show();
 							setTimeout( function(){
@@ -491,7 +491,7 @@ export default class Empresas {
 			evento:{
 				IdenEmpre: Core.Empresas.GetDataTableEmpre( '#TableEmpre', vLinha, 'empre_cada_iden' ),
 			}},
-			'../../Empresas/SetDeleEmpre/', function( vRespAjax ){
+			'../../Comum/Empresas/SetDeleEmpre/', function( vRespAjax ){
 				Core.SetMensMenu( vRespAjax.detalhes, vRespAjax.registros, 'AVISO')
 				Core.MensMenu.show();
 				setTimeout( function(){

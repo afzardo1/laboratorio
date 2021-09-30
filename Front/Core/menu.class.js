@@ -116,7 +116,7 @@ export default class Menu {
 		$( '#UsuaNomeMemu' ).html( Core.Login.GetUsuaSess( 'usua_cada_nome' ) );
 		Core.SetAjax(
 			{evento:'usua_cada_iden'},
-			'../../Menu/GetMenuSist/', function( vRespAjax ){
+			'../../Comum/Menu/GetMenuSist/', function( vRespAjax ){
 				var MontMenu = [];
 				for ( var i = 0; i < vRespAjax.registros.length; i++ ) {
 					var DadosMenu = {};
@@ -221,13 +221,37 @@ export default class Menu {
 					  	DadosMenu['html'] = 'Metalográfico';
 					 	DadosMenu['icone'] = 'fas fa-microscope';
 					 	DadosMenu['submenu'] = '';
-				 	};
+					};
+					if ( ( ( vRespAjax.registros[i].usua_aces_cada_opca_iden == 123 ) || 
+					 		( vRespAjax.registros[i].usua_aces_cada_opca_iden == 124 ) ||
+					   		( vRespAjax.registros[i].usua_aces_cada_opca_iden == 125 ) ||
+					  		( vRespAjax.registros[i].usua_aces_cada_opca_iden == 126 ) ) &&
+					 	  ( vRespAjax.registros[i].usua_aces_cada_opca_stat == 1 ) ) {
+				  		DadosMenu['ordem'] = 7;
+				  		DadosMenu['menu'] = '#Macrografia';
+				   		DadosMenu['href'] = '#macrografia';
+						DadosMenu['html'] = 'Macrografia';
+				   		DadosMenu['icone'] = 'far fa-eye';
+				   		DadosMenu['submenu'] = '';
+			   		};
+					if ( ( ( vRespAjax.registros[i].usua_aces_cada_opca_iden == 119 ) || 
+					 		( vRespAjax.registros[i].usua_aces_cada_opca_iden == 120 ) ||
+					   		( vRespAjax.registros[i].usua_aces_cada_opca_iden == 121 ) ||
+					  		( vRespAjax.registros[i].usua_aces_cada_opca_iden == 122 ) ) &&
+					 	  ( vRespAjax.registros[i].usua_aces_cada_opca_stat == 1 ) ) {
+				  		DadosMenu['ordem'] = 8;
+				  		DadosMenu['menu'] = '#Charpy';
+				   		DadosMenu['href'] = '#charpy';
+						DadosMenu['html'] = 'Charpy';
+				   		DadosMenu['icone'] = 'fas fa-weight';
+				   		DadosMenu['submenu'] = '';
+			   		};
 					if ( ( ( vRespAjax.registros[i].usua_aces_cada_opca_iden == 115 ) || 
 					 		( vRespAjax.registros[i].usua_aces_cada_opca_iden == 116 ) ||
 					   		( vRespAjax.registros[i].usua_aces_cada_opca_iden == 117 ) ||
 					  		( vRespAjax.registros[i].usua_aces_cada_opca_iden == 118 ) ) &&
 					 	  ( vRespAjax.registros[i].usua_aces_cada_opca_stat == 1 ) ) {
-				  		DadosMenu['ordem'] = 7;
+				  		DadosMenu['ordem'] = 9;
 				  		DadosMenu['menu'] = '#Dureza';
 				   		DadosMenu['href'] = '#dureza';
 						DadosMenu['html'] = 'Dureza';
@@ -239,7 +263,7 @@ export default class Menu {
 					  	   ( vRespAjax.registros[i].usua_aces_cada_opca_iden == 113 ) ||
 	 					   ( vRespAjax.registros[i].usua_aces_cada_opca_iden == 114 ) ) &&
 						 ( vRespAjax.registros[i].usua_aces_cada_opca_stat == 1 ) ) {
-						DadosMenu['ordem'] = 8;
+						DadosMenu['ordem'] = 10;
 						DadosMenu['menu'] = '#Dobramento';
 					 	DadosMenu['href'] = '#dobramento';
 					  	DadosMenu['html'] = 'Dobramento';
@@ -251,7 +275,7 @@ export default class Menu {
 					  	   ( vRespAjax.registros[i].usua_aces_cada_opca_iden == 103 ) ||
 	 					   ( vRespAjax.registros[i].usua_aces_cada_opca_iden == 104 ) ) &&
 						 ( vRespAjax.registros[i].usua_aces_cada_opca_stat == 1 ) ) {
-						DadosMenu['ordem'] = 9;
+						DadosMenu['ordem'] = 11;
 						DadosMenu['menu'] = '#Achatamento';
 					 	DadosMenu['href'] = '#achatamento';
 					  	DadosMenu['html'] = 'Achatamento/Expansão';

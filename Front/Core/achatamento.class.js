@@ -95,7 +95,7 @@ export default class Achatamento {
 	static GetTableAchat( vTabela, vFiltros, vResp ) {
 		Core.SetAjax(
 			vFiltros,
-			'../../Achatamento/GetAchat/', function( vRespAjax ){
+			'../../Laboratorio/Achatamento/GetAchat/', function( vRespAjax ){
 				if ( vRespAjax.status == 'sucesso' ){
 					vTabela = $( vTabela ).DataTable({
 						fixedHeader: true,
@@ -437,7 +437,7 @@ export default class Achatamento {
 				  { usua_cada_status: '1',
 				  	usua_cada_tenant: Core.Achatamento.GetDataTableAchat( '#TableAchat', vLinha, 'amos_cada_tenan' ),
 					usua_cada_empre: Core.Achatamento.GetDataTableAchat( '#TableAchat', vLinha, 'amos_cada_empre' ),
-				  } }, '../../Achatamento/GetUsuaAchat/', function( Resposta ){
+				  } }, '../../Laboratorio/Achatamento/GetUsuaAchat/', function( Resposta ){
 				  	Core.SetSele2( $( '#ExcutAchat' ), Resposta.registros, function(){
 						if ( Core.Achatamento.GetDataTableAchat( '#TableAchat', vLinha, 'amos_meta_cada_fina' ) == 1 ){
 							$( ResObjPai ).find( '#SalvAchat' ).css( { 'display':'none' } );
@@ -534,7 +534,7 @@ export default class Achatamento {
 	*/
 	static SetSalvAchat( VThis, vLinha, vResp ) {
 		Core.GetObjtPai( VThis, [ 'AddListAchat', 'EdtListAchat' ], function( ResObjPai ){
-			Core.GetCampObri( ResObjPai, [ '', '-1', '0' ], '[data-obriga="S"]', function( ResObjVali ){
+			Core.GetCampObri( ResObjPai, [ '', '-1' ], '[data-obriga="S"]', function( ResObjVali ){
 				$( '.has-validated' ).removeClass( 'has-validated' );
                 $( '.is-invalid' ).removeClass( 'is-invalid' );
 				if ( ResObjVali != 'validado' ){
@@ -559,7 +559,7 @@ export default class Achatamento {
 								anexo_ensa_tabe: 'ACHATAMENTO',
 								AnexosAchat: JSON.stringify( RespAnexos ),
 							}},
-							'../../Achatamento/SetSalvAchat/', function( vRespAjax ){
+							'../../Laboratorio/Achatamento/SetSalvAchat/', function( vRespAjax ){
 								Core.SetMensMenu( vRespAjax.detalhes, vRespAjax.registros, 'AVISO')
 								Core.MensMenu.show();
 								setTimeout( function(){
@@ -584,7 +584,7 @@ export default class Achatamento {
 	*/
 	static SetImpreAchat( vFiltros, vResp ) {
 		Core.SetAjax( vFiltros,
-			'../../Achatamento/SetImpreAchat/', function( vRespAjax ){
+			'../../Laboratorio/Achatamento/SetImpreAchat/', function( vRespAjax ){
 				setTimeout( function(){
 					vResp( vRespAjax );
 				}, 300);

@@ -1,0 +1,35 @@
+#TableCharp, #AnexTableCharp {
+	width: 100% !important;
+}
+
+#TableCharp .bg-danger{
+	background-color: rgba( 255, 0, 0, 0.7 ) !important;
+	color: black !important;
+}
+
+#TableCharp .bg-success{
+	background-color: rgba( 25, 135, 84, 0.7 ) !important;
+	color: black !important;
+}
+
+#TableCharp .bg-warning{
+	background-color: rgba( 255, 193, 7, 0.7 ) !important;
+	color: black !important;
+}
+
+#TableCharp .bg-info{
+	background-color: rgba( 13, 202, 240, 0.7 ) !important;
+	color: black !important;
+}
+
+#FormCharp input{
+	text-transform: uppercase;
+}
+
+#FormCharp textarea{
+	text-transform: uppercase;
+}
+
+#FormCharp #TituAnexCharp{
+	padding: 0.5rem;
+}

@@ -37,7 +37,7 @@ $(document).ready(function( ) {
     });
     /*--INICIALIZAÇÃO*/
     Core.LoadMenu.show();
-    Core.SetAjax( { evento: { tenant_cada_stat: '%%' } }, '../../Empresas/GetTenanEmpre/', function( Resposta ){
+    Core.SetAjax( { evento: { tenant_cada_stat: '%%' } }, '../../Comum/Empresas/GetTenanEmpre/', function( Resposta ){
         Core.SetSele2( $( '#FiltTenanEmpre' ), Resposta.registros, function(){
             $( '#FiltTenanEmpre' ).val( Core.Login.GetUsuaSess( 'usua_cada_tenant' ) ).trigger( 'change' );
             if ( Core.Login.GetUsuaSess( 'usua_cada_tenant' ) != 0 ){

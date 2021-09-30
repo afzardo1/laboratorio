@@ -53,6 +53,9 @@ import Dobramento from './dobramento.class.js';
 /*CARREGA CLASSE DUREZA DO SISTEMA*/
 import Dureza from './dureza.class.js';
 
+/*CARREGA CLASSE CHARPY DO SISTEMA*/
+import Charpy from './charpy.class.js';
+
 /**
  * Esta classe é a mais importante da API.
  * Todas as requisições passam por aqui, são tratadas
@@ -552,6 +555,17 @@ export default class Core {
 	*/
 	static get Dureza(){
 		return Dureza;
+	}
+
+	/**
+	 * Método de Charpy chama e instancia a classe
+	 * charpy.class
+	 * 
+	 * @return classe
+	 * @access public
+	*/
+	static get Charpy(){
+		return Charpy;
 	}
 	
 	/**

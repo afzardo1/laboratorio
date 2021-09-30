@@ -60,7 +60,7 @@ export default class Usuarios {
 	static GetTableUsua( vTabela, vFiltros, vResp ) {
 		Core.SetAjax(
 			vFiltros,
-			'../../Usuarios/GetUsua/', function( vRespAjax ){
+			'../../Comum/Usuarios/GetUsua/', function( vRespAjax ){
 				if ( vRespAjax.status == 'sucesso' ){
 					vTabela = $( vTabela ).DataTable({
 						fixedHeader: true,
@@ -328,6 +328,7 @@ export default class Usuarios {
 			Usuarios.GetPermForm2() +
 			Usuarios.GetPermForm3() +
 			Usuarios.GetPermForm4() +
+			Usuarios.GetPermForm5() +
 		'</div>';
 	};
 
@@ -564,6 +565,68 @@ export default class Usuarios {
 					'</ul>' +
 				'</div>' +
 			'</div>' +
+			'<div class="col-xl-4">' +
+				'<div class="card">' +
+					'<div class="card-header"> '+
+						'<i class="fas fa-weight"></i> Modulo: Charpy' +
+					'</div>' +
+					'<ul class="list-group list-group-flush">' +
+						'<li class="list-group-item ps-5">' +
+							'<input id="119_PermUsua" class="form-check-input me-1" type="checkbox" value="119" aria-label="...">' +
+							'Acessar' +
+						'</li>' +
+						'<li class="list-group-item ps-5">' +
+							'<input id="120_PermUsua" class="form-check-input me-1" type="checkbox" value="120" aria-label="...">' +
+							'Incluir' +
+						'</li>' +
+						'<li class="list-group-item ps-5">' +
+							'<input id="121_PermUsua" class="form-check-input me-1" type="checkbox" value="121" aria-label="...">' +
+							'Alterar' +
+						'</li>' +
+						'<li class="list-group-item ps-5">' +
+							'<input id="122_PermUsua" class="form-check-input me-1" type="checkbox" value="122" aria-label="...">' +
+							'Excluir' +
+						'</li>' +
+					'</ul>' +
+				'</div>' +
+			'</div>' + 
+		'</div>';
+	}
+
+	/**
+	 * Método para gerar formulario permissão 5
+	 * no sistema
+	 * 
+	 * @return formulário
+	 * @access public
+	*/
+	static GetPermForm5() {
+		return '<div class="row p-3" >' +
+			'<div class="col-xl-4">' +
+				'<div class="card">' +
+					'<div class="card-header"> '+
+						'<i class="far fa-eye"></i> Modulo: Macrografia' +
+					'</div>' +
+					'<ul class="list-group list-group-flush">' +
+						'<li class="list-group-item ps-5">' +
+							'<input id="123_PermUsua" class="form-check-input me-1" type="checkbox" value="123" aria-label="...">' +
+							'Acessar' +
+						'</li>' +
+						'<li class="list-group-item ps-5">' +
+							'<input id="124_PermUsua" class="form-check-input me-1" type="checkbox" value="124" aria-label="...">' +
+							'Incluir' +
+						'</li>' +
+						'<li class="list-group-item ps-5">' +
+							'<input id="125_PermUsua" class="form-check-input me-1" type="checkbox" value="125" aria-label="...">' +
+							'Alterar' +
+						'</li>' +
+						'<li class="list-group-item ps-5">' +
+							'<input id="126_PermUsua" class="form-check-input me-1" type="checkbox" value="126" aria-label="...">' +
+							'Excluir' +
+						'</li>' +
+					'</ul>' +
+				'</div>' +
+			'</div>' +
 		'</div>';
 	}
 
@@ -616,7 +679,7 @@ export default class Usuarios {
 	static GetAddUsua( VThis, vResp ) {
 		Core.GetObjtPai( VThis, [ 'FormUsua' ], function( ResObjPai ){
 			Usuarios.GetForm( ResObjPai, 'Add', 'INCLUSÃO USUÁRIOS', function( ResObjPai ){
-				Core.SetAjax( { evento: { tenant_cada_stat: '1' } }, '../../Usuarios/GetTenanUsua/', function( Resposta ){
+				Core.SetAjax( { evento: { tenant_cada_stat: '1' } }, '../../Comum/Usuarios/GetTenanUsua/', function( Resposta ){
 					Core.SetSele2( $( ResObjPai ).find( '#TenanUsua' ), Resposta.registros, function(){
 						if ( Core.Login.GetUsuaSess( 'usua_cada_tenant' ) != 0 ){
 							$( ResObjPai ).find( '#TenanUsua' ).val(  Core.Login.GetUsuaSess( 'usua_cada_tenant' ) ).trigger( 'change' );
@@ -650,7 +713,7 @@ export default class Usuarios {
 		var vLinha = $( VThis ).parent().parent();
 		Core.GetObjtPai( VThis, [ 'FormUsua' ], function( ResObjPai ){
 			Usuarios.GetForm( ResObjPai, 'Edt', 'ALTERAÇÃO USUÁRIOS', function( ResObjPai ){
-				Core.SetAjax( { evento: { tenant_cada_stat: '1' } }, '../../Usuarios/GetTenanUsua/', function( Resposta ){
+				Core.SetAjax( { evento: { tenant_cada_stat: '1' } }, '../../Comum/Usuarios/GetTenanUsua/', function( Resposta ){
 					Core.SetSele2( $( ResObjPai ).find( '#TenanUsua' ), Resposta.registros, function(){
 						Core.SetSele2( $( ResObjPai ).find( '#EmprUsua' ), '', function(){
 							$( ResObjPai ).find( '#IdenUsua' ).val(  Core.Usuarios.GetDataTableUsua( '#UsuaTable', vLinha, 'usua_cada_iden' ) );
@@ -733,7 +796,7 @@ export default class Usuarios {
 								StatUsua: $( ResObjPai ).find( '#StatUsua' ).val(),
 								PermUsua: JSON.stringify( vRetoPermUsua ),
 							}},
-							'../../Usuarios/SetSalvUsua/', function( vRespAjax ){
+							'../../Comum/Usuarios/SetSalvUsua/', function( vRespAjax ){
 								Core.SetMensMenu( vRespAjax.detalhes, vRespAjax.registros, 'AVISO')
 								Core.MensMenu.show();
 								setTimeout( function(){
@@ -762,7 +825,7 @@ export default class Usuarios {
 			evento:{
 				IdenUsua: Core.Usuarios.GetDataTableUsua( '#UsuaTable', vLinha, 'usua_cada_iden' ),
 			}},
-			'../../Usuarios/SetDeleUsua/', function( vRespAjax ){
+			'../../Comum/Usuarios/SetDeleUsua/', function( vRespAjax ){
 				Core.SetMensMenu( vRespAjax.detalhes, vRespAjax.registros, 'AVISO')
 				Core.MensMenu.show();
 				setTimeout( function(){
@@ -789,7 +852,7 @@ export default class Usuarios {
 				NomeUsua: Core.Usuarios.GetDataTableUsua( '#UsuaTable', vLinha, 'usua_cada_nome' ),
 				LogiUsua: Core.Usuarios.GetDataTableUsua( '#UsuaTable', vLinha, 'usua_cada_login' ),
 			}},
-			'../../Usuarios/SetReseSenhUsua/', function( vRespAjax ){
+			'../../Comum/Usuarios/SetReseSenhUsua/', function( vRespAjax ){
 				Core.SetMensMenu( vRespAjax.detalhes, vRespAjax.registros, 'AVISO')
 				Core.MensMenu.show();
 				setTimeout( function(){
@@ -812,7 +875,7 @@ export default class Usuarios {
 	static SetPermUsua( VResObjPai, vFiltros, vResp ) {
 		Core.SetAjax(
 			vFiltros,
-			'../../Usuarios/GetPermUsua/', function( vRespAjax ){
+			'../../Comum/Usuarios/GetPermUsua/', function( vRespAjax ){
 				for ( var i = 0; i < vRespAjax.registros.length; i++) {
 					var ObjPermUsua = vRespAjax.registros[i];
 					$( VResObjPai ).find( '#' + ObjPermUsua.usua_aces_cada_opca_iden + '_PermUsua' ).prop( 'checked', false );

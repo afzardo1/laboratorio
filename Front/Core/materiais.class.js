@@ -149,7 +149,7 @@ export default class Materiais {
 	static GetTableMate( vTabela, vFiltros, vResp ) {
 		Core.SetAjax(
 			vFiltros,
-			'../../Materiais/GetMate/', function( vRespAjax ){
+			'../../Laboratorio/Materiais/GetMate/', function( vRespAjax ){
 				if ( vRespAjax.status == 'sucesso' ){
 					vTabela = $( vTabela ).DataTable({
 						fixedHeader: true,
@@ -553,7 +553,7 @@ export default class Materiais {
 	static GetAddMate( VThis, vResp ) {
 		Core.GetObjtPai( VThis, [ 'FormMate' ], function( ResObjPai ){
 			Materiais.GetForm( ResObjPai, 'Add', 'INCLUSÃO MATERIAIS', function( ResObjPai ){
-				Core.SetAjax( { evento: { tenant_cada_stat: '1' } }, '../../Materiais/GetTenanMate/', function( Resposta ){
+				Core.SetAjax( { evento: { tenant_cada_stat: '1' } }, '../../Laboratorio/Materiais/GetTenanMate/', function( Resposta ){
 					Core.SetSele2( $( ResObjPai ).find( '#TenanMate' ), Resposta.registros, function(){
 						$( ResObjPai ).find( '#TenanMate' ).val( Core.Login.GetUsuaSess( 'usua_cada_tenant' ) ).trigger( 'change' );
 						if ( Core.Login.GetUsuaSess( 'usua_cada_tenant' ) != 0 ){
@@ -562,7 +562,7 @@ export default class Materiais {
 						Core.SetAjax( { evento: {
 							empre_cada_stat: '1',
 							empre_cada_tenant: $( ResObjPai ).find( '#TenanMate' ).val(),
-						  } }, '../../Materiais/GetEmpreMate/', function( Resposta ){
+						  } }, '../../Laboratorio/Materiais/GetEmpreMate/', function( Resposta ){
 							Core.SetSele2( $( ResObjPai ).find( '#EmpreMate' ), Resposta.registros, function(){
 								if ( Core.Login.GetUsuaSess( 'usua_cada_empre' ) != 0 ){
 									$( ResObjPai ).find( '#EmpreMate' ).prop( 'disabled', true );
@@ -591,7 +591,7 @@ export default class Materiais {
 		var vLinha = $( VThis ).parent().parent();
 		Core.GetObjtPai( VThis, [ 'FormMate' ], function( ResObjPai ){
 			Materiais.GetForm( ResObjPai, 'Edt', 'ALTERAÇÃO MATERIAIS', function( ResObjPai ){
-				Core.SetAjax( { evento: { tenant_cada_stat: '%%' } }, '../../Materiais/GetTenanMate/', function( Resposta ){
+				Core.SetAjax( { evento: { tenant_cada_stat: '%%' } }, '../../Laboratorio/Materiais/GetTenanMate/', function( Resposta ){
 					Core.SetSele2( $( ResObjPai ).find( '#TenanMate' ), Resposta.registros, function(){
 						$( ResObjPai ).find( '#TenanMate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_tenant_iden' ) ).trigger( 'change' );
 						if ( Core.Login.GetUsuaSess( 'usua_cada_tenant' ) != 0 ){
@@ -600,7 +600,7 @@ export default class Materiais {
 						Core.SetAjax( { evento: {
 							empre_cada_stat: '1',
 							empre_cada_tenant: $( ResObjPai ).find( '#TenanMate' ).val(),
-						  } }, '../../Materiais/GetEmpreMate/', function( Resposta ){
+						  } }, '../../Laboratorio/Materiais/GetEmpreMate/', function( Resposta ){
 							Core.SetSele2( $( ResObjPai ).find( '#EmpreMate' ), Resposta.registros, function(){
 								$( ResObjPai ).find( '#IdenMate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_iden' ) );
 								$( ResObjPai ).find( '#DescrMate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_descr' ) );
@@ -733,7 +733,7 @@ export default class Materiais {
 							TenanMate: $( ResObjPai ).find( '#TenanMate' ).val(),
 							EmpreMate: $( ResObjPai ).find( '#EmpreMate' ).val(),
 						}},
-						'../../Materiais/SetSalvMate/', function( vRespAjax ){
+						'../../Laboratorio/Materiais/SetSalvMate/', function( vRespAjax ){
 							Core.SetMensMenu( vRespAjax.detalhes, vRespAjax.registros, 'AVISO')
 							Core.MensMenu.show();
 							setTimeout( function(){
@@ -761,7 +761,7 @@ export default class Materiais {
 			evento:{
 				IdenMate: Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_iden' ),
 			}},
-			'../../Materiais/SetDeleMate/', function( vRespAjax ){
+			'../../Laboratorio/Materiais/SetDeleMate/', function( vRespAjax ){
 				Core.SetMensMenu( vRespAjax.detalhes, vRespAjax.registros, 'AVISO')
 				Core.MensMenu.show();
 				setTimeout( function(){

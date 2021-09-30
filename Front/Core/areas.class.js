@@ -53,7 +53,7 @@ export default class Areas {
 	static GetTableArea( vTabela, vFiltros, vResp ) {
 		Core.SetAjax(
 			vFiltros,
-			'../../Areas/GetArea/', function( vRespAjax ){
+			'../../Laboratorio/Areas/GetArea/', function( vRespAjax ){
 				if ( vRespAjax.status == 'sucesso' ){
 					vTabela = $( vTabela ).DataTable({
 						fixedHeader: true,
@@ -223,7 +223,7 @@ export default class Areas {
 	static GetAddArea( VThis, vResp ) {
 		Core.GetObjtPai( VThis, [ 'FormArea' ], function( ResObjPai ){
 			Areas.GetForm( ResObjPai, 'Add', 'INCLUSÃO ÁREA', function( ResObjPai ){
-				Core.SetAjax( { evento: { tenant_cada_stat: '1' } }, '../../Areas/GetTenanArea/', function( Resposta ){
+				Core.SetAjax( { evento: { tenant_cada_stat: '1' } }, '../../Laboratorio/Areas/GetTenanArea/', function( Resposta ){
 					Core.SetSele2( $( ResObjPai ).find( '#TenanArea' ), Resposta.registros, function(){
 						$( ResObjPai ).find( '#TenanArea' ).val( Core.Login.GetUsuaSess( 'usua_cada_tenant' ) ).trigger( 'change' );
 						if ( Core.Login.GetUsuaSess( 'usua_cada_tenant' ) != 0 ){
@@ -232,7 +232,7 @@ export default class Areas {
 						Core.SetAjax( { evento: {
 							empre_cada_stat: '1',
 							empre_cada_tenant: $( ResObjPai ).find( '#TenanArea' ).val(),
-						  } }, '../../Areas/GetEmpreArea/', function( Resposta ){
+						  } }, '../../Laboratorio/Areas/GetEmpreArea/', function( Resposta ){
 							Core.SetSele2( $( ResObjPai ).find( '#EmpreArea' ), Resposta.registros, function(){
 								if ( Core.Login.GetUsuaSess( 'usua_cada_empre' ) != 0 ){
 									$( ResObjPai ).find( '#EmpreArea' ).prop( 'disabled', true );
@@ -261,7 +261,7 @@ export default class Areas {
 		var vLinha = $( VThis ).parent().parent();
 		Core.GetObjtPai( VThis, [ 'FormArea' ], function( ResObjPai ){
 			Areas.GetForm( ResObjPai, 'Edt', 'ALTERAÇÃO ÁREA', function( ResObjPai ){
-				Core.SetAjax( { evento: { tenant_cada_stat: '%%' } }, '../../Areas/GetTenanArea/', function( Resposta ){
+				Core.SetAjax( { evento: { tenant_cada_stat: '%%' } }, '../../Laboratorio/Areas/GetTenanArea/', function( Resposta ){
 					Core.SetSele2( $( ResObjPai ).find( '#TenanArea' ), Resposta.registros, function(){
 						$( ResObjPai ).find( '#TenanArea' ).val( Core.Areas.GetDataTableArea( '#TableArea', vLinha, 'area_cada_tenan' ) ).trigger( 'change' );
 						if ( Core.Login.GetUsuaSess( 'usua_cada_tenant' ) != 0 ){
@@ -270,7 +270,7 @@ export default class Areas {
 						Core.SetAjax( { evento: {
 							empre_cada_stat: '1',
 							empre_cada_tenant: $( ResObjPai ).find( '#TenanArea' ).val(),
-						  } }, '../../Areas/GetEmpreArea/', function( Resposta ){
+						  } }, '../../Laboratorio/Areas/GetEmpreArea/', function( Resposta ){
 							Core.SetSele2( $( ResObjPai ).find( '#EmpreArea' ), Resposta.registros, function(){
 								$( ResObjPai ).find( '#IdenArea' ).val( Core.Areas.GetDataTableArea( '#TableArea', vLinha, 'area_cada_iden' ) );
 								$( ResObjPai ).find( '#RefeArea' ).val( Core.Areas.GetDataTableArea( '#TableArea', vLinha, 'area_cada_refe' ) );
@@ -338,7 +338,7 @@ export default class Areas {
 							TenanArea: $( ResObjPai ).find( '#TenanArea' ).val(),
 							EmpreArea: $( ResObjPai ).find( '#EmpreArea' ).val(),
 						}},
-						'../../Areas/SetSalvArea/', function( vRespAjax ){
+						'../../Laboratorio/Areas/SetSalvArea/', function( vRespAjax ){
 							Core.SetMensMenu( vRespAjax.detalhes, vRespAjax.registros, 'AVISO')
 							Core.MensMenu.show();
 							setTimeout( function(){
@@ -366,7 +366,7 @@ export default class Areas {
 			evento:{
 				IdenArea: Core.Areas.GetDataTableArea( '#TableArea', vLinha, 'area_cada_iden' ),
 			}},
-			'../../Areas/SetDeleArea/', function( vRespAjax ){
+			'../../Laboratorio/Areas/SetDeleArea/', function( vRespAjax ){
 				Core.SetMensMenu( vRespAjax.detalhes, vRespAjax.registros, 'AVISO')
 				Core.MensMenu.show();
 				setTimeout( function(){

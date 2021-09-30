@@ -65,7 +65,7 @@ export default class Login {
 					senha: $.md5(vSenha)
 				}
 			},
-			'Login/GetLogin/', function( vRespAjax ){
+			'Comum/Login/GetLogin/', function( vRespAjax ){
 				sessionStorage.clear();
 				if ( vRespAjax.registros[0] != undefined ){
 					if ( vRespAjax.registros[0].usua_cada_troca_senha == 0 ){
@@ -117,7 +117,7 @@ export default class Login {
 				senha: $.md5(vSenha)
 			}
 		},
-		'Login/GetAlteSenhaLogi/', function( vRespAjax ){
+		'Comum/Login/GetAlteSenhaLogi/', function( vRespAjax ){
 			sessionStorage.clear();
 			if ( vRespAjax.registros[0] != undefined ){
 				Login.SetUsuaSess({

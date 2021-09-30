@@ -48,7 +48,7 @@ $(document).ready(function( ) {
     });
 /*--INICIALIZAÇÃO*/
     Core.LoadMenu.show();
-    Core.SetAjax( { evento: { tenant_cada_stat: '%%' } }, '../../Achatamento/GetTenanAchat/', function( Resposta ){
+    Core.SetAjax( { evento: { tenant_cada_stat: '%%' } }, '../../Laboratorio/Achatamento/GetTenanAchat/', function( Resposta ){
         Core.SetSele2( $( '#FiltTenanAchat' ), Resposta.registros, function(){
             $( '#FiltTenanAchat' ).val( Core.Login.GetUsuaSess( 'usua_cada_tenant' ) ).trigger( 'change' );
             if ( Core.Login.GetUsuaSess( 'usua_cada_tenant' ) != 0 ){
@@ -57,7 +57,7 @@ $(document).ready(function( ) {
             Core.SetAjax( { evento: 
               { empre_cada_stat: '%%',
                 empre_cada_tenant: $( '#FiltTenanAchat' ).val() 
-              } }, '../../Achatamento/GetEmpreAchat/', function( Resposta ){
+              } }, '../../Laboratorio/Achatamento/GetEmpreAchat/', function( Resposta ){
                 Core.SetSele2( $( '#FiltEmpreAchat' ), Resposta.registros, function(){
                     $( '#FiltEmpreAchat' ).val( Core.Login.GetUsuaSess( 'usua_cada_empre' ) ).trigger( 'change' );
                     if ( Core.Login.GetUsuaSess( 'usua_cada_empre' ) != 0 ){
@@ -67,19 +67,19 @@ $(document).ready(function( ) {
                       { clie_cada_stat: '%%',
                         clie_cada_tenan: $( '#FiltTenanAchat' ).val(),
                         clie_cada_empre: $( '#FiltEmpreAchat' ).val(),
-                      } }, '../../Achatamento/GetClieAchat/', function( Resposta ){
+                      } }, '../../Laboratorio/Achatamento/GetClieAchat/', function( Resposta ){
                         Core.SetSele2( $( '#FiltClieAchat' ), Resposta.registros, function(){
                             Core.SetAjax( { evento: 
                               { fabr_cada_stat: '%%',
                                 fabr_cada_tenan: $( '#FiltTenanAchat' ).val(),
                                 fabr_cada_empre: $( '#FiltEmpreAchat' ).val(),
-                              } }, '../../Achatamento/GetFabrAchat/', function( Resposta ){
+                              } }, '../../Laboratorio/Achatamento/GetFabrAchat/', function( Resposta ){
                                 Core.SetSele2( $( '#FiltFabrAchat' ), Resposta.registros, function(){
                                     Core.SetAjax( { evento: 
                                       { area_cada_stat: '%%',
                                         area_cada_tenan: $( '#FiltTenanAchat' ).val(),
                                         area_cada_empre: $( '#FiltEmpreAchat' ).val(),
-                                      } }, '../../Achatamento/GetAreaAchat/', function( Resposta ){
+                                      } }, '../../Laboratorio/Achatamento/GetAreaAchat/', function( Resposta ){
                                         Core.SetSele2( $( '#FiltAreAchat' ), Resposta.registros, function(){
                                             Core.SetMask( '#FiltEmisIniAchat, #FiltEmisFimAchat', 'DATA' );
                                             $( '#FiltEmisIniAchat' ).val ( Core.Data().subtract ( 30, 'days' ).format('L') );
@@ -102,25 +102,25 @@ $(document).ready(function( ) {
         Core.SetAjax( { evento: 
           { empre_cada_stat: '%%',
             empre_cada_tenant: $( this ).val() 
-          } }, '../../Achatamento/GetEmpreAchat/', function( Resposta ){
+          } }, '../../Laboratorio/Achatamento/GetEmpreAchat/', function( Resposta ){
             Core.SetSele2( $( '#FiltEmpreAchat' ), Resposta.registros, function(){
                 Core.SetAjax( { evento: 
                   { clie_cada_stat: '%%',
                     clie_cada_tenan: $( '#FiltTenanAchat' ).val(),
                     clie_cada_empre: $( '#FiltEmpreAchat' ).val(),
-                  } }, '../../Achatamento/GetClieAchat/', function( Resposta ){
+                  } }, '../../Laboratorio/Achatamento/GetClieAchat/', function( Resposta ){
                     Core.SetSele2( $( '#FiltClieAchat' ), Resposta.registros, function(){
                         Core.SetAjax( { evento: 
                           { fabr_cada_stat: '%%',
                             fabr_cada_tenan: $( '#FiltTenanAchat' ).val(),
                             fabr_cada_empre: $( '#FiltEmpreAchat' ).val(),
-                          } }, '../../Achatamento/GetFabrAchat/', function( Resposta ){
+                          } }, '../../Laboratorio/Achatamento/GetFabrAchat/', function( Resposta ){
                             Core.SetSele2( $( '#FiltFabrAchat' ), Resposta.registros, function(){
                                 Core.SetAjax( { evento: 
                                   { area_cada_stat: '%%',
                                     area_cada_tenan: $( '#FiltTenanAchat' ).val(),
                                     area_cada_empre: $( '#FiltEmpreAchat' ).val(),
-                                  } }, '../../Achatamento/GetAreaAchat/', function( Resposta ){
+                                  } }, '../../Laboratorio/Achatamento/GetAreaAchat/', function( Resposta ){
                                     Core.SetSele2( $( '#FiltAreAchat' ), Resposta.registros, function(){
                                         Core.LoadMenu.hide();
                                     });
@@ -140,19 +140,19 @@ $(document).ready(function( ) {
           { clie_cada_stat: '%%',
             clie_cada_tenan: $( '#FiltTenanAchat' ).val(),
             clie_cada_empre: $( '#FiltEmpreAchat' ).val(),
-          } }, '../../Achatamento/GetClieAchat/', function( Resposta ){
+          } }, '../../Laboratorio/Achatamento/GetClieAchat/', function( Resposta ){
             Core.SetSele2( $( '#FiltClieAchat' ), Resposta.registros, function(){
                 Core.SetAjax( { evento: 
                   { fabr_cada_stat: '%%',
                     fabr_cada_tenan: $( '#FiltTenanAchat' ).val(),
                     fabr_cada_empre: $( '#FiltEmpreAchat' ).val(),
-                  } }, '../../Achatamento/GetFabrAchat/', function( Resposta ){
+                  } }, '../../Laboratorio/Achatamento/GetFabrAchat/', function( Resposta ){
                     Core.SetSele2( $( '#FiltFabrAchat' ), Resposta.registros, function(){
                         Core.SetAjax( { evento: 
                           { area_cada_stat: '%%',
                             area_cada_tenan: $( '#FiltTenanAchat' ).val(),
                             area_cada_empre: $( '#FiltEmpreAchat' ).val(),
-                          } }, '../../Achatamento/GetAreaAchat/', function( Resposta ){
+                          } }, '../../Laboratorio/Achatamento/GetAreaAchat/', function( Resposta ){
                             Core.SetSele2( $( '#FiltAreAchat' ), Resposta.registros, function(){
                                 Core.LoadMenu.hide();
                             });
@@ -250,7 +250,7 @@ $(document).ready(function( ) {
         Core.LoadMenu.show()
         Core.Achatamento.SetImpreAchat( { 
             evento:{
-                IdenAchat: Core.Achatamento.GetDataTableAchat( '#TableAchat', vLinha, 'amos_achat_cada_iden' ),
+                IdenAchat: Core.Achatamento.GetDataTableAchat( '#TableAchat', vLinha, 'amos_cada_iden' ),
 				RGAchat: Core.Achatamento.GetDataTableAchat( '#TableAchat', vLinha, 'amos_cada_regi' ), 
             }
         }, function( vRespLogi ){
@@ -276,7 +276,7 @@ $(document).ready(function( ) {
 			        evento:{
 				        ArquiExcl: vRespLogi.registros,
 			        }},
-			      '../../Achatamento/SetExclArqu/', function( vRespAjax ){
+			      '../../Laboratorio/Achatamento/SetExclArqu/', function( vRespAjax ){
                 });
             };            
             $( '#FiltBtnAchat' ).click();

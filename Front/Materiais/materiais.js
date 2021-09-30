@@ -38,7 +38,7 @@ $(document).ready(function( ) {
     });
     /*--INICIALIZAÇÃO*/
     Core.LoadMenu.show();
-    Core.SetAjax( { evento: { tenant_cada_stat: '%%' } }, '../../Materiais/GetTenanMate/', function( Resposta ){
+    Core.SetAjax( { evento: { tenant_cada_stat: '%%' } }, '../../Laboratorio/Materiais/GetTenanMate/', function( Resposta ){
         Core.SetSele2( $( '#FiltTenanMate' ), Resposta.registros, function(){
             $( '#FiltTenanMate' ).val( Core.Login.GetUsuaSess( 'usua_cada_tenant' ) ).trigger( 'change' );
             if ( Core.Login.GetUsuaSess( 'usua_cada_tenant' ) != 0 ){
@@ -47,7 +47,7 @@ $(document).ready(function( ) {
             Core.SetAjax( { evento: 
               { empre_cada_stat: '%%',
                 empre_cada_tenant: $( '#FiltTenanMate' ).val() 
-              } }, '../../Materiais/GetEmpreMate/', function( Resposta ){
+              } }, '../../Laboratorio/Materiais/GetEmpreMate/', function( Resposta ){
                 Core.SetSele2( $( '#FiltEmpreMate' ), Resposta.registros, function(){
                     $( '#FiltEmpreMate' ).val( Core.Login.GetUsuaSess( 'usua_cada_empre' ) ).trigger( 'change' );
                     if ( Core.Login.GetUsuaSess( 'usua_cada_empre' ) != 0 ){
@@ -65,7 +65,7 @@ $(document).ready(function( ) {
         Core.SetAjax( { evento: 
            { empre_cada_stat: '%%',
              empre_cada_tenant: $( this ).val() 
-           } }, '../../Materiais/GetEmpreMate/', function( Resposta ){
+           } }, '../../Laboratorio/Materiais/GetEmpreMate/', function( Resposta ){
             Core.SetSele2( $( '#FiltEmpreMate' ), Resposta.registros, function(){
                 Core.LoadMenu.hide();
             });
@@ -103,7 +103,7 @@ $(document).ready(function( ) {
         Core.SetAjax( { evento: 
            { empre_cada_stat: '%%',
              empre_cada_tenant: $( this ).val() 
-           } }, '../../Materiais/GetEmpreMate/', function( Resposta ){
+           } }, '../../Laboratorio/Materiais/GetEmpreMate/', function( Resposta ){
             Core.SetSele2( $( '#EmpreMate' ), Resposta.registros, function(){
                 Core.LoadMenu.hide();
             });

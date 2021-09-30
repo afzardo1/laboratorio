@@ -207,7 +207,7 @@ export default class Amostras {
 	static GetTableAmos( vTabela, vFiltros, vResp ) {
 		Core.SetAjax(
 			vFiltros,
-			'../../Amostras/GetAmos/', function( vRespAjax ){
+			'../../Laboratorio/Amostras/GetAmos/', function( vRespAjax ){
 				if ( vRespAjax.status == 'sucesso' ){
 					vTabela = $( vTabela ).DataTable({
 						fixedHeader: true,
@@ -604,7 +604,7 @@ export default class Amostras {
 	static GetAddAmos( VThis, vResp ) {
 		Core.GetObjtPai( VThis, [ 'FormAmos' ], function( ResObjPai ){
 			Amostras.GetForm( ResObjPai, 'Add', 'INCLUSÃO AMOSTRA', function( ResObjPai ){
-				Core.SetAjax( { evento: { tenant_cada_stat: '1' } }, '../../Amostras/GetTenanAmos/', function( Resposta ){
+				Core.SetAjax( { evento: { tenant_cada_stat: '1' } }, '../../Laboratorio/Amostras/GetTenanAmos/', function( Resposta ){
 					Core.SetSele2( $( ResObjPai ).find( '#TenanAmos' ), Resposta.registros, function(){
 						$( ResObjPai ).find( '#TenanAmos' ).val( Core.Login.GetUsuaSess( 'usua_cada_tenant' ) ).trigger( 'change' );
 						if ( Core.Login.GetUsuaSess( 'usua_cada_tenant' ) != 0 ){
@@ -613,7 +613,7 @@ export default class Amostras {
 						Core.SetAjax( { evento: {
 							empre_cada_stat: '1',
 							empre_cada_tenant: $( ResObjPai ).find( '#TenanAmos' ).val(),
-						  } }, '../../Amostras/GetEmpreAmos/', function( Resposta ){
+						  } }, '../../Laboratorio/Amostras/GetEmpreAmos/', function( Resposta ){
 							Core.SetSele2( $( ResObjPai ).find( '#EmpreAmos' ), Resposta.registros, function(){
 								if ( Core.Login.GetUsuaSess( 'usua_cada_empre' ) != 0 ){
 									$( ResObjPai ).find( '#EmpreAmos' ).prop( 'disabled', true );
@@ -622,24 +622,24 @@ export default class Amostras {
 									clie_cada_stat: '1',
 									clie_cada_tenan: $( ResObjPai ).find( '#TenanAmos' ).val(),
 									clie_cada_empre: $( ResObjPai ).find( '#EmpreAmos' ).val(),
-								  } }, '../../Amostras/GetClieAmos/', function( Resposta ){
+								  } }, '../../Laboratorio/Amostras/GetClieAmos/', function( Resposta ){
 									Core.SetSele2( $( ResObjPai ).find( '#ClieAmos' ), Resposta.registros, function(){
 										Core.SetAjax( { evento: {
 											fabr_cada_stat: '1',
 											fabr_cada_tenan: $( ResObjPai ).find( '#TenanAmos' ).val(),
 											fabr_cada_empre: $( ResObjPai ).find( '#EmpreAmos' ).val(),
-										  } }, '../../Amostras/GetFabrAmos/', function( Resposta ){
+										  } }, '../../Laboratorio/Amostras/GetFabrAmos/', function( Resposta ){
 											Core.SetSele2( $( ResObjPai ).find( '#FabrAmos' ), Resposta.registros, function(){
 												Core.SetAjax( { evento: {
 													mate_cada_tenant_iden: $( ResObjPai ).find( '#TenanAmos' ).val(),
 													mate_cada_empre_iden: $( ResObjPai ).find( '#EmpreAmos' ).val(),
-												  } }, '../../Amostras/GetMateAmos/', function( Resposta ){
+												  } }, '../../Laboratorio/Amostras/GetMateAmos/', function( Resposta ){
 													Core.SetSele2( $( ResObjPai ).find( '#MateAmos' ), Resposta.registros, function(){
 														Core.SetAjax( { evento: {
 															area_cada_stat: '1',
 															area_cada_tenan: $( ResObjPai ).find( '#TenanAmos' ).val(),
 															area_cada_empre: $( ResObjPai ).find( '#EmpreAmos' ).val(),
-														  } }, '../../Amostras/GetAreaAmos/', function( Resposta ){
+														  } }, '../../Laboratorio/Amostras/GetAreaAmos/', function( Resposta ){
 															Core.SetSele2( $( ResObjPai ).find( '#AreaAmos' ), Resposta.registros, function(){
 																Core.SetMask( $( ResObjPai ).find( '#EmisAmos, #CordeAmos' ), 'DATA' );
 																$( ResObjPai ).find( '#CadaPorAmos' ).attr( 'data-value', Core.Login.GetUsuaSess( 'usua_cada_iden' ) );
@@ -682,7 +682,7 @@ export default class Amostras {
 				if ( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_stat' ) == 1 ){
 					$( ResObjPai ).find( '#SalvAmos' ).css( { 'display':'none' } );
 				};
-				Core.SetAjax( { evento: { tenant_cada_stat: '%%' } }, '../../Amostras/GetTenanAmos/', function( Resposta ){
+				Core.SetAjax( { evento: { tenant_cada_stat: '%%' } }, '../../Laboratorio/Amostras/GetTenanAmos/', function( Resposta ){
 					Core.SetSele2( $( ResObjPai ).find( '#TenanAmos' ), Resposta.registros, function(){
 						$( ResObjPai ).find( '#TenanAmos' ).val( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_tenan' ) ).trigger( 'change' );
 						if ( Core.Login.GetUsuaSess( 'usua_cada_tenant' ) != 0 ){
@@ -691,7 +691,7 @@ export default class Amostras {
 						Core.SetAjax( { evento: {
 							empre_cada_stat: '%%',
 							empre_cada_tenant: $( ResObjPai ).find( '#TenanAmos' ).val(),
-						  } }, '../../Amostras/GetEmpreAmos/', function( Resposta ){
+						  } }, '../../Laboratorio/Amostras/GetEmpreAmos/', function( Resposta ){
 							Core.SetSele2( $( ResObjPai ).find( '#EmpreAmos' ), Resposta.registros, function(){
 								$( ResObjPai ).find( '#EmpreAmos' ).val( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_empre' ) ).trigger( 'change' );
 								if ( Core.Login.GetUsuaSess( 'usua_cada_tenant' ) != 0 ){
@@ -701,24 +701,24 @@ export default class Amostras {
 									clie_cada_stat: '%%',
 									clie_cada_tenan: $( ResObjPai ).find( '#TenanAmos' ).val(),
 									clie_cada_empre: $( ResObjPai ).find( '#EmpreAmos' ).val(),
-								  } }, '../../Amostras/GetClieAmos/', function( Resposta ){
+								  } }, '../../Laboratorio/Amostras/GetClieAmos/', function( Resposta ){
 									Core.SetSele2( $( ResObjPai ).find( '#ClieAmos' ), Resposta.registros, function(){
 										Core.SetAjax( { evento: {
 											fabr_cada_stat: '%%',
 											fabr_cada_tenan: $( ResObjPai ).find( '#TenanAmos' ).val(),
 											fabr_cada_empre: $( ResObjPai ).find( '#EmpreAmos' ).val(),
-										  } }, '../../Amostras/GetFabrAmos/', function( Resposta ){
+										  } }, '../../Laboratorio/Amostras/GetFabrAmos/', function( Resposta ){
 											Core.SetSele2( $( ResObjPai ).find( '#FabrAmos' ), Resposta.registros, function(){
 												Core.SetAjax( { evento: {
 													mate_cada_tenant_iden: $( ResObjPai ).find( '#TenanAmos' ).val(),
 													mate_cada_empre_iden: $( ResObjPai ).find( '#EmpreAmos' ).val(),
-												  } }, '../../Amostras/GetMateAmos/', function( Resposta ){
+												  } }, '../../Laboratorio/Amostras/GetMateAmos/', function( Resposta ){
 													Core.SetSele2( $( ResObjPai ).find( '#MateAmos' ), Resposta.registros, function(){
 														Core.SetAjax( { evento: {
 															area_cada_stat: '%%',
 															area_cada_tenan: $( ResObjPai ).find( '#TenanAmos' ).val(),
 															area_cada_empre: $( ResObjPai ).find( '#EmpreAmos' ).val(),
-														  } }, '../../Amostras/GetAreaAmos/', function( Resposta ){
+														  } }, '../../Laboratorio/Amostras/GetAreaAmos/', function( Resposta ){
 															Core.SetSele2( $( ResObjPai ).find( '#AreaAmos' ), Resposta.registros, function(){
 																Core.SetMask( $( ResObjPai ).find( '#EmisAmos, #CordeAmos' ), 'DATA' );
 																$( ResObjPai ).find( '#IdenAmos' ).val( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_iden' ) );
@@ -875,7 +875,7 @@ export default class Amostras {
 									DureForneEnsaAmos: $( ResObjPai ).find( '#DureForneEnsaAmos' ).is( ':checked' ),
 									CharpForneEnsaAmos: $( ResObjPai ).find( '#CharpForneEnsaAmos' ).is( ':checked' ),
 								}},
-								'../../Amostras/SetSalvAmos/', function( vRespAjax ){
+								'../../Laboratorio/Amostras/SetSalvAmos/', function( vRespAjax ){
 									Core.SetMensMenu( vRespAjax.detalhes, vRespAjax.registros, 'AVISO')
 									Core.MensMenu.show();
 									setTimeout( function(){
@@ -906,7 +906,7 @@ export default class Amostras {
 				IdenAmos: Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_iden' ),
 				RGAmos: Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_regi' ),
 			}},
-			'../../Amostras/SetDeleAmos/', function( vRespAjax ){
+			'../../Laboratorio/Amostras/SetDeleAmos/', function( vRespAjax ){
 				Core.SetMensMenu( vRespAjax.detalhes, vRespAjax.registros, 'AVISO')
 				Core.MensMenu.show();
 				setTimeout( function(){
@@ -927,7 +927,7 @@ export default class Amostras {
 	*/
 	static SetImpreAmos( vFiltros, vResp ) {
 		Core.SetAjax( vFiltros,
-			'../../Amostras/SetImpreAmos/', function( vRespAjax ){
+			'../../Laboratorio/Amostras/SetImpreAmos/', function( vRespAjax ){
 				setTimeout( function(){
 					vResp( vRespAjax );
 				}, 300);
