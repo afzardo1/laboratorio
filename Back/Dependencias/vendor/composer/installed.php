@@ -19,24 +19,13 @@
             'reference' => NULL,
             'dev_requirement' => false,
         ),
-        'erycson/acbrlib-php' => array(
-            'pretty_version' => 'dev-master',
-            'version' => 'dev-master',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../erycson/acbrlib-php',
-            'aliases' => array(
-                0 => '9999999-dev',
-            ),
-            'reference' => 'd664f994213b8a7db768bb1ecc6fc7e387f05835',
-            'dev_requirement' => false,
-        ),
         'phpmailer/phpmailer' => array(
-            'pretty_version' => 'v6.5.0',
-            'version' => '6.5.0.0',
+            'pretty_version' => 'v6.5.1',
+            'version' => '6.5.1.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../phpmailer/phpmailer',
             'aliases' => array(),
-            'reference' => 'a5b5c43e50b7fba655f793ad27303cd74c57363c',
+            'reference' => 'dd803df5ad7492e1b40637f7ebd258fee5ca7355',
             'dev_requirement' => false,
         ),
         'tecnickcom/tcpdf' => array(

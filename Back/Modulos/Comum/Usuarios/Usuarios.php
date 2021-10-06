@@ -4,6 +4,7 @@
 	use Back\Core\Core;
 
 	use Back\Modulos\Comum\Tenant\Tenant;
+	use Back\Modulos\Comum\Empresas\Empresas;
 
 	use PDO;
 	use PDOException;
@@ -537,6 +538,23 @@
 			$vStatSess = json_decode( Core::Sessao()::Chk( 'usua_cada_iden' ), true );
 			if ( $vStatSess[ 'status' ] == 'aberto' ) {
 				return Tenant::GetRegTenanTerce( $Parametros );
+			} else {
+				return json_encode( $vStatSess );
+			};
+		}
+
+		/**
+	 	 * Retorna Todos Dados da empresa.
+	 	 *
+		 * @param Parametros array contendo os dados do filtro
+		 * 
+		 * @return mixed
+	 	 * @access public
+	 	*/
+		 public static function GetEmpreUsua( $Parametros = array() ){
+			$vStatSess = json_decode( Core::Sessao()::Chk( 'usua_cada_iden' ), true );
+			if ( $vStatSess[ 'status' ] == 'aberto' ) {
+				return Empresas::GetEmpreTerce( $Parametros );
 			} else {
 				return json_encode( $vStatSess );
 			};

@@ -1,0 +1,35 @@
+#TableMacro, #AnexTableMacro {
+	width: 100% !important;
+}
+
+#TableMacro .bg-danger{
+	background-color: rgba( 255, 0, 0, 0.7 ) !important;
+	color: black !important;
+}
+
+#TableMacro .bg-success{
+	background-color: rgba( 25, 135, 84, 0.7 ) !important;
+	color: black !important;
+}
+
+#TableMacro .bg-warning{
+	background-color: rgba( 255, 193, 7, 0.7 ) !important;
+	color: black !important;
+}
+
+#TableMacro .bg-info{
+	background-color: rgba( 13, 202, 240, 0.7 ) !important;
+	color: black !important;
+}
+
+#FormMacro input{
+	text-transform: uppercase;
+}
+
+#FormMacro textarea{
+	text-transform: uppercase;
+}
+
+#FormMacro #TituAnexMacro{
+	padding: 0.5rem;
+}

@@ -16,9 +16,9 @@
 			CONCAT( usua_cada_nome, " - ", tenant_cada_usua_iden ) AS tenant_cada_usua_nome_iden,
 			tenant_cada_stat
 		FROM
-			tenant_cada
+			sist_tenant_cada
 		LEFT JOIN
-			usua_cada
+			sist_usua_cada
 		ON
 			( usua_cada_iden = tenant_cada_usua_iden )
 		WHERE
@@ -33,7 +33,7 @@
 			usua_cada_iden,
 			usua_cada_nome
 		FROM
-			usua_cada
+			sist_usua_cada
 		WHERE
 			usua_cada_tipo = "ADMINISTRADOR TENANT" AND
 			usua_cada_status LIKE :usua_cada_status
@@ -46,7 +46,7 @@
 		SELECT
 			COUNT( tenant_cada_iden ) AS tenant_cada_iden
 		FROM
-			tenant_cada
+			sist_tenant_cada
 		WHERE
 			tenant_cada_iden <> :tenant_cada_iden AND
 			tenant_cada_docu = :tenant_cada_docu
@@ -54,7 +54,7 @@
 
 /*INSERT REGISTROS*/
 	$InstRegTenan = '
-		INSERT INTO tenant_cada (
+		INSERT INTO sist_tenant_cada (
 			tenant_cada_docu,
 			tenant_cada_docu_esta,
 			tenant_cada_nome,
@@ -83,7 +83,7 @@
 
 /*UPDATE REGISTROS*/
 	$UpdtRegTenan = '
-		UPDATE tenant_cada SET 
+		UPDATE sist_tenant_cada SET 
 			tenant_cada_docu = :tenant_cada_docu,
 			tenant_cada_docu_esta = :tenant_cada_docu_esta,
 			tenant_cada_nome = :tenant_cada_nome,
@@ -102,7 +102,7 @@
 /*DELETE REGISTRO*/
 	$DeleRegTenan = '
 		DELETE FROM
-			tenant_cada
+			sist_tenant_cada
 		WHERE
 			tenant_cada_iden = :tenant_cada_iden
 	';
@@ -113,7 +113,7 @@
 			tenant_cada_iden,
 			tenant_cada_nome
 		FROM
-			tenant_cada
+			sist_tenant_cada
 		WHERE
 			tenant_cada_stat LIKE :tenant_cada_stat
 	';

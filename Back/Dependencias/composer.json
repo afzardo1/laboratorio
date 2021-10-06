@@ -1,7 +1,6 @@
 {
     "require": {
         "phpmailer/phpmailer": "^6.4",
-        "tecnickcom/tcpdf": "^6.4.2",
-        "erycson/acbrlib-php": "dev-master"
+        "tecnickcom/tcpdf": "^6.4.2"
     }
 }

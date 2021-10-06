@@ -41,7 +41,7 @@
 			mate_cada_tenant_iden,
 			mate_cada_empre_iden
 		FROM
-			mate_cada
+			labo_mate_cada
 		WHERE
 			( mate_cada_descr LIKE :mate_cada_descr OR
 			  mate_cada_forne LIKE :mate_cada_forne ) AND
@@ -51,7 +51,7 @@
 
 /*INSERT REGISTROS*/
 	$InstRegMate = '
-		INSERT INTO mate_cada (
+		INSERT INTO labo_mate_cada (
   			mate_cada_descr,
   			mate_cada_forne,
   			mate_cada_limi_resi,
@@ -132,7 +132,7 @@
 
 /*UPDATE REGISTROS*/
 	$UpdtRegMate = '
-		UPDATE mate_cada SET 
+		UPDATE labo_mate_cada SET 
 			mate_cada_descr = :mate_cada_descr,
 			mate_cada_forne = :mate_cada_forne,
 			mate_cada_limi_resi = :mate_cada_limi_resi,
@@ -177,7 +177,7 @@
 /*DELETE REGISTRO*/
 	$DeleRegMate = '
 		DELETE FROM
-			mate_cada
+			labo_mate_cada
 		WHERE
 			mate_cada_iden = :mate_cada_iden
 	';
@@ -188,7 +188,7 @@
 			mate_cada_iden,
 			mate_cada_descr
 		FROM
-			mate_cada
+			labo_mate_cada
 		WHERE
 			mate_cada_tenant_iden LIKE :mate_cada_tenant_iden AND
 			mate_cada_empre_iden LIKE :mate_cada_empre_iden

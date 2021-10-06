@@ -10,7 +10,7 @@
 			fabr_cada_empre,
 			fabr_cada_stat
 		FROM
-			fabr_cada
+			labo_fabr_cada
 		WHERE
 			( fabr_cada_refe LIKE :fabr_cada_refe OR
 			  fabr_cada_docu LIKE :fabr_cada_docu OR
@@ -24,7 +24,7 @@
 		SELECT
 			COUNT( fabr_cada_iden ) AS fabr_cada_iden
 		FROM
-			fabr_cada
+			labo_fabr_cada
 		WHERE
 			fabr_cada_iden <> :fabr_cada_iden AND
 			fabr_cada_docu = :fabr_cada_docu
@@ -32,7 +32,7 @@
 
 /*INSERT REGISTROS*/
 	$InstRegFabr = '
-		INSERT INTO fabr_cada (
+		INSERT INTO labo_fabr_cada (
 			fabr_cada_refe,
 			fabr_cada_docu,
 			fabr_cada_nome,
@@ -51,7 +51,7 @@
 
 /*UPDATE REGISTROS*/
 	$UpdtRegFabr = '
-		UPDATE fabr_cada SET 
+		UPDATE labo_fabr_cada SET 
 			fabr_cada_refe = :fabr_cada_refe,
 			fabr_cada_docu = :fabr_cada_docu,
 			fabr_cada_nome = :fabr_cada_nome,
@@ -65,7 +65,7 @@
 /*DELETE REGISTRO*/
 	$DeleRegFabr = '
 		DELETE FROM
-			fabr_cada
+			labo_fabr_cada
 		WHERE
 			fabr_cada_iden = :fabr_cada_iden
 	';
@@ -76,7 +76,7 @@
 			fabr_cada_iden,
 			fabr_cada_nome
 		FROM
-			fabr_cada
+			labo_fabr_cada
 		WHERE
 			fabr_cada_stat LIKE :fabr_cada_stat	AND
 			fabr_cada_tenan LIKE :fabr_cada_tenan AND

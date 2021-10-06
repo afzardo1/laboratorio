@@ -61,7 +61,7 @@
 			if ( $vStatSess[ 'status' ] == 'aberto' ) {
 				Anexos::Inicia();
 
-				if ( $Parametros[ 'anexo_ensa_tabe' ] = 'ACHATAMENTO' ){
+				if ( $Parametros[ 'anexo_ensa_tabe' ] == 'ACHATAMENTO' ){
 					$GetRegAnex =  str_replace(
 						array(
 							':CAMPOS_ANEXO',
@@ -76,7 +76,7 @@
 							 amos_achat_anexo_descr,
 							 amos_achat_anexo_arqui
 							',
-							'amos_achat_anexo_cada',
+							'labo_amos_achat_anexo_cada',
 							'amos_achat_anexo_achat_iden = :anexo_ensa_iden',
 							'amos_achat_anexo_tipo DESC',
 						),
@@ -85,7 +85,7 @@
 					);
 				};
 				
-				if ( $Parametros[ 'anexo_ensa_tabe' ] = 'DOBRAMENTO' ){
+				if ( $Parametros[ 'anexo_ensa_tabe' ] == 'DOBRAMENTO' ){
 					$GetRegAnex =  str_replace(
 						array(
 							':CAMPOS_ANEXO',
@@ -100,7 +100,7 @@
 							 amos_dobra_anexo_descr,
 							 amos_dobra_anexo_arqui
 							',
-							'amos_dobra_anexo_cada',
+							'labo_amos_dobra_anexo_cada',
 							'amos_dobra_anexo_dobra_iden = :anexo_ensa_iden',
 							'amos_dobra_anexo_tipo DESC',
 						),
@@ -109,7 +109,7 @@
 					);
 				};
 
-				if ( $Parametros[ 'anexo_ensa_tabe' ] = 'DUREZA' ){
+				if ( $Parametros[ 'anexo_ensa_tabe' ] == 'DUREZA' ){
 					$GetRegAnex =  str_replace(
 						array(
 							':CAMPOS_ANEXO',
@@ -124,7 +124,7 @@
 							 amos_dure_anexo_descr,
 							 amos_dure_anexo_arqui
 							',
-							'amos_dure_anexo_cada',
+							'labo_amos_dure_anexo_cada',
 							'amos_dure_anexo_dure_iden = :anexo_ensa_iden',
 							'amos_dure_anexo_tipo DESC',
 						),
@@ -133,7 +133,7 @@
 					);
 				};
 
-				if ( $Parametros[ 'anexo_ensa_tabe' ] = 'CHARPY' ){
+				if ( $Parametros[ 'anexo_ensa_tabe' ] == 'CHARPY' ){
 					$GetRegAnex =  str_replace(
 						array(
 							':CAMPOS_ANEXO',
@@ -148,16 +148,40 @@
 							 amos_charpy_anexo_descr,
 							 amos_charpy_anexo_arqui
 							',
-							'amos_charpy_anexo_cada',
+							'labo_amos_charpy_anexo_cada',
 							'amos_charpy_anexo_charpy_iden = :anexo_ensa_iden',
 							'amos_charpy_anexo_tipo DESC',
 						),
 						
 						self::$RotSql[ 'GetRegAnex' ]
 					);
-				}
+				};
 
-				if ( $Parametros[ 'anexo_ensa_tabe' ] = 'METALOGRAFIA' ){
+				if ( $Parametros[ 'anexo_ensa_tabe' ] == 'MACROGRAFIA' ){
+					$GetRegAnex =  str_replace(
+						array(
+							':CAMPOS_ANEXO',
+							':TABELA_ANEXO',
+							':FILTRO_ANEXO',
+							':ORDEM_ANEXO',
+						),
+						array(
+							'amos_macro_anexo_cada_iden,
+							 amos_macro_anexo_macro_iden,
+							 amos_macro_anexo_tipo,
+							 amos_macro_anexo_descr,
+							 amos_macro_anexo_arqui
+							',
+							'labo_amos_macro_anexo_cada',
+							'amos_macro_anexo_macro_iden = :anexo_ensa_iden',
+							'amos_macro_anexo_tipo DESC',
+						),
+						
+						self::$RotSql[ 'GetRegAnex' ]
+					);
+				};
+
+				if ( $Parametros[ 'anexo_ensa_tabe' ] == 'METALOGRAFIA' ){
 					$GetRegAnex =  str_replace(
 						array(
 							':CAMPOS_ANEXO',
@@ -172,7 +196,7 @@
 							 amos_meta_anexo_descr,
 							 amos_meta_anexo_arqui
 							',
-							'amos_meta_anexo_cada',
+							'labo_amos_meta_anexo_cada',
 							'amos_meta_anexo_meta_iden = :anexo_ensa_iden',
 							'amos_meta_anexo_tipo DESC',
 						),
@@ -191,6 +215,8 @@
 					$Prepara->execute();
 				
 					$Retorno = $Prepara->fetchAll( PDO::FETCH_ASSOC );
+
+					self::$Conn->commit();
 
 					$Retorno = array_map( function( $input ) {
 						$Botao = '';
@@ -271,6 +297,25 @@
 							);
 						};
 
+						if ( array_key_exists( 'amos_macro_anexo_cada_iden', $input ) ) {
+							$Campos = array ( 
+								0 => 'amos_macro_anexo_cada_iden',
+							 	1 => 'amos_macro_anexo_macro_iden',
+							 	2 => 'amos_macro_anexo_tipo',
+							 	3 => 'amos_macro_anexo_descr',
+							 	4 => 'amos_macro_anexo_arqui'
+							);
+
+							$ItemName = array(
+								0 => 'DeleAnexBtnMacro',
+								1 => 'DownAnexBtnMacro',
+								2 => 'TipoAnexMacro',
+								3 => 'DescrAnexMacro',
+								4 => 'FileAnexMacro',
+								5 => 'FileAnexLabeMacro',
+							);
+						};
+
 						if ( array_key_exists( 'amos_meta_anexo_cada_iden', $input ) ) {
 							$Campos = array ( 
 								0 => 'amos_meta_anexo_cada_iden',
@@ -315,9 +360,7 @@
 						);
 					}, $Retorno );
 
-					self::$Conn->commit();
-					
-					return json_encode( array(
+ 					return json_encode( array(
 						'sistema' => Core::config( 'system_apelido' ),
 						'modulo' => 'Anexos',
 						'status' => 'sucesso',
@@ -365,32 +408,7 @@
 	
 						if (  $Val->anexo_cada_iden == 0 ){
 							$descricao = 'Inclusão de Anexos';
-							
-							if ( $vEnsaTabe == 'METALOGRAFIA' ){
-								$InstRegAnex = str_replace(
-									array(
-										':CAMPOS_ANEXO',
-										':TABELA_ANEXO',
-										':VALUE_CAMPOS_ANEXO',
-									),
-									array(
-										'amos_meta_anexo_meta_iden,
-										 amos_meta_anexo_tipo,
-										 amos_meta_anexo_descr,
-										 amos_meta_anexo_arqui
-										',
-										'amos_meta_anexo_cada',
-										':anexo_ensa_iden,
-										 :anexo_tipo,
-										 :anexo_descr,
-										 :anexo_arqui
-										',
-									),
-									
-									self::$RotSql[ 'InstRegAnex' ]
-								);
-							};
-	
+
 							if ( $vEnsaTabe == 'ACHATAMENTO' ){
 								$InstRegAnex = str_replace(
 									array(
@@ -404,7 +422,7 @@
 										 amos_achat_anexo_descr,
 										 amos_achat_anexo_arqui
 										',
-										'amos_achat_anexo_cada',
+										'labo_amos_achat_anexo_cada',
 										':anexo_ensa_iden,
 										 :anexo_tipo,
 										 :anexo_descr,
@@ -429,7 +447,7 @@
 										 amos_dobra_anexo_descr,
 										 amos_dobra_anexo_arqui
 										',
-										'amos_dobra_anexo_cada',
+										'labo_amos_dobra_anexo_cada',
 										':anexo_ensa_iden,
 										 :anexo_tipo,
 										 :anexo_descr,
@@ -454,7 +472,7 @@
 										 amos_dure_anexo_descr,
 										 amos_dure_anexo_arqui
 										',
-										'amos_dure_anexo_cada',
+										'labo_amos_dure_anexo_cada',
 										':anexo_ensa_iden,
 										 :anexo_tipo,
 										 :anexo_descr,
@@ -479,7 +497,57 @@
 										 amos_charpy_anexo_descr,
 										 amos_charpy_anexo_arqui
 										',
-										'amos_charpy_anexo_cada',
+										'labo_amos_charpy_anexo_cada',
+										':anexo_ensa_iden,
+										 :anexo_tipo,
+										 :anexo_descr,
+										 :anexo_arqui
+										',
+									),
+									
+									self::$RotSql[ 'InstRegAnex' ]
+								);
+							};
+
+							if ( $vEnsaTabe == 'MACROGRAFIA' ){
+								$InstRegAnex = str_replace(
+									array(
+										':CAMPOS_ANEXO',
+										':TABELA_ANEXO',
+										':VALUE_CAMPOS_ANEXO',
+									),
+									array(
+										'amos_macro_anexo_macro_iden,
+										 amos_macro_anexo_tipo,
+										 amos_macro_anexo_descr,
+										 amos_macro_anexo_arqui
+										',
+										'labo_amos_macro_anexo_cada',
+										':anexo_ensa_iden,
+										 :anexo_tipo,
+										 :anexo_descr,
+										 :anexo_arqui
+										',
+									),
+									
+									self::$RotSql[ 'InstRegAnex' ]
+								);
+							};
+
+							if ( $vEnsaTabe == 'METALOGRAFIA' ){
+								$InstRegAnex = str_replace(
+									array(
+										':CAMPOS_ANEXO',
+										':TABELA_ANEXO',
+										':VALUE_CAMPOS_ANEXO',
+									),
+									array(
+										'amos_meta_anexo_meta_iden,
+										 amos_meta_anexo_tipo,
+										 amos_meta_anexo_descr,
+										 amos_meta_anexo_arqui
+										',
+										'labo_amos_meta_anexo_cada',
 										':anexo_ensa_iden,
 										 :anexo_tipo,
 										 :anexo_descr,
@@ -495,27 +563,6 @@
 						} else {
 							$descricao = 'Alteração de Anexos';
 							
-							if ( $vEnsaTabe == 'METALOGRAFIA' ){
-								$UpdtRegAnex = str_replace(
-									array(
-										':CAMPOS_ANEXO',
-										':TABELA_ANEXO',
-										':FILTRO_ANEXO',
-									),
-									array(
-										'amos_meta_anexo_meta_iden = :anexo_ensa_iden,
-										 amos_meta_anexo_tipo = :anexo_tipo,
-										 amos_meta_anexo_descr = :anexo_descr,
-										 amos_meta_anexo_arqui = :anexo_arqui
-										',
-										'amos_meta_anexo_cada',
-										'amos_meta_anexo_cada_iden = :anexo_cada_iden',
-									),
-									
-									self::$RotSql[ 'UpdtRegAnex' ]
-								);
-							};
-
 							if ( $vEnsaTabe == 'ACHATAMENTO' ){
 								$UpdtRegAnex = str_replace(
 									array(
@@ -529,7 +576,7 @@
 										 amos_achat_anexo_descr = :anexo_descr,
 										 amos_achat_anexo_arqui = :anexo_arqui
 										',
-										'amos_achat_anexo_cada',
+										'labo_amos_achat_anexo_cada',
 										'amos_achat_anexo_cada_iden = :anexo_cada_iden',
 									),
 									
@@ -550,7 +597,7 @@
 										 amos_dobra_anexo_descr = :anexo_descr,
 										 amos_dobra_anexo_arqui = :anexo_arqui
 										',
-										'amos_dobra_anexo_cada',
+										'labo_amos_dobra_anexo_cada',
 										'amos_dobra_anexo_cada_iden = :anexo_cada_iden',
 									),
 									
@@ -571,7 +618,7 @@
 										 amos_dure_anexo_descr = :anexo_descr,
 										 amos_dure_anexo_arqui = :anexo_arqui
 										',
-										'amos_dure_anexo_cada',
+										'labo_amos_dure_anexo_cada',
 										'amos_dure_anexo_cada_iden = :anexo_cada_iden',
 									),
 									
@@ -592,40 +639,67 @@
 										 amos_charpy_anexo_descr = :anexo_descr,
 										 amos_charpy_anexo_arqui = :anexo_arqui
 										',
-										'amos_charpy_anexo_cada',
+										'labo_amos_charpy_anexo_cada',
 										'amos_charpy_anexo_cada_iden = :anexo_cada_iden',
 									),
 									
 									self::$RotSql[ 'UpdtRegAnex' ]
 								);
 							};
-							
+
+							if ( $vEnsaTabe == 'MACROGRAFIA' ){
+								$UpdtRegAnex = str_replace(
+									array(
+										':CAMPOS_ANEXO',
+										':TABELA_ANEXO',
+										':FILTRO_ANEXO',
+									),
+									array(
+										'amos_macro_anexo_macro_iden = :anexo_ensa_iden,
+										 amos_macro_anexo_tipo = :anexo_tipo,
+										 amos_macro_anexo_descr = :anexo_descr,
+										 amos_macro_anexo_arqui = :anexo_arqui
+										',
+										'labo_amos_macro_anexo_cada',
+										'amos_macro_anexo_cada_iden = :anexo_cada_iden',
+									),
+									
+									self::$RotSql[ 'UpdtRegAnex' ]
+								);
+							};
+
+							if ( $vEnsaTabe == 'METALOGRAFIA' ){
+								$UpdtRegAnex = str_replace(
+									array(
+										':CAMPOS_ANEXO',
+										':TABELA_ANEXO',
+										':FILTRO_ANEXO',
+									),
+									array(
+										'amos_meta_anexo_meta_iden = :anexo_ensa_iden,
+										 amos_meta_anexo_tipo = :anexo_tipo,
+										 amos_meta_anexo_descr = :anexo_descr,
+										 amos_meta_anexo_arqui = :anexo_arqui
+										',
+										'labo_amos_meta_anexo_cada',
+										'amos_meta_anexo_cada_iden = :anexo_cada_iden',
+									),
+									
+									self::$RotSql[ 'UpdtRegAnex' ]
+								);
+							};
+
 							$Prepara = $vConn->prepare( $UpdtRegAnex );
 							$Prepara->bindValue( ':anexo_cada_iden', $Val->anexo_cada_iden );
 						};
 						
 						if (  $Val->anexo_arqui != 'selecione um arquivo' ) {
 							$ArqAnexo = str_replace( 
-								array( 'Back\Modulos\Anexos', 'Back/Modulos/Anexos' ),
+								array( 'Back\Modulos\Comum\Anexos', 'Back/Modulos/Comum/Anexos' ),
 								'',
 								__DIR__ ).'Anexos/'.$vEnsaTabe.'_'.$vEnsaiIdem.'_'.$Val->anexo_arqui;
 
 							if ( $Val->anexo_tipo == -1 ) {
-								if ( $vEnsaTabe == 'METALOGRAFIA' ){
-									$DeleRegAnex = str_replace(
-										array(
-											':TABELA_ANEXO',
-											':FILTRO_ANEXO',
-										),
-										array(
-											'amos_meta_anexo_cada',
-											'amos_meta_anexo_cada_iden = :anexo_cada_iden',
-										),
-										
-										self::$RotSql[ 'DeleRegAnex' ]
-									);
-								};
-
 								if ( $vEnsaTabe == 'ACHATAMENTO' ){
 									$DeleRegAnex = str_replace(
 										array(
@@ -633,7 +707,7 @@
 											':FILTRO_ANEXO',
 										),
 										array(
-											'amos_achat_anexo_cada',
+											'labo_amos_achat_anexo_cada',
 											'amos_achat_anexo_cada_iden = :anexo_cada_iden',
 										),
 										
@@ -648,7 +722,7 @@
 											':FILTRO_ANEXO',
 										),
 										array(
-											'amos_dobra_anexo_cada',
+											'labo_amos_dobra_anexo_cada',
 											'amos_dobra_anexo_cada_iden = :anexo_cada_iden',
 										),
 										
@@ -663,7 +737,7 @@
 											':FILTRO_ANEXO',
 										),
 										array(
-											'amos_dure_anexo_cada',
+											'labo_amos_dure_anexo_cada',
 											'amos_dure_anexo_cada_iden = :anexo_cada_iden',
 										),
 										
@@ -678,8 +752,38 @@
 											':FILTRO_ANEXO',
 										),
 										array(
-											'amos_charpy_anexo_cada',
+											'labo_amos_charpy_anexo_cada',
 											'amos_charpy_anexo_cada_iden = :anexo_cada_iden',
+										),
+										
+										self::$RotSql[ 'DeleRegAnex' ]
+									);
+								};
+
+								if ( $vEnsaTabe == 'MACROGRAFIA' ){
+									$DeleRegAnex = str_replace(
+										array(
+											':TABELA_ANEXO',
+											':FILTRO_ANEXO',
+										),
+										array(
+											'labo_amos_macro_anexo_cada',
+											'amos_macro_anexo_cada_iden = :anexo_cada_iden',
+										),
+										
+										self::$RotSql[ 'DeleRegAnex' ]
+									);
+								};
+
+								if ( $vEnsaTabe == 'METALOGRAFIA' ){
+									$DeleRegAnex = str_replace(
+										array(
+											':TABELA_ANEXO',
+											':FILTRO_ANEXO',
+										),
+										array(
+											'labo_amos_meta_anexo_cada',
+											'amos_meta_anexo_cada_iden = :anexo_cada_iden',
 										),
 										
 										self::$RotSql[ 'DeleRegAnex' ]
@@ -707,7 +811,7 @@
 									if ( $Val-> anexo_arqui_ante != '' ){
 										if ( $Val->anexo_arqui != $Val->anexo_arqui_ante ){
 											$ArqAnteAnexo = str_replace( 
-												array( 'Back\Modulos\Anexos', 'Back/Modulos/Anexos' ),
+												array( 'Back\Modulos\Comum\Anexos', 'Back/Modulos/Comum/Anexos' ),
 												'',
 												__DIR__ ).'Anexos/'.$vEnsaTabe.'_'.$vEnsaiIdem.'_'.$Val->anexo_arqui_ante;
 
@@ -772,7 +876,7 @@
 		*/
 		public static function GetDonwAnex( $Parametros = array() ){
 			$ArqAnexo = str_replace( 
-				array( 'Back\Modulos\Anexos', 'Back/Modulos/Anexos' ),
+				array( 'Back\Modulos\Comum\Anexos', 'Back/Modulos/Comum/Anexos' ),
 				'',
 				__DIR__ ).'Anexos/'.$Parametros['anexo_ensa_tabe'].'_'.$Parametros['IdenAnex'].'_'.$Parametros['FileAnexLabe'];
 			

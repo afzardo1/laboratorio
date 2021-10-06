@@ -38,9 +38,6 @@ import Areas from './areas.class.js';
 /*CARREGA CLASSE AMOSTRAS DO SISTEMA*/
 import Amostras from './amostras.class.js';
 
-/*CARREGA CLASSE AMOSTRAS DO SISTEMA*/
-import Metalografia from './metalografia.class.js';
-
 /*CARREGA CLASSE ANEXOS DO SISTEMA*/
 import Anexos from './anexos.class.js';
 
@@ -55,6 +52,12 @@ import Dureza from './dureza.class.js';
 
 /*CARREGA CLASSE CHARPY DO SISTEMA*/
 import Charpy from './charpy.class.js';
+
+/*CARREGA CLASSE MACROGRAFIA DO SISTEMA*/
+import Macrografia from './macrografia.class.js';
+
+/*CARREGA CLASSE AMOSTRAS DO SISTEMA*/
+import Metalografia from './metalografia.class.js';
 
 /**
  * Esta classe é a mais importante da API.
@@ -514,17 +517,6 @@ export default class Core {
 	}
 
 	/**
-	 * Método de Metalografia chama e instancia a classe
-	 * metalografia.class
-	 * 
-	 * @return classe
-	 * @access public
-	*/
-	static get Metalografia(){
-		return Metalografia;
-	}
-
-	/**
 	 * Método de Achatamento chama e instancia a classe
 	 * achatamento.class
 	 * 
@@ -568,6 +560,28 @@ export default class Core {
 		return Charpy;
 	}
 	
+	/**
+	 * Método de Macrografia chama e instancia a classe
+	 * macrografia.class
+	 * 
+	 * @return classe
+	 * @access public
+	*/
+	static get Macrografia(){
+		return Macrografia;
+	}
+
+	/**
+	 * Método de Metalografia chama e instancia a classe
+	 * metalografia.class
+	 * 
+	 * @return classe
+	 * @access public
+	*/
+	static get Metalografia(){
+		return Metalografia;
+	}
+
 	/**
 	 * Método de Anexos chama e instancia a classe
 	 * anexos.class

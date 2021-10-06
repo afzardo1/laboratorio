@@ -142,16 +142,6 @@ export default class Anexos {
 	static GetAddAnex( vTabela, vResp ) {
 		var TabeData = Anexos.AtuaTableAnex( vTabela );
 		var NomeIten = {};
-		if ( $( vTabela ).attr( 'id' ) == 'AnexTableMeta' ){
-			NomeIten = {
-				0: 'DeleAnexBtnMeta',
-				1: 'DownAnexBtnMeta',
-				2: 'TipoAnexMeta',
-				3: 'DescrAnexMeta',
-				4: 'FileAnexMeta',
-				5: 'FileAnexLabeMeta',
-			};
-		};
 		if ( $( vTabela ).attr( 'id' ) == 'AnexTableAchat' ){
 			NomeIten = {
 				0: 'DeleAnexBtnAchat',
@@ -192,6 +182,26 @@ export default class Anexos {
 				5: 'FileAnexLabeCharp',
 			};
 		};
+		if ( $( vTabela ).attr( 'id' ) == 'AnexTableMacro' ){
+			NomeIten = {
+				0: 'DeleAnexBtnMacro',
+				1: 'DownAnexBtnMacro',
+				2: 'TipoAnexMacro',
+				3: 'DescrAnexMacro',
+				4: 'FileAnexMacro',
+				5: 'FileAnexLabeMacro',
+			};
+		};
+		if ( $( vTabela ).attr( 'id' ) == 'AnexTableMeta' ){
+			NomeIten = {
+				0: 'DeleAnexBtnMeta',
+				1: 'DownAnexBtnMeta',
+				2: 'TipoAnexMeta',
+				3: 'DescrAnexMeta',
+				4: 'FileAnexMeta',
+				5: 'FileAnexLabeMeta',
+			};
+		};
 		var DataIten = {
 			'anexo_botao': 
 				'<button id="' + NomeIten[0] + '" type="button" class="btn btn-danger" title="EXCLUIR"><i class="fas fa-minus"></i></button>' +
@@ -226,14 +236,6 @@ export default class Anexos {
 	*/
 	static SetSalvAnex( vTabela, vResp ) {
 		var NomeIten = {};
-		if ( $( vTabela ).attr( 'id' ) == 'AnexTableMeta' ){
-			NomeIten = {
-				0: 'TipoAnexMeta',
-				1: 'DescrAnexMeta',
-				2: 'FileAnexMeta',
-				3: 'FileAnexLabeMeta',
-			};
-		};
 		if ( $( vTabela ).attr( 'id' ) == 'AnexTableAchat' ){
 			NomeIten = {
 				0: 'TipoAnexAchat',
@@ -256,6 +258,14 @@ export default class Anexos {
 				1: 'DescrAnexDure',
 				2: 'FileAnexDure',
 				3: 'FileAnexLabeDure',
+			};
+		};
+		if ( $( vTabela ).attr( 'id' ) == 'AnexTableMacro' ){
+			NomeIten = {
+				0: 'TipoAnexMacro',
+				1: 'DescrAnexMacro',
+				2: 'FileAnexMacro',
+				3: 'FileAnexLabeMacro',
 			};
 		};
 		if ( $( vTabela ).attr( 'id' ) == 'AnexTableCharp' ){
@@ -306,11 +316,12 @@ export default class Anexos {
 			}, 300);
 		} else {
 			var IdenAnex = '';
-			if ( vParam[ 'IdenMeta' ] != undefined ){
-				IdenAnex = vParam[ 'IdenMeta' ];
-			};
+			
 			if ( vParam[ 'IdenAchat' ] != undefined ){
 				IdenAnex = vParam[ 'IdenAchat' ];
+			};
+			if ( vParam[ 'IdenCharp' ] != undefined ){
+				IdenAnex = vParam[ 'IdenCharp' ];
 			};
 			if ( vParam[ 'IdenDobra' ] != undefined ){
 				IdenAnex = vParam[ 'IdenDobra' ];
@@ -318,8 +329,11 @@ export default class Anexos {
 			if ( vParam[ 'IdenDure' ] != undefined ){
 				IdenAnex = vParam[ 'IdenDure' ];
 			};
-			if ( vParam[ 'IdenCharp' ] != undefined ){
-				IdenAnex = vParam[ 'IdenCharp' ];
+			if ( vParam[ 'IdenMacro' ] != undefined ){
+				IdenAnex = vParam[ 'IdenMacro' ];
+			};
+			if ( vParam[ 'IdenMeta' ] != undefined ){
+				IdenAnex = vParam[ 'IdenMeta' ];
 			};
 			Core.SetAjax({
 				evento:{
@@ -362,14 +376,15 @@ export default class Anexos {
 	static SetDeleAnex( vTabela, vLinha, vResp ){
 		var TabeData = Anexos.AtuaTableAnex( vTabela );
 		var NomeIten = {};
-		if ( $( vTabela ).attr( 'id' ) == 'AnexTableMeta' ){
-			NomeIten = {
-				0: 'TipoAnexMeta',
-			};
-		};
+		
 		if ( $( vTabela ).attr( 'id' ) == 'AnexTableAchat' ){
 			NomeIten = {
 				0: 'TipoAnexAchat',
+			};
+		};
+		if ( $( vTabela ).attr( 'id' ) == 'AnexTableCharp' ){
+			NomeIten = {
+				0: 'TipoAnexCharp',
 			};
 		};
 		if ( $( vTabela ).attr( 'id' ) == 'AnexTableDobra' ){
@@ -382,9 +397,14 @@ export default class Anexos {
 				0: 'TipoAnexDure',
 			};
 		};
-		if ( $( vTabela ).attr( 'id' ) == 'AnexTableCharp' ){
+		if ( $( vTabela ).attr( 'id' ) == 'AnexTableMacro' ){
 			NomeIten = {
-				0: 'TipoAnexCharp',
+				0: 'TipoAnexMacro',
+			};
+		};
+		if ( $( vTabela ).attr( 'id' ) == 'AnexTableMeta' ){
+			NomeIten = {
+				0: 'TipoAnexMeta',
 			};
 		};
 		$( TabeData.row( vLinha ).node() ).find( '#' + NomeIten[0] ).append( '<option value="-1">EXCLUIR</option>' );

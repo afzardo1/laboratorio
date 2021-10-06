@@ -10,7 +10,7 @@
 			clie_cada_empre,
 			clie_cada_stat			
 		FROM
-			clie_cada
+			labo_clie_cada
 		WHERE
 			( clie_cada_refe LIKE :clie_cada_refe OR
 			  clie_cada_docu LIKE :clie_cada_docu OR
@@ -24,7 +24,7 @@
 		SELECT
 			COUNT( clie_cada_iden ) AS clie_cada_iden
 		FROM
-			clie_cada
+			labo_clie_cada
 		WHERE
 			clie_cada_iden <> :clie_cada_iden AND
 			clie_cada_docu = :clie_cada_docu
@@ -32,7 +32,7 @@
 
 /*INSERT REGISTROS*/
 	$InstRegClie = '
-		INSERT INTO clie_cada (
+		INSERT INTO labo_clie_cada (
 			clie_cada_refe,
 			clie_cada_docu,
 			clie_cada_nome,
@@ -51,7 +51,7 @@
 
 /*UPDATE REGISTROS*/
 	$UpdtRegClie = '
-		UPDATE clie_cada SET 
+		UPDATE labo_clie_cada SET 
 			clie_cada_refe = :clie_cada_refe,
 			clie_cada_docu = :clie_cada_docu,
 			clie_cada_nome = :clie_cada_nome,
@@ -65,7 +65,7 @@
 /*DELETE REGISTRO*/
 	$DeleRegClie = '
 		DELETE FROM
-			clie_cada
+			labo_clie_cada
 		WHERE
 			clie_cada_iden = :clie_cada_iden
 	';
@@ -76,7 +76,7 @@
 			clie_cada_iden,
 			clie_cada_nome
 		FROM
-			clie_cada
+			labo_clie_cada
 		WHERE
 			clie_cada_stat LIKE :clie_cada_stat AND
 			clie_cada_tenan LIKE :clie_cada_tenan AND

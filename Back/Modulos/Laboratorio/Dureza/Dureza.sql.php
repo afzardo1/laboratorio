@@ -33,33 +33,33 @@
 			sis_para_logo,
 			sis_para_selo
 		FROM
-			amos_cada
+			labo_amos_cada
 		LEFT JOIN
-			amos_dure_cada
+			labo_amos_dure_cada
 		ON
 			( amos_dure_cada_amos_iden = amos_cada_iden )
 		LEFT JOIN
-			clie_cada
+			labo_clie_cada
 		ON
 			( clie_cada_iden = amos_cada_clie_iden )
 		LEFT JOIN
-			fabr_cada
+			labo_fabr_cada
 		ON
 			( fabr_cada_iden = amos_cada_fabr_iden )
 		LEFT JOIN
-			mate_cada
+			labo_mate_cada
 		ON
 			( mate_cada_iden = amos_cada_mate_iden )
 		LEFT JOIN
-			area_cada
+			labo_area_cada
 		ON
 			( area_cada_iden = amos_cada_area_iden )
 		LEFT JOIN
-			tenant_cada
+			sist_tenant_cada
 		ON
 			( tenant_cada_iden = amos_cada_tenan )
 		LEFT JOIN
-			usua_cada
+			sist_usua_cada
 		ON
 			( usua_cada_iden = amos_dure_cada_fina_usua_iden )
 		LEFT JOIN
@@ -75,7 +75,7 @@
 
 /*INSERT REGISTROS*/
 	$InstRegDure = '
-		INSERT INTO amos_dure_cada (
+		INSERT INTO labo_amos_dure_cada (
 			amos_dure_cada_amos_iden,
 			amos_dure_cada_qtde,
 			amos_dure_cada_result,
@@ -110,7 +110,7 @@
 
 /*UPDATE REGISTROS*/
 	$UpdtRegDure = '
-		UPDATE amos_dure_cada SET 
+		UPDATE labo_amos_dure_cada SET 
 			amos_dure_cada_amos_iden = :amos_dure_cada_amos_iden,
 			amos_dure_cada_qtde = :amos_dure_cada_qtde,
 			amos_dure_cada_result = :amos_dure_cada_result,

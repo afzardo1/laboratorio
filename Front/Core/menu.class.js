@@ -210,12 +210,24 @@ export default class Menu {
 					 	DadosMenu['icone'] = 'fas fa-fill-drip';
 					 	DadosMenu['submenu'] = '';
 				 	};
+					if ( ( ( vRespAjax.registros[i].usua_aces_cada_opca_iden == 127 ) || 
+					 	   ( vRespAjax.registros[i].usua_aces_cada_opca_iden == 128 ) ||
+					   	   ( vRespAjax.registros[i].usua_aces_cada_opca_iden == 129 ) ||
+					  	   ( vRespAjax.registros[i].usua_aces_cada_opca_iden == 130 ) ) &&
+					 	 ( vRespAjax.registros[i].usua_aces_cada_opca_stat == 1 ) ) {
+				  		DadosMenu['ordem'] = 6;
+				  		DadosMenu['menu'] = '#Pcend';
+				   		DadosMenu['href'] = '#pcend';
+						DadosMenu['html'] = 'P. Camada Endurecida';
+				   		DadosMenu['icone'] = 'fas fa-cube';
+				   		DadosMenu['submenu'] = '';
+			   		};
 					if ( ( ( vRespAjax.registros[i].usua_aces_cada_opca_iden == 91 ) || 
 						   ( vRespAjax.registros[i].usua_aces_cada_opca_iden == 92 ) ||
 					  	   ( vRespAjax.registros[i].usua_aces_cada_opca_iden == 93 ) ||
 	 					   ( vRespAjax.registros[i].usua_aces_cada_opca_iden == 94 ) ) &&
 						 ( vRespAjax.registros[i].usua_aces_cada_opca_stat == 1 ) ) {
-						DadosMenu['ordem'] = 6;
+						DadosMenu['ordem'] = 7;
 						DadosMenu['menu'] = '#Metalografia';
 					 	DadosMenu['href'] = '#metalografia';
 					  	DadosMenu['html'] = 'Metalográfico';
@@ -227,23 +239,11 @@ export default class Menu {
 					   		( vRespAjax.registros[i].usua_aces_cada_opca_iden == 125 ) ||
 					  		( vRespAjax.registros[i].usua_aces_cada_opca_iden == 126 ) ) &&
 					 	  ( vRespAjax.registros[i].usua_aces_cada_opca_stat == 1 ) ) {
-				  		DadosMenu['ordem'] = 7;
+				  		DadosMenu['ordem'] = 8;
 				  		DadosMenu['menu'] = '#Macrografia';
 				   		DadosMenu['href'] = '#macrografia';
 						DadosMenu['html'] = 'Macrografia';
 				   		DadosMenu['icone'] = 'far fa-eye';
-				   		DadosMenu['submenu'] = '';
-			   		};
-					if ( ( ( vRespAjax.registros[i].usua_aces_cada_opca_iden == 119 ) || 
-					 		( vRespAjax.registros[i].usua_aces_cada_opca_iden == 120 ) ||
-					   		( vRespAjax.registros[i].usua_aces_cada_opca_iden == 121 ) ||
-					  		( vRespAjax.registros[i].usua_aces_cada_opca_iden == 122 ) ) &&
-					 	  ( vRespAjax.registros[i].usua_aces_cada_opca_stat == 1 ) ) {
-				  		DadosMenu['ordem'] = 8;
-				  		DadosMenu['menu'] = '#Charpy';
-				   		DadosMenu['href'] = '#charpy';
-						DadosMenu['html'] = 'Charpy';
-				   		DadosMenu['icone'] = 'fas fa-weight';
 				   		DadosMenu['submenu'] = '';
 			   		};
 					if ( ( ( vRespAjax.registros[i].usua_aces_cada_opca_iden == 115 ) || 
@@ -270,12 +270,24 @@ export default class Menu {
 					 	DadosMenu['icone'] = 'fas fa-magnet';
 					 	DadosMenu['submenu'] = '';
 				 	};
+					if ( ( ( vRespAjax.registros[i].usua_aces_cada_opca_iden == 119 ) || 
+					 		( vRespAjax.registros[i].usua_aces_cada_opca_iden == 120 ) ||
+					   		( vRespAjax.registros[i].usua_aces_cada_opca_iden == 121 ) ||
+					  		( vRespAjax.registros[i].usua_aces_cada_opca_iden == 122 ) ) &&
+					 	  ( vRespAjax.registros[i].usua_aces_cada_opca_stat == 1 ) ) {
+				  		DadosMenu['ordem'] = 11;
+				  		DadosMenu['menu'] = '#Charpy';
+				   		DadosMenu['href'] = '#charpy';
+						DadosMenu['html'] = 'Charpy';
+				   		DadosMenu['icone'] = 'fas fa-weight';
+				   		DadosMenu['submenu'] = '';
+			   		};
 					if ( ( ( vRespAjax.registros[i].usua_aces_cada_opca_iden == 101 ) || 
 						   ( vRespAjax.registros[i].usua_aces_cada_opca_iden == 102 ) ||
 					  	   ( vRespAjax.registros[i].usua_aces_cada_opca_iden == 103 ) ||
 	 					   ( vRespAjax.registros[i].usua_aces_cada_opca_iden == 104 ) ) &&
 						 ( vRespAjax.registros[i].usua_aces_cada_opca_stat == 1 ) ) {
-						DadosMenu['ordem'] = 11;
+						DadosMenu['ordem'] = 12;
 						DadosMenu['menu'] = '#Achatamento';
 					 	DadosMenu['href'] = '#achatamento';
 					  	DadosMenu['html'] = 'Achatamento/Expansão';

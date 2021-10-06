@@ -20,16 +20,6 @@ class ComposerStaticInit5916091b29ae23f344bf019f82397844
         ),
     );
 
-    public static $prefixesPsr0 = array (
-        'A' => 
-        array (
-            'ACBrLib' => 
-            array (
-                0 => __DIR__ . '/..' . '/erycson/acbrlib-php/src',
-            ),
-        ),
-    );
-
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'Datamatrix' => __DIR__ . '/..' . '/tecnickcom/tcpdf/include/barcodes/datamatrix.php',
@@ -53,7 +43,6 @@ class ComposerStaticInit5916091b29ae23f344bf019f82397844
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit5916091b29ae23f344bf019f82397844::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit5916091b29ae23f344bf019f82397844::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit5916091b29ae23f344bf019f82397844::$prefixesPsr0;
             $loader->classMap = ComposerStaticInit5916091b29ae23f344bf019f82397844::$classMap;
 
         }, null, ClassLoader::class);

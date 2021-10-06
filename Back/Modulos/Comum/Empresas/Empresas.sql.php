@@ -17,9 +17,9 @@
 			empre_cada_stat,
 			empre_cada_tenant
 		FROM
-		empre_cada
+			sist_empre_cada
 		LEFT JOIN
-			usua_cada
+			sist_usua_cada
 		ON
 			( usua_cada_iden = empre_cada_usua_iden )
 		WHERE
@@ -34,7 +34,7 @@
 			usua_cada_iden,
 			usua_cada_nome
 		FROM
-			usua_cada
+			sist_usua_cada
 		WHERE
 			usua_cada_tenant LIKE :usua_cada_tenant AND
 			usua_cada_status LIKE :usua_cada_status
@@ -47,7 +47,7 @@
 		SELECT
 			COUNT( empre_cada_iden ) AS empre_cada_iden
 		FROM
-			empre_cada
+			sist_empre_cada
 		WHERE
 			empre_cada_iden <> :empre_cada_iden AND
 			empre_cada_docu = :empre_cada_docu
@@ -55,7 +55,7 @@
 
 /*INSERT REGISTROS*/
 	$InstRegEmpre = '
-		INSERT INTO empre_cada (
+		INSERT INTO sist_empre_cada (
 			empre_cada_docu,
 			empre_cada_docu_esta,
 			empre_cada_nome,
@@ -86,7 +86,7 @@
 
 /*UPDATE REGISTROS*/
 	$UpdtRegEmpre = '
-		UPDATE empre_cada SET 
+		UPDATE sist_empre_cada SET 
 			empre_cada_docu = :empre_cada_docu,
 			empre_cada_docu_esta = :empre_cada_docu_esta,
 			empre_cada_nome = :empre_cada_nome,
@@ -106,7 +106,7 @@
 /*DELETE REGISTRO*/
 	$DeleRegEmpre = '
 		DELETE FROM
-			empre_cada
+			sist_empre_cada
 		WHERE
 			empre_cada_iden = :empre_cada_iden
 	';
@@ -117,7 +117,7 @@
 			tenant_cada_iden,
 			tenant_cada_nome
 		FROM
-			tenant_cada
+			sist_tenant_cada
 		WHERE
 			tenant_cada_stat LIKE :tenant_cada_stat
 	';
@@ -128,7 +128,7 @@
 			empre_cada_iden,
 			empre_cada_nome
 		FROM
-			empre_cada
+			sist_empre_cada
 		WHERE
 			empre_cada_stat LIKE :empre_cada_stat AND
 			empre_cada_tenant LIKE :empre_cada_tenant

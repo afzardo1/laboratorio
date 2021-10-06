@@ -627,6 +627,31 @@ export default class Usuarios {
 					'</ul>' +
 				'</div>' +
 			'</div>' +
+			'<div class="col-xl-4">' +
+				'<div class="card">' +
+					'<div class="card-header"> '+
+						'<i class="fas fa-cube"></i> Modulo: P. Camada Endurecida' +
+					'</div>' +
+					'<ul class="list-group list-group-flush">' +
+						'<li class="list-group-item ps-5">' +
+							'<input id="127_PermUsua" class="form-check-input me-1" type="checkbox" value="127" aria-label="...">' +
+							'Acessar' +
+						'</li>' +
+						'<li class="list-group-item ps-5">' +
+							'<input id="128_PermUsua" class="form-check-input me-1" type="checkbox" value="128" aria-label="...">' +
+							'Incluir' +
+						'</li>' +
+						'<li class="list-group-item ps-5">' +
+							'<input id="129_PermUsua" class="form-check-input me-1" type="checkbox" value="129" aria-label="...">' +
+							'Alterar' +
+						'</li>' +
+						'<li class="list-group-item ps-5">' +
+							'<input id="130_PermUsua" class="form-check-input me-1" type="checkbox" value="130" aria-label="...">' +
+							'Excluir' +
+						'</li>' +
+					'</ul>' +
+				'</div>' +
+			'</div>' +
 		'</div>';
 	}
 
@@ -681,18 +706,26 @@ export default class Usuarios {
 			Usuarios.GetForm( ResObjPai, 'Add', 'INCLUSÃO USUÁRIOS', function( ResObjPai ){
 				Core.SetAjax( { evento: { tenant_cada_stat: '1' } }, '../../Comum/Usuarios/GetTenanUsua/', function( Resposta ){
 					Core.SetSele2( $( ResObjPai ).find( '#TenanUsua' ), Resposta.registros, function(){
-						if ( Core.Login.GetUsuaSess( 'usua_cada_tenant' ) != 0 ){
-							$( ResObjPai ).find( '#TenanUsua' ).val(  Core.Login.GetUsuaSess( 'usua_cada_tenant' ) ).trigger( 'change' );
-							$( ResObjPai ).find( '#TenanUsua' ).prop( 'disabled', true );
-						} else {
-							$( ResObjPai ).find( '#PermUsua' ).prepend( 
-								Core.Usuarios.GetPermTenan()
-							);
-						};
-						Core.SetSele2( $( ResObjPai ).find( '#EmprUsua' ), '', function(){
-							setTimeout( function(){
-								vResp( ResObjPai );
-							}, 300);
+						Core.SetAjax( { evento: {
+							empre_cada_stat: '1',
+							empre_cada_tenant: $( ResObjPai ).find( '#TenanUsua' ).val(),
+						} }, '../../Comum/Usuarios/GetEmpreUsua/', function( Resposta ){
+							if ( Core.Login.GetUsuaSess( 'usua_cada_tenant' ) != 0 ){
+								$( ResObjPai ).find( '#TenanUsua' ).val(  Core.Login.GetUsuaSess( 'usua_cada_tenant' ) ).trigger( 'change' );
+								$( ResObjPai ).find( '#TenanUsua' ).prop( 'disabled', true );
+							} else {
+								$( ResObjPai ).find( '#PermUsua' ).prepend( 
+									Core.Usuarios.GetPermTenan()
+								);
+							};
+							Core.SetSele2( $( ResObjPai ).find( '#EmprUsua' ), Resposta.registros, function(){
+								if ( Core.Login.GetUsuaSess( 'usua_cada_empre' ) != 0 ){
+									$( ResObjPai ).find( '#EmprUsua' ).prop( 'disabled', true );
+								};
+								setTimeout( function(){
+									vResp( ResObjPai );
+								}, 300);
+							});
 						});
 					});
 				});
@@ -715,30 +748,38 @@ export default class Usuarios {
 			Usuarios.GetForm( ResObjPai, 'Edt', 'ALTERAÇÃO USUÁRIOS', function( ResObjPai ){
 				Core.SetAjax( { evento: { tenant_cada_stat: '1' } }, '../../Comum/Usuarios/GetTenanUsua/', function( Resposta ){
 					Core.SetSele2( $( ResObjPai ).find( '#TenanUsua' ), Resposta.registros, function(){
-						Core.SetSele2( $( ResObjPai ).find( '#EmprUsua' ), '', function(){
-							$( ResObjPai ).find( '#IdenUsua' ).val(  Core.Usuarios.GetDataTableUsua( '#UsuaTable', vLinha, 'usua_cada_iden' ) );
-							$( ResObjPai ).find( '#NomeUsua' ).val(  Core.Usuarios.GetDataTableUsua( '#UsuaTable', vLinha, 'usua_cada_nome' ) );
-							$( ResObjPai ).find( '#TipoUsua' ).val(  Core.Usuarios.GetDataTableUsua( '#UsuaTable', vLinha, 'usua_cada_tipo' ) );
-							$( ResObjPai ).find( '#LogiUsua' ).val(  Core.Usuarios.GetDataTableUsua( '#UsuaTable', vLinha, 'usua_cada_login' ) );
-							$( ResObjPai ).find( '#StatUsua' ).val(  Core.Usuarios.GetDataTableUsua( '#UsuaTable', vLinha, 'usua_cada_status' ) );
-							$( ResObjPai ).find( '#TenanUsua' ).val(  Core.Usuarios.GetDataTableUsua( '#UsuaTable', vLinha, 'usua_cada_tenant' ) ).trigger( 'change' );
-							if ( Core.Login.GetUsuaSess( 'usua_cada_tenant' ) != 0 ){
-								$( ResObjPai ).find( '#TenanUsua' ).prop( 'disabled', true );
-							} else {
-								$( ResObjPai ).find( '#PermUsua' ).prepend( 
-									Core.Usuarios.GetPermTenan()
+						Core.SetAjax( { evento: {
+							empre_cada_stat: '1',
+							empre_cada_tenant: $( ResObjPai ).find( '#TenanUsua' ).val(),
+						} }, '../../Comum/Usuarios/GetEmpreUsua/', function( Resposta ){
+							Core.SetSele2( $( ResObjPai ).find( '#EmprUsua' ), Resposta.registros, function(){
+								$( ResObjPai ).find( '#IdenUsua' ).val(  Core.Usuarios.GetDataTableUsua( '#UsuaTable', vLinha, 'usua_cada_iden' ) );
+								$( ResObjPai ).find( '#NomeUsua' ).val(  Core.Usuarios.GetDataTableUsua( '#UsuaTable', vLinha, 'usua_cada_nome' ) );
+								$( ResObjPai ).find( '#TipoUsua' ).val(  Core.Usuarios.GetDataTableUsua( '#UsuaTable', vLinha, 'usua_cada_tipo' ) );
+								$( ResObjPai ).find( '#LogiUsua' ).val(  Core.Usuarios.GetDataTableUsua( '#UsuaTable', vLinha, 'usua_cada_login' ) );
+								$( ResObjPai ).find( '#StatUsua' ).val(  Core.Usuarios.GetDataTableUsua( '#UsuaTable', vLinha, 'usua_cada_status' ) );
+								$( ResObjPai ).find( '#TenanUsua' ).val(  Core.Usuarios.GetDataTableUsua( '#UsuaTable', vLinha, 'usua_cada_tenant' ) ).trigger( 'change' );
+								if ( Core.Login.GetUsuaSess( 'usua_cada_tenant' ) != 0 ){
+									$( ResObjPai ).find( '#TenanUsua' ).prop( 'disabled', true );
+								} else {
+									$( ResObjPai ).find( '#PermUsua' ).prepend( 
+										Core.Usuarios.GetPermTenan()
+									);
+								};
+								$( ResObjPai ).find( '#EmprUsua' ).val(  Core.Usuarios.GetDataTableUsua( '#UsuaTable', vLinha, 'usua_cada_empre' ) ).trigger( 'change' );
+								if ( Core.Login.GetUsuaSess( 'usua_cada_empre' ) != 0 ){
+									$( ResObjPai ).find( '#EmprUsua' ).prop( 'disabled', true );
+								};
+								Usuarios.SetPermUsua( ResObjPai, {
+									evento:{
+										usua_aces_cada_usua_iden: Core.Usuarios.GetDataTableUsua( '#UsuaTable', vLinha, 'usua_cada_iden' )
+									}}, function(){
+										setTimeout( function(){
+											vResp( ResObjPai );
+										}, 300);
+									}
 								);
-							};
-							$( ResObjPai ).find( '#EmprUsua' ).val(  Core.Usuarios.GetDataTableUsua( '#UsuaTable', vLinha, 'usua_cada_empre' ) ).trigger( 'change' );
-							Usuarios.SetPermUsua( ResObjPai, {
-								evento:{
-									usua_aces_cada_usua_iden: Core.Usuarios.GetDataTableUsua( '#UsuaTable', vLinha, 'usua_cada_iden' )
-								}}, function(){
-									setTimeout( function(){
-										vResp( ResObjPai );
-									}, 300);
-								}
-							);
+							});
 						});
 					});
 				});

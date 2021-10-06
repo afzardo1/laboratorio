@@ -45,25 +45,25 @@
 			sis_para_logo,
 			sis_para_selo
 		FROM
-			amos_cada
+			labo_amos_cada
 		LEFT JOIN
-			clie_cada
+			labo_clie_cada
 		ON
 			( clie_cada_iden = amos_cada_clie_iden )
 		LEFT JOIN
-			fabr_cada
+			labo_fabr_cada
 		ON
 			( fabr_cada_iden = amos_cada_fabr_iden )
 		LEFT JOIN
-			mate_cada
+			labo_mate_cada
 		ON
 			( mate_cada_iden = amos_cada_mate_iden )
 		LEFT JOIN
-			area_cada
+			labo_area_cada
 		ON
 			( area_cada_iden = amos_cada_area_iden )
 		LEFT JOIN
-			usua_cada
+			sist_usua_cada
 		ON
 			( usua_cada_iden = amos_cada_usua_iden )
 		LEFT JOIN
@@ -81,7 +81,7 @@
 			amos_cada_iden,
 			amos_cada_stat
 		FROM
-			amos_cada
+			labo_amos_cada
 		WHERE
 			( amos_cada_iden = :amos_cada_iden ) AND
 			( amos_cada_stat <> 0 )
@@ -89,7 +89,7 @@
 
 /*INSERT REGISTROS*/
 	$InstRegAmos = '
-		INSERT INTO amos_cada (
+		INSERT INTO labo_amos_cada (
 			amos_cada_regi,
 			amos_cada_orse,
 			amos_cada_clie_iden,
@@ -164,7 +164,7 @@
 
 /*UPDATE REGISTROS*/
 	$UpdtRegAmos = '
-		UPDATE amos_cada SET 
+		UPDATE labo_amos_cada SET 
 			amos_cada_regi = :amos_cada_regi,
 			amos_cada_orse = :amos_cada_orse,
 			amos_cada_clie_iden = :amos_cada_clie_iden,
@@ -205,7 +205,7 @@
 /*DELETE REGISTRO*/
 	$DeleRegAmos = '
 		DELETE FROM
-			amos_cada
+			labo_amos_cada
 		WHERE
 			amos_cada_iden = :amos_cada_iden AND
 			amos_cada_stat = 0

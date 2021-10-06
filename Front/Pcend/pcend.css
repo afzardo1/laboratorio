@@ -1,0 +1,35 @@
+#TablePcend, #AnexTablePcend {
+	width: 100% !important;
+}
+
+#TablePcend .bg-danger{
+	background-color: rgba( 255, 0, 0, 0.7 ) !important;
+	color: black !important;
+}
+
+#TablePcend .bg-success{
+	background-color: rgba( 25, 135, 84, 0.7 ) !important;
+	color: black !important;
+}
+
+#TablePcend .bg-warning{
+	background-color: rgba( 255, 193, 7, 0.7 ) !important;
+	color: black !important;
+}
+
+#TablePcend .bg-info{
+	background-color: rgba( 13, 202, 240, 0.7 ) !important;
+	color: black !important;
+}
+
+#FormPcend input{
+	text-transform: uppercase;
+}
+
+#FormPcend textarea{
+	text-transform: uppercase;
+}
+
+#FormPcend #TituAnexPcend{
+	padding: 0.5rem;
+}
