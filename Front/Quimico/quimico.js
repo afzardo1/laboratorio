@@ -2,27 +2,27 @@
 import Core from '../Core/Core.class.js';
 
 $(document).ready(function( ) {
-    var vFocuPcend = '';
+    var vFocuQuimi = '';
     var vLinhSalv = '';
     var vTipoOpera = '';
     var vLinhDele = '';
     var vThisDele = '';
 /*--FILTRAR*/
-    $(document).off( 'click', '#FiltBtnPcend' );
-    $(document).on( 'click', '#FiltBtnPcend', function(event){
+    $(document).off( 'click', '#FiltBtnQuimi' );
+    $(document).on( 'click', '#FiltBtnQuimi', function(event){
         Core.LoadMenu.show()
-        Core.Pcend.GetTablePcend( '#TablePcend', { 
+        Core.Quimico.GetTableQuimi( '#TableQuimi', { 
             evento:{
-                'amos_cada_regi': '%' + $( '#FiltRgPcend' ).val() + '%',
-				'amos_cada_orse': '%' + $( '#FiltOsPcend' ).val() + '%',
-				'amos_cada_emis_ini': $( '#FiltEmisIniPcend' ).val(),
-				'amos_cada_emis_fim': $( '#FiltEmisFimPcend' ).val(),
-				'amos_cada_clie_iden': $( '#FiltCliePcend' ).val(),
-				'amos_cada_fabr_iden': $( '#FiltFabrPcend' ).val(),
-				'amos_cada_area_iden': $( '#FiltArePcend' ).val(),
-				'amos_cada_tenan': $( '#FiltTenanPcend' ).val(),
-				'amos_cada_empre': $( '#FiltEmprePcend' ).val(),
-				'amos_pcend_cada_fina': '%' + $( '#StatPcend' ).val() + '%',
+                'amos_cada_regi': '%' + $( '#FiltRgQuimi' ).val() + '%',
+				'amos_cada_orse': '%' + $( '#FiltOsQuimi' ).val() + '%',
+				'amos_cada_emis_ini': $( '#FiltEmisIniQuimi' ).val(),
+				'amos_cada_emis_fim': $( '#FiltEmisFimQuimi' ).val(),
+				'amos_cada_clie_iden': $( '#FiltClieQuimi' ).val(),
+				'amos_cada_fabr_iden': $( '#FiltFabrQuimi' ).val(),
+				'amos_cada_area_iden': $( '#FiltAreQuimi' ).val(),
+				'amos_cada_tenan': $( '#FiltTenanQuimi' ).val(),
+				'amos_cada_empre': $( '#FiltEmpreQuimi' ).val(),
+				'amos_pcend_cada_fina': '%' + $( '#StatQuimi' ).val() + '%',
             }
         }, function( vRespLogi ){
             if ( vRespLogi.status != 'sucesso' ){
@@ -43,7 +43,7 @@ $(document).ready(function( ) {
                 $( '#AlertMenu' ).show();
             }
             Core.LoadMenu.hide();
-            $( '#FiltRgPcend' ).focus();
+            $( '#FiltRgQuimi' ).focus();
         });
     });
 /*--INICIALIZAÇÃO*/

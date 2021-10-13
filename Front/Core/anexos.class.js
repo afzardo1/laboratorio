@@ -202,6 +202,16 @@ export default class Anexos {
 				5: 'FileAnexLabeMeta',
 			};
 		};
+		if ( $( vTabela ).attr( 'id' ) == 'AnexTablePcend' ){
+			NomeIten = {
+				0: 'DeleAnexBtnPcend',
+				1: 'DownAnexBtnPcend',
+				2: 'TipoAnexPcend',
+				3: 'DescrAnexPcend',
+				4: 'FileAnexPcend',
+				5: 'FileAnexLabePcend',
+			};
+		};
 		var DataIten = {
 			'anexo_botao': 
 				'<button id="' + NomeIten[0] + '" type="button" class="btn btn-danger" title="EXCLUIR"><i class="fas fa-minus"></i></button>' +
@@ -244,6 +254,14 @@ export default class Anexos {
 				3: 'FileAnexLabeAchat',
 			};
 		};
+		if ( $( vTabela ).attr( 'id' ) == 'AnexTableCharp' ){
+			NomeIten = {
+				0: 'TipoAnexCharp',
+				1: 'DescrAnexCharp',
+				2: 'FileAnexCharp',
+				3: 'FileAnexLabeCharp',
+			};
+		};
 		if ( $( vTabela ).attr( 'id' ) == 'AnexTableDobra' ){
 			NomeIten = {
 				0: 'TipoAnexDobra',
@@ -268,12 +286,20 @@ export default class Anexos {
 				3: 'FileAnexLabeMacro',
 			};
 		};
-		if ( $( vTabela ).attr( 'id' ) == 'AnexTableCharp' ){
+		if ( $( vTabela ).attr( 'id' ) == 'AnexTableMeta' ){
 			NomeIten = {
-				0: 'TipoAnexCharp',
-				1: 'DescrAnexCharp',
-				2: 'FileAnexCharp',
-				3: 'FileAnexLabeCharp',
+				0: 'TipoAnexMeta',
+				1: 'DescrAnexMeta',
+				2: 'FileAnexMeta',
+				3: 'FileAnexLabeMeta',
+			};
+		};
+		if ( $( vTabela ).attr( 'id' ) == 'AnexTablePcend' ){
+			NomeIten = {
+				0: 'TipoAnexPcend',
+				1: 'DescrAnexPcend',
+				2: 'FileAnexPcend',
+				3: 'FileAnexLabePcend',
 			};
 		};
 		var Anexos = {};
@@ -334,6 +360,9 @@ export default class Anexos {
 			};
 			if ( vParam[ 'IdenMeta' ] != undefined ){
 				IdenAnex = vParam[ 'IdenMeta' ];
+			};
+			if ( vParam[ 'IdenPcend' ] != undefined ){
+				IdenAnex = vParam[ 'IdenPcend' ];
 			};
 			Core.SetAjax({
 				evento:{
@@ -405,6 +434,11 @@ export default class Anexos {
 		if ( $( vTabela ).attr( 'id' ) == 'AnexTableMeta' ){
 			NomeIten = {
 				0: 'TipoAnexMeta',
+			};
+		};
+		if ( $( vTabela ).attr( 'id' ) == 'AnexTablePcend' ){
+			NomeIten = {
+				0: 'TipoAnexPcend',
 			};
 		};
 		$( TabeData.row( vLinha ).node() ).find( '#' + NomeIten[0] ).append( '<option value="-1">EXCLUIR</option>' );

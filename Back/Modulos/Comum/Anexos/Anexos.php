@@ -205,6 +205,29 @@
 					);
 				};
 
+				if ( $Parametros[ 'anexo_ensa_tabe' ] == 'PCEND' ){
+					$GetRegAnex =  str_replace(
+						array(
+							':CAMPOS_ANEXO',
+							':TABELA_ANEXO',
+							':FILTRO_ANEXO',
+							':ORDEM_ANEXO',
+						),
+						array(
+							'amos_pcend_anexo_cada_iden,
+							 amos_pcend_anexo_pcend_iden,
+							 amos_pcend_anexo_tipo,
+							 amos_pcend_anexo_descr,
+							 amos_pcend_anexo_arqui
+							',
+							'labo_amos_pcend_anexo_cada',
+							'amos_pcend_anexo_pcend_iden = :anexo_ensa_iden',
+							'amos_pcend_anexo_tipo DESC',
+						),
+						
+						self::$RotSql[ 'GetRegAnex' ]
+					);
+				};
 				try {
 					self::$Conn->beginTransaction();
 
@@ -332,6 +355,25 @@
 								3 => 'DescrAnexMeta',
 								4 => 'FileAnexMeta',
 								5 => 'FileAnexLabeMeta',
+							);
+						};
+
+						if ( array_key_exists( 'amos_pcend_anexo_cada_iden', $input ) ) {
+							$Campos = array ( 
+								0 => 'amos_pcend_anexo_cada_iden',
+							 	1 => 'amos_pcend_anexo_pcend_iden',
+							 	2 => 'amos_pcend_anexo_tipo',
+							 	3 => 'amos_pcend_anexo_descr',
+							 	4 => 'amos_pcend_anexo_arqui'
+							);
+
+							$ItemName = array(
+								0 => 'DeleAnexBtnPcend',
+								1 => 'DownAnexBtnPcend',
+								2 => 'TipoAnexPcend',
+								3 => 'DescrAnexPcend',
+								4 => 'FileAnexPcend',
+								5 => 'FileAnexLabePcend',
 							);
 						};
 
@@ -559,6 +601,31 @@
 								);
 							};
 
+							if ( $vEnsaTabe == 'PCEND' ){
+								$InstRegAnex = str_replace(
+									array(
+										':CAMPOS_ANEXO',
+										':TABELA_ANEXO',
+										':VALUE_CAMPOS_ANEXO',
+									),
+									array(
+										'amos_pcend_anexo_pcend_iden,
+										 amos_pcend_anexo_tipo,
+										 amos_pcend_anexo_descr,
+										 amos_pcend_anexo_arqui
+										',
+										'labo_amos_pcend_anexo_cada',
+										':anexo_ensa_iden,
+										 :anexo_tipo,
+										 :anexo_descr,
+										 :anexo_arqui
+										',
+									),
+									
+									self::$RotSql[ 'InstRegAnex' ]
+								);
+							};
+
 							$Prepara = $vConn->prepare( $InstRegAnex );
 						} else {
 							$descricao = 'Alteração de Anexos';
@@ -689,6 +756,27 @@
 								);
 							};
 
+							if ( $vEnsaTabe == 'PCEND' ){
+								$UpdtRegAnex = str_replace(
+									array(
+										':CAMPOS_ANEXO',
+										':TABELA_ANEXO',
+										':FILTRO_ANEXO',
+									),
+									array(
+										'amos_pcend_anexo_pcend_iden = :anexo_ensa_iden,
+										 amos_pcend_anexo_tipo = :anexo_tipo,
+										 amos_pcend_anexo_descr = :anexo_descr,
+										 amos_pcend_anexo_arqui = :anexo_arqui
+										',
+										'labo_amos_pcend_anexo_cada',
+										'amos_pcend_anexo_cada_iden = :anexo_cada_iden',
+									),
+									
+									self::$RotSql[ 'UpdtRegAnex' ]
+								);
+							};
+
 							$Prepara = $vConn->prepare( $UpdtRegAnex );
 							$Prepara->bindValue( ':anexo_cada_iden', $Val->anexo_cada_iden );
 						};
@@ -790,6 +878,21 @@
 									);
 								};
 								
+								if ( $vEnsaTabe == 'PCEND' ){
+									$DeleRegAnex = str_replace(
+										array(
+											':TABELA_ANEXO',
+											':FILTRO_ANEXO',
+										),
+										array(
+											'labo_amos_pcend_anexo_cada',
+											'amos_pcend_anexo_cada_iden = :anexo_cada_iden',
+										),
+										
+										self::$RotSql[ 'DeleRegAnex' ]
+									);
+								};
+
 								$Prepara = $vConn->prepare( $DeleRegAnex );
 								$Prepara->bindValue( ':anexo_cada_iden', $Val->anexo_cada_iden );
 								

@@ -134,6 +134,12 @@ export default class Materiais {
 			case 'mate_cada_empre_iden':
 				return vTabela.cell( vLinha, 38 ).data();
 				break;
+			case 'mate_cada_dure_super':
+				return vTabela.cell( vLinha, 39 ).data();
+				break;
+			case 'mate_cada_dure_nucle':
+				return vTabela.cell( vLinha, 40 ).data();
+				break;
 		};
 	};
 	
@@ -201,6 +207,8 @@ export default class Materiais {
 							{ data: 'mate_cada_Ceq', visible: false },
 							{ data: 'mate_cada_tenant_iden', visible: false },
 							{ data: 'mate_cada_empre_iden', visible: false },
+							{ data: 'mate_cada_dure_super', visible: false },
+							{ data: 'mate_cada_dure_nucle', visible: false },
 						], 
 						language: {
 							"decimal": ",",
@@ -299,6 +307,44 @@ export default class Materiais {
 					'<div class="row p-3" >' +	
 						'<div class="col-xl-3">' +
 							'<div class="form-floating">' +
+								'<input type="text" class="form-control" id="DureMate" value="" placeholder="" maxlength="80">' +
+								'<label for="DureMate">Dureza</label>' +
+							'</div>' +
+						'</div>' +
+						'<div class="col-xl-1"></div>' +
+						'<div class="col-xl-3">' +
+							'<div class="form-floating">' +
+								'<input type="text" class="form-control" id="SuperDureMate" value="" placeholder="" maxlength="80">' +
+								'<label for="SuperDureMate">Dureza Superficie</label>' +
+							'</div>' +
+						'</div>' +
+						'<div class="col-xl-1"></div>' +
+						'<div class="col-xl-3">' +
+							'<div class="form-floating">' +
+								'<input type="text" class="form-control" id="NucleDureMate" value="" placeholder="" maxlength="80">' +
+								'<label for="NucleDureMate">Dureza Nucleo</label>' +
+							'</div>' +
+						'</div>' +
+					'</div>' +
+					'<div class="row p-3" >' +
+						'<div class="col-xl-2"></div>' +	
+						'<div class="col-xl-3">' +
+							'<div class="form-floating">' +
+								'<input type="text" class="form-control" id="ImpactoMate" value="" placeholder="" maxlength="80">' +
+								'<label for="ImpactoMate">Impacto</label>' +
+							'</div>' +
+						'</div>' +
+						'<div class="col-xl-2"></div>' +
+						'<div class="col-xl-3">' +
+							'<div class="form-floating">' +
+								'<input type="text" class="form-control" id="ProfCamaEnduMate" value="" placeholder="" maxlength="80">' +
+								'<label for="ProfCamaEnduMate">Prof. Camada Endurecida</label>' +
+							'</div>' +
+						'</div>' +
+					'</div>' +
+					'<div class="row p-3" >' +	
+						'<div class="col-xl-3">' +
+							'<div class="form-floating">' +
 								'<input type="text" class="form-control" id="LimiResiMate" value="" placeholder="" maxlength="80">' +
 								'<label for="LimiResiMate">Lim. Resistência</label>' +
 							'</div>' +
@@ -322,33 +368,13 @@ export default class Materiais {
 							'</div>' +
 						'</div>' +
 					'</div>' +
-					'<div class="row p-3" >' +	
-						'<div class="col-xl-3">' +
-							'<div class="form-floating">' +
-								'<input type="text" class="form-control" id="DureMate" value="" placeholder="" maxlength="80">' +
-								'<label for="DureMate">Dureza</label>' +
-							'</div>' +
-						'</div>' +
-						'<div class="col-xl-3">' +
-							'<div class="form-floating">' +
-								'<input type="text" class="form-control" id="ImpactoMate" value="" placeholder="" maxlength="80">' +
-								'<label for="ImpactoMate">Impacto</label>' +
-							'</div>' +
-						'</div>' +
-						'<div class="col-xl-3">' +
-							'<div class="form-floating">' +
-								'<input type="text" class="form-control" id="ProfCamaEnduMate" value="" placeholder="" maxlength="80">' +
-								'<label for="ProfCamaEnduMate">Prof. Camada Endurecida</label>' +
-							'</div>' +
-						'</div>' +
+					'<div class="row p-3" >' +
 						'<div class="col-xl-3">' +
 							'<div class="form-floating">' +
 								'<input type="text" class="form-control" id="C_Mate" value="" placeholder="" maxlength="80">' +
 								'<label for="C_Mate">C</label>' +
 							'</div>' +
 						'</div>' +
-					'</div>' +
-					'<div class="row p-3" >' +	
 						'<div class="col-xl-3">' +
 							'<div class="form-floating">' +
 								'<input type="text" class="form-control" id="Si_Mate" value="" placeholder="" maxlength="80">' +
@@ -367,14 +393,14 @@ export default class Materiais {
 								'<label for="P_Mate">P</label>' +
 							'</div>' +
 						'</div>' +
+					'</div>' +
+					'<div class="row p-3" >' +
 						'<div class="col-xl-3">' +
 							'<div class="form-floating">' +
 								'<input type="text" class="form-control" id="S_Mate" value="" placeholder="" maxlength="80">' +
 								'<label for="S_Mate">S</label>' +
 							'</div>' +
-						'</div>' +
-					'</div>' +
-					'<div class="row p-3" >' +	
+						'</div>' +	
 						'<div class="col-xl-3">' +
 							'<div class="form-floating">' +
 								'<input type="text" class="form-control" id="Cr_Mate" value="" placeholder="" maxlength="80">' +
@@ -393,14 +419,14 @@ export default class Materiais {
 								'<label for="Mo_Mate">Mo</label>' +
 							'</div>' +
 						'</div>' +
+					'</div>' +
+					'<div class="row p-3" >' +
 						'<div class="col-xl-3">' +
 							'<div class="form-floating">' +
 								'<input type="text" class="form-control" id="Cu_Mate" value="" placeholder="" maxlength="80">' +
 								'<label for="Cu_Mate">Cu</label>' +
 							'</div>' +
 						'</div>' +
-					'</div>' +
-					'<div class="row p-3" >' +	
 						'<div class="col-xl-3">' +
 							'<div class="form-floating">' +
 								'<input type="text" class="form-control" id="Al_Mate" value="" placeholder="" maxlength="80">' +
@@ -419,14 +445,14 @@ export default class Materiais {
 								'<label for="V_Mate">V</label>' +
 							'</div>' +
 						'</div>' +
+					'</div>' +
+					'<div class="row p-3" >' +
 						'<div class="col-xl-3">' +
 							'<div class="form-floating">' +
 								'<input type="text" class="form-control" id="Co_Mate" value="" placeholder="" maxlength="80">' +
 								'<label for="Co_Mate">Co</label>' +
 							'</div>' +
 						'</div>' +
-					'</div>' +
-					'<div class="row p-3" >' +	
 						'<div class="col-xl-3">' +
 							'<div class="form-floating">' +
 								'<input type="text" class="form-control" id="Nb_Mate" value="" placeholder="" maxlength="80">' +
@@ -445,14 +471,14 @@ export default class Materiais {
 								'<label for="W_Mate">W</label>' +
 							'</div>' +
 						'</div>' +
+					'</div>' +
+					'<div class="row p-3" >' +
 						'<div class="col-xl-3">' +
 							'<div class="form-floating">' +
 								'<input type="text" class="form-control" id="Mg_Mate" value="" placeholder="" maxlength="80">' +
 								'<label for="Mg_Mate">Mg</label>' +
 							'</div>' +
-						'</div>' +
-					'</div>' +
-					'<div class="row p-3" >' +	
+						'</div>' +	
 						'<div class="col-xl-3">' +
 							'<div class="form-floating">' +
 								'<input type="text" class="form-control" id="Zn_Mate" value="" placeholder="" maxlength="80">' +
@@ -471,14 +497,14 @@ export default class Materiais {
 								'<label for="Sb_Mate">Sb</label>' +
 							'</div>' +
 						'</div>' +
+					'</div>' +
+					'<div class="row p-3" >' +
 						'<div class="col-xl-3">' +
 							'<div class="form-floating">' +
 								'<input type="text" class="form-control" id="Sn_Mate" value="" placeholder="" maxlength="80">' +
 								'<label for="Sn_Mate">Sn</label>' +
 							'</div>' +
 						'</div>' +
-					'</div>' +
-					'<div class="row p-3" >' +	
 						'<div class="col-xl-3">' +
 							'<div class="form-floating">' +
 								'<input type="text" class="form-control" id="Ca_Mate" value="" placeholder="" maxlength="80">' +
@@ -497,29 +523,30 @@ export default class Materiais {
 								'<label for="N_Mate">N</label>' +
 							'</div>' +
 						'</div>' +
+					'</div>' +
+					'<div class="row p-3" >' +
 						'<div class="col-xl-3">' +
 							'<div class="form-floating">' +
 								'<input type="text" class="form-control" id="Na_Mate" value="" placeholder="" maxlength="80">' +
 								'<label for="Na_Mate">Na</label>' +
 							'</div>' +
-						'</div>' +
-					'</div>' +
-					'<div class="row p-3" >' +	
+						'</div>' +	
 						'<div class="col-xl-3">' +
 							'<div class="form-floating">' +
 								'<input type="text" class="form-control" id="Ceq_Mate" value="" placeholder="" maxlength="80">' +
 								'<label for="Ceq_Mate">Ceq</label>' +
 							'</div>' +
 						'</div>' +
-						'<div class="col-xl-1"></div>' +
-						'<div class="col-xl-4">' +
+					'</div>' +
+					'<div class="row p-3" >' +
+						'<div class="col-xl-6">' +
 							'<div class="input-group input-group-lg">' +
 								'<label class="input-group-text" for="TenanMate">Tenant</label>' +
 								'<select class="form-select" id="TenanMate" aria-label="Floating label select example" required uppercase>' +
 							  	'</select>' +
 							'</div>' +
 						'</div>' +
-						'<div class="col-xl-4">' +
+						'<div class="col-xl-6">' +
 							'<div class="input-group input-group-lg">' +
 								'<label class="input-group-text" for="EmpreMate">Empresa</label>' +
 								'<select class="form-select" id="EmpreMate" aria-label="Floating label select example" required uppercase>' +
@@ -610,6 +637,8 @@ export default class Materiais {
 								$( ResObjPai ).find( '#AlongMate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_along' ) );
 								$( ResObjPai ).find( '#ReduAreaMate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_redu_area' ) );
 								$( ResObjPai ).find( '#DureMate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_dure' ) );
+								$( ResObjPai ).find( '#SuperDureMate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_dure_super' ) );
+								$( ResObjPai ).find( '#NucleDureMate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_dure_nucle' ) );
 								$( ResObjPai ).find( '#ImpactoMate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_impa' ) );
 								$( ResObjPai ).find( '#ProfCamaEnduMate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_prof_cama_endu' ) );
 								$( ResObjPai ).find( '#C_Mate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_C' ) );
@@ -702,6 +731,8 @@ export default class Materiais {
 							AlongMate: $( ResObjPai ).find( '#AlongMate' ).val(),
 							ReduAreaMate: $( ResObjPai ).find( '#ReduAreaMate' ).val(),
 							DureMate: $( ResObjPai ).find( '#DureMate' ).val(),
+							SuperDureMate: $( ResObjPai ).find( '#SuperDureMate' ).val(),
+							NucleDureMate: $( ResObjPai ).find( '#NucleDureMate' ).val(),
 							ImpactoMate: $( ResObjPai ).find( '#ImpactoMate' ).val(),
 							ProfCamaEnduMate: $( ResObjPai ).find( '#ProfCamaEnduMate' ).val(),
 							C_Mate: $( ResObjPai ).find( '#C_Mate' ).val(),

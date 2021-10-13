@@ -1,0 +1,35 @@
+#TableQuimi, #AnexTableQuimi {
+	width: 100% !important;
+}
+
+#TableQuimi .bg-danger{
+	background-color: rgba( 255, 0, 0, 0.7 ) !important;
+	color: black !important;
+}
+
+#TableQuimi .bg-success{
+	background-color: rgba( 25, 135, 84, 0.7 ) !important;
+	color: black !important;
+}
+
+#TableQuimi .bg-warning{
+	background-color: rgba( 255, 193, 7, 0.7 ) !important;
+	color: black !important;
+}
+
+#TableQuimi .bg-info{
+	background-color: rgba( 13, 202, 240, 0.7 ) !important;
+	color: black !important;
+}
+
+#FormQuimi input{
+	text-transform: uppercase;
+}
+
+#FormQuimi textarea{
+	text-transform: uppercase;
+}
+
+#FormQuimi #TituAnexQuimi{
+	padding: 0.5rem;
+}

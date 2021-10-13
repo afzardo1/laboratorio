@@ -59,6 +59,9 @@ import Macrografia from './macrografia.class.js';
 /*CARREGA CLASSE AMOSTRAS DO SISTEMA*/
 import Metalografia from './metalografia.class.js';
 
+/*CARREGA CLASSE PCEND DO SISTEMA*/
+import Pcend from './pcend.class.js';
+
 /**
  * Esta classe é a mais importante da API.
  * Todas as requisições passam por aqui, são tratadas
@@ -582,6 +585,19 @@ export default class Core {
 		return Metalografia;
 	}
 
+	/**
+	 * Método de Profundidade Camada Endurecida
+	 * chama e instancia a classe
+	 * metalografia.class
+	 * 
+	 * @return classe
+	 * @access public
+	*/
+	static get Pcend(){
+		return Pcend;
+	}
+
+	
 	/**
 	 * Método de Anexos chama e instancia a classe
 	 * anexos.class

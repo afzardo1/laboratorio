@@ -652,6 +652,31 @@ export default class Usuarios {
 					'</ul>' +
 				'</div>' +
 			'</div>' +
+			'<div class="col-xl-4">' +
+				'<div class="card">' +
+					'<div class="card-header"> '+
+						'<i class="fas fa-vials"></i> Modulo: Quimíco' +
+					'</div>' +
+					'<ul class="list-group list-group-flush">' +
+						'<li class="list-group-item ps-5">' +
+							'<input id="131_PermUsua" class="form-check-input me-1" type="checkbox" value="131" aria-label="...">' +
+							'Acessar' +
+						'</li>' +
+						'<li class="list-group-item ps-5">' +
+							'<input id="132_PermUsua" class="form-check-input me-1" type="checkbox" value="132" aria-label="...">' +
+							'Incluir' +
+						'</li>' +
+						'<li class="list-group-item ps-5">' +
+							'<input id="133_PermUsua" class="form-check-input me-1" type="checkbox" value="133" aria-label="...">' +
+							'Alterar' +
+						'</li>' +
+						'<li class="list-group-item ps-5">' +
+							'<input id="134_PermUsua" class="form-check-input me-1" type="checkbox" value="134" aria-label="...">' +
+							'Excluir' +
+						'</li>' +
+					'</ul>' +
+				'</div>' +
+			'</div>' +
 		'</div>';
 	}
 

@@ -9,6 +9,8 @@
 			fabr_cada_nome,
 			mate_cada_descr,
 			mate_cada_dure,
+			mate_cada_dure_super,
+			mate_cada_dure_nucle,
 			area_cada_descr,
 			amos_cada_emis,
 			amos_cada_descr,

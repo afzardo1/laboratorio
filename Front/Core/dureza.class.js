@@ -101,6 +101,12 @@ export default class Dureza {
 			case 'mate_cada_dure':
 				return vTabela.cell( vLinha, 27 ).data();
 				break;
+			case 'mate_cada_dure_super':
+				return vTabela.cell( vLinha, 28 ).data();
+				break;
+			case 'mate_cada_dure_nucle':
+				return vTabela.cell( vLinha, 29 ).data();
+				break;
 		};
 	};
 
@@ -180,7 +186,9 @@ export default class Dureza {
 							{ data: 'amos_cada_iden', visible: false },
 							{ data: 'amos_cada_tenan', visible: false },
 							{ data: 'amos_cada_empre', visible: false },
-							{ data: 'mate_cada_dure', visible: false },	
+							{ data: 'mate_cada_dure', visible: false },
+							{ data: 'mate_cada_dure_super', visible: false },
+							{ data: 'mate_cada_dure_nucle', visible: false },	
 						], 
 						language: {
 							"decimal": ",",
@@ -511,11 +519,11 @@ export default class Dureza {
 						$( ResObjPai ).find( '#EspeDure' ).val( Core.Dureza.GetDataTableDure( '#TableDure', vLinha, 'amos_dure_cada_dure_espe' ) );
 						if ( Core.Dureza.GetDataTableDure( '#TableDure', vLinha, 'amos_dure_cada_iden' ) == 'Automatico' ){
 							$( ResObjPai ).find( '#EspeDure' ).val( Core.Dureza.GetDataTableDure( '#TableDure', vLinha, 'mate_cada_dure' ) );
+							$( ResObjPai ).find( '#EspeSuperDure' ).val( Core.Dureza.GetDataTableDure( '#TableDure', vLinha, 'mate_cada_dure_super' ) );
+							$( ResObjPai ).find( '#EspeNucleDure' ).val( Core.Dureza.GetDataTableDure( '#TableDure', vLinha, 'mate_cada_dure_nucle' ) );
 						};
 						$( ResObjPai ).find( '#ObitDure' ).val( Core.Dureza.GetDataTableDure( '#TableDure', vLinha, 'amos_dure_cada_dure_obti' ) );
-						$( ResObjPai ).find( '#EspeSuperDure' ).val( Core.Dureza.GetDataTableDure( '#TableDure', vLinha, 'amos_dure_cada_espe_super' ) );
 						$( ResObjPai ).find( '#ObitSuperDure' ).val( Core.Dureza.GetDataTableDure( '#TableDure', vLinha, 'amos_dure_cada_obti_super' ) );
-						$( ResObjPai ).find( '#EspeNucleDure' ).val( Core.Dureza.GetDataTableDure( '#TableDure', vLinha, 'amos_dure_cada_espe_nucle' ) );
 						$( ResObjPai ).find( '#ObitNucleDure' ).val( Core.Dureza.GetDataTableDure( '#TableDure', vLinha, 'amos_dure_cada_obti_nucle' ) );
 						$( ResObjPai ).find( '#ObseDure' ).val( Core.Dureza.GetDataTableDure( '#TableDure', vLinha, 'amos_dure_cada_obs' ) );
 						$( ResObjPai ).find( '#FinaDure' ).prop( 'checked', false );

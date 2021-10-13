@@ -141,6 +141,8 @@
 							'mate_cada_along' => $input['mate_cada_along'],
 							'mate_cada_redu_area' => $input['mate_cada_redu_area'],
 							'mate_cada_dure' => $input['mate_cada_dure'],
+							'mate_cada_dure_super' => $input['mate_cada_dure_super'],
+							'mate_cada_dure_nucle' => $input['mate_cada_dure_nucle'],
 							'mate_cada_impa' => $input['mate_cada_impa'],
 							'mate_cada_prof_cama_endu' => $input['mate_cada_prof_cama_endu'],
 							'mate_cada_C' => $input['mate_cada_C'],
@@ -255,6 +257,8 @@
 					$Prepara->bindValue( ':mate_cada_along', $Parametros[ 'AlongMate' ] );
 					$Prepara->bindValue( ':mate_cada_redu_area', $Parametros[ 'ReduAreaMate' ] );
 					$Prepara->bindValue( ':mate_cada_dure', $Parametros[ 'DureMate' ] );
+					$Prepara->bindValue( ':mate_cada_dure_super', $Parametros[ 'SuperDureMate' ] );
+					$Prepara->bindValue( ':mate_cada_dure_nucle', $Parametros[ 'NucleDureMate' ] );
 					$Prepara->bindValue( ':mate_cada_impa', $Parametros[ 'ImpactoMate' ] );
 					$Prepara->bindValue( ':mate_cada_prof_cama_endu', $Parametros[ 'ProfCamaEnduMate' ] );
 					$Prepara->bindValue( ':mate_cada_C', $Parametros[ 'C_Mate' ] );

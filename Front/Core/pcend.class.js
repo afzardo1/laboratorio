@@ -20,7 +20,7 @@ export default class Pcend {
 		vTabela = $( vTabela ).DataTable();
 		
 		switch ( vCampo ){ 
-			case 'amos_macro_cada_iden':
+			case 'amos_pcend_cada_iden':
 				return vTabela.cell( vLinha, 1 ).data();
 				break;
 			case 'amos_cada_emis':
@@ -35,10 +35,10 @@ export default class Pcend {
 			case 'amos_cada_descr':
 				return vTabela.cell( vLinha, 5 ).data();
 				break;
-			case 'amos_macro_cada_fina':
+			case 'amos_pcend_cada_fina':
 				return vTabela.cell( vLinha, 6 ).data();
 				break;
-			case 'amos_macro_cada_result':
+			case 'amos_pcend_cada_result':
 				return vTabela.cell( vLinha, 7 ).data();
 				break;
 			case 'clie_cada_nome':
@@ -56,16 +56,16 @@ export default class Pcend {
 			case 'amos_cada_local':
 				return vTabela.cell( vLinha, 12 ).data();
 				break;
-			case 'amos_macro_cada_qtde':
+			case 'amos_pcend_cada_qtde':
 				return vTabela.cell( vLinha, 13 ).data();
 				break;
-			case 'amos_macro_cada_obs':
+			case 'amos_pcend_cada_obs':
 				return vTabela.cell( vLinha, 14 ).data();
 				break;
-			case 'amos_macro_cada_fina_data':
+			case 'amos_pcend_cada_fina_data':
 				return vTabela.cell( vLinha, 15 ).data();
 				break;
-			case 'amos_macro_cada_fina_usua_iden':
+			case 'amos_pcend_cada_fina_usua_iden':
 				return vTabela.cell( vLinha, 16 ).data();
 				break;
 			case 'amos_cada_iden':
@@ -105,8 +105,8 @@ export default class Pcend {
 						ordering: true,
 						order: [ [ 1, 'asc' ] ],
 						columns: [
-							{ data: 'amos_macro_cada_boto' },
-							{ data: 'amos_macro_cada_iden' },
+							{ data: 'amos_pcend_cada_boto' },
+							{ data: 'amos_pcend_cada_iden' },
 							{ data: 'amos_cada_emis', render: function(d) {
 								if ( d == '' ) {
 									return '';
@@ -117,14 +117,14 @@ export default class Pcend {
 							{ data: 'amos_cada_regi' },
 							{ data: 'amos_cada_orse' },
 							{ data: 'amos_cada_descr' },
-							{ data: 'amos_macro_cada_fina', render: function(d) {
+							{ data: 'amos_pcend_cada_fina', render: function(d) {
 								if ( d == 0 ) {
 									return 'NÃO';
 								} else if ( d == 1 ) {
 									return 'SIM';
 								};
 							} },
-							{ data: 'amos_macro_cada_result', render: function(d) {
+							{ data: 'amos_pcend_cada_result', render: function(d) {
 								if ( d == -1 ) {
 									return 'AGUARDANDO';
 								} else if ( d == 0 ) {
@@ -142,10 +142,10 @@ export default class Pcend {
 							{ data: 'mate_cada_descr', visible: false },
 							{ data: 'area_cada_descr', visible: false },
 							{ data: 'amos_cada_local', visible: false },
-							{ data: 'amos_macro_cada_qtde', visible: false },
-							{ data: 'amos_macro_cada_obs', visible: false },
-							{ data: 'amos_macro_cada_fina_data', visible: false },
-							{ data: 'amos_macro_cada_fina_usua_iden', visible: false },
+							{ data: 'amos_pcend_cada_qtde', visible: false },
+							{ data: 'amos_pcend_cada_obs', visible: false },
+							{ data: 'amos_pcend_cada_fina_data', visible: false },
+							{ data: 'amos_pcend_cada_fina_usua_iden', visible: false },
 							{ data: 'amos_cada_iden', visible: false },
 							{ data: 'amos_cada_tenan', visible: false },
 							{ data: 'amos_cada_empre', visible: false },
@@ -183,13 +183,13 @@ export default class Pcend {
 							},
 						},
 						createdRow: function( row, data, dataIndex ) {
-							if ( data[ 'amos_macro_cada_result' ] == 0 ) {
+							if ( data[ 'amos_pcend_cada_result' ] == 0 ) {
 								$( row ).addClass( 'bg-danger' );
-							} else if ( data[ 'amos_macro_cada_result' ] == 1 ) {
+							} else if ( data[ 'amos_pcend_cada_result' ] == 1 ) {
 								$( row ).addClass( 'bg-warning' );
-							} else if ( data[ 'amos_macro_cada_result' ] == 2 ) {
+							} else if ( data[ 'amos_pcend_cada_result' ] == 2 ) {
 								$( row ).addClass( 'bg-info' );
-							} else if ( data[ 'amos_macro_cada_result' ] == 3 ) {
+							} else if ( data[ 'amos_pcend_cada_result' ] == 3 ) {
 								$( row ).addClass( 'bg-success' );
 							};
 						},
@@ -408,10 +408,10 @@ export default class Pcend {
 					usua_cada_empre: Core.Pcend.GetDataTablePcend( '#TablePcend', vLinha, 'amos_cada_empre' ),
 				  } }, '../../Laboratorio/Pcend/GetUsuaPcend/', function( Resposta ){
 				  	Core.SetSele2( $( '#ExcutPcend' ), Resposta.registros, function(){
-						if ( Core.Pcend.GetDataTablePcend( '#TablePcend', vLinha, 'amos_macro_cada_fina' ) == 1 ){
+						if ( Core.Pcend.GetDataTablePcend( '#TablePcend', vLinha, 'amos_pcend_cada_fina' ) == 1 ){
 							$( ResObjPai ).find( '#SalvPcend' ).css( { 'display':'none' } );
 						};
-						$( ResObjPai ).find( '#IdenPcend' ).val( Core.Pcend.GetDataTablePcend( '#TablePcend', vLinha, 'amos_macro_cada_iden' ) );
+						$( ResObjPai ).find( '#IdenPcend' ).val( Core.Pcend.GetDataTablePcend( '#TablePcend', vLinha, 'amos_pcend_cada_iden' ) );
 						$( ResObjPai ).find( '#EmisPcend' ).val( Core.Data( Core.Pcend.GetDataTablePcend( '#TablePcend', vLinha, 'amos_cada_emis' ) ).format('L') );
 						$( ResObjPai ).find( '#RGPcend' ).val( Core.Pcend.GetDataTablePcend( '#TablePcend', vLinha, 'amos_cada_regi' ) );
 						$( ResObjPai ).find( '#OSPcend' ).val( Core.Pcend.GetDataTablePcend( '#TablePcend', vLinha, 'amos_cada_orse' ) );
@@ -421,19 +421,19 @@ export default class Pcend {
 						$( ResObjPai ).find( '#AreaPcend' ).val( Core.Pcend.GetDataTablePcend( '#TablePcend', vLinha, 'area_cada_descr' ) );
 						$( ResObjPai ).find( '#DescrPcend' ).val( Core.Pcend.GetDataTablePcend( '#TablePcend', vLinha, 'amos_cada_descr' ) );
 						$( ResObjPai ).find( '#LocaPcend' ).val( Core.Pcend.GetDataTablePcend( '#TablePcend', vLinha, 'amos_cada_local' ) );
-						$( ResObjPai ).find( '#ResulPcend' ).val( Core.Pcend.GetDataTablePcend( '#TablePcend', vLinha, 'amos_macro_cada_result' ) ).trigger( 'change' );
-						$( ResObjPai ).find( '#QtdePcend' ).val( Core.Pcend.GetDataTablePcend( '#TablePcend', vLinha, 'amos_macro_cada_qtde' ) );
+						$( ResObjPai ).find( '#ResulPcend' ).val( Core.Pcend.GetDataTablePcend( '#TablePcend', vLinha, 'amos_pcend_cada_result' ) ).trigger( 'change' );
+						$( ResObjPai ).find( '#QtdePcend' ).val( Core.Pcend.GetDataTablePcend( '#TablePcend', vLinha, 'amos_pcend_cada_qtde' ) );
 						Core.SetMask( $( ResObjPai ).find( '#QtdePcend' ), 'INTEIRO' );
-						$( ResObjPai ).find( '#ObsePcend' ).val( Core.Pcend.GetDataTablePcend( '#TablePcend', vLinha, 'amos_macro_cada_obs' ) )
+						$( ResObjPai ).find( '#ObsePcend' ).val( Core.Pcend.GetDataTablePcend( '#TablePcend', vLinha, 'amos_pcend_cada_obs' ) )
 						$( ResObjPai ).find( '#FinaPcend' ).prop( 'checked', false );
-						if ( Core.Pcend.GetDataTablePcend( '#TablePcend', vLinha, 'amos_macro_cada_fina' ) == 1 ){
+						if ( Core.Pcend.GetDataTablePcend( '#TablePcend', vLinha, 'amos_pcend_cada_fina' ) == 1 ){
 							$( ResObjPai ).find( '#FinaPcend' ).prop( 'checked', true );
 						};
 						$( ResObjPai ).find( '#DatFinaPcend' ).val( '' );
 						$( ResObjPai ).find( '#ExcutPcend' ).val( '0' );
 						if ( $( ResObjPai ).find( '#FinaPcend' ).is(':checked') ) {
-							$( ResObjPai ).find( '#DatFinaPcend' ).val( Core.Data( Core.Pcend.GetDataTablePcend( '#TablePcend', vLinha, 'amos_macro_cada_fina_data' )).format('L') );
-							$( ResObjPai ).find( '#ExcutPcend' ).val( Core.Pcend.GetDataTablePcend( '#TablePcend', vLinha, 'amos_macro_cada_fina_usua_iden' ) ).trigger( 'change' );
+							$( ResObjPai ).find( '#DatFinaPcend' ).val( Core.Data( Core.Pcend.GetDataTablePcend( '#TablePcend', vLinha, 'amos_pcend_cada_fina_data' )).format('L') );
+							$( ResObjPai ).find( '#ExcutPcend' ).val( Core.Pcend.GetDataTablePcend( '#TablePcend', vLinha, 'amos_pcend_cada_fina_usua_iden' ) ).trigger( 'change' );
 							$( ResObjPai ).find( '#DatFinaPcend' ).prop('disabled', false);
 							$( ResObjPai ).find( '#ExcutPcend' ).prop('disabled', false);
 							$( ResObjPai ).find( '#DatFinaPcend' ).attr( 'data-obriga', 'S' );

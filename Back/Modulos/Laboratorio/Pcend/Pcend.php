@@ -1,5 +1,5 @@
 <?php
-	namespace Back\Modulos\Laboratorio\Dureza;
+	namespace Back\Modulos\Laboratorio\Pcend;
 
 	use Back\Core\Core;
 	use Back\Modulos\Comum\Tenant\Tenant;
@@ -15,14 +15,14 @@
 	use PDOException;
 	
 	/**
- 	 * Esta classe contendo rotinas Dureza
- 	 * Todas as requisições Dureza passam por aqui, são tratadas
+ 	 * Esta classe contendo rotinas Pof. Camada Endurecida
+ 	 * Todas as requisições Pof. Camada Endurecida passam por aqui, são tratadas
  	 * e redirecionadas para o seu destino.
  	 *
- 	 * @package    Dureza
+ 	 * @package    Pcend
  	 * @author     Alexandre Farinelli Zardo
  	*/
-	final class Dureza {
+	final class Pcend {
 		/**
 	 	 * Armazena a coneção com o banco de dados.
 	 	 *
@@ -46,12 +46,12 @@
 	 	 * @access public
 	 	*/
 		public static function Inicia(){
-			include_once( 'Dureza.sql.php' );
+			include_once( 'Pcend.sql.php' );
 
-			self::$RotSql[ 'GetRegDure' ] = $GetRegDure;
+			self::$RotSql[ 'GetRegPcend' ] = $GetRegPcend;
 			
-			self::$RotSql[ 'InstRegDure' ] = $InstRegDure;
-			self::$RotSql[ 'UpdtRegDure' ] = $UpdtRegDure;
+			self::$RotSql[ 'InstRegPcend' ] = $InstRegPcend;
+			self::$RotSql[ 'UpdtRegPcend' ] = $UpdtRegPcend;
 
 			self::$Conn = Core::Conecta();
 		}
@@ -64,7 +64,7 @@
 		 * @return mixed
 	 	 * @access public
 	 	*/
-		public static function GetTenanDure( $Parametros = array() ){
+		public static function GetTenanPcend( $Parametros = array() ){
 			$vStatSess = json_decode( Core::Sessao()::Chk( 'usua_cada_iden' ), true );
 			if ( $vStatSess[ 'status' ] == 'aberto' ) {
 				return Tenant::GetRegTenanTerce( $Parametros );
@@ -81,7 +81,7 @@
 		 * @return mixed
 	 	 * @access public
 	 	*/
-		public static function GetEmpreDure( $Parametros = array() ){
+		public static function GetEmprePcend( $Parametros = array() ){
 			$vStatSess = json_decode( Core::Sessao()::Chk( 'usua_cada_iden' ), true );
 			if ( $vStatSess[ 'status' ] == 'aberto' ) {
 				return Empresas::GetEmpreTerce( $Parametros );
@@ -98,7 +98,7 @@
 		 * @return mixed
 	 	 * @access public
 	 	*/
-		public static function GetClieDure( $Parametros = array() ){
+		public static function GetCliePcend( $Parametros = array() ){
 			$vStatSess = json_decode( Core::Sessao()::Chk( 'usua_cada_iden' ), true );
 			if ( $vStatSess[ 'status' ] == 'aberto' ) {
 				return Clientes::GetRegClieTerce( $Parametros );
@@ -115,7 +115,7 @@
 		 * @return mixed
 	 	 * @access public
 	 	*/
-		public static function GetFabrDure( $Parametros = array() ){
+		public static function GetFabrPcend( $Parametros = array() ){
 			$vStatSess = json_decode( Core::Sessao()::Chk( 'usua_cada_iden' ), true );
 			if ( $vStatSess[ 'status' ] == 'aberto' ) {
 				return Fabricantes::GetRegFabrTerce( $Parametros );
@@ -132,7 +132,7 @@
 		 * @return mixed
 	 	 * @access public
 	 	*/
-		public static function GetMateDure( $Parametros = array() ){
+		public static function GetMatePcend( $Parametros = array() ){
 			$vStatSess = json_decode( Core::Sessao()::Chk( 'usua_cada_iden' ), true );
 			if ( $vStatSess[ 'status' ] == 'aberto' ) {
 				return Materiais::GetRegMateTerce( $Parametros );
@@ -149,7 +149,7 @@
 		 * @return mixed
 	 	 * @access public
 	 	*/
-		public static function GetAreaDure( $Parametros = array() ){
+		public static function GetAreaPcend( $Parametros = array() ){
 			$vStatSess = json_decode( Core::Sessao()::Chk( 'usua_cada_iden' ), true );
 			if ( $vStatSess[ 'status' ] == 'aberto' ) {
 				return Areas::GetRegAreaTerce( $Parametros );
@@ -166,7 +166,7 @@
 		 * @return mixed
 	 	 * @access public
 	 	*/
-		 public static function GetUsuaDure( $Parametros = array() ){
+		 public static function GetUsuaPcend( $Parametros = array() ){
 			$vStatSess = json_decode( Core::Sessao()::Chk( 'usua_cada_iden' ), true );
 			if ( $vStatSess[ 'status' ] == 'aberto' ) {
 				return Usuarios::GetRegUsuaTerce( $Parametros );
@@ -183,10 +183,10 @@
 		 * @return mixed
 	 	 * @access public
 	 	*/
-		public static function GetDure( $Parametros = array() ){
+		public static function GetPcend( $Parametros = array() ){
 			$vStatSess = json_decode( Core::Sessao()::Chk( 'usua_cada_iden' ), true );
 			if ( $vStatSess[ 'status' ] == 'aberto' ) {
-				Dureza::Inicia();
+				Pcend::Inicia();
 
 				if ( $Parametros[ 'amos_cada_tenan' ] == 0 || $Parametros[ 'amos_cada_tenan' ] == '' ){
 					$Parametros[ 'amos_cada_tenan' ] = '%%';
@@ -211,7 +211,7 @@
 				try {
 					self::$Conn->beginTransaction();
 
-					$GetRegDure = str_replace(
+					$GetRegPcend = str_replace(
 						':FILTRO',
 						'( amos_cada_regi LIKE :amos_cada_regi ) AND
 						 ( amos_cada_orse LIKE :amos_cada_orse ) AND
@@ -222,12 +222,12 @@
 						 ( amos_cada_area_iden LIKE :amos_cada_area_iden ) AND
 						 ( amos_cada_tenan LIKE :amos_cada_tenan ) AND
 						 ( amos_cada_empre LIKE :amos_cada_empre ) AND
-						 ( amos_dure_cada_fina LIKE :amos_dure_cada_fina OR
-						   amos_dure_cada_fina IS NULL )',
-						self::$RotSql[ 'GetRegDure' ]
+						 ( amos_pcend_cada_fina LIKE :amos_pcend_cada_fina OR
+						   amos_pcend_cada_fina IS NULL )',
+						self::$RotSql[ 'GetRegPcend' ]
 					);
 
-					$Prepara = self::$Conn->prepare( $GetRegDure );
+					$Prepara = self::$Conn->prepare( $GetRegPcend );
 
 					$Prepara->bindValue( ':amos_cada_regi', $Parametros[ 'amos_cada_regi' ] );
 					$Prepara->bindValue( ':amos_cada_orse', $Parametros[ 'amos_cada_orse' ] );
@@ -238,7 +238,7 @@
 					$Prepara->bindValue( ':amos_cada_area_iden', $Parametros[ 'amos_cada_area_iden' ] );
 					$Prepara->bindValue( ':amos_cada_tenan', $Parametros[ 'amos_cada_tenan' ] );
 					$Prepara->bindValue( ':amos_cada_empre', $Parametros[ 'amos_cada_empre' ] );
-					$Prepara->bindValue( ':amos_dure_cada_fina', $Parametros[ 'amos_dure_cada_fina' ] );
+					$Prepara->bindValue( ':amos_pcend_cada_fina', $Parametros[ 'amos_pcend_cada_fina' ] );
 
 					$Prepara->execute();
 				
@@ -249,65 +249,55 @@
 					$Retorno = array_map( function( $input ) {
 						$Botao = '';
 						$Figura = 'fas fa-eye';
-						if ( isset( $input['amos_dure_cada_boto'] ) == false){
+						if ( isset( $input['amos_pcend_cada_boto'] ) == false){
 							
-							if ( $input['amos_dure_cada_fina'] == 0 ){
+							if ( $input['amos_pcend_cada_fina'] == 0 ){
 								$Figura = 'fas fa-edit';
 							};
 							
 							$Botao = $Botao.'
-								<button id="EditBtnDure" type="button" class="btn btn-secondary" title="ALTERAR"><i class="'.$Figura.'"></i></button>
-								<button id="ImprBtnDure" type="button" class="btn btn-success" title="IMPRIMIR"><i class="fas fa-print"></i></button>
+								<button id="EditBtnPcend" type="button" class="btn btn-secondary" title="ALTERAR"><i class="'.$Figura.'"></i></button>
+								<button id="ImprBtnPcend" type="button" class="btn btn-success" title="IMPRIMIR"><i class="fas fa-print"></i></button>
 							';
 						};
 						
 						return array(
-							'amos_dure_cada_boto' => $Botao,
+							'amos_pcend_cada_boto' => $Botao,
 							'amos_cada_iden' => $input['amos_cada_iden'],
 							'amos_cada_regi' => $input['amos_cada_regi'],
 							'amos_cada_orse' => $input['amos_cada_orse'],
 							'clie_cada_nome' => $input['clie_cada_nome'],
 							'fabr_cada_nome' => $input['fabr_cada_nome'],
 							'mate_cada_descr' => $input['mate_cada_descr'],
-							'mate_cada_dure' => $input['mate_cada_dure'],
-							'mate_cada_dure_super' => $input['mate_cada_dure_super'],
-							'mate_cada_dure_nucle' => $input['mate_cada_dure_nucle'],
 							'area_cada_descr' => $input['area_cada_descr'],
 							'amos_cada_emis' => $input['amos_cada_emis'],
 							'amos_cada_descr' => $input['amos_cada_descr'],
 							'amos_cada_local' => $input['amos_cada_local'],
 							'amos_cada_tenan' => $input['amos_cada_tenan'],
 							'amos_cada_empre' => $input['amos_cada_empre'],
-							'amos_dure_cada_iden' => $input['amos_dure_cada_iden'],
-							'amos_dure_cada_qtde' => $input['amos_dure_cada_qtde'],
-							'amos_dure_cada_result' => $input['amos_dure_cada_result'],
-							'amos_dure_cada_dure_espe' => $input['amos_dure_cada_dure_espe'],
-							'amos_dure_cada_dure_obti' => $input['amos_dure_cada_dure_obti'],
-							'amos_dure_cada_vickers' => $input['amos_dure_cada_vickers'],
-							'amos_dure_cada_obs' => $input['amos_dure_cada_obs'],
-							'amos_dure_cada_espe_super' => $input['amos_dure_cada_espe_super'],
-							'amos_dure_cada_obti_super' => $input['amos_dure_cada_obti_super'],
-							'amos_dure_cada_espe_nucle' => $input['amos_dure_cada_espe_nucle'],
-							'amos_dure_cada_obti_nucle' => $input['amos_dure_cada_obti_nucle'],
-							'amos_dure_cada_fina' => $input['amos_dure_cada_fina'],
-							'amos_dure_cada_fina_data' => $input['amos_dure_cada_fina_data'],
-							'amos_dure_cada_fina_usua_iden' => $input['amos_dure_cada_fina_usua_iden'],
+							'amos_pcend_cada_iden' => $input['amos_pcend_cada_iden'],
+							'amos_pcend_cada_qtde' => $input['amos_pcend_cada_qtde'],
+							'amos_pcend_cada_result' => $input['amos_pcend_cada_result'],
+							'amos_pcend_cada_obs' => $input['amos_pcend_cada_obs'],
+							'amos_pcend_cada_fina' => $input['amos_pcend_cada_fina'],
+							'amos_pcend_cada_fina_data' => $input['amos_pcend_cada_fina_data'],
+							'amos_pcend_cada_fina_usua_iden' => $input['amos_pcend_cada_fina_usua_iden'],
 						);
 					}, $Retorno );
 					
 					return json_encode( array(
 						'sistema' => Core::config( 'system_apelido' ),
-						'modulo' => 'Dureza',
+						'modulo' => 'Camada Endurecida',
 						'status' => 'sucesso',
-						'descricao' => 'Resultado Pesquisa Dureza',
+						'descricao' => 'Resultado Pesquisa Camada Endurecida',
 						'listreg' => $Retorno,
 					));
 				} catch ( PDOException $e ) {
 					return json_encode( array(
 						'sistema' => Core::config( 'system_apelido' ),
-						'modulo' => 'Dureza',
+						'modulo' => 'Camada Endurecida',
 						'status' => 'invalido',
-						'descricao' => 'Pesquisa Dureza com erro </br> '.$e->getMessage(),
+						'descricao' => 'Pesquisa Camada Endurecida com erro </br> '.$e->getMessage(),
 						'listreg' => false,
 					));
 				};
@@ -324,19 +314,19 @@
 		 * @return integer Ultimo id
 		 * @access public
 		*/
-		public static function SetSalvDure( $Parametros = array() ){
+		public static function SetSalvPcend( $Parametros = array() ){
 			$vStatSess = json_decode( Core::Sessao()::Chk( 'usua_cada_iden' ), true );
 			if ( $vStatSess[ 'status' ] == 'aberto' ) {
 				$ParamVali = array(
 					'usua_aces_cada_usua_iden' => Core::Sessao()::Get( 'usua_cada_iden' ),
-					'usua_aces_cada_opca_iden' => 112,
+					'usua_aces_cada_opca_iden' => 102,
 				);
 
 				$PermiInclu = Core::Usuarios()::GetValiPermUsua( $ParamVali );
 				
 				$ParamVali = array(
 					'usua_aces_cada_usua_iden' => Core::Sessao()::Get( 'usua_cada_iden' ),
-					'usua_aces_cada_opca_iden' => 113,
+					'usua_aces_cada_opca_iden' => 103,
 				);
 				
 				$PermiAlter = Usuarios::GetValiPermUsua( $ParamVali );
@@ -348,56 +338,49 @@
 				if ( ( $PermiAlter[ 'status' ] == 'restrito' ) && ( $Parametros[ 'IdenDure' ] != 'Automatico' ) ){
 					return json_encode( $PermiAlter	);
 				};
-				Dureza::Inicia();
+				Pcend::Inicia();
 
 				try {
 					
-					if ( $Parametros[ 'IdenDure' ] == 'Automatico' ){
-						$Parametros[ 'IdenDure' ] = 0;
+					if ( $Parametros[ 'IdenPcend' ] == 'Automatico' ){
+						$Parametros[ 'IdenPcend' ] = 0;
 					};
 
 					self::$Conn->beginTransaction();
 
-					if ( $Parametros[ 'IdenDure' ] == 0 ){
-						$descricao = 'Inclusão de Dureza';
-						$Prepara = self::$Conn->prepare( self::$RotSql[ 'InstRegDure' ] );
+					if ( $Parametros[ 'IdenPcend' ] == 0 ){
+						$descricao = 'Inclusão de Camada Endurecida';
+						$Prepara = self::$Conn->prepare( self::$RotSql[ 'InstRegPcend' ] );
 					} else {
-						$descricao = 'Alteração de Dureza';
-						$Prepara = self::$Conn->prepare( self::$RotSql[ 'UpdtRegDure' ] );
-						$Prepara->bindValue( ':amos_dure_cada_iden', $Parametros[ 'IdenDure' ] );
+						$descricao = 'Alteração de Camada Endurecida';
+						$Prepara = self::$Conn->prepare( self::$RotSql[ 'UpdtRegPcend' ] );
+						$Prepara->bindValue( ':amos_pcend_cada_iden', $Parametros[ 'IdenPcend' ] );
 					};
 
-					$Prepara->bindValue( ':amos_dure_cada_amos_iden', $Parametros[ 'IdenAmos' ] );
-					$Prepara->bindValue( ':amos_dure_cada_qtde', str_replace( '.', '', $Parametros[ 'QtdeDure' ] ) );
-					$Prepara->bindValue( ':amos_dure_cada_result', $Parametros[ 'ResulDure' ] );
-					$Prepara->bindValue( ':amos_dure_cada_vickers', $Parametros[ 'VickersDure' ] );
-					$Prepara->bindValue( ':amos_dure_cada_dure_espe', $Parametros[ 'EspeDure' ] );
-					$Prepara->bindValue( ':amos_dure_cada_dure_obti', $Parametros[ 'ObitDure' ] );
-					$Prepara->bindValue( ':amos_dure_cada_espe_super', $Parametros[ 'EspeSuperDure' ] );
-					$Prepara->bindValue( ':amos_dure_cada_obti_super', $Parametros[ 'ObitSuperDure' ] );
-					$Prepara->bindValue( ':amos_dure_cada_espe_nucle', $Parametros[ 'EspeNucleDure' ] );
-					$Prepara->bindValue( ':amos_dure_cada_obti_nucle', $Parametros[ 'ObitNucleDure' ] );
-					$Prepara->bindValue( ':amos_dure_cada_obs',  Core::UpperCase( $Parametros[ 'ObseDure' ] ) );
-					$Prepara->bindValue( ':amos_dure_cada_fina', str_replace( array( 'false', 'true' ), array( '0', '1' ), $Parametros[ 'FinaDure' ] ) );
+					$Prepara->bindValue( ':amos_pcend_cada_amos_iden', $Parametros[ 'IdenAmos' ] );
+					$Prepara->bindValue( ':amos_pcend_cada_qtde', str_replace( '.', '', $Parametros[ 'QtdePcend' ] ) );
+					$Prepara->bindValue( ':amos_pcend_cada_result', $Parametros[ 'ResulPcend' ] );
+					$Prepara->bindValue( ':amos_pcend_cada_obs',  Core::UpperCase( $Parametros[ 'ObsePcend' ] ) );
+					$Prepara->bindValue( ':amos_pcend_cada_fina', str_replace( array( 'false', 'true' ), array( '0', '1' ), $Parametros[ 'FinaPcend' ] ) );
 
-					if ( $Parametros[ 'FinaDure' ] == 'true' ){
-						$Prepara->bindValue( ':amos_dure_cada_fina_data', Core::GetDataMariaDb( $Parametros[ 'DatFinaDure' ] ) );
-						$Prepara->bindValue( ':amos_dure_cada_fina_usua_iden', $Parametros[ 'ExcutDure' ] );
+					if ( $Parametros[ 'FinaPcend' ] == 'true' ){
+						$Prepara->bindValue( ':amos_pcend_cada_fina_data', Core::GetDataMariaDb( $Parametros[ 'DatFinaPcend' ] ) );
+						$Prepara->bindValue( ':amos_pcend_cada_fina_usua_iden', $Parametros[ 'ExcutPcend' ] );
 					} else {
-						$Prepara->bindValue( ':amos_dure_cada_fina_data', 'NULL' );
-						$Prepara->bindValue( ':amos_dure_cada_fina_usua_iden', 'NULL' );
+						$Prepara->bindValue( ':amos_pcend_cada_fina_data', 'NULL' );
+						$Prepara->bindValue( ':amos_pcend_cada_fina_usua_iden', 'NULL' );
 					}
 					$Prepara->execute();
 					
-					if ( $descricao == 'Inclusão de Dureza' ){
+					if ( $descricao == 'Inclusão de Camada Endurecida' ){
 						$Retorno = self::$Conn->lastInsertId().' incluido';
-						$Parametros[ 'IdenDure' ] = self::$Conn->lastInsertId();
+						$Parametros[ 'IdenPcend' ] = self::$Conn->lastInsertId();
 					} else {
-						$Retorno = $Parametros[ 'IdenDure' ].' alterado';
+						$Retorno = $Parametros[ 'IdenPcend' ].' alterado';
 					};
 
 
-					$RetorAnexos = Anexos::SetSalvAnex( $Parametros[ 'AnexosDure' ], $Parametros[ 'anexo_ensa_tabe' ], $Parametros[ 'IdenDure' ], self::$Conn );
+					$RetorAnexos = Anexos::SetSalvAnex( $Parametros[ 'AnexosPcend' ], $Parametros[ 'anexo_ensa_tabe' ], $Parametros[ 'IdenPcend' ], self::$Conn );
 
 					self::$Conn->commit();
 
@@ -408,7 +391,7 @@
 
 						return json_encode( array(
 							'sistema' => Core::config( 'system_apelido' ),
-							'modulo' => 'Dureza',
+							'modulo' => 'Camada Endurecida',
 							'status' => $status,
 							'descricao' => $descricao,
 							'listreg' => $listreg,
@@ -419,9 +402,9 @@
 				} catch ( PDOException $e ) {
 					return json_encode( array(
 						'sistema' => Core::config( 'system_apelido' ),
-						'modulo' => 'Dureza',
+						'modulo' => 'Camada Endurecida',
 						'status' => 'invalido',
-						'descricao' => 'Manutenção de Dureza com erro </br> '.$e->getMessage(),
+						'descricao' => 'Manutenção de Camada Endurecida com erro </br> '.$e->getMessage(),
 						'listreg' => false,
 					));
 				};
@@ -438,10 +421,10 @@
 		 * @return integer Ultimo id
 		 * @access public
 		*/
-		public static function SetImpreDure( $Parametros = array() ){
+		public static function SetImprePcend( $Parametros = array() ){
 			$vStatSess = json_decode( Core::Sessao()::Chk( 'usua_cada_iden' ), true );
 			if ( $vStatSess[ 'status' ] == 'aberto' ) {
-				Dureza::Inicia();
+				Pcend::Inicia();
 
 				try{
 					self::$Conn->beginTransaction();
@@ -449,11 +432,11 @@
 					$GetRegMeta = str_replace(
 						':FILTRO',
 						'( amos_cada_iden = :amos_cada_iden )', 
-						self::$RotSql[ 'GetRegDure' ]
+						self::$RotSql[ 'GetRegPcend' ]
 					);
 					
 					$Prepara = self::$Conn->prepare( $GetRegMeta );
-					$Prepara->bindValue( ':amos_cada_iden', $Parametros[ 'IdenDure' ] );
+					$Prepara->bindValue( ':amos_cada_iden', $Parametros[ 'IdenPcend' ] );
 					
 					$Prepara->execute();
 
@@ -464,7 +447,7 @@
         					<tr>
           						<td width="100" height="100" align="center"></td>
 	          					<td width="580" align="center">
-    	        					<span style="font-size: 15pt"><b> DUREZA </b></span>
+    	        					<span style="font-size: 15pt"><b> PROFUNDIDADE CAMADA ENDURECIDA </b></span>
         	  					</td>
               				</tr>
 							<tr>
@@ -475,25 +458,19 @@
       					</table>
 					';
 					
-					$amos_dure_cada_vickers = str_replace(
-						array( 0, 1, 2 ), 
-						array( 'NENHUM', 'ENSAIO DUREZA VICKERS', 'ENSAIO MICRODUREZA VICKERS' ),
-						$Retorno[0]['amos_dure_cada_vickers']
-					);
+					$amos_pcend_cada_result = '';
 
-					$amos_dure_cada_result = '';
-
-					if ( $Retorno[0]['amos_dure_cada_result'] != -1 ){
-						$amos_dure_cada_result = str_replace(
+					if ( $Retorno[0]['amos_pcend_cada_result'] != -1 ){
+						$amos_pcend_cada_result = str_replace(
 							array( 0, 1, 2, 3 ), 
 							array( 'REPROVADO', 'INFORMATIVO', 'TOLERAVEL', 'APROVADO' ),
-							$Retorno[0]['amos_dure_cada_result']
+							$Retorno[0]['amos_pcend_cada_result']
 						);
 					};
 
-					$amos_dure_cada_fina_data = '';
-					if ( $Retorno[0]['amos_dure_cada_fina_data'] != '' && $Retorno[0]['amos_dure_cada_fina_data'] != '0000-00-00 00:00:00' ){
-						$amos_dure_cada_fina_data = date( Core::config( 'date_format' ), strtotime( $Retorno[0]['amos_dure_cada_fina_data'] ) );
+					$amos_pcend_cada_fina_data = '';
+					if ( $Retorno[0]['amos_pcend_cada_fina_data'] != '' && $Retorno[0]['amos_pcend_cada_fina_data'] != '0000-00-00 00:00:00' ){
+						$amos_pcend_cada_fina_data = date( Core::config( 'date_format' ), strtotime( $Retorno[0]['amos_pcend_cada_fina_data'] ) );
 					};
 
 					$Corpo = '
@@ -517,33 +494,9 @@
 						<br>
 						<table border="1" cellpadding="1" style="border-collapse: collapse; font-size: 10pt">		
 							<tr>
-								<td width="264"> <b>Ensaio Vickers: </b>'.$amos_dure_cada_vickers.'</td>
-								<td width="190"> <b>Quantidade: </b>'.$Retorno[0]['amos_dure_cada_qtde'].'</td>
-								<td width="226" align="center" style="background-color:#d5d6d8;"> <b>Dureza: </b>'.$amos_dure_cada_result.'</td>
-							</tr>
-						</table>
-						<br>
-						<br>
-						<table border="1" cellpadding="1" style="border-collapse: collapse; font-size: 10pt">		
-							<tr>
-								<td width="340"> <b>Especificado: </b>'.$Retorno[0]['amos_dure_cada_dure_espe'].'</td>
-								<td width="340"> <b>Obtido: </b>'.$Retorno[0]['amos_dure_cada_dure_obti'].'</td>
-							</tr>
-						</table>
-						<br>
-						<br>
-						<table border="1" cellpadding="1" style="border-collapse: collapse; font-size: 10pt">		
-							<tr>
-								<td width="340"> <b>Especificado D. Superficie: </b>'.$Retorno[0]['amos_dure_cada_espe_super'].'</td>
-								<td width="340"> <b>Obtido D. Superficie: </b>'.$Retorno[0]['amos_dure_cada_obti_super'].'</td>
-							</tr>
-						</table>
-						<br>
-						<br>
-						<table border="1" cellpadding="1" style="border-collapse: collapse; font-size: 10pt">		
-							<tr>
-								<td width="340"> <b>Especificado D. Nucleo: </b>'.$Retorno[0]['amos_dure_cada_espe_nucle'].'</td>
-								<td width="340"> <b>Obtido D. Nucleo: </b>'.$Retorno[0]['amos_dure_cada_obti_nucle'].'</td>
+								<td width="264"></td>
+								<td width="190"> <b>Quantidade: </b>'.$Retorno[0]['amos_pcend_cada_qtde'].'</td>
+								<td width="226" align="center" style="background-color:#d5d6d8;"> <b>Camada Endurecida: </b>'.$amos_pcend_cada_result.'</td>
 							</tr>
 						</table>
 						<br>
@@ -564,7 +517,7 @@
 								<td width="680" style="height:97px">
 									 <b>Observação</b>
 									<br>
-									 '.nl2br( $Retorno[0]['amos_dure_cada_obs'] ).'
+									 '.nl2br( $Retorno[0]['amos_pcend_cada_obs'] ).'
 								</td>
 							</tr>
 						</table>
@@ -572,8 +525,8 @@
 						<br>
 						<table border="1" cellpadding="1" style="border-collapse: collapse; font-size: 10pt">
 							<tr>
-								<td width="125"> <b>Finalizado ?: </b>'.str_replace( array( 0, 1 ), array( 'NÃO', 'SIM' ), $Retorno[0]['amos_dure_cada_fina'] ).'</td>
-								<td width="180"> <b>Finalizado Em: </b>'.$amos_dure_cada_fina_data.'</td>
+								<td width="125"> <b>Finalizado ?: </b>'.str_replace( array( 0, 1 ), array( 'NÃO', 'SIM' ), $Retorno[0]['amos_pcend_cada_fina'] ).'</td>
+								<td width="180"> <b>Finalizado Em: </b>'.$amos_pcend_cada_fina_data.'</td>
 								<td width="375"> <b>Realizado Por: </b>'.$Retorno[0]['usua_cada_nome'].'</td>
 							</tr>
 						</table>
@@ -582,7 +535,7 @@
 					$listreg = Core::SetGeraPdf(
 						$Cabecalho,
 						$Corpo,
-						str_replace( array( 'Back\Modulos\Laboratorio\Dureza', 'Back/Modulos/Laboratorio/Dureza' ), '', __DIR__ ).'Imagem/'.$Retorno[0]['sis_para_logo'],
+						str_replace( array( 'Back\Modulos\Laboratorio\Pcend', 'Back/Modulos/Laboratorio/Pcend' ), '', __DIR__ ).'Imagem/'.$Retorno[0]['sis_para_logo'],
 						'P',
 						'SIMPLES',
 						array( 10, 40, 10, 5 )
@@ -590,17 +543,17 @@
 
 					return json_encode( array(
 						'sistema' => Core::config( 'system_apelido' ),
-						'modulo' => 'Dureza',
+						'modulo' => 'Camada Endurecida',
 						'status' => 'sucesso',
-						'descricao' => 'Impressão de Dureza',
+						'descricao' => 'Impressão de Camada Endurecida',
 						'listreg' => $listreg,
 					));
 				} catch ( PDOException $e ) {
 					return json_encode( array(
 						'sistema' => Core::config( 'system_apelido' ),
-						'modulo' => 'Dureza',
+						'modulo' => 'Camada Endurecida',
 						'status' => 'invalido',
-						'descricao' => 'Impressão de Dureza com erro </br> '.$e->getMessage(),
+						'descricao' => 'Impressão de Camada Endurecida com erro </br> '.$e->getMessage(),
 						'listreg' => false,
 					));
 				};
@@ -622,7 +575,7 @@
 				Core::GetExclArqu( $Parametros['ArquiExcl'] );
 				return json_encode( array(
 					'sistema' => Core::config( 'system_apelido' ),
-					'modulo' => 'Dureza',
+					'modulo' => 'Camada Endurecida',
 					'status' => 'sucesso',
 					'descricao' => 'Exclusão de Arquivo',
 					'listreg' => true,
@@ -630,7 +583,7 @@
 			} catch ( PDOException $e ) {
 				return json_encode( array(
 					'sistema' => Core::config( 'system_apelido' ),
-					'modulo' => 'Dureza',
+					'modulo' => 'Camada Endurecida',
 					'status' => 'invalido',
 					'descricao' => 'Exclusão de Arquivo com erro </br> '.$e->getMessage(),
 					'listreg' => false,

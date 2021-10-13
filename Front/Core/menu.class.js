@@ -210,12 +210,24 @@ export default class Menu {
 					 	DadosMenu['icone'] = 'fas fa-fill-drip';
 					 	DadosMenu['submenu'] = '';
 				 	};
-					if ( ( ( vRespAjax.registros[i].usua_aces_cada_opca_iden == 127 ) || 
-					 	   ( vRespAjax.registros[i].usua_aces_cada_opca_iden == 128 ) ||
-					   	   ( vRespAjax.registros[i].usua_aces_cada_opca_iden == 129 ) ||
-					  	   ( vRespAjax.registros[i].usua_aces_cada_opca_iden == 130 ) ) &&
+					if ( ( ( vRespAjax.registros[i].usua_aces_cada_opca_iden == 131 ) || 
+					 	   ( vRespAjax.registros[i].usua_aces_cada_opca_iden == 132 ) ||
+					   	   ( vRespAjax.registros[i].usua_aces_cada_opca_iden == 133 ) ||
+					  	   ( vRespAjax.registros[i].usua_aces_cada_opca_iden == 134 ) ) &&
 					 	 ( vRespAjax.registros[i].usua_aces_cada_opca_stat == 1 ) ) {
 				  		DadosMenu['ordem'] = 6;
+				  		DadosMenu['menu'] = '#Quimico';
+				   		DadosMenu['href'] = '#quimico';
+						DadosMenu['html'] = 'Quimíco';
+				   		DadosMenu['icone'] = 'fas fa-vials';
+				   		DadosMenu['submenu'] = '';
+			   		};
+					if ( ( ( vRespAjax.registros[i].usua_aces_cada_opca_iden == 127 ) || 
+					 		( vRespAjax.registros[i].usua_aces_cada_opca_iden == 128 ) ||
+					   		( vRespAjax.registros[i].usua_aces_cada_opca_iden == 129 ) ||
+					  		( vRespAjax.registros[i].usua_aces_cada_opca_iden == 130 ) ) &&
+					 	  ( vRespAjax.registros[i].usua_aces_cada_opca_stat == 1 ) ) {
+				  		DadosMenu['ordem'] = 7;
 				  		DadosMenu['menu'] = '#Pcend';
 				   		DadosMenu['href'] = '#pcend';
 						DadosMenu['html'] = 'P. Camada Endurecida';
@@ -227,7 +239,7 @@ export default class Menu {
 					  	   ( vRespAjax.registros[i].usua_aces_cada_opca_iden == 93 ) ||
 	 					   ( vRespAjax.registros[i].usua_aces_cada_opca_iden == 94 ) ) &&
 						 ( vRespAjax.registros[i].usua_aces_cada_opca_stat == 1 ) ) {
-						DadosMenu['ordem'] = 7;
+						DadosMenu['ordem'] = 8;
 						DadosMenu['menu'] = '#Metalografia';
 					 	DadosMenu['href'] = '#metalografia';
 					  	DadosMenu['html'] = 'Metalográfico';
@@ -239,7 +251,7 @@ export default class Menu {
 					   		( vRespAjax.registros[i].usua_aces_cada_opca_iden == 125 ) ||
 					  		( vRespAjax.registros[i].usua_aces_cada_opca_iden == 126 ) ) &&
 					 	  ( vRespAjax.registros[i].usua_aces_cada_opca_stat == 1 ) ) {
-				  		DadosMenu['ordem'] = 8;
+				  		DadosMenu['ordem'] = 9;
 				  		DadosMenu['menu'] = '#Macrografia';
 				   		DadosMenu['href'] = '#macrografia';
 						DadosMenu['html'] = 'Macrografia';
@@ -251,7 +263,7 @@ export default class Menu {
 					   		( vRespAjax.registros[i].usua_aces_cada_opca_iden == 117 ) ||
 					  		( vRespAjax.registros[i].usua_aces_cada_opca_iden == 118 ) ) &&
 					 	  ( vRespAjax.registros[i].usua_aces_cada_opca_stat == 1 ) ) {
-				  		DadosMenu['ordem'] = 9;
+				  		DadosMenu['ordem'] = 10;
 				  		DadosMenu['menu'] = '#Dureza';
 				   		DadosMenu['href'] = '#dureza';
 						DadosMenu['html'] = 'Dureza';
@@ -263,7 +275,7 @@ export default class Menu {
 					  	   ( vRespAjax.registros[i].usua_aces_cada_opca_iden == 113 ) ||
 	 					   ( vRespAjax.registros[i].usua_aces_cada_opca_iden == 114 ) ) &&
 						 ( vRespAjax.registros[i].usua_aces_cada_opca_stat == 1 ) ) {
-						DadosMenu['ordem'] = 10;
+						DadosMenu['ordem'] = 11;
 						DadosMenu['menu'] = '#Dobramento';
 					 	DadosMenu['href'] = '#dobramento';
 					  	DadosMenu['html'] = 'Dobramento';
@@ -275,7 +287,7 @@ export default class Menu {
 					   		( vRespAjax.registros[i].usua_aces_cada_opca_iden == 121 ) ||
 					  		( vRespAjax.registros[i].usua_aces_cada_opca_iden == 122 ) ) &&
 					 	  ( vRespAjax.registros[i].usua_aces_cada_opca_stat == 1 ) ) {
-				  		DadosMenu['ordem'] = 11;
+				  		DadosMenu['ordem'] = 12;
 				  		DadosMenu['menu'] = '#Charpy';
 				   		DadosMenu['href'] = '#charpy';
 						DadosMenu['html'] = 'Charpy';
@@ -287,7 +299,7 @@ export default class Menu {
 					  	   ( vRespAjax.registros[i].usua_aces_cada_opca_iden == 103 ) ||
 	 					   ( vRespAjax.registros[i].usua_aces_cada_opca_iden == 104 ) ) &&
 						 ( vRespAjax.registros[i].usua_aces_cada_opca_stat == 1 ) ) {
-						DadosMenu['ordem'] = 12;
+						DadosMenu['ordem'] = 13;
 						DadosMenu['menu'] = '#Achatamento';
 					 	DadosMenu['href'] = '#achatamento';
 					  	DadosMenu['html'] = 'Achatamento/Expansão';
