@@ -203,7 +203,8 @@ export default class Dobramento {
 					vTabela.draw();
 				} else {
 					vTabela = $( vTabela ).DataTable();
-				};				
+				};
+				vTabela.columns.adjust();			
 				vResp ( vRespAjax );
 			}
 		);

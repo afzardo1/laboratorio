@@ -228,6 +228,29 @@
 						self::$RotSql[ 'GetRegAnex' ]
 					);
 				};
+				if ( $Parametros[ 'anexo_ensa_tabe' ] == 'QUIMICO' ){
+					$GetRegAnex =  str_replace(
+						array(
+							':CAMPOS_ANEXO',
+							':TABELA_ANEXO',
+							':FILTRO_ANEXO',
+							':ORDEM_ANEXO',
+						),
+						array(
+							'amos_quimi_anexo_cada_iden,
+							 amos_quimi_anexo_quimi_iden,
+							 amos_quimi_anexo_tipo,
+							 amos_quimi_anexo_descr,
+							 amos_quimi_anexo_arqui
+							',
+							'labo_amos_quimi_anexo_cada',
+							'amos_quimi_anexo_quimi_iden = :anexo_ensa_iden',
+							'amos_quimi_anexo_tipo DESC',
+						),
+						
+						self::$RotSql[ 'GetRegAnex' ]
+					);
+				};
 				try {
 					self::$Conn->beginTransaction();
 
@@ -374,6 +397,25 @@
 								3 => 'DescrAnexPcend',
 								4 => 'FileAnexPcend',
 								5 => 'FileAnexLabePcend',
+							);
+						};
+
+						if ( array_key_exists( 'amos_quimi_anexo_cada_iden', $input ) ) {
+							$Campos = array ( 
+								0 => 'amos_quimi_anexo_cada_iden',
+							 	1 => 'amos_quimi_anexo_quimi_iden',
+							 	2 => 'amos_quimi_anexo_tipo',
+							 	3 => 'amos_quimi_anexo_descr',
+							 	4 => 'amos_quimi_anexo_arqui'
+							);
+
+							$ItemName = array(
+								0 => 'DeleAnexBtnQuimi',
+								1 => 'DownAnexBtnQuimi',
+								2 => 'TipoAnexQuimi',
+								3 => 'DescrAnexQuimi',
+								4 => 'FileAnexQuimi',
+								5 => 'FileAnexLabeQuimi',
 							);
 						};
 
@@ -626,6 +668,30 @@
 								);
 							};
 
+							if ( $vEnsaTabe == 'QUIMICO' ){
+								$InstRegAnex = str_replace(
+									array(
+										':CAMPOS_ANEXO',
+										':TABELA_ANEXO',
+										':VALUE_CAMPOS_ANEXO',
+									),
+									array(
+										'amos_quimi_anexo_quimi_iden,
+										 amos_quimi_anexo_tipo,
+										 amos_quimi_anexo_descr,
+										 amos_quimi_anexo_arqui
+										',
+										'labo_amos_quimi_anexo_cada',
+										':anexo_ensa_iden,
+										 :anexo_tipo,
+										 :anexo_descr,
+										 :anexo_arqui
+										',
+									),
+									
+									self::$RotSql[ 'InstRegAnex' ]
+								);
+							};
 							$Prepara = $vConn->prepare( $InstRegAnex );
 						} else {
 							$descricao = 'Alteração de Anexos';
@@ -772,7 +838,26 @@
 										'labo_amos_pcend_anexo_cada',
 										'amos_pcend_anexo_cada_iden = :anexo_cada_iden',
 									),
-									
+									self::$RotSql[ 'UpdtRegAnex' ]
+								);
+							};
+
+							if ( $vEnsaTabe == 'QUIMICO' ){
+								$UpdtRegAnex = str_replace(
+									array(
+										':CAMPOS_ANEXO',
+										':TABELA_ANEXO',
+										':FILTRO_ANEXO',
+									),
+									array(
+										'amos_quimi_anexo_quimi_iden = :anexo_ensa_iden,
+										 amos_quimi_anexo_tipo = :anexo_tipo,
+										 amos_quimi_anexo_descr = :anexo_descr,
+										 amos_quimi_anexo_arqui = :anexo_arqui
+										',
+										'labo_amos_quimi_anexo_cada',
+										'amos_quimi_anexo_cada_iden = :anexo_cada_iden',
+									),
 									self::$RotSql[ 'UpdtRegAnex' ]
 								);
 							};
@@ -888,7 +973,20 @@
 											'labo_amos_pcend_anexo_cada',
 											'amos_pcend_anexo_cada_iden = :anexo_cada_iden',
 										),
-										
+										self::$RotSql[ 'DeleRegAnex' ]
+									);
+								};
+
+								if ( $vEnsaTabe == 'QUIMICO' ){
+									$DeleRegAnex = str_replace(
+										array(
+											':TABELA_ANEXO',
+											':FILTRO_ANEXO',
+										),
+										array(
+											'labo_amos_quimi_anexo_cada',
+											'amos_quimi_anexo_cada_iden = :anexo_cada_iden',
+										),
 										self::$RotSql[ 'DeleRegAnex' ]
 									);
 								};

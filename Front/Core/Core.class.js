@@ -62,6 +62,9 @@ import Metalografia from './metalografia.class.js';
 /*CARREGA CLASSE PCEND DO SISTEMA*/
 import Pcend from './pcend.class.js';
 
+/*CARREGA CLASSE QUIMICO DO SISTEMA*/
+import Quimico from './quimico.class.js';
+
 /**
  * Esta classe é a mais importante da API.
  * Todas as requisições passam por aqui, são tratadas
@@ -607,5 +610,16 @@ export default class Core {
 	*/
 	static get Anexos(){
 		return Anexos;
+	}
+
+	/**
+	 * Método de Quimico chama e instancia a classe
+	 * quimico.class
+	 * 
+	 * @return classe
+	 * @access public
+	*/
+	static get Quimico(){
+		return Quimico;
 	}
 };

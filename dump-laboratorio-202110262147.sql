@@ -551,6 +551,93 @@ INSERT INTO `labo_amos_pcend_cada` VALUES (6,9,1,2,'SASDASDASD',0,'0000-00-00 00
 UNLOCK TABLES;
 
 --
+-- Table structure for table `labo_amos_quimi_cada`
+--
+
+DROP TABLE IF EXISTS `labo_amos_quimi_cada`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `labo_amos_quimi_cada` (
+  `amos_quimi_cada_iden` bigint(20) NOT NULL AUTO_INCREMENT,
+  `amos_quimi_cada_amos_iden` bigint(20) DEFAULT NULL,
+  `amos_quimi_cada_qtde` int(2) DEFAULT NULL,
+  `amos_quimi_cada_result` int(2) DEFAULT NULL COMMENT '0-Reprovado\r\n1-Informativo\r\n2-Toleravel\r\n3-Aprovado',
+  `amos_quimi_cada_espe_C` varchar(80) DEFAULT NULL,
+  `amos_quimi_cada_obti_C` varchar(80) DEFAULT NULL,
+  `amos_quimi_cada_espe_Si` varchar(80) DEFAULT NULL,
+  `amos_quimi_cada_obti_Si` varchar(80) DEFAULT NULL,
+  `amos_quimi_cada_espe_Mn` varchar(80) DEFAULT NULL,
+  `amos_quimi_cada_obti_Mn` varchar(80) DEFAULT NULL,
+  `amos_quimi_cada_espe_P` varchar(80) DEFAULT NULL,
+  `amos_quimi_cada_obti_P` varchar(80) DEFAULT NULL,
+  `amos_quimi_cada_espe_S` varchar(80) DEFAULT NULL,
+  `amos_quimi_cada_obti_S` varchar(80) DEFAULT NULL,
+  `amos_quimi_cada_espe_Cr` varchar(80) DEFAULT NULL,
+  `amos_quimi_cada_obti_Cr` varchar(80) DEFAULT NULL,
+  `amos_quimi_cada_espe_Ni` varchar(80) DEFAULT NULL,
+  `amos_quimi_cada_obti_Ni` varchar(80) DEFAULT NULL,
+  `amos_quimi_cada_espe_Mo` varchar(80) DEFAULT NULL,
+  `amos_quimi_cada_obti_Mo` varchar(80) DEFAULT NULL,
+  `amos_quimi_cada_espe_Cu` varchar(80) DEFAULT NULL,
+  `amos_quimi_cada_obti_Cu` varchar(80) DEFAULT NULL,
+  `amos_quimi_cada_espe_Al` varchar(80) DEFAULT NULL,
+  `amos_quimi_cada_obti_Al` varchar(80) DEFAULT NULL,
+  `amos_quimi_cada_espe_Fe` varchar(80) DEFAULT NULL,
+  `amos_quimi_cada_obti_Fe` varchar(80) DEFAULT NULL,
+  `amos_quimi_cada_espe_V` varchar(80) DEFAULT NULL,
+  `amos_quimi_cada_obti_V` varchar(80) DEFAULT NULL,
+  `amos_quimi_cada_espe_Co` varchar(80) DEFAULT NULL,
+  `amos_quimi_cada_obti_Co` varchar(80) DEFAULT NULL,
+  `amos_quimi_cada_espe_Nb` varchar(80) DEFAULT NULL,
+  `amos_quimi_cada_obti_Nb` varchar(80) DEFAULT NULL,
+  `amos_quimi_cada_espe_Ti` varchar(80) DEFAULT NULL,
+  `amos_quimi_cada_obti_Ti` varchar(80) DEFAULT NULL,
+  `amos_quimi_cada_espe_W` varchar(80) DEFAULT NULL,
+  `amos_quimi_cada_obti_W` varchar(80) DEFAULT NULL,
+  `amos_quimi_cada_espe_Mg` varchar(80) DEFAULT NULL,
+  `amos_quimi_cada_obti_Mg` varchar(80) DEFAULT NULL,
+  `amos_quimi_cada_espe_Zn` varchar(80) DEFAULT NULL,
+  `amos_quimi_cada_obti_Zn` varchar(80) DEFAULT NULL,
+  `amos_quimi_cada_espe_Pb` varchar(80) DEFAULT NULL,
+  `amos_quimi_cada_obti_Pb` varchar(80) DEFAULT NULL,
+  `amos_quimi_cada_espe_Sb` varchar(80) DEFAULT NULL,
+  `amos_quimi_cada_obti_Sb` varchar(80) DEFAULT NULL,
+  `amos_quimi_cada_espe_Sn` varchar(80) DEFAULT NULL,
+  `amos_quimi_cada_obti_Sn` varchar(80) DEFAULT NULL,
+  `amos_quimi_cada_espe_Ca` varchar(80) DEFAULT NULL,
+  `amos_quimi_cada_obti_Ca` varchar(80) DEFAULT NULL,
+  `amos_quimi_cada_espe_Cl` varchar(80) DEFAULT NULL,
+  `amos_quimi_cada_obti_Cl` varchar(80) DEFAULT NULL,
+  `amos_quimi_cada_espe_N` varchar(80) DEFAULT NULL,
+  `amos_quimi_cada_obti_N` varchar(80) DEFAULT NULL,
+  `amos_quimi_cada_espe_Na` varchar(80) DEFAULT NULL,
+  `amos_quimi_cada_obti_Na` varchar(80) DEFAULT NULL,
+  `amos_quimi_cada_espe_Ceq` varchar(80) DEFAULT NULL,
+  `amos_quimi_cada_obti_Ceq` varchar(80) DEFAULT NULL,
+  `amos_quimi_cada_obs` blob DEFAULT NULL,
+  `amos_quimi_cada_fina` int(2) DEFAULT NULL,
+  `amos_quimi_cada_fina_data` timestamp NULL DEFAULT NULL COMMENT '0-Anexo\r\n1-Foto',
+  `amos_quimi_cada_fina_usua_iden` bigint(20) DEFAULT NULL,
+  PRIMARY KEY (`amos_quimi_cada_iden`),
+  KEY `amos_quimi_cada_FK` (`amos_quimi_cada_amos_iden`),
+  KEY `amos_quimi_cada_result_idx` (`amos_quimi_cada_result`) USING BTREE,
+  KEY `amos_quimi_cada_fina_data_idx` (`amos_quimi_cada_fina_data`) USING BTREE,
+  KEY `amos_quimi_cada_fina_usua_iden_idx` (`amos_quimi_cada_fina_usua_iden`) USING BTREE,
+  KEY `amos_quimi_cada_fina_idx` (`amos_quimi_cada_fina`) USING BTREE,
+  CONSTRAINT `amos_quimi_cada_FK` FOREIGN KEY (`amos_quimi_cada_amos_iden`) REFERENCES `labo_amos_cada` (`amos_cada_iden`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `labo_amos_quimi_cada`
+--
+
+LOCK TABLES `labo_amos_quimi_cada` WRITE;
+/*!40000 ALTER TABLE `labo_amos_quimi_cada` DISABLE KEYS */;
+/*!40000 ALTER TABLE `labo_amos_quimi_cada` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `labo_area_cada`
 --
 
@@ -912,4 +999,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-10-11 12:38:08
+-- Dump completed on 2021-10-26 21:47:51

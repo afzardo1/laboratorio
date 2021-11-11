@@ -22,7 +22,7 @@ $(document).ready(function( ) {
 				'amos_cada_area_iden': $( '#FiltAreQuimi' ).val(),
 				'amos_cada_tenan': $( '#FiltTenanQuimi' ).val(),
 				'amos_cada_empre': $( '#FiltEmpreQuimi' ).val(),
-				'amos_pcend_cada_fina': '%' + $( '#StatQuimi' ).val() + '%',
+				'amos_quimi_cada_fina': '%' + $( '#StatQuimi' ).val() + '%',
             }
         }, function( vRespLogi ){
             if ( vRespLogi.status != 'sucesso' ){
@@ -48,43 +48,43 @@ $(document).ready(function( ) {
     });
 /*--INICIALIZAÇÃO*/
     Core.LoadMenu.show();
-    Core.SetAjax( { evento: { tenant_cada_stat: '%%' } }, '../../Laboratorio/Pcend/GetTenanPcend/', function( Resposta ){
-        Core.SetSele2( $( '#FiltTenanPcend' ), Resposta.registros, function(){
-            $( '#FiltTenanPcend' ).val( Core.Login.GetUsuaSess( 'usua_cada_tenant' ) ).trigger( 'change' );
+    Core.SetAjax( { evento: { tenant_cada_stat: '%%' } }, '../../Laboratorio/Quimico/GetTenanQuimi/', function( Resposta ){
+        Core.SetSele2( $( '#FiltTenanQuimi' ), Resposta.registros, function(){
+            $( '#FiltTenanQuimi' ).val( Core.Login.GetUsuaSess( 'usua_cada_tenant' ) ).trigger( 'change' );
             if ( Core.Login.GetUsuaSess( 'usua_cada_tenant' ) != 0 ){
-                $( '#FiltTenanPcend' ).prop( 'disabled', true );
+                $( '#FiltTenanQuimi' ).prop( 'disabled', true );
             };
             Core.SetAjax( { evento: 
               { empre_cada_stat: '%%',
-                empre_cada_tenant: $( '#FiltTenanPcend' ).val() 
-              } }, '../../Laboratorio/Pcend/GetEmprePcend/', function( Resposta ){
-                Core.SetSele2( $( '#FiltEmprePcend' ), Resposta.registros, function(){
-                    $( '#FiltEmprePcend' ).val( Core.Login.GetUsuaSess( 'usua_cada_empre' ) ).trigger( 'change' );
+                empre_cada_tenant: $( '#FiltTenanQuimi' ).val() 
+              } }, '../../Laboratorio/Quimico/GetEmpreQuimi/', function( Resposta ){
+                Core.SetSele2( $( '#FiltEmpreQuimi' ), Resposta.registros, function(){
+                    $( '#FiltEmpreQuimi' ).val( Core.Login.GetUsuaSess( 'usua_cada_empre' ) ).trigger( 'change' );
                     if ( Core.Login.GetUsuaSess( 'usua_cada_empre' ) != 0 ){
-                        $( '#FiltEmprePcend' ).prop( 'disabled', true );
+                        $( '#FiltEmpreQuimi' ).prop( 'disabled', true );
                     };
                     Core.SetAjax( { evento: 
                       { clie_cada_stat: '%%',
-                        clie_cada_tenan: $( '#FiltTenanPcend' ).val(),
-                        clie_cada_empre: $( '#FiltEmprePcend' ).val(),
-                      } }, '../../Laboratorio/Pcend/GetCliePcend/', function( Resposta ){
-                        Core.SetSele2( $( '#FiltCliePcend' ), Resposta.registros, function(){
+                        clie_cada_tenan: $( '#FiltTenanQuimi' ).val(),
+                        clie_cada_empre: $( '#FiltEmpreQuimi' ).val(),
+                      } }, '../../Laboratorio/Quimico/GetClieQuimi/', function( Resposta ){
+                        Core.SetSele2( $( '#FiltClieQuimi' ), Resposta.registros, function(){
                             Core.SetAjax( { evento: 
                               { fabr_cada_stat: '%%',
-                                fabr_cada_tenan: $( '#FiltTenanPcend' ).val(),
-                                fabr_cada_empre: $( '#FiltEmprePcend' ).val(),
-                              } }, '../../Laboratorio/Pcend/GetFabrPcend/', function( Resposta ){
-                                Core.SetSele2( $( '#FiltFabrPcend' ), Resposta.registros, function(){
+                                fabr_cada_tenan: $( '#FiltTenanQuimi' ).val(),
+                                fabr_cada_empre: $( '#FiltEmpreQuimi' ).val(),
+                              } }, '../../Laboratorio/Quimico/GetFabrQuimi/', function( Resposta ){
+                                Core.SetSele2( $( '#FiltFabrQuimi' ), Resposta.registros, function(){
                                     Core.SetAjax( { evento: 
                                       { area_cada_stat: '%%',
-                                        area_cada_tenan: $( '#FiltTenanPcend' ).val(),
-                                        area_cada_empre: $( '#FiltEmprePcend' ).val(),
-                                      } }, '../../Laboratorio/Pcend/GetAreaPcend/', function( Resposta ){
-                                        Core.SetSele2( $( '#FiltArePcend' ), Resposta.registros, function(){
-                                            Core.SetMask( '#FiltEmisIniPcend, #FiltEmisFimPcend', 'DATA' );
-                                            $( '#FiltEmisIniPcend' ).val ( Core.Data().subtract ( 30, 'days' ).format('L') );
-                                            $( '#FiltEmisFimPcend' ).val ( Core.Data().endOf('month').format('L') );
-                                            $( '#FiltBtnPcend' ).click();
+                                        area_cada_tenan: $( '#FiltTenanQuimi' ).val(),
+                                        area_cada_empre: $( '#FiltEmpreQuimi' ).val(),
+                                      } }, '../../Laboratorio/Quimico/GetAreaQuimi/', function( Resposta ){
+                                        Core.SetSele2( $( '#FiltAreQuimi' ), Resposta.registros, function(){
+                                            Core.SetMask( '#FiltEmisIniQuimi, #FiltEmisFimQuimi', 'DATA' );
+                                            $( '#FiltEmisIniQuimi' ).val ( Core.Data().subtract ( 30, 'days' ).format('L') );
+                                            $( '#FiltEmisFimQuimi' ).val ( Core.Data().endOf('month').format('L') );
+                                            $( '#FiltBtnQuimi' ).click();
                                         });
                                     });
                                 });
@@ -96,32 +96,32 @@ $(document).ready(function( ) {
         });
     });
 /*--FILTRO TENANT*/
-    $(document).off( 'change', '#FiltTenanPcend' );
-    $(document).on( 'change', '#FiltTenanPcend', function(event){
+    $(document).off( 'change', '#FiltTenanQuimi' );
+    $(document).on( 'change', '#FiltTenanQuimi', function(event){
         Core.LoadMenu.show();
         Core.SetAjax( { evento: 
           { empre_cada_stat: '%%',
             empre_cada_tenant: $( this ).val() 
-          } }, '../../Laboratorio/Pcend/GetEmprePcend/', function( Resposta ){
-            Core.SetSele2( $( '#FiltEmprePcend' ), Resposta.registros, function(){
+          } }, '../../Laboratorio/Quimico/GetEmpreQuimi/', function( Resposta ){
+            Core.SetSele2( $( '#FiltEmpreQuimi' ), Resposta.registros, function(){
                 Core.SetAjax( { evento: 
                   { clie_cada_stat: '%%',
-                    clie_cada_tenan: $( '#FiltTenanPcend' ).val(),
-                    clie_cada_empre: $( '#FiltEmprePcend' ).val(),
-                  } }, '../../Laboratorio/Pcend/GetCliePcend/', function( Resposta ){
-                    Core.SetSele2( $( '#FiltCliePcend' ), Resposta.registros, function(){
+                    clie_cada_tenan: $( '#FiltTenanQuimi' ).val(),
+                    clie_cada_empre: $( '#FiltEmpreQuimi' ).val(),
+                  } }, '../../Laboratorio/Quimico/GetClieQuimi/', function( Resposta ){
+                    Core.SetSele2( $( '#FiltClieQuimi' ), Resposta.registros, function(){
                         Core.SetAjax( { evento: 
                           { fabr_cada_stat: '%%',
-                            fabr_cada_tenan: $( '#FiltTenanPcend' ).val(),
-                            fabr_cada_empre: $( '#FiltEmprePcend' ).val(),
-                          } }, '../../Laboratorio/Pcend/GetFabrPcend/', function( Resposta ){
-                            Core.SetSele2( $( '#FiltFabrPcend' ), Resposta.registros, function(){
+                            fabr_cada_tenan: $( '#FiltTenanQuimi' ).val(),
+                            fabr_cada_empre: $( '#FiltEmpreQuimi' ).val(),
+                          } }, '../../Laboratorio/Quimico/GetFabrQuimi/', function( Resposta ){
+                            Core.SetSele2( $( '#FiltFabrQuimi' ), Resposta.registros, function(){
                                 Core.SetAjax( { evento: 
                                   { area_cada_stat: '%%',
-                                    area_cada_tenan: $( '#FiltTenanPcend' ).val(),
-                                    area_cada_empre: $( '#FiltEmprePcend' ).val(),
-                                  } }, '../../Laboratorio/Pcend/GetAreaPcend/', function( Resposta ){
-                                    Core.SetSele2( $( '#FiltArePcend' ), Resposta.registros, function(){
+                                    area_cada_tenan: $( '#FiltTenanQuimi' ).val(),
+                                    area_cada_empre: $( '#FiltEmpreQuimi' ).val(),
+                                  } }, '../../Laboratorio/Quimico/GetAreaQuimi/', function( Resposta ){
+                                    Core.SetSele2( $( '#FiltAreQuimi' ), Resposta.registros, function(){
                                         Core.LoadMenu.hide();
                                     });
                                 });
@@ -133,27 +133,27 @@ $(document).ready(function( ) {
         });    
     });
 /*--FILTRO EMPRESA*/
-    $(document).off( 'change', '#FiltEmprePcend' );
-    $(document).on( 'change', '#FiltEmprePcend', function(event){
+    $(document).off( 'change', '#FiltEmpreQuimi' );
+    $(document).on( 'change', '#FiltEmpreQuimi', function(event){
         Core.LoadMenu.show();
         Core.SetAjax( { evento: 
           { clie_cada_stat: '%%',
-            clie_cada_tenan: $( '#FiltTenanPcend' ).val(),
-            clie_cada_empre: $( '#FiltEmprePcend' ).val(),
-          } }, '../../Laboratorio/Pcend/GetCliePcend/', function( Resposta ){
-            Core.SetSele2( $( '#FiltCliePcend' ), Resposta.registros, function(){
+            clie_cada_tenan: $( '#FiltTenanQuimi' ).val(),
+            clie_cada_empre: $( '#FiltEmpreQuimi' ).val(),
+          } }, '../../Laboratorio/Quimico/GetClieQuimi/', function( Resposta ){
+            Core.SetSele2( $( '#FiltClieQuimi' ), Resposta.registros, function(){
                 Core.SetAjax( { evento: 
                   { fabr_cada_stat: '%%',
-                    fabr_cada_tenan: $( '#FiltTenanPcend' ).val(),
-                    fabr_cada_empre: $( '#FiltEmprePcend' ).val(),
-                  } }, '../../Laboratorio/Pcend/GetFabrPcend/', function( Resposta ){
-                    Core.SetSele2( $( '#FiltFabrPcend' ), Resposta.registros, function(){
+                    fabr_cada_tenan: $( '#FiltTenanQuimi' ).val(),
+                    fabr_cada_empre: $( '#FiltEmpreQuimi' ).val(),
+                  } }, '../../Laboratorio/Quimico/GetFabrQuimi/', function( Resposta ){
+                    Core.SetSele2( $( '#FiltFabrQuimi' ), Resposta.registros, function(){
                         Core.SetAjax( { evento: 
                           { area_cada_stat: '%%',
-                            area_cada_tenan: $( '#FiltTenanPcend' ).val(),
-                            area_cada_empre: $( '#FiltEmprePcend' ).val(),
-                          } }, '../../Laboratorio/Pcend/GetAreaPcend/', function( Resposta ){
-                            Core.SetSele2( $( '#FiltArePcend' ), Resposta.registros, function(){
+                            area_cada_tenan: $( '#FiltTenanQuimi' ).val(),
+                            area_cada_empre: $( '#FiltEmpreQuimi' ).val(),
+                          } }, '../../Laboratorio/Quimico/GetAreaQuimi/', function( Resposta ){
+                            Core.SetSele2( $( '#FiltAreQuimi' ), Resposta.registros, function(){
                                 Core.LoadMenu.hide();
                             });
                         });
@@ -163,57 +163,57 @@ $(document).ready(function( ) {
         });    
     });
 /*--ENTER NO IMPUTS*/
-    $(document).off( 'keypress', '#FiltRgPcend, #FiltOsPcend, #FiltEmisIniPcend, #FiltEmisFimPcend' );
-    $(document).on( 'keypress', '#FiltRgPcend, #FiltOsPcend, #FiltEmisIniPcend, #FiltEmisFimPcend', function(event){
+    $(document).off( 'keypress', '#FiltRgQuimi, #FiltOsQuimi, #FiltEmisIniQuimi, #FiltEmisFimQuimi' );
+    $(document).on( 'keypress', '#FiltRgQuimi, #FiltOsQuimi, #FiltEmisIniQuimi, #FiltEmisFimQuimi', function(event){
         if( event.keyCode == 13 ) {
-            $( '#FiltBtnPcend' ).click();
+            $( '#FiltBtnQuimi' ).click();
         }
     });
 /*--EDITA*/
-    $(document).off( 'click', '#EditBtnPcend' );
-    $(document).on( 'click', '#EditBtnPcend', function(event){
+    $(document).off( 'click', '#EditBtnQuimi' );
+    $(document).on( 'click', '#EditBtnQuimi', function(event){
         vLinhSalv = $( this ).parent().parent();
         Core.LoadMenu.show()
-        Core.Pcend.GetEdtPcend( this, function( ResObjPai ){
+        Core.Quimico.GetEdtQuimi( this, function( ResObjPai ){
             vTipoOpera = '%%';
             Core.LoadMenu.hide();
-            $( ResObjPai ).find( '#ResulPcend' ).focus();          
+            $( ResObjPai ).find( '#ResulQuimi' ).focus();          
         });
     });
 /*--FINALIZA*/
-    $(document).off( 'click', '#FinaPcend' );
-    $(document).on( 'click', '#FinaPcend', function(event){
+    $(document).off( 'click', '#FinaQuimi' );
+    $(document).on( 'click', '#FinaQuimi', function(event){
         var VThis = $( this );
-        Core.GetObjtPai( VThis, [ 'FormPcend' ], function( ResObjPai ){
+        Core.GetObjtPai( VThis, [ 'FormQuimi' ], function( ResObjPai ){
             if ( $( VThis ).is(':checked') ) {
-                $( ResObjPai ).find( '#DatFinaPcend' ).prop( 'disabled', false );
-                $( ResObjPai ).find( '#ExcutPcend' ).prop( 'disabled', false );
-                $( ResObjPai ).find( '#DatFinaPcend' ).attr( 'data-obriga', 'S' );
-                $( ResObjPai ).find( '#ExcutPcend' ).attr( 'data-obriga', 'S' );
-                $( ResObjPai ).find( '#DatFinaPcend' ).focus();
-                if ( $( ResObjPai ).find( '#DatFinaPcend' ).val() == '' ){
-                    $( ResObjPai ).find( '#DatFinaPcend' ).val ( Core.Data().format('L') );
+                $( ResObjPai ).find( '#DatFinaQuimi' ).prop( 'disabled', false );
+                $( ResObjPai ).find( '#ExcutQuimi' ).prop( 'disabled', false );
+                $( ResObjPai ).find( '#DatFinaQuimi' ).attr( 'data-obriga', 'S' );
+                $( ResObjPai ).find( '#ExcutQuimi' ).attr( 'data-obriga', 'S' );
+                $( ResObjPai ).find( '#DatFinaQuimi' ).focus();
+                if ( $( ResObjPai ).find( '#DatFinaQuimi' ).val() == '' ){
+                    $( ResObjPai ).find( '#DatFinaQuimi' ).val ( Core.Data().format('L') );
                 };
             } else {
-                $( ResObjPai ).find( '#DatFinaPcend' ).prop( 'disabled', true );
-                $( ResObjPai ).find( '#ExcutPcend' ).prop( 'disabled', true );
-                $( ResObjPai ).find( '#DatFinaPcend' ).attr( 'data-obriga', 'N' );
-                $( ResObjPai ).find( '#ExcutPcend' ).attr( 'data-obriga', 'N' );
+                $( ResObjPai ).find( '#DatFinaQuimi' ).prop( 'disabled', true );
+                $( ResObjPai ).find( '#ExcutQuimi' ).prop( 'disabled', true );
+                $( ResObjPai ).find( '#DatFinaQuimi' ).attr( 'data-obriga', 'N' );
+                $( ResObjPai ).find( '#ExcutQuimi' ).attr( 'data-obriga', 'N' );
             };
         });
     });
 /*--SALVAR*/
-    $(document).off( 'click', '#SalvPcend' );
-    $(document).on( 'click', '#SalvPcend', function(event){
+    $(document).off( 'click', '#SalvQuimi' );
+    $(document).on( 'click', '#SalvQuimi', function(event){
         var vThis = this;
         Core.LoadMenu.show()
-        Core.Pcend.SetSalvPcend( vThis, vLinhSalv, function( Resposta ){
+        Core.Quimico.SetSalvQuimi( vThis, vLinhSalv, function( Resposta ){
             if ( Resposta.vRespAjax != undefined ){
                 if ( Resposta.vRespAjax.status == 'sucesso' ){
-                    Core.Pcend.GetClosePcend( vThis, function(){
-                        vFocuPcend = '';
-                        $( '#TabPcend' ).click();
-                        $( '#FiltBtnPcend' ).click();
+                    Core.Quimico.GetCloseQuimi( vThis, function(){
+                        vFocuQuimi = '';
+                        $( '#TabQuimi' ).click();
+                        $( '#FiltBtnQuimi' ).click();
                         Core.LoadMenu.hide();
                     });
                 } else {
@@ -226,32 +226,32 @@ $(document).ready(function( ) {
         });
     });
 /*--FECHA*/
-    $(document).off( 'click', '#FechPcend' );
-    $(document).on( 'click', '#FechPcend', function(event){
+    $(document).off( 'click', '#FechQuimi' );
+    $(document).on( 'click', '#FechQuimi', function(event){
         Core.LoadMenu.show()
-        Core.Pcend.GetClosePcend( this, function(){
-            $( '#TabPcend' ).click();
-            $( '#FiltBtnPcend' ).click();
+        Core.Quimico.GetCloseQuimi( this, function(){
+            $( '#TabQuimi' ).click();
+            $( '#FiltBtnQuimi' ).click();
             Core.LoadMenu.hide();
         });
     });
 /*--FECHA AVISO*/
     $(document).off( 'hidden.bs.modal', '#MensMenu' );
     $(document).on( 'hidden.bs.modal', '#MensMenu', function(event){
-        if ( vFocuPcend != '' ){
-            $( vFocuPcend ).select();
-            $( vFocuPcend ).focus();
+        if ( vFocuQuimi != '' ){
+            $( vFocuQuimi ).select();
+            $( vFocuQuimi ).focus();
         };
     });
 /*--IMPRIMIR*/
-    $(document).off( 'click', '#ImprBtnPcend' );
-    $(document).on( 'click', '#ImprBtnPcend', function(event){
+    $(document).off( 'click', '#ImprBtnQuimi' );
+    $(document).on( 'click', '#ImprBtnQuimi', function(event){
         var vLinha = $( this ).parent().parent();
         Core.LoadMenu.show()
-        Core.Pcend.SetImprePcend( { 
+        Core.Quimico.SetImpreQuimi( { 
             evento:{
-                IdenPcend: Core.Pcend.GetDataTablePcend( '#TablePcend', vLinha, 'amos_cada_iden' ),
-				RGPcend: Core.Pcend.GetDataTablePcend( '#TablePcend', vLinha, 'amos_cada_regi' ), 
+                IdenQuimi: Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'amos_cada_iden' ),
+				RGQuimi: Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'amos_cada_regi' ), 
             }
         }, function( vRespLogi ){
             if ( vRespLogi.status != 'sucesso' ){
@@ -276,24 +276,24 @@ $(document).ready(function( ) {
 			        evento:{
 				        ArquiExcl: vRespLogi.registros,
 			        }},
-			      '../../Laboratorio/Pcend/SetExclArqu/', function( vRespAjax ){}
+			      '../../Laboratorio/Quimico/SetExclArqu/', function( vRespAjax ){}
                 );
             };            
-            $( '#FiltBtnPcend' ).click();
+            $( '#FiltBtnQuimi' ).click();
         });
     });
 /*--ANEXO INCLUIR*/
-    $(document).off( 'click', '#AddAnexBtnPcend' );
-    $(document).on( 'click', '#AddAnexBtnPcend', function(event){
-        Core.GetObjtPai( this, [ 'AddListPcend', 'EdtListPcend' ], function( ResObjPai ){
-            Core.Anexos.GetAddAnex( $( ResObjPai ).find( '#AnexTablePcend' ), function( ResLinhaTabel ){
-                $( $( ResObjPai ).find( ResLinhaTabel ) ).find( '#TipoAnexPcend' ).focus();         
+    $(document).off( 'click', '#AddAnexBtnQuimi' );
+    $(document).on( 'click', '#AddAnexBtnQuimi', function(event){
+        Core.GetObjtPai( this, [ 'AddListQuimi', 'EdtListQuimi' ], function( ResObjPai ){
+            Core.Anexos.GetAddAnex( $( ResObjPai ).find( '#AnexTableQuimi' ), function( ResLinhaTabel ){
+                $( $( ResObjPai ).find( ResLinhaTabel ) ).find( '#TipoAnexQuimi' ).focus();         
             });
         });
     });
 /*--ANEXO EXCLUIR*/	
-    $(document).off( 'click', '#DeleAnexBtnPcend' );
-    $(document).on( 'click', '#DeleAnexBtnPcend', function(){
+    $(document).off( 'click', '#DeleAnexBtnQuimi' );
+    $(document).on( 'click', '#DeleAnexBtnQuimi', function(){
         vLinhDele = $( this ).parent().parent();
         vThisDele = this; 
         Core.SetMensMenu( 'Exclusão de Anexos', 'DESEJA REALMENTE EXCLUIR ESSE REGISTRO', 'PERGUNTA' );
@@ -304,18 +304,18 @@ $(document).ready(function( ) {
     $(document).on( 'click', '#SimMensMenu', function(event){
         Core.MensMenu.hide();
         Core.LoadMenu.show();
-        Core.GetObjtPai( vThisDele, [ 'AddListPcend', 'EdtListPcend' ], function( ResObjPai ){
-            Core.Anexos.SetDeleAnex( $( ResObjPai ).find( '#AnexTablePcend' ), vLinhDele, function( vRespAjax ){
+        Core.GetObjtPai( vThisDele, [ 'AddListQuimi', 'EdtListQuimi' ], function( ResObjPai ){
+            Core.Anexos.SetDeleAnex( $( ResObjPai ).find( '#AnexTableQuimi' ), vLinhDele, function( vRespAjax ){
                 Core.LoadMenu.hide();
             });
         });
     });
 /*--ANEXO ARQUIVO UPLOAD*/
-    $(document).off( 'change', '#FileAnexPcend' );
-    $(document).on( 'change', '#FileAnexPcend', function(e){
+    $(document).off( 'change', '#FileAnexQuimi' );
+    $(document).on( 'change', '#FileAnexQuimi', function(e){
         Core.LoadMenu.show()
         var Vthis = this;
-        $( this ).parent().find( '#FileAnexLabePcend' ).html( e.target.files[0].name ) 
+        $( this ).parent().find( '#FileAnexLabeQuimi' ).html( e.target.files[0].name ) 
         var reader = new FileReader();
         reader.readAsDataURL( e.target.files[0] );
         reader.onload = function () {
@@ -324,19 +324,19 @@ $(document).ready(function( ) {
         };
     });
 /*--ANEXO DOWNLOAD*/
-    $(document).off( 'click', '#DownAnexBtnPcend' );
-    $(document).on('click', '#DownAnexBtnPcend', function(){
+    $(document).off( 'click', '#DownAnexBtnQuimi' );
+    $(document).on('click', '#DownAnexBtnQuimi', function(){
         Core.LoadMenu.show() 
-        var vIdenPcend = '';
-        Core.GetObjtPai( this, [ 'AddListPcend', 'EdtListPcend' ], function( ResObjPai ){
-            vIdenPcend = $( ResObjPai ).find( '#IdenPcend' ).val()
+        var vIdenQuimi = '';
+        Core.GetObjtPai( this, [ 'AddListQuimi', 'EdtListQuimi' ], function( ResObjPai ){
+            vIdenQuimi = $( ResObjPai ).find( '#IdenQuimi' ).val()
         });
         var Param = {
-            ArqAnex: $( this ).parent().parent().find( '#FileAnexPcend' ).val().toLowerCase().trim(),
-            DadoArqAnex: $( this ).parent().parent().find( '#FileAnexPcend' ).attr( 'data-arqu' ),
-            FileAnexLabe: $( this ).parent().parent().find( '#FileAnexLabePcend' ).html().toLowerCase().trim(),
-            IdenPcend: vIdenPcend,
-            anexo_ensa_tabe: 'PCEND',
+            ArqAnex: $( this ).parent().parent().find( '#FileAnexQuimi' ).val().toLowerCase().trim(),
+            DadoArqAnex: $( this ).parent().parent().find( '#FileAnexQuimi' ).attr( 'data-arqu' ),
+            FileAnexLabe: $( this ).parent().parent().find( '#FileAnexLabeQuimi' ).html().toLowerCase().trim(),
+            IdenQuimi: vIdenQuimi,
+            anexo_ensa_tabe: 'QUIMICO',
         };
         Core.Anexos.SetDownAnex( Param, function ( ResObjDonw ){
             Core.LoadMenu.hide();

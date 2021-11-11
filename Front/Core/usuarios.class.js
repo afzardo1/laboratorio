@@ -132,7 +132,8 @@ export default class Usuarios {
 					vTabela.draw();
 				} else {
 					vTabela = $( vTabela ).DataTable();
-				};				
+				};
+				vTabela.columns.adjust();		
 				vResp ( vRespAjax );
 			}
 		);

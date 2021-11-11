@@ -123,7 +123,8 @@ export default class Areas {
 					vTabela.draw();
 				} else {
 					vTabela = $( vTabela ).DataTable();
-				};				
+				};
+				vTabela.columns.adjust();			
 				vResp ( vRespAjax );
 			}
 		);

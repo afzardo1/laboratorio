@@ -243,21 +243,36 @@
 							'amos_cada_distri' => $input['amos_cada_distri'],
 							'amos_cada_obser' => $input['amos_cada_obser'],
 							'amos_cada_metalo' => $input['amos_cada_metalo'],
+							'amos_cada_metalo_final' => $input['amos_cada_metalo_final'],
 							'amos_cada_quimica' => $input['amos_cada_quimica'],
+							'amos_cada_quimica_final' => $input['amos_cada_quimica_final'],
 							'amos_cada_tracao_1' => $input['amos_cada_tracao_1'],
 							'amos_cada_tracao_2' => $input['amos_cada_tracao_2'],
 							'amos_cada_dureza' => $input['amos_cada_dureza'],
+							'amos_cada_dureza_final' => $input['amos_cada_dureza_final'],
 							'amos_cada_charp' => $input['amos_cada_charp'],
+							'amos_cada_charp_final' => $input['amos_cada_charp_final'],							
 							'amos_cada_achat_expan' => $input['amos_cada_achat_expan'],
+							'amos_cada_achat_final' => $input['amos_cada_achat_final'],
+							'amos_cada_expan_final' => $input['amos_cada_expan_final'],
 							'amos_cada_pce' => $input['amos_cada_pce'],
+							'amos_cada_pce_final' => $input['amos_cada_pce_final'],
 							'amos_cada_dobram_2cps' => $input['amos_cada_dobram_2cps'],
+							'amos_cada_dobram_2cps_final' => $input['amos_cada_dobram_2cps_final'],
 							'amos_cada_dobram_4cps' => $input['amos_cada_dobram_4cps'],
+							'amos_cada_dobram_4cps_final' => $input['amos_cada_dobram_4cps_final'],
 							'amos_cada_macrog' => $input['amos_cada_macrog'],
+							'amos_cada_macrog_final' => $input['amos_cada_macrog_final'],							
 							'amos_cada_campo_metalo' => $input['amos_cada_campo_metalo'],
+							'amos_cada_campo_metalo_final' => $input['amos_cada_campo_metalo_final'],							
 							'amos_cada_campo_quimica' => $input['amos_cada_campo_quimica'],
+							'amos_cada_campo_quimica_final' => $input['amos_cada_campo_quimica_final'],							
 							'amos_cada_forne_tracao' => $input['amos_cada_forne_tracao'],
+
 							'amos_cada_forne_dureza' => $input['amos_cada_forne_dureza'],
+							'amos_cada_forne_dureza_final' => $input['amos_cada_forne_dureza_final'],
 							'amos_cada_forne_charp' => $input['amos_cada_forne_charp'],
+							'amos_cada_forne_charp_final' => $input['amos_cada_forne_charp_final'],
 							'amos_cada_tenan' => $input['amos_cada_tenan'],
 							'amos_cada_empre' => $input['amos_cada_empre'],
 							'amos_cada_stat' => $input['amos_cada_stat'],
@@ -496,40 +511,6 @@
 				return json_encode( $vStatSess );
 			};
 		}
-
-		/**
-		 * Ajusta na tabela os ensaios seleconados.
-		 *
-		 * @param vEnsaio ensaios ja selecionados
-		 * @param vEnsaPadrao layout padrão
-		 * 
-		 * @return integer Ultimo id
-		 * @access public
-		*/
-		public static function SetRetoEnsaAmos( $vEnsaio, $vEnsaPadrao ){
-			if ( ( strpos( $vEnsaio, ':ENSAIO_1' ) == 0 ) &&
-				 ( strpos( $vEnsaio, ':ENSAIO_2' ) == 0 ) &&
-				 ( strpos( $vEnsaio, ':ENSAIO_3' ) == 0 ) ){
-		   		$vEnsaio = $vEnsaio.$vEnsaPadrao;
-		  	};
-			
-			if ( strpos( $vEnsaio, ':ENSAIO_1' ) > 0 ){
-				$Troca = ':ENSAIO_1';
-			} else {
-				if ( strpos( $vEnsaio, ':ENSAIO_2' ) > 0 ){
-					$Troca = ':ENSAIO_2';
-				} else {
-					if ( strpos( $vEnsaio, ':ENSAIO_3' ) > 0 ){
-						$Troca = ':ENSAIO_3';
-					};
-				}
-			};
-
-			return array(
-				'lista' => $vEnsaio,
-				'trocar' => $Troca,
-			);
-		}
 		
 		/**
 		 * Gera PDF a amostra cadastrada
@@ -579,48 +560,80 @@
 					$EnsaPadrao = '
 						<tr>
 							<td width="226" align="center">
-								:ENSAIO_1<
+								:ENSAIO
 							</td>
 							<td width="226" align="center">
-								:ENSAIO_2
+								:RESULT
 							</td>
 							<td width="228" align="center">
-								:ENSAIO_3
 							</td>
 						</tr>
 					';
 						
 					$EnsaLista = array(
-						'amos_cada_metalo' => 'Metalogarafico',
-						'amos_cada_quimica' => 'Quimico',
-						'amos_cada_tracao_1' => 'Tração 1º',
-						'amos_cada_tracao_2' => 'Tração 2º',
-						'amos_cada_dureza' => 'Dureza',
-						'amos_cada_dureza' => 'Dureza',
-						'amos_cada_charp' => 'Charpy',
 						'amos_cada_achat_expan' => 'Achatamento Expansão',
-						'amos_cada_pce' => 'PCE',
+						'amos_cada_achat_final' => 'resultado achat',
+						'amos_cada_expan_final' => 'resultado expan',
+						'amos_cada_charp' => 'Charpy',
+						'amos_cada_charp_final' => 'resultado',
 						'amos_cada_dobram_2cps' => 'DOBRAM 2 CPs',
+						'amos_cada_dobram_2cps_final' => 'resultado',
 						'amos_cada_dobram_4cps' => 'DOBRAM 4 CPs',
+						'amos_cada_dobram_4cps_final' => 'resultado',
+						'amos_cada_dureza' => 'Dureza',
+						'amos_cada_dureza_final' => 'resultado',
 						'amos_cada_macrog' => 'Macrografia',
+						'amos_cada_macrog_final' => 'resultado',
+						'amos_cada_metalo' => 'Metalogarafico',
+						'amos_cada_metalo_final' => 'resultado',
+						'amos_cada_pce' => 'PCE',
+						'amos_cada_pce_final' => 'resultado',
+						'amos_cada_quimica' => 'Quimico',
+						'amos_cada_quimica_final' => 'resultado',
+						'amos_cada_tracao_1' => 'Tração 1º',
+						//'amos_cada_tracao_1_final' => 'resultado',
+						'amos_cada_tracao_2' => 'Tração 2º',
+						//'amos_cada_tracao_2_final' => 'resultado',
 						'amos_cada_campo_quimica' => 'Quimico em Campo',
+						'amos_cada_campo_quimica_final' => 'resultado',
 						'amos_cada_campo_metalo' => 'Metalografico em Campo',
+						'amos_cada_campo_metalo_final' => 'resultado',
 						'amos_cada_forne_tracao' => 'Tração no Fabricante',
+						//'amos_cada_forne_tracao_final' => 'resultado',
 						'amos_cada_forne_dureza' => 'Dureza no Fabricante',
+						'amos_cada_forne_dureza_final' => 'resultado',
 						'amos_cada_forne_charp' => 'Charpy no Fabricante',
+						'amos_cada_forne_charp_final' => 'resultado',
 					);
 
+					$vResultado = array(
+						'EM ANÁLISE',
+						'REPROVADO',
+						'INFORMATIVO',
+						'TOLERÁVEL',
+						'APROVADO',
+						'',
+					);
+					
+					$vChatExpan = '';
 					foreach ( $EnsaLista as $Campo => $Valor ) {
-						if ( $Retorno[0][ $Campo ] == 1 ) {
-							$Ensaios = str_replace(
-								Amostras::SetRetoEnsaAmos( $Ensaios, $EnsaPadrao )['trocar'],
-								$Valor,
-								Amostras::SetRetoEnsaAmos( $Ensaios, $EnsaPadrao )['lista']
-							);
+						if( $Valor == 'resultado achat' ){
+							$vChatExpan = 'Achatamento: '.$vResultado[ $Retorno[0][ $Campo ] + 1 ];
+						};
+						if( $Valor == 'resultado expan' ){
+							$vChatExpan = $vChatExpan.'<br>Expanção: '.$vResultado[ $Retorno[0][ $Campo ] + 1 ];
+							$Ensaios = str_replace( ':RESULT', $vChatExpan, $Ensaios );
+						};
+						if( $Valor == 'resultado' ){
+							$Ensaios = str_replace( ':RESULT', $vResultado[ $Retorno[0][ $Campo ] + 1 ], $Ensaios );
+						} else {
+							if ( $Retorno[0][ $Campo ] == 1 ) {	
+								$Ensaios = $Ensaios.str_replace( ':ENSAIO', $Valor, $EnsaPadrao );
+							};
 						};
 					};
 
-					$Ensaios = str_replace( array( ':ENSAIO_1', ':ENSAIO_2', ':ENSAIO_3' ), '', $Ensaios );
+					$Ensaios = str_replace( ':RESULT', '', $Ensaios );
 
 					$Corpo = '
 						<table border="1" cellpadding="1" style="border-collapse: collapse; font-size: 10pt">
@@ -643,7 +656,7 @@
 						<br>
 						<table border="1" cellpadding="1" style="border-collapse: collapse; font-size: 10pt">
 							<tr>
-								<td width="680" style="height:200px">
+								<td width="680" style="height:150px">
 									 <b>Descrição</b>
 								 	<br>
 								 	'.$Retorno[0]['amos_cada_descr'].'
@@ -654,7 +667,7 @@
 						<br>
 						<table border="1" cellpadding="1" style="border-collapse: collapse; font-size: 10pt">
 							<tr>
-								<td width="680" style="height:200px">
+								<td width="680" style="height:150px">
 									 <b>Observação</b>
 								 	<br>
 								 	'.$Retorno[0]['amos_cada_obser'].'
@@ -685,7 +698,7 @@
 						<br>
 						<table border="1" cellpadding="5" style="border-collapse: collapse; font-size: 10pt">
         					<tr>
-								<td width="680" align="center" style="height:50px">
+								<td width="680" align="center" style="height:25px">
 									<img src="@'.Core::SetCodBarrPDF( $Retorno[0]['amos_cada_regi'], 'C128', 3, 50 ).'"/><br>
 									'.$Retorno[0]['amos_cada_regi'].'
 								</td>

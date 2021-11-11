@@ -23,21 +23,122 @@
 			amos_cada_distri,
 			amos_cada_obser,
 			amos_cada_metalo,
+			IF( amos_cada_metalo = 1, ( SELECT
+			  	IFNULL( amos_meta_cada_result, -1 ) AS amos_meta_cada_result
+			  FROM
+				labo_amos_meta_cada
+		 	  WHERE
+				( amos_meta_cada_amos_iden = amos_cada_iden ) ), 4
+			) as amos_cada_metalo_final,
 			amos_cada_quimica,
+			IF( amos_cada_quimica = 1, ( SELECT
+				IFNULL( amos_quimi_cada_result, -1 ) AS amos_quimi_cada_result
+			  FROM
+			  	labo_amos_quimi_cada
+		 	  WHERE
+				( amos_quimi_cada_amos_iden = amos_cada_iden ) ), 4
+			) as amos_cada_quimica_final,
 			amos_cada_tracao_1,
 			amos_cada_tracao_2,
 			amos_cada_dureza,
+			IF( amos_cada_dureza = 1, ( SELECT
+				IFNULL( amos_dure_cada_result, -1 ) AS amos_dure_cada_result
+			  FROM
+			  	labo_amos_dure_cada
+		 	  WHERE
+				( amos_dure_cada_amos_iden = amos_cada_iden ) ), 4
+			) as amos_cada_dureza_final,
 			amos_cada_charp,
+			IF( amos_cada_charp = 1, ( SELECT
+				IFNULL( amos_charpy_cada_result, -1 ) AS amos_charpy_cada_result
+			  FROM
+			  	labo_amos_charpy_cada
+		 	  WHERE
+				( amos_charpy_cada_amos_iden = amos_cada_iden ) ), 4
+			) as amos_cada_charp_final,
 			amos_cada_achat_expan,
+			( SELECT
+				IFNULL( amos_achat_cada_achat_result, -1 ) AS amos_achat_cada_achat_result
+			  FROM
+			  	labo_amos_achat_cada
+		 	  WHERE
+				( amos_achat_cada_amos_iden = amos_cada_iden )
+			) as amos_cada_achat_final,
+			( SELECT
+				IFNULL( amos_achat_cada_expan_result, -1 ) AS amos_achat_cada_expan_result
+			  FROM
+			  	labo_amos_achat_cada
+		 	  WHERE
+				( amos_achat_cada_amos_iden = amos_cada_iden )
+			) as amos_cada_expan_final,
 			amos_cada_pce,
+			( SELECT
+				IFNULL( amos_pcend_cada_result, -1 ) AS amos_pcend_cada_result
+			  FROM
+			  	labo_amos_pcend_cada
+		 	  WHERE
+				( amos_pcend_cada_amos_iden = amos_cada_iden )
+			) as amos_cada_pce_final,
 			amos_cada_dobram_2cps,
+			( SELECT
+				IFNULL( amos_dobra_cada_result, -1 ) AS amos_dobra_cada_result
+			  FROM
+			  	labo_amos_dobra_cada
+		 	  WHERE
+				( amos_dobra_cada_amos_iden = amos_cada_iden ) AND
+				( amos_cada_dobram_2cps = 1 )
+			) as amos_cada_dobram_2cps_final,
 			amos_cada_dobram_4cps,
+			( SELECT
+				IFNULL( amos_dobra_cada_result, -1 ) AS amos_dobra_cada_result
+			  FROM
+			  	labo_amos_dobra_cada
+		 	  WHERE
+				( amos_dobra_cada_amos_iden = amos_cada_iden ) AND
+				( amos_cada_dobram_4cps = 1 )
+			) as amos_cada_dobram_4cps_final,
 			amos_cada_macrog,
+			( SELECT
+				IFNULL( amos_macro_cada_result, -1 ) AS amos_macro_cada_result
+			  FROM
+			  	labo_amos_macro_cada
+		 	  WHERE
+				( amos_macro_cada_amos_iden = amos_cada_iden )
+			) as amos_cada_macrog_final,
 			amos_cada_campo_metalo,
+			IF( amos_cada_campo_metalo = 1, ( SELECT
+			  	IFNULL( amos_meta_cada_result, -1 ) AS amos_meta_cada_result
+			  FROM
+				labo_amos_meta_cada
+		 	  WHERE
+				( amos_meta_cada_amos_iden = amos_cada_iden ) ), 4
+			) as amos_cada_campo_metalo_final,
 			amos_cada_campo_quimica,
+			IF( amos_cada_campo_quimica = 1, ( SELECT
+				IFNULL( amos_quimi_cada_result, -1 ) AS amos_quimi_cada_result
+			  FROM
+			  	labo_amos_quimi_cada
+		 	  WHERE
+				( amos_quimi_cada_amos_iden = amos_cada_iden ) ), 4
+			) as amos_cada_campo_quimica_final,
 			amos_cada_forne_tracao,
+
 			amos_cada_forne_dureza,
+			IF( amos_cada_forne_dureza = 1, ( SELECT
+				IFNULL( amos_dure_cada_result, -1 ) AS amos_dure_cada_result
+			  FROM
+			  	labo_amos_dure_cada
+		 	  WHERE
+				( amos_dure_cada_amos_iden = amos_cada_iden ) ), 4
+			) as amos_cada_forne_dureza_final,
 			amos_cada_forne_charp,
+			IF( amos_cada_forne_charp = 1, ( SELECT
+				IFNULL( amos_charpy_cada_result, -1 ) AS amos_charpy_cada_result
+			  FROM
+			  	labo_amos_charpy_cada
+		 	  WHERE
+				( amos_charpy_cada_amos_iden = amos_cada_iden ) ), 4
+			) as amos_cada_forne_charp_final,
 			amos_cada_tenan,
 			amos_cada_empre,
 			amos_cada_stat,

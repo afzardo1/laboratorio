@@ -152,7 +152,8 @@ export default class Tenant {
 					vTabela.draw();
 				} else {
 					vTabela = $( vTabela ).DataTable();
-				};				
+				};
+				vTabela.columns.adjust();			
 				vResp ( vRespAjax );
 			}
 		);

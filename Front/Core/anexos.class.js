@@ -108,7 +108,8 @@ export default class Anexos {
 					vTabela.draw();
 				} else {
 					vTabela = $( vTabela ).DataTable();
-				};				
+				};
+				vTabela.columns.adjust();				
 				vResp ( vRespAjax );
 			}
 		);
@@ -212,6 +213,16 @@ export default class Anexos {
 				5: 'FileAnexLabePcend',
 			};
 		};
+		if ( $( vTabela ).attr( 'id' ) == 'AnexTableQuimi' ){
+			NomeIten = {
+				0: 'DeleAnexBtnQuimi',
+				1: 'DownAnexBtnQuimi',
+				2: 'TipoAnexQuimi',
+				3: 'DescrAnexQuimi',
+				4: 'FileAnexQuimi',
+				5: 'FileAnexLabeQuimi',
+			};
+		};
 		var DataIten = {
 			'anexo_botao': 
 				'<button id="' + NomeIten[0] + '" type="button" class="btn btn-danger" title="EXCLUIR"><i class="fas fa-minus"></i></button>' +
@@ -302,6 +313,14 @@ export default class Anexos {
 				3: 'FileAnexLabePcend',
 			};
 		};
+		if ( $( vTabela ).attr( 'id' ) == 'AnexTableQuimi' ){
+			NomeIten = {
+				0: 'TipoAnexQuimi',
+				1: 'DescrAnexQuimi',
+				2: 'FileAnexQuimi',
+				3: 'FileAnexLabeQuimi',
+			};
+		};
 		var Anexos = {};
 		var TabeData = Core.Anexos.AtuaTableAnex( vTabela );
 		TabeData.rows().every( function ( rowIdx, tableLoop, rowLoop ) {
@@ -364,6 +383,9 @@ export default class Anexos {
 			if ( vParam[ 'IdenPcend' ] != undefined ){
 				IdenAnex = vParam[ 'IdenPcend' ];
 			};
+			if ( vParam[ 'IdenQuimi' ] != undefined ){
+				IdenAnex = vParam[ 'IdenQuimi' ];
+			};5
 			Core.SetAjax({
 				evento:{
 					IdenAnex: IdenAnex,
@@ -439,6 +461,11 @@ export default class Anexos {
 		if ( $( vTabela ).attr( 'id' ) == 'AnexTablePcend' ){
 			NomeIten = {
 				0: 'TipoAnexPcend',
+			};
+		};
+		if ( $( vTabela ).attr( 'id' ) == 'AnexTableQuimi' ){
+			NomeIten = {
+				0: 'TipoAnexQuimi',
 			};
 		};
 		$( TabeData.row( vLinha ).node() ).find( '#' + NomeIten[0] ).append( '<option value="-1">EXCLUIR</option>' );

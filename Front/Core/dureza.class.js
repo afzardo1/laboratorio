@@ -239,7 +239,8 @@ export default class Dureza {
 					vTabela.draw();
 				} else {
 					vTabela = $( vTabela ).DataTable();
-				};				
+				};
+				vTabela.columns.adjust();		
 				vResp ( vRespAjax );
 			}
 		);

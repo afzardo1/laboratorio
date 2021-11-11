@@ -18,7 +18,13 @@ export default class Amostras {
 	*/
 	static GetDataTableAmos( vTabela, vLinha, vCampo ) {
 		vTabela = $( vTabela ).DataTable();
-
+		var vResultado = [
+			'EM ANÁLISE',
+			'REPROVADO',
+			'INFORMATIVO',
+			'TOLERÁVEL',
+			'APROVADO',
+		];
 		switch ( vCampo ){ 
 			case 'amos_cada_iden':
 				return vTabela.cell( vLinha, 1 ).data();
@@ -192,6 +198,49 @@ export default class Amostras {
 			case 'usua_cada_nome':
 				return vTabela.cell( vLinha, 36 ).data();
 				break;
+			case 'amos_cada_achat_final':
+				return vResultado[ parseInt( vTabela.cell( vLinha, 37 ).data() ) + 1 ];
+				break;
+			case 'amos_cada_expan_final':
+				return vResultado[ parseInt( vTabela.cell( vLinha, 38 ).data() ) + 1 ];
+				break;
+			case 'amos_cada_charp_final':
+				return vResultado[ parseInt( vTabela.cell( vLinha, 39 ).data() ) + 1 ];
+				break;
+			case 'amos_cada_dobram_2cps_final':
+				return vResultado[ parseInt( vTabela.cell( vLinha, 40 ).data() ) + 1 ];
+				break;
+			case 'amos_cada_dobram_4cps_final':
+				return vResultado[ parseInt( vTabela.cell( vLinha, 41 ).data() ) + 1 ];
+				break;	
+			case 'amos_cada_dureza_final':
+				return vResultado[ parseInt( vTabela.cell( vLinha, 42 ).data() ) + 1 ];
+				break;	
+			case 'amos_cada_macrog_final':
+				return vResultado[ parseInt( vTabela.cell( vLinha, 43 ).data() ) + 1 ];
+				break;
+			case 'amos_cada_metalo_final':
+				return vResultado[ parseInt( vTabela.cell( vLinha, 44 ).data() ) + 1 ];
+				break;
+			case 'amos_cada_pce_final':
+				return vResultado[ parseInt( vTabela.cell( vLinha, 45 ).data() ) + 1 ];
+				break;
+			case 'amos_cada_quimica_final':
+				return vResultado[ parseInt( vTabela.cell( vLinha, 46 ).data() ) + 1 ];
+				break;
+			case 'amos_cada_forne_charp_final':
+				return vResultado[ parseInt( vTabela.cell( vLinha, 47 ).data() ) + 1 ];
+				break;
+			case 'amos_cada_campo_metalo_final':
+				return vResultado[ parseInt( vTabela.cell( vLinha, 48 ).data() ) + 1 ];
+				break;
+			case 'amos_cada_forne_dureza_final':
+				return vResultado[ parseInt( vTabela.cell( vLinha, 49 ).data() ) + 1 ];
+				break;
+			case 'amos_cada_campo_quimica_final':
+				return vResultado[ parseInt( vTabela.cell( vLinha, 50 ).data() ) + 1 ];
+				break;	
+				
 		};
 	};
 	
@@ -283,6 +332,21 @@ export default class Amostras {
 							{ data: 'amos_cada_tenan', visible: false },
 							{ data: 'amos_cada_empre', visible: false },
 							{ data: 'usua_cada_nome', visible: false },
+							{ data: 'amos_cada_achat_final', visible: false },
+							{ data: 'amos_cada_expan_final', visible: false },
+							{ data: 'amos_cada_charp_final', visible: false },
+							{ data: 'amos_cada_dobram_2cps_final', visible: false },
+							{ data: 'amos_cada_dobram_4cps_final', visible: false },
+							{ data: 'amos_cada_dureza_final', visible: false },
+							{ data: 'amos_cada_macrog_final', visible: false },						
+							{ data: 'amos_cada_metalo_final', visible: false },
+							{ data: 'amos_cada_pce_final', visible: false },
+							{ data: 'amos_cada_quimica_final', visible: false },
+							{ data: 'amos_cada_forne_charp_final', visible: false },
+							{ data: 'amos_cada_campo_metalo_final', visible: false },
+							{ data: 'amos_cada_forne_dureza_final', visible: false },
+							{ data: 'amos_cada_campo_quimica_final', visible: false },
+							
 						], 
 						language: {
 							"decimal": ",",
@@ -327,7 +391,8 @@ export default class Amostras {
 					vTabela.draw();
 				} else {
 					vTabela = $( vTabela ).DataTable();
-				};				
+				};
+				vTabela.columns.adjust();		
 				vResp ( vRespAjax );
 			}
 		);
@@ -495,18 +560,123 @@ export default class Amostras {
 						'<div class="col-xl-12">' +
 							'<div class="card">' +
 								'<div class="card-header"> '+
-									'<i class="fas fa-fill-drip"></i> Ensaios / Análises' +
+									'<div class="row" >' +
+										'<div class="col-xl-4">' +
+											'<i class="fas fa-fill-drip"></i> Ensaios / Análises' +
+										'</div>' +
+										'<div class="col-xl-4">' +
+											'<i class="fas fa-check"></i> Resultados' +
+										'</div>' +
+									'</div>' +	
 								'</div>' +
 								'<div class="row p-3" >' +
-									'<div class="col-xl-4">' +
+									'<div class="col-xl-12">' +
 										'<ul class="list-group list-group-flush">' +
 											'<li class="list-group-item ps-5">' +
-												'<input id="MetaEnsaAmos" class="form-check-input me-1" type="checkbox" value="" aria-label="...">' +
-												'Metalogarafico' +
+												'<div class="row" >' +
+													'<div class="col-xl-4">' +
+														'<input id="AchatExpanEnsaAmos" class="form-check-input me-1" type="checkbox" value="" aria-label="...">' +
+														'Achatamento Expansão' +
+													'</div>' +
+													'<div class="col-xl-4">' +
+														'<div class="row" >' +
+															'<div class="col-xl-6">' +
+																'<span id="ResulAchatEnsaAmos"></span>' +
+															'</div>' +
+															'<div class="col-xl-6">' +
+																'<span id="ResulExpanEnsaAmos"></span>' +
+															'</div>' +
+														'</div>' +
+													'</div>' +
+												'</div>' +
 											'</li>' +
 											'<li class="list-group-item ps-5">' +
-												'<input id="QuimiEnsaAmos" class="form-check-input me-1" type="checkbox" value="" aria-label="...">' +
-												'Quimico' +
+												'<div class="row" >' +
+													'<div class="col-xl-4">' +
+														'<input id="CharpEnsaAmos" class="form-check-input me-1" type="checkbox" value="" aria-label="...">' +
+														'Charpy' +
+													'</div>' +
+													'<div class="col-xl-4">' +
+														'<span id="ResulCharpEnsaAmos"></span>' +
+													'</div>' +
+												'</div>' +
+											'</li>' +
+											'<li class="list-group-item ps-5">' +
+												'<div class="row" >' +
+													'<div class="col-xl-4">' +	
+														'<input id="Dobram2EnsaAmos" class="form-check-input me-1" type="checkbox" value="" aria-label="...">' +
+														'DOBRAM 2 CPs' +
+													'</div>' +
+													'<div class="col-xl-4">' +
+														'<span id="ResulDobram2EnsaAmos"></span>' +
+													'</div>' +
+												'</div>' +
+											'</li>' +
+											'<li class="list-group-item ps-5">' +
+												'<div class="row" >' +
+													'<div class="col-xl-4">' +
+														'<input id="Dobram4EnsaAmos" class="form-check-input me-1" type="checkbox" value="" aria-label="...">' +
+														'DOBRAM 4 CPs' +
+													'</div>' +
+													'<div class="col-xl-4">' +
+														'<span id="ResulDobram4EnsaAmos"></span>' +
+													'</div>' +
+												'</div>' +
+											'</li>' +
+											'<li class="list-group-item ps-5">' +
+												'<div class="row" >' +
+													'<div class="col-xl-4">' +
+														'<input id="DureEnsaAmos" class="form-check-input me-1" type="checkbox" value="" aria-label="...">' +
+														'Dureza' +
+													'</div>' +
+													'<div class="col-xl-4">' +
+														'<span id="ResulDureEnsaAmos"></span>' +
+													'</div>' +
+												'</div>' +
+											'</li>' +
+											'<li class="list-group-item ps-5">' +
+												'<div class="row" >' +
+													'<div class="col-xl-4">' +
+														'<input id="MacroEnsaAmos" class="form-check-input me-1" type="checkbox" value="" aria-label="...">' +
+														'Macrografia' +
+													'</div>' +
+													'<div class="col-xl-4">' +
+														'<span id="ResulMacroEnsaAmos"></span>' +
+													'</div>' +
+												'</div>' +
+											'</li>' +
+											'<li class="list-group-item ps-5">' +
+												'<div class="row" >' +
+													'<div class="col-xl-4">' +
+														'<input id="MetaEnsaAmos" class="form-check-input me-1" type="checkbox" value="" aria-label="...">' +
+														'Metalogarafico' +
+													'</div>' +
+													'<div class="col-xl-4">' +
+														'<span id="ResulMetaEnsaAmos"></span>' +
+													'</div>' +
+												'</div>' +
+											'</li>' +
+											'<li class="list-group-item ps-5">' +
+												'<div class="row" >' +
+													'<div class="col-xl-4">' +
+														'<input id="TPCEEnsaAmos" class="form-check-input me-1" type="checkbox" value="" aria-label="...">' +
+														'PCE' +
+													'</div>' +
+													'<div class="col-xl-4">' +
+														'<span id="ResulTPCEEnsaAmos"></span>' +
+													'</div>' +
+												'</div>' +
+											'</li>' +
+											'<li class="list-group-item ps-5">' +
+												'<div class="row" >' +
+													'<div class="col-xl-4">' +	
+														'<input id="QuimiEnsaAmos" class="form-check-input me-1" type="checkbox" value="" aria-label="...">' +
+														'Quimico' +
+													'</div>' +
+													'<div class="col-xl-4">' +
+														'<span id="ResulQuimiEnsaAmos"></span>' +
+													'</div>' +
+												'</div>' +
 											'</li>' +
 											'<li class="list-group-item ps-5">' +
 												'<input id="Trac1EnsaAmos" class="form-check-input me-1" type="checkbox" value="" aria-label="...">' +
@@ -517,60 +687,52 @@ export default class Amostras {
 												'Tração 2º' +
 											'</li>' +
 											'<li class="list-group-item ps-5">' +
-												'<input id="DureEnsaAmos" class="form-check-input me-1" type="checkbox" value="" aria-label="...">' +
-												'Dureza' +
+												'<div class="row" >' +
+													'<div class="col-xl-4">' +
+														'<input id="CharpForneEnsaAmos" class="form-check-input me-1" type="checkbox" value="" aria-label="...">' +
+														'Charpy no Fabricante' +
+													'</div>' +
+													'<div class="col-xl-4">' +
+														'<span id="ResulCharpForneEnsaAmos"></span>' +
+													'</div>' +
+												'</div>' +
 											'</li>' +
 											'<li class="list-group-item ps-5">' +
-												'<input id="CharpEnsaAmos" class="form-check-input me-1" type="checkbox" value="" aria-label="...">' +
-												'Charpy' +
-											'</li>' +
-										'</ul>' +
-									'</div>' +
-									'<div class="col-xl-4">' +
-										'<ul class="list-group list-group-flush">' +
-											'<li class="list-group-item ps-5">' +
-												'<input id="AchatExpanEnsaAmos" class="form-check-input me-1" type="checkbox" value="" aria-label="...">' +
-												'Achatamento Expansão' +
-											'</li>' +
-											'<li class="list-group-item ps-5">' +
-												'<input id="TPCEEnsaAmos" class="form-check-input me-1" type="checkbox" value="" aria-label="...">' +
-												'PCE' +
+												'<div class="row" >' +
+													'<div class="col-xl-4">' +
+														'<input id="DureForneEnsaAmos" class="form-check-input me-1" type="checkbox" value="" aria-label="...">' +
+														'Dureza no Fabricante' +
+													'</div>' +
+													'<div class="col-xl-4">' +
+														'<span id="ResulDureForneEnsaAmos"></span>' +
+													'</div>' +
+												'</div>' +
 											'</li>' +
 											'<li class="list-group-item ps-5">' +
-												'<input id="Dobram2EnsaAmos" class="form-check-input me-1" type="checkbox" value="" aria-label="...">' +
-												'DOBRAM 2 CPs' +
+												'<div class="row" >' +
+													'<div class="col-xl-4">' +
+														'<input id="MetaCampoEnsaAmos" class="form-check-input me-1" type="checkbox" value="" aria-label="...">' +
+														'Metalografico em Campo' +
+													'</div>' +
+													'<div class="col-xl-4">' +
+														'<span id="ResulMetaCampoEnsaAmos"></span>' +
+													'</div>' +
+												'</div>' +	
 											'</li>' +
 											'<li class="list-group-item ps-5">' +
-												'<input id="Dobram4EnsaAmos" class="form-check-input me-1" type="checkbox" value="" aria-label="...">' +
-												'DOBRAM 4 CPs' +
-											'</li>' +
-											'<li class="list-group-item ps-5">' +
-												'<input id="MacroEnsaAmos" class="form-check-input me-1" type="checkbox" value="" aria-label="...">' +
-												'Macrografia' +
-											'</li>' +
-										'</ul>' +
-									'</div>' +
-									'<div class="col-xl-4">' +
-										'<ul class="list-group list-group-flush">' +
-											'<li class="list-group-item ps-5">' +
-												'<input id="QuimiCampoEnsaAmos" class="form-check-input me-1" type="checkbox" value="" aria-label="...">' +
-												'Quimico em Campo' +
-											'</li>' +
-											'<li class="list-group-item ps-5">' +
-												'<input id="MetaCampoEnsaAmos" class="form-check-input me-1" type="checkbox" value="" aria-label="...">' +
-												'Metalografico em Campo' +
+												'<div class="row" >' +
+													'<div class="col-xl-4">' +
+														'<input id="QuimiCampoEnsaAmos" class="form-check-input me-1" type="checkbox" value="" aria-label="...">' +
+														'Quimico em Campo' +
+													'</div>' +
+													'<div class="col-xl-4">' +
+														'<span id="ResulQuimiCampoEnsaAmos"></span>' +
+													'</div>' +
+												'</div>' +	
 											'</li>' +
 											'<li class="list-group-item ps-5">' +
 												'<input id="TracaForneEnsaAmos" class="form-check-input me-1" type="checkbox" value="" aria-label="...">' +
 												'Tração no Fabricante' +
-											'</li>' +
-											'<li class="list-group-item ps-5">' +
-												'<input id="DureForneEnsaAmos" class="form-check-input me-1" type="checkbox" value="" aria-label="...">' +
-												'Dureza no Fabricante' +
-											'</li>' +
-											'<li class="list-group-item ps-5">' +
-												'<input id="CharpForneEnsaAmos" class="form-check-input me-1" type="checkbox" value="" aria-label="...">' +
-												'Charpy no Fabricante' +
 											'</li>' +
 										'</ul>' +
 									'</div>' +
@@ -738,21 +900,38 @@ export default class Amostras {
 																$( ResObjPai ).find( '#DistrAmos' ).val( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_distri' ) ),
 																$( ResObjPai ).find( '#ObsAmos' ).val( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_obser' ) ),
 																$( ResObjPai ).find( '#MetaEnsaAmos' ).prop( 'checked', Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_metalo' ) );
+																$( ResObjPai ).find( '#ResulMetaEnsaAmos' ).html( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_metalo_final' ) );
 																$( ResObjPai ).find( '#QuimiEnsaAmos' ).prop( 'checked', Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_quimica' ) );
+																$( ResObjPai ).find( '#ResulQuimiEnsaAmos' ).html( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_quimica_final' ) );
 																$( ResObjPai ).find( '#Trac1EnsaAmos' ).prop( 'checked', Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_tracao_1' ) );
+																
 																$( ResObjPai ).find( '#Trac2EnsaAmos' ).prop( 'checked', Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_tracao_2' ) );
+																
 																$( ResObjPai ).find( '#DureEnsaAmos' ).prop( 'checked', Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_dureza' ) );
+																$( ResObjPai ).find( '#ResulDureEnsaAmos' ).html( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_dureza_final' ) );
 																$( ResObjPai ).find( '#CharpEnsaAmos' ).prop( 'checked', Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_charp' ) );
+																$( ResObjPai ).find( '#ResulCharpEnsaAmos' ).html( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_charp_final' ) );
 																$( ResObjPai ).find( '#AchatExpanEnsaAmos' ).prop( 'checked', Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_achat_expan' ) );
+																$( ResObjPai ).find( '#ResulAchatEnsaAmos' ).html( 'Achatamento: ' + Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_achat_final' ) );
+																$( ResObjPai ).find( '#ResulExpanEnsaAmos' ).html( 'Expanção: ' + Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_expan_final' ) );
 																$( ResObjPai ).find( '#TPCEEnsaAmos' ).prop( 'checked', Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_pce' ) );
+																$( ResObjPai ).find( '#ResulTPCEEnsaAmos' ).html( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_pce_final' ) );
 																$( ResObjPai ).find( '#Dobram2EnsaAmos' ).prop( 'checked', Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_dobram_2cps' ) );
+																$( ResObjPai ).find( '#ResulDobram2EnsaAmos' ).html( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_dobram_2cps_final' ) );
 																$( ResObjPai ).find( '#Dobram4EnsaAmos' ).prop( 'checked', Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_dobram_4cps' ) );
+																$( ResObjPai ).find( '#ResulDobram4EnsaAmos' ).html( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_dobram_4cps_final' ) );
 																$( ResObjPai ).find( '#MacroEnsaAmos' ).prop( 'checked', Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_macrog' ) );
+																$( ResObjPai ).find( '#ResulMacroEnsaAmos' ).html( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_macrog_final' ) );
 																$( ResObjPai ).find( '#QuimiCampoEnsaAmos' ).prop( 'checked', Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_campo_quimica' ) );
+																$( ResObjPai ).find( '#ResulQuimiCampoEnsaAmos' ).html( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_campo_quimica_final' ) );
 																$( ResObjPai ).find( '#MetaCampoEnsaAmos' ).prop( 'checked', Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_campo_metalo' ) );
+																$( ResObjPai ).find( '#ResulMetaCampoEnsaAmos' ).html( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_campo_metalo_final' ) );
 																$( ResObjPai ).find( '#TracaForneEnsaAmos' ).prop( 'checked', Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_forne_tracao' ) );
+
 																$( ResObjPai ).find( '#DureForneEnsaAmos' ).prop( 'checked', Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_forne_dureza' ) );
+																$( ResObjPai ).find( '#ResulDureForneEnsaAmos' ).html( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_forne_dureza_final' ) );
 																$( ResObjPai ).find( '#CharpForneEnsaAmos' ).prop( 'checked', Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_forne_charp' ) );
+																$( ResObjPai ).find( '#ResulCharpForneEnsaAmos' ).html( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_forne_charp_final' ) );	
 																setTimeout( function(){
 																	vResp( ResObjPai );
 																}, 300);

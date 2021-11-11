@@ -215,7 +215,8 @@ export default class Achatamento {
 					vTabela.draw();
 				} else {
 					vTabela = $( vTabela ).DataTable();
-				};				
+				};
+				vTabela.columns.adjust();			
 				vResp ( vRespAjax );
 			}
 		);

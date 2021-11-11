@@ -127,7 +127,8 @@ export default class Fabricantes {
 					vTabela.draw();
 				} else {
 					vTabela = $( vTabela ).DataTable();
-				};				
+				};
+				vTabela.columns.adjust();		
 				vResp ( vRespAjax );
 			}
 		);

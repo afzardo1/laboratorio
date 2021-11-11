@@ -253,7 +253,8 @@ export default class Materiais {
 					vTabela.draw();
 				} else {
 					vTabela = $( vTabela ).DataTable();
-				};				
+				};
+				vTabela.columns.adjust();			
 				vResp ( vRespAjax );
 			}
 		);

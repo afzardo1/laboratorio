@@ -199,7 +199,8 @@ export default class Macrografia {
 					vTabela.draw();
 				} else {
 					vTabela = $( vTabela ).DataTable();
-				};				
+				};	
+				vTabela.columns.adjust();			
 				vResp ( vRespAjax );
 			}
 		);
