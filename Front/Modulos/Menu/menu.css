@@ -1,3 +1,7 @@
+div, .user-panel{
+    white-space: normal !important;
+}
+
 #AlertMenu{
     display: none;
 }

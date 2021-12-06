@@ -1,5 +1,5 @@
 /*CARREGA CLASSE CORE DO SISTEMA*/
-import Core from '../Core/Core.class.js';
+import Core from '../../Core/Core.class.js';
 
 $(document).ready(function() {
     Core.FinalSess();
@@ -37,7 +37,7 @@ $(document).ready(function() {
                                 new bootstrap.Toast( '#AletLogi', { animation: true, delay: Delay } ).show();
                                 $( ResObjPai ).find( '#EmailIpt' ).focus();
                             } else {
-                                location.href = 'Front/Menu/menu.html';
+                                location.href = 'Front/Modulos/Menu/menu.html';
                             }
                         });
                     } else {

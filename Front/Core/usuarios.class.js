@@ -330,6 +330,7 @@ export default class Usuarios {
 			Usuarios.GetPermForm3() +
 			Usuarios.GetPermForm4() +
 			Usuarios.GetPermForm5() +
+			Usuarios.GetPermForm6() +
 		'</div>';
 	};
 
@@ -673,6 +674,43 @@ export default class Usuarios {
 						'</li>' +
 						'<li class="list-group-item ps-5">' +
 							'<input id="134_PermUsua" class="form-check-input me-1" type="checkbox" value="134" aria-label="...">' +
+							'Excluir' +
+						'</li>' +
+					'</ul>' +
+				'</div>' +
+			'</div>' +
+		'</div>';
+	}
+
+	/**
+	 * Método para gerar formulario permissão 5
+	 * no sistema
+	 * 
+	 * @return formulário
+	 * @access public
+	*/
+	static GetPermForm6() {
+		return '<div class="row p-3" >' +
+			'<div class="col-xl-4">' +
+				'<div class="card">' +
+					'<div class="card-header"> '+
+						'<i class="fas fa-arrows-alt-v"></i> Modulo: Tração' +
+					'</div>' +
+					'<ul class="list-group list-group-flush">' +
+						'<li class="list-group-item ps-5">' +
+							'<input id="135_PermUsua" class="form-check-input me-1" type="checkbox" value="135" aria-label="...">' +
+							'Acessar' +
+						'</li>' +
+						'<li class="list-group-item ps-5">' +
+							'<input id="136_PermUsua" class="form-check-input me-1" type="checkbox" value="136" aria-label="...">' +
+							'Incluir' +
+						'</li>' +
+						'<li class="list-group-item ps-5">' +
+							'<input id="137_PermUsua" class="form-check-input me-1" type="checkbox" value="137" aria-label="...">' +
+							'Alterar' +
+						'</li>' +
+						'<li class="list-group-item ps-5">' +
+							'<input id="138_PermUsua" class="form-check-input me-1" type="checkbox" value="138" aria-label="...">' +
 							'Excluir' +
 						'</li>' +
 					'</ul>' +

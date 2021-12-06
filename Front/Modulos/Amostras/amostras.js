@@ -277,6 +277,30 @@ $(document).ready(function( ) {
             };
         });
     });
+/*--CHECA ENSAIO TRAÇÃO 1*/
+    $(document).off( 'click', '#Trac1EnsaAmos' );
+    $(document).on( 'click', '#Trac1EnsaAmos', function(event){
+        var vThis = this;
+        Core.GetObjtPai( vThis, [ 'AddListAmos', 'EdtListAmos' ], function( ResObjPai ){
+            if ( $ ( vThis ).attr( 'id' ) ==  'Trac1EnsaAmos' ) {
+                if ( $( vThis ).is( ':checked' ) == true ) {
+                    $( ResObjPai ).find( '#Trac2EnsaAmos' ).prop('checked', false );
+                };
+            };
+        });
+    });
+/*--CHECA ENSAIO TRAÇÃO 2*/
+    $(document).off( 'click', '#Trac2EnsaAmos' );
+    $(document).on( 'click', '#Trac2EnsaAmos', function(event){
+        var vThis = this;
+        Core.GetObjtPai( vThis, [ 'AddListAmos', 'EdtListAmos' ], function( ResObjPai ){
+            if ( $ ( vThis ).attr( 'id' ) ==  'Trac2EnsaAmos' ) {
+                if ( $( vThis ).is( ':checked' ) == true ) {
+                    $( ResObjPai ).find( '#Trac1EnsaAmos' ).prop('checked', false );
+                };
+            };
+        });
+    });
 /*--EXCLUIR*/
     $(document).off( 'click', '#DeleBtnAmos' );
     $(document).on( 'click', '#DeleBtnAmos', function(event){

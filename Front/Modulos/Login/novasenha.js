@@ -1,5 +1,5 @@
 /*CARREGA CLASSE CORE DO SISTEMA*/
-import Core from '../Core/Core.class.js';
+import Core from '../../Core/Core.class.js';
 
 $(document).ready(function() {
     $( '#UsuaNSenha' ).html( 'Olá ' + Core.Login.GetUsuaSess( 'usua_cada_nome' ) );
@@ -39,7 +39,7 @@ $(document).ready(function() {
                                 new bootstrap.Toast( '#AletNSenha', { animation: true, delay: Delay } ).show();
                                 $( ResObjPai ).find( '#SenhaNovaIpt' ).focus();
                             } else {
-                                location.href = '../../Front/Menu/menu.html';
+                                location.href = '../../Front/Modulos/Menu/menu.html';
                             };
                         });
                     } else {

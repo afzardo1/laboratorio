@@ -1,0 +1,115 @@
+<link rel="stylesheet" href="../Tracao/tracao.css">
+<form id="FormTrac" class="ps-2 pe-2">
+	<ul class="nav nav-tabs bg-light" role="tablist">
+		<li class="nav-item" role="presentation">
+		  <button class="nav-link active" id="TabTrac" data-bs-toggle="tab" data-bs-target="#ListTrac" type="button" role="tab" aria-controls="home" aria-selected="true"> <i class="fas fa-arrows-alt-v"></i> TRAÇÃO </button>
+		</li>
+	</ul>
+	<div class="tab-content bg-white">
+		<div class="tab-pane fade show active" id="ListTrac" role="tabpanel" aria-labelledby="tab-clientes">
+			<div class="row p-3" >
+				<div class="col-xl-6">
+					<div class="input-group input-group-lg">
+						<label class="input-group-text" for="FiltTenanTrac">Tenant</label>
+						<select class="form-select" id="FiltTenanTrac" aria-label="Floating label select example" uppercase>
+						</select>
+					</div>
+				</div>
+				<div class="col-xl-6">
+					<div class="input-group input-group-lg">
+						<label class="input-group-text" for="FiltEmpreTrac">Empresa</label>
+						<select class="form-select" id="FiltEmpreTrac" aria-label="Floating label select example" uppercase>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="row p-3" >
+				<div class="col-xl-6">
+					<div class="input-group input-group-lg">
+						<label class="input-group-text" for="FiltClieTrac">Clientes</label>
+						<select class="form-select" id="FiltClieTrac" aria-label="Floating label select example" uppercase>
+						</select>
+					</div>
+				</div>
+				<div class="col-xl-6">
+					<div class="input-group input-group-lg">
+						<label class="input-group-text" for="FiltFabrTrac">Fabricante</label>
+						<select class="form-select" id="FiltFabrTrac" aria-label="Floating label select example" uppercase>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="row p-3" >
+				<div class="col-xl-6">
+					<div class="input-group input-group-lg">
+						<label class="input-group-text" for="FiltAreTrac">Área</label>
+						<select class="form-select" id="FiltAreTrac" aria-label="Floating label select example" uppercase>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="row p-3" >
+				<div class="col-xl-2">
+					<div class="form-floating">
+						<input type="text" class="form-control" id="FiltRgTrac" placeholder="" autofocus>
+						<label for="FiltRgTrac">Registro Geral</label>
+					</div>
+				</div>
+				<div class="col-xl-2">
+					<div class="form-floating">
+						<input type="text" class="form-control" id="FiltOsTrac" placeholder="" autofocus>
+						<label for="FiltOsTrac">Ordem de Serviço</label>
+					</div>
+				</div>
+				<div class="col-xl-2">
+					<div class="form-floating">
+						<input type="text" class="form-control" id="FiltEmisIniTrac" placeholder="" autofocus>
+						<label for="FiltEmisIniTrac">Emissão Inicial</label>
+					</div>
+				</div>
+				<div class="col-xl-2">
+					<div class="form-floating">
+						<input type="text" class="form-control" id="FiltEmisFimTrac" placeholder="" autofocus>
+						<label for="FiltEmisFimTrac">Emissão Final</label>
+					</div>
+				</div>
+				<div class="col-xl-2">
+					<div class="form-floating">
+						<select class="form-select" id="StatTrac" aria-label="Floating label select example">
+							<option value="0">NÃO</option>
+							<option value="1">SIM</option>
+						</select>
+						<label for="StatTrac">Finalizado</label>
+					</div>
+				</div>
+				<div class="col-xl-2">
+					<div class="d-grid gap-2">
+						<button id="FiltBtnTrac" type="button" class="btn btn-lg btn-primary"> <i class="fas fa-filter"></i> Filtrar </button>
+					</div>
+				</div>
+			</div>
+			<div class="row p-3">
+				<div class="col-xl-12">
+					<div class="table-responsive-sm">
+						<table id="TableTrac" class="display row-border responsive no-wrap">
+						<thead>
+							<tr>
+								<th scope="col"></th>
+								<th scope="col">Id</th>
+								<th scope="col">Emissão</th>
+								<th scope="col">Amostra</th>
+								<th scope="col">Ordem Serv.</th>
+								<th scope="col">Descrição</th>
+								<th scope="col">Finalizado</th>
+								<th scope="col">Resultado</th>
+							</tr>
+						</thead>
+						<tbody id="TabeDataTrac">
+						</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>

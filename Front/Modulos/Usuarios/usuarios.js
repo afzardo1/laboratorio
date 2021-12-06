@@ -1,5 +1,5 @@
 /*CARREGA CLASSE CORE DO SISTEMA*/
-import Core from '../Core/Core.class.js';
+import Core from '../../Core/Core.class.js';
 
 $(document).ready(function( ) {
     var vFocuUsua = '';

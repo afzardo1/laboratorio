@@ -1,0 +1,35 @@
+#TableTrac, #AnexTableTrac {
+	width: 100% !important;
+}
+
+#TableTrac .bg-danger{
+	background-color: rgba( 255, 0, 0, 0.7 ) !important;
+	color: black !important;
+}
+
+#TableTrac .bg-success{
+	background-color: rgba( 25, 135, 84, 0.7 ) !important;
+	color: black !important;
+}
+
+#TableTrac .bg-warning{
+	background-color: rgba( 255, 193, 7, 0.7 ) !important;
+	color: black !important;
+}
+
+#TableTrac .bg-info{
+	background-color: rgba( 13, 202, 240, 0.7 ) !important;
+	color: black !important;
+}
+
+#FormTrac input{
+	text-transform: uppercase;
+}
+
+#FormTrac textarea{
+	text-transform: uppercase;
+}
+
+#FormTrac #TituAnexTrac{
+	padding: 0.5rem;
+}

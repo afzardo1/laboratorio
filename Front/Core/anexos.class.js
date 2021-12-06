@@ -223,6 +223,16 @@ export default class Anexos {
 				5: 'FileAnexLabeQuimi',
 			};
 		};
+		if ( $( vTabela ).attr( 'id' ) == 'AnexTableTrac' ){
+			NomeIten = {
+				0: 'DeleAnexBtnTrac',
+				1: 'DownAnexBtnTrac',
+				2: 'TipoAnexTrac',
+				3: 'DescrAnexTrac',
+				4: 'FileAnexTrac',
+				5: 'FileAnexLabeTrac',
+			};
+		};
 		var DataIten = {
 			'anexo_botao': 
 				'<button id="' + NomeIten[0] + '" type="button" class="btn btn-danger" title="EXCLUIR"><i class="fas fa-minus"></i></button>' +
@@ -321,6 +331,14 @@ export default class Anexos {
 				3: 'FileAnexLabeQuimi',
 			};
 		};
+		if ( $( vTabela ).attr( 'id' ) == 'AnexTableTrac' ){
+			NomeIten = {
+				0: 'TipoAnexTrac',
+				1: 'DescrAnexTrac',
+				2: 'FileAnexTrac',
+				3: 'FileAnexLabeTrac',
+			};
+		};
 		var Anexos = {};
 		var TabeData = Core.Anexos.AtuaTableAnex( vTabela );
 		TabeData.rows().every( function ( rowIdx, tableLoop, rowLoop ) {
@@ -385,7 +403,10 @@ export default class Anexos {
 			};
 			if ( vParam[ 'IdenQuimi' ] != undefined ){
 				IdenAnex = vParam[ 'IdenQuimi' ];
-			};5
+			};
+			if ( vParam[ 'IdenTrac' ] != undefined ){
+				IdenAnex = vParam[ 'IdenTrac' ];
+			};			
 			Core.SetAjax({
 				evento:{
 					IdenAnex: IdenAnex,
@@ -468,6 +489,11 @@ export default class Anexos {
 				0: 'TipoAnexQuimi',
 			};
 		};
+		if ( $( vTabela ).attr( 'id' ) == 'AnexTableTrac' ){
+			NomeIten = {
+				0: 'TipoAnexTrac',
+			};
+		};		
 		$( TabeData.row( vLinha ).node() ).find( '#' + NomeIten[0] ).append( '<option value="-1">EXCLUIR</option>' );
 		$( TabeData.row( vLinha ).node() ).find( '#' + NomeIten[0] ).val( -1 );
 		$( TabeData.row( vLinha ).node() ).hide();

@@ -65,6 +65,9 @@ import Pcend from './pcend.class.js';
 /*CARREGA CLASSE QUIMICO DO SISTEMA*/
 import Quimico from './quimico.class.js';
 
+/*CARREGA CLASSE TRAÇÃO DO SISTEMA*/
+import Tracao from './tracao.class.js';
+
 /**
  * Esta classe é a mais importante da API.
  * Todas as requisições passam por aqui, são tratadas
@@ -622,4 +625,15 @@ export default class Core {
 	static get Quimico(){
 		return Quimico;
 	}
+
+	/**
+	 * Método de Tração chama e instancia a classe
+	 * tracao.class
+	 * 
+	 * @return classe
+	 * @access public
+	*/
+	static get Tracao(){
+		return Tracao;
+	}	
 };

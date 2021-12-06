@@ -239,8 +239,16 @@ export default class Amostras {
 				break;
 			case 'amos_cada_campo_quimica_final':
 				return vResultado[ parseInt( vTabela.cell( vLinha, 50 ).data() ) + 1 ];
-				break;	
-				
+				break;
+			case 'amos_cada_tracao_1_final':
+				return vResultado[ parseInt( vTabela.cell( vLinha, 51 ).data() ) + 1 ];
+				break;
+			case 'amos_cada_tracao_2_final':
+				return vResultado[ parseInt( vTabela.cell( vLinha, 52 ).data() ) + 1 ];
+				break;
+			case 'amos_cada_forne_tracao_final':
+				return vResultado[ parseInt( vTabela.cell( vLinha, 53 ).data() ) + 1 ];
+				break;				
 		};
 	};
 	
@@ -346,7 +354,9 @@ export default class Amostras {
 							{ data: 'amos_cada_campo_metalo_final', visible: false },
 							{ data: 'amos_cada_forne_dureza_final', visible: false },
 							{ data: 'amos_cada_campo_quimica_final', visible: false },
-							
+							{ data: 'amos_cada_tracao_1_final', visible: false },
+							{ data: 'amos_cada_tracao_2_final', visible: false },
+							{ data: 'amos_cada_forne_tracao_final', visible: false },	
 						], 
 						language: {
 							"decimal": ",",
@@ -679,12 +689,26 @@ export default class Amostras {
 												'</div>' +
 											'</li>' +
 											'<li class="list-group-item ps-5">' +
-												'<input id="Trac1EnsaAmos" class="form-check-input me-1" type="checkbox" value="" aria-label="...">' +
-												'Tração 1º' +
+												'<div class="row" >' +
+													'<div class="col-xl-4">' +
+														'<input id="Trac1EnsaAmos" class="form-check-input me-1" type="checkbox" value="" aria-label="...">' +
+														'Tração 1º' +
+													'</div>' +
+													'<div class="col-xl-4">' +
+														'<span id="ResulTrac1EnsaAmos"></span>' +
+													'</div>' +
+												'</div>' +
 											'</li>' +
 											'<li class="list-group-item ps-5">' +
-												'<input id="Trac2EnsaAmos" class="form-check-input me-1" type="checkbox" value="" aria-label="...">' +
-												'Tração 2º' +
+												'<div class="row" >' +
+													'<div class="col-xl-4">' +
+														'<input id="Trac2EnsaAmos" class="form-check-input me-1" type="checkbox" value="" aria-label="...">' +
+														'Tração 2º' +
+													'</div>' +
+													'<div class="col-xl-4">' +
+														'<span id="ResulTrac2EnsaAmos"></span>' +
+													'</div>' +
+												'</div>' +
 											'</li>' +
 											'<li class="list-group-item ps-5">' +
 												'<div class="row" >' +
@@ -731,8 +755,15 @@ export default class Amostras {
 												'</div>' +	
 											'</li>' +
 											'<li class="list-group-item ps-5">' +
-												'<input id="TracaForneEnsaAmos" class="form-check-input me-1" type="checkbox" value="" aria-label="...">' +
-												'Tração no Fabricante' +
+												'<div class="row" >' +
+													'<div class="col-xl-4">' +
+														'<input id="TracaForneEnsaAmos" class="form-check-input me-1" type="checkbox" value="" aria-label="...">' +
+														'Tração no Fabricante' +
+													'</div>' +
+													'<div class="col-xl-4">' +
+														'<span id="ResulTracaForneEnsaAmos"></span>' +
+													'</div>' +
+												'</div>' +
 											'</li>' +
 										'</ul>' +
 									'</div>' +
@@ -904,9 +935,9 @@ export default class Amostras {
 																$( ResObjPai ).find( '#QuimiEnsaAmos' ).prop( 'checked', Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_quimica' ) );
 																$( ResObjPai ).find( '#ResulQuimiEnsaAmos' ).html( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_quimica_final' ) );
 																$( ResObjPai ).find( '#Trac1EnsaAmos' ).prop( 'checked', Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_tracao_1' ) );
-																
+																$( ResObjPai ).find( '#ResulTrac1EnsaAmos' ).html( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_tracao_1_final' ) );
 																$( ResObjPai ).find( '#Trac2EnsaAmos' ).prop( 'checked', Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_tracao_2' ) );
-																
+																$( ResObjPai ).find( '#ResulTrac2EnsaAmos' ).html( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_tracao_2_final' ) );
 																$( ResObjPai ).find( '#DureEnsaAmos' ).prop( 'checked', Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_dureza' ) );
 																$( ResObjPai ).find( '#ResulDureEnsaAmos' ).html( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_dureza_final' ) );
 																$( ResObjPai ).find( '#CharpEnsaAmos' ).prop( 'checked', Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_charp' ) );
@@ -927,7 +958,7 @@ export default class Amostras {
 																$( ResObjPai ).find( '#MetaCampoEnsaAmos' ).prop( 'checked', Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_campo_metalo' ) );
 																$( ResObjPai ).find( '#ResulMetaCampoEnsaAmos' ).html( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_campo_metalo_final' ) );
 																$( ResObjPai ).find( '#TracaForneEnsaAmos' ).prop( 'checked', Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_forne_tracao' ) );
-
+																$( ResObjPai ).find( '#ResulTracaForneEnsaAmos' ).html( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_forne_tracao_final' ) );
 																$( ResObjPai ).find( '#DureForneEnsaAmos' ).prop( 'checked', Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_forne_dureza' ) );
 																$( ResObjPai ).find( '#ResulDureForneEnsaAmos' ).html( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_forne_dureza_final' ) );
 																$( ResObjPai ).find( '#CharpForneEnsaAmos' ).prop( 'checked', Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_forne_charp' ) );
