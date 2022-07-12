@@ -1,0 +1,128 @@
+<link rel="stylesheet" href="../Parametros/Parametros.css">
+<form id="FormPara" class="ps-2 pe-2">
+	<ul class="nav nav-tabs bg-light" role="tablist">
+		<li class="nav-item" role="presentation">
+		  <button class="nav-link active" id="TabPara" data-bs-toggle="tab" data-bs-target="#ListPara" type="button" role="tab" aria-controls="home" aria-selected="true"> <i class="nav-icon fas fa-tools"></i> PARÂMETROS </button>
+		</li>
+	</ul>
+	<div class="tab-content bg-white">
+		<div class="tab-pane fade show active" id="ListPara" role="tabpanel" aria-labelledby="tab-clientes">
+			<div class="row p-3" >
+				<div class="col-xl-6">
+					<div class="input-group input-group-lg">
+						<label class="input-group-text" for="FiltTenanPara">Tenant</label>
+						<select class="form-select" id="FiltTenanPara" aria-label="Floating label select example" uppercase>
+						</select>
+					</div>
+				</div>
+				<div class="col-xl-6">
+					<div class="input-group input-group-lg">
+						<label class="input-group-text" for="FiltEmprePara">Empresa</label>
+						<select class="form-select" id="FiltEmprePara" aria-label="Floating label select example" uppercase placeholder="">
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="row p-3" >
+				<div class="col-xl-10"></div>
+				<div class="col-xl-2">
+					<div class="d-grid gap-2">
+						<button id="FiltBtnPara" type="button" class="btn btn-lg btn-primary"> <i class="fas fa-check-double"></i> Selecionar </button>
+					</div>
+				</div>
+			</div>
+			<div class="row p-3">
+				<div class="col-xl-1">
+					<div class="form-floating">
+						<input type="text" class="form-control" id="IdenPara" value="Automatico" disabled>
+						<label for="IdenPara">ID Reg.</label>
+					</div>
+				</div>
+			</div>
+			<div class="row p-3">
+				<div class="col-xl-6">
+					<label for="IdenPara">Logo</label>
+					<div class="custom-file">
+						<input id="LogoPara" type="file" data-arqu="" data-value="" class="custom-file-input">
+						<label id="LabeLogoPara" class="custom-file-label" for="LogoPara" data-browse="Selecionar">Selecione um Arquivo</label>
+					</div>
+				</div>
+				<div class="col-xl-6">
+					<label for="IdenPara">Selo</label>
+					<div class="custom-file">
+						<input id="SeloPara" type="file" data-arqu="" data-value="" class="custom-file-input">
+						<label id="LabeSeloPara" class="custom-file-label" for="SeloPara" data-browse="Selecionar">Selecione um Arquivo</label>
+					</div>
+				</div>
+			</div>
+			<div class="row p-3">
+				<div class="col-xl-8">
+					<div class="form-floating">
+						<input type="text" class="form-control" id="SmtpPara" value="" placeholder="" maxlength="200">
+						<label for="SmtpPara">Servidor de Saida ( SMTP )</label>
+					</div>
+				</div>
+				<div class="col-xl-2">
+					<div class="form-floating">
+						<input type="text" class="form-control" id="PortSmtpPara" value="587" placeholder="" maxlength="4">
+						<label for="PortSmtpPara">Porta</label>
+					</div>
+				</div>
+				<div class="col-xl-2 d-flex justify-content-center d-flex align-items-center">
+					<div class="form-check form-switch">
+						<input class="form-check-input" type="checkbox" role="switch" id="AuthSmtpPara" checked>
+						<label class="form-check-label" for="AuthSmtpPara">Requer Autenticação</label>
+					</div>
+				</div>
+			</div>
+			<div class="row p-3">
+				<div class="col-xl-5">
+					<div class="form-floating">
+						<input type="text" class="form-control" id="UsuaSmtpPara" value="" placeholder="" maxlength="100">
+						<label for="UsuaSmtpPara">Usuário</label>
+					</div>
+				</div>
+				<div class="col-xl-5">
+					<div class="form-floating">
+						<input type="password" class="form-control" id="SenhaSmtpPara" value="" placeholder="" maxlength="100">
+						<label for="SenhaSmtpPara">Senha</label>
+					</div>
+				</div>
+				<div class="col-xl-2 d-flex justify-content-center d-flex align-items-center">
+					<div class="form-check form-switch">
+						<input class="form-check-input" type="checkbox" role="switch" id="CriptSmtpPara" checked>
+						<label class="form-check-label" for="CriptSmtpPara">SSL/TLS</label>
+					</div>
+				</div>
+			</div>
+			<div class="row p-3">
+				<div class="col-xl-12">
+					<div class="form-floating">
+						<input type="text" class="form-control" id="EmailSmtpPara" value="" placeholder="" maxlength="200">
+						<label for="EmailSmtpPara">E-mail Origem</label>
+					</div>
+				</div>
+			</div>
+			<div class="row p-3">
+				<div class="col-xl-12">
+					<div class="form-floating">
+						<input type="text" class="form-control" id="NomeSmtpPara" value="" placeholder="" maxlength="150">
+						<label for="NomeSmtpPara">Nome Origem</label>
+					</div>
+				</div>
+			</div>
+			<div class="row p-3" >
+				<div class="col-xl-12">
+					<label class="form-label" for="CabePara">Cabeçalho Certificados</label>
+					<textarea class="form-control" placeholder="" id="CabePara" style="height: 300px;"></textarea>
+				</div>
+			</div>
+		</div>
+		</br>
+		</br>
+		</br>
+		<div class="fixed-bottom d-flex justify-content-center">
+			<button id="SalvPara" type="button" class="btn btn-lg btn-success me-1"> <i class="fas fa-save"></i> Salvar </button>
+		</div>
+	</div>
+</form>

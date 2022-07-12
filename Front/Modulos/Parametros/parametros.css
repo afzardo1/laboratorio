@@ -1,0 +1,28 @@
+#TablePara {
+	width: 100% !important;
+}
+
+#TablePara .bg-danger{
+	background-color: rgba( 255, 0, 0, 0.7 ) !important;
+	color: black !important;
+}
+
+#FormPara input{
+	text-transform: uppercase;
+}
+
+#FormPara #SmtpPara {
+	text-transform: lowercase;
+}
+
+#FormPara #UsuaSmtpPara{
+	text-transform: none;
+}
+
+#FormPara #SenhaSmtpPara{
+	text-transform: none;
+}
+
+#FormPara #EmailSmtpPara{
+	text-transform: lowercase;
+}

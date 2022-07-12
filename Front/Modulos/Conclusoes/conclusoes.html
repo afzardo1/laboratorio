@@ -1,0 +1,65 @@
+<link rel="stylesheet" href="../Conclusoes/conclusoes.css">
+<form id="FormConcl" class="ps-2 pe-2">
+	<ul class="nav nav-tabs bg-light" role="tablist">
+		<li class="nav-item" role="presentation">
+		  <button class="nav-link active" id="TabConcl" data-bs-toggle="tab" data-bs-target="#ListConcl" type="button" role="tab" aria-controls="home" aria-selected="true"> <i class="nav-icon far fa-comments"></i> CADASTRO CONCLUSÕES </button>
+		</li>
+	</ul>
+	<div class="tab-content bg-white">
+		<div class="tab-pane fade show active" id="ListConcl" role="tabpanel" aria-labelledby="tab-clientes">
+			<div class="row p-3" >
+				<div class="col-xl-6">
+					<div class="input-group input-group-lg">
+						<label class="input-group-text" for="FiltTenanConcl">Tenant</label>
+						<select class="form-select" id="FiltTenanConcl" aria-label="Floating label select example" uppercase>
+						</select>
+					</div>
+				</div>
+				<div class="col-xl-6">
+					<div class="input-group input-group-lg">
+						<label class="input-group-text" for="FiltEmpreConcl">Empresa</label>
+						<select class="form-select" id="FiltEmpreConcl" aria-label="Floating label select example" uppercase placeholder="">
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="row p-3" >
+				<div class="col-xl-8">
+					<div class="form-floating">
+						<input type="text" class="form-control" id="FiltDadoConcl" placeholder="" autofocus>
+						<label for="FiltDadoConcl">Apelido ou Código</label>
+					</div>
+				</div>
+				<div class="col-xl-2"></div>
+				<div class="col-xl-2">
+					<div class="d-grid gap-2">
+						<button id="FiltBtnConcl" type="button" class="btn btn-lg btn-primary"> <i class="fas fa-filter"></i> Filtrar </button>
+					</div>
+				</div>
+			</div>
+			<div class="row p-3" >
+				<div class="col-xl-1">
+					<button id="AddBtnConcl" type="button" class="btn btn-lg btn-primary" title="INCLUIR"> <i class="fas fa-user-plus"></i> </button>
+				</div>
+			</div>
+			<div class="row p-3">
+				<div class="col-xl-12">
+					<div class="table-responsive-sm">
+						<table id="TableConcl" class="display row-border responsive no-wrap">
+						<thead>
+							<tr>
+								<th scope="col"></th>
+								<th scope="col">Id</th>
+								<th scope="col">Apelido</th>
+								<th scope="col">Descrição</th>
+							</tr>
+						</thead>
+						<tbody id="TabeDataConcl">
+						</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>

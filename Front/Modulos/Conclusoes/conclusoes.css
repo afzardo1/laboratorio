@@ -1,0 +1,12 @@
+#TableConcl {
+	width: 100% !important;
+}
+
+#TableConcl .bg-danger{
+	background-color: rgba( 255, 0, 0, 0.7 ) !important;
+	color: black !important;
+}
+
+#FormConcl input, textarea{
+	text-transform: uppercase;
+}
