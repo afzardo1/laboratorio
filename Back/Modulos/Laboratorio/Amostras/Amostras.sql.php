@@ -163,9 +163,11 @@
 			) as amos_cada_forne_charp_final,
 			amos_cada_tenan,
 			amos_cada_empre,
+			amos_cada_concl_iden,
+			amos_cada_concl_livre,
 			amos_cada_stat,
 			amos_cada_situ,
-			sis_para_logo,
+			CONCAT( sist_para_tenant, "_", sist_para_empre, "_", sis_para_logo ) AS sis_para_logo,
 			sis_para_selo
 		FROM
 			labo_amos_cada
@@ -245,6 +247,8 @@
 			amos_cada_forne_charp,
 			amos_cada_tenan,
 			amos_cada_empre,
+			amos_cada_concl_iden,
+			amos_cada_concl_livre,
 			amos_cada_stat,
 			amos_cada_situ
 		) VALUES (
@@ -280,6 +284,8 @@
 			:amos_cada_forne_charp,
 			:amos_cada_tenan,
 			:amos_cada_empre,
+			:amos_cada_concl_iden,
+			:amos_cada_concl_livre,
 			0,
 			-1
 		);
@@ -319,7 +325,9 @@
 			amos_cada_forne_dureza = :amos_cada_forne_dureza,
 			amos_cada_forne_charp = :amos_cada_forne_charp,
 			amos_cada_tenan = :amos_cada_tenan,
-			amos_cada_empre = :amos_cada_empre
+			amos_cada_empre = :amos_cada_empre,
+			amos_cada_concl_iden = :amos_cada_concl_iden,
+			amos_cada_concl_livre = :amos_cada_concl_livre
 		WHERE
 			amos_cada_iden = :amos_cada_iden AND
 			amos_cada_stat = 0

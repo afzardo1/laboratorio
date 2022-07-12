@@ -10,6 +10,7 @@
 	use Back\Modulos\Laboratorio\Fabricantes\Fabricantes;
 	use Back\Modulos\Laboratorio\Materiais\Materiais;
 	use Back\Modulos\Laboratorio\Areas\Areas;
+	use Back\Modulos\Laboratorio\Certificado\Certificado;
 
 	use PDO;
 	use PDOException;
@@ -258,6 +259,7 @@
 							$Botao = $Botao.'
 								<button id="EditBtnMeta" type="button" class="btn btn-secondary" title="ALTERAR"><i class="'.$Figura.'"></i></button>
 								<button id="ImprBtnMeta" type="button" class="btn btn-success" title="IMPRIMIR"><i class="fas fa-print"></i></button>
+								<button id="CertBtnMeta" type="button" class="btn btn-primary" title="CERTIFICADO"><i class="fas fa-certificate"></i></button>
 							';
 						};
 						
@@ -426,11 +428,11 @@
 		}
 
 		/**
-		 * Gera PDF a amostra cadastrada
+		 * Gera PDF a Metalografia cadastrada
 		 *
 		 * @param Parametros array contendo os dados do filtro
 		 * 
-		 * @return integer Ultimo id
+		 * @return arquivo
 		 * @access public
 		*/
 		public static function SetImpreMeta( $Parametros = array() ){
@@ -589,10 +591,15 @@
 						</table>
 					';
 
+					$CabeLogo = '';
+					if( $Retorno[0]['sis_para_logo'] != '' ){
+						$CabeLogo = str_replace( array( 'Back\Modulos\Laboratorio\Metalografia', 'Back/Modulos/Laboratorio/Metalografia' ), '', __DIR__ ).'Imagem/'.$Retorno[0]['sis_para_logo'];
+					};
+
 					$listreg = Core::SetGeraPdf(
 						$Cabecalho,
 						$Corpo,
-						str_replace( array( 'Back\Modulos\Laboratorio\Metalografia', 'Back/Modulos/Laboratorio/Metalografia' ), '', __DIR__ ).'Imagem/'.$Retorno[0]['sis_para_logo'],
+						$CabeLogo,
 						'P',
 						'SIMPLES',
 						array( 10, 40, 10, 5 )
@@ -614,6 +621,23 @@
 						'listreg' => false,
 					));
 				};
+			} else {
+				return json_encode( $vStatSess );
+			};
+		}
+
+		/**
+		 * Gera PDF a Metalografia cadastrada
+		 *
+		 * @param Parametros array contendo os dados do filtro
+		 * 
+		 * @return arquivo
+		 * @access public
+		*/
+		public static function SetImprCertMeta( $Parametros = array() ){
+			$vStatSess = json_decode( Core::Sessao()::Chk( 'usua_cada_iden' ), true );
+			if ( $vStatSess[ 'status' ] == 'aberto' ) {
+				return Certificado::SetImpreCert( $Parametros );
 			} else {
 				return json_encode( $vStatSess );
 			};
@@ -645,6 +669,58 @@
 					'descricao' => 'Exclusão de Arquivo com erro </br> '.$e->getMessage(),
 					'listreg' => false,
 				));
+			};
+		}
+
+		/**
+	 	 * Retorna Todos Dados Para Terceiros.
+	 	 *
+		 * @param Parametros array contendo os dados do filtro
+		 * 
+		 * @return mixed
+	 	 * @access public
+	 	*/
+		public static function GetRegMetaTerce( $Parametros = array() ){
+			$vStatSess = json_decode( Core::Sessao()::Chk( 'usua_cada_iden' ), true );
+			if ( $vStatSess[ 'status' ] == 'aberto' ) {
+				Metalografia::Inicia();
+
+				try {
+					self::$Conn->beginTransaction();
+
+					$GetRegMeta = str_replace(
+						':FILTRO',
+						'( amos_cada_iden = :amos_cada_iden )', 
+						self::$RotSql[ 'GetRegMeta' ]
+					);
+					
+					$Prepara = self::$Conn->prepare( $GetRegMeta );
+					$Prepara->bindValue( ':amos_cada_iden', $Parametros[ 'amos_cada_iden' ] );
+
+					$Prepara->execute();
+				
+					$Retorno = $Prepara->fetchAll( PDO::FETCH_ASSOC );
+
+					self::$Conn->commit();
+
+					return json_encode( array(
+						'sistema' => Core::config( 'system_apelido' ),
+						'modulo' => 'Metalografia',
+						'status' => 'sucesso',
+						'descricao' => 'Resultado Terceiro Metalografia',
+						'listreg' => $Retorno,
+					));
+				} catch ( PDOException $e ) {
+					return json_encode( array(
+						'sistema' => Core::config( 'system_apelido' ),
+						'modulo' => 'Metalografia',
+						'status' => 'invalido',
+						'descricao' => 'Terceiro Metalografia com erro </br> '.$e->getMessage(),
+						'listreg' => false,
+					));
+				};
+			} else {
+				return json_encode( $vStatSess );
 			};
 		}
 	}

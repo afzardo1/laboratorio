@@ -8,6 +8,8 @@
 	use Back\Modulos\Laboratorio\Fabricantes\Fabricantes;
 	use Back\Modulos\Laboratorio\Materiais\Materiais;
 	use Back\Modulos\Laboratorio\Areas\Areas;
+	use Back\Modulos\Laboratorio\Conclusoes\Conclusoes;
+	use Back\Modulos\Laboratorio\Certificado\Certificado;
 
 	use PDO;
 	use PDOException;
@@ -144,21 +146,38 @@
 		}
 
 		/**
-	 	 * Retorna Todos Dados dos Materiais.
+	 	 * Retorna Todos Dados dos Areas.
 	 	 *
 		 * @param Parametros array contendo os dados do filtro
 		 * 
 		 * @return mixed
 	 	 * @access public
 	 	*/
-		public static function GetAreaAmos( $Parametros = array() ){
+		 public static function GetAreaAmos( $Parametros = array() ){
 			$vStatSess = json_decode( Core::Sessao()::Chk( 'usua_cada_iden' ), true );
 			if ( $vStatSess[ 'status' ] == 'aberto' ) {
 				return Areas::GetRegAreaTerce( $Parametros );
 			} else {
 				return json_encode( $vStatSess );
 			};
-		}		
+		}	
+
+		/**
+	 	 * Retorna Todos Dados dos Conclusões.
+	 	 *
+		 * @param Parametros array contendo os dados do filtro
+		 * 
+		 * @return mixed
+	 	 * @access public
+	 	*/
+		public static function GetConclAmos( $Parametros = array() ){
+			$vStatSess = json_decode( Core::Sessao()::Chk( 'usua_cada_iden' ), true );
+			if ( $vStatSess[ 'status' ] == 'aberto' ) {
+				return Conclusoes::GetRegAmosConclTerce( $Parametros );
+			} else {
+				return json_encode( $vStatSess );
+			};
+		}
 		
 		/**
 	 	 * Retorna Todos Dados.
@@ -221,6 +240,7 @@
 								<button id="EditBtnAmos" type="button" class="btn btn-secondary" title="ALTERAR"><i class="'.$Figura.'"></i></button>
 								<button id="DeleBtnAmos" type="button" class="btn btn-danger" title="EXCLUIR"><i class="fas fa-minus"></i></button>
 								<button id="ImprBtnAmos" type="button" class="btn btn-secondary" title="IMPRIMIR"><i class="fas fa-print"></i></button>
+								<button id="CertBtnAmos" type="button" class="btn btn-primary" title="CERTIFICADO"><i class="fas fa-certificate"></i></button>
 							';
 						};
 
@@ -277,6 +297,8 @@
 							'amos_cada_forne_charp_final' => $input['amos_cada_forne_charp_final'],
 							'amos_cada_tenan' => $input['amos_cada_tenan'],
 							'amos_cada_empre' => $input['amos_cada_empre'],
+							'amos_cada_concl_iden' => $input['amos_cada_concl_iden'],
+							'amos_cada_concl_livre' => $input['amos_cada_concl_livre'],
 							'amos_cada_stat' => $input['amos_cada_stat'],
 							'amos_cada_situ' => $input['amos_cada_situ'],
 						);
@@ -404,7 +426,8 @@
 						$Prepara->bindValue( ':amos_cada_forne_charp', str_replace( array( 'false', 'true' ), array( '0', '1' ), $Parametros[ 'CharpForneEnsaAmos' ] ) );
 						$Prepara->bindValue( ':amos_cada_tenan', $Parametros[ 'TenanAmos' ] );
 						$Prepara->bindValue( ':amos_cada_empre', $Parametros[ 'EmpreAmos' ] );
-
+						$Prepara->bindValue( ':amos_cada_concl_iden', $Parametros[ 'ConclAobsAmos' ] );
+						$Prepara->bindValue( ':amos_cada_concl_livre', $Parametros[ 'ConclAobsLivrAmos' ] );
 						$Prepara->execute();
 						
 						if ( $descricao == 'Inclusão de Amostras' ){
@@ -697,6 +720,15 @@
 						</table>
 						<br>
 						<br>
+						<table border="1" cellpadding="1" style="border-collapse: collapse; font-size: 10pt">
+        					<tr>
+								<td width="680">
+									 <b>Conclusão: </b> '.nl2br( $Retorno[0]['amos_cada_concl_livre'] ).'
+								</td>
+							</tr>
+						</table>
+						<br>
+						<br>
 						<br>
 						<table border="1" cellpadding="5" style="border-collapse: collapse; font-size: 10pt">
         					<tr>
@@ -708,10 +740,15 @@
 						</table>
 					';
 
+					$CabeLogo = '';
+					if( $Retorno[0]['sis_para_logo'] != '' ){
+						$CabeLogo = str_replace( array( 'Back\Modulos\Laboratorio\Amostras', 'Back/Modulos/Laboratorio/Amostras' ), '', __DIR__ ).'Imagem/'.$Retorno[0]['sis_para_logo'];
+					};
+
 					$listreg = Core::SetGeraPdf(
 						$Cabecalho,
 						$Corpo,
-						str_replace( array( 'Back\Modulos\Laboratorio\Amostras', 'Back/Modulos/Laboratorio/Amostras' ), '', __DIR__ ).'Imagem/'.$Retorno[0]['sis_para_logo'],
+						$CabeLogo,
 						'P',
 						'SIMPLES',
 						array( 10, 40, 10 )
@@ -733,6 +770,23 @@
 						'listreg' => false,
 					));
 				};
+			} else {
+				return json_encode( $vStatSess );
+			};
+		}
+
+		/**
+		 * Gera PDF Certificados
+		 *
+		 * @param Parametros array contendo os dados do filtro
+		 * 
+		 * @return arquivo
+		 * @access public
+		*/
+		public static function SetImprCertAmos( $Parametros = array() ){
+			$vStatSess = json_decode( Core::Sessao()::Chk( 'usua_cada_iden' ), true );
+			if ( $vStatSess[ 'status' ] == 'aberto' ) {
+				return Certificado::SetImpreCert( $Parametros );
 			} else {
 				return json_encode( $vStatSess );
 			};

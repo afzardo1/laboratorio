@@ -1,5 +1,5 @@
 /*CARREGA CLASSE CORE DO SISTEMA*/
-import Core from '../Core/Core.class.js';
+import Core from '../../Core/Core.class.js';
 
 $(document).ready(function( ) {
     var vFocuAmos = '';
@@ -378,6 +378,47 @@ $(document).ready(function( ) {
             evento:{
                 IdenAmos: Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_iden' ),
 				RGAmos: Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_regi' ),
+            }
+        }, function( vRespLogi ){
+            if ( vRespLogi.status != 'sucesso' ){
+                $( '#AlertMenuCont' ).html(
+                    '<div id="AlertMenu" class="alert alert-warning alert-dismissible fade" role="alert">' +
+                        '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>' +
+                    '</div>'
+                );
+                $( '#AlertMenu' ).removeClass('alert alert-warning');
+                $( '#AlertMenu' ).removeClass('alert alert-danger');
+                if ( vRespLogi.status == 'invalido'){
+                    $( '#AlertMenu' ).addClass('alert alert-warning');
+                } else if ( vRespLogi.status == 'erro'){
+                    $( '#AlertMenu' ).addClass('alert alert-danger');
+                };
+                $( '#AlertMenu' ).prepend( vRespLogi.detalhes );
+                $( '#AlertMenu' ).addClass('show');
+                $( '#AlertMenu' ).show();
+            } else {
+                window.open( vRespLogi.registros );
+                Core.SetAjax({
+			        evento:{
+				        ArquiExcl: vRespLogi.registros,
+			        }},
+			      '../../Laboratorio/Amostras/SetExclArqu/', function( vRespAjax ){
+                });
+            };            
+            $( '#FiltBtnAmos' ).click();
+        });
+    });
+/*--IMPRIMIR CERTIFICADO*/
+    $(document).off( 'click', '#CertBtnAmos' );
+    $(document).on( 'click', '#CertBtnAmos', function(event){
+        var vLinha = $( this ).parent().parent();
+        Core.LoadMenu.show()
+        Core.Amostras.SetImpreCertAmos( { 
+            evento:{
+                sist_para_tenant: Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_tenan' ),
+				sist_para_empre: Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_empre' ), 
+                amos_cada_iden: Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_iden' ),
+                amos_cada_cert: 'TODOS', 
             }
         }, function( vRespLogi ){
             if ( vRespLogi.status != 'sucesso' ){

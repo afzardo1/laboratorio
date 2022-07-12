@@ -80,7 +80,6 @@
 					$Prepara->bindValue( ':empre_cada_docu', $Parametros[ 'empre_cada_nome_docu' ] );
 					$Prepara->bindValue( ':empre_cada_nome', $Parametros[ 'empre_cada_nome_docu' ] );
 					$Prepara->bindValue( ':empre_cada_tenant', $Parametros[ 'empre_cada_tenant' ] );
-					
 
 					$Prepara->execute();
 				

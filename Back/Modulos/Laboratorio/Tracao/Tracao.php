@@ -10,6 +10,7 @@
 	use Back\Modulos\Laboratorio\Fabricantes\Fabricantes;
 	use Back\Modulos\Laboratorio\Materiais\Materiais;
 	use Back\Modulos\Laboratorio\Areas\Areas;
+	use Back\Modulos\Laboratorio\Certificado\Certificado;
 
 	use PDO;
 	use PDOException;
@@ -258,6 +259,7 @@
 							$Botao = $Botao.'
 								<button id="EditBtnTrac" type="button" class="btn btn-secondary" title="ALTERAR"><i class="'.$Figura.'"></i></button>
 								<button id="ImprBtnTrac" type="button" class="btn btn-success" title="IMPRIMIR"><i class="fas fa-print"></i></button>
+								<button id="CertBtnTrac" type="button" class="btn btn-primary" title="CERTIFICADO"><i class="fas fa-certificate"></i></button>
 							';
 						};
 						
@@ -597,10 +599,15 @@
 						</table>
 					';
 
+					$CabeLogo = '';
+					if( $Retorno[0]['sis_para_logo'] != '' ){
+						$CabeLogo = str_replace( array( 'Back\Modulos\Laboratorio\Tracao', 'Back/Modulos/Laboratorio/Tracao' ), '', __DIR__ ).'Imagem/'.$Retorno[0]['sis_para_logo'];
+					};
+
 					$listreg = Core::SetGeraPdf(
 						$Cabecalho,
 						$Corpo,
-						str_replace( array( 'Back\Modulos\Laboratorio\Tracao', 'Back/Modulos/Laboratorio/Tracao' ), '', __DIR__ ).'Imagem/'.$Retorno[0]['sis_para_logo'],
+						$CabeLogo,
 						'P',
 						'SIMPLES',
 						array( 10, 40, 10, 5 )
@@ -622,6 +629,23 @@
 						'listreg' => false,
 					));
 				};
+			} else {
+				return json_encode( $vStatSess );
+			};
+		}
+
+		/**
+		 * Gera PDF a Quimica cadastrada
+		 *
+		 * @param Parametros array contendo os dados do filtro
+		 * 
+		 * @return arquivo
+		 * @access public
+		*/
+		public static function SetImprCertTrac( $Parametros = array() ){
+			$vStatSess = json_decode( Core::Sessao()::Chk( 'usua_cada_iden' ), true );
+			if ( $vStatSess[ 'status' ] == 'aberto' ) {
+				return Certificado::SetImpreCert( $Parametros );
 			} else {
 				return json_encode( $vStatSess );
 			};
@@ -653,6 +677,58 @@
 					'descricao' => 'Exclusão de Arquivo com erro </br> '.$e->getMessage(),
 					'listreg' => false,
 				));
+			};
+		}
+
+		/**
+	 	 * Retorna Todos Dados Para Terceiros.
+	 	 *
+		 * @param Parametros array contendo os dados do filtro
+		 * 
+		 * @return mixed
+	 	 * @access public
+	 	*/
+		public static function GetRegTracTerce( $Parametros = array() ){
+			$vStatSess = json_decode( Core::Sessao()::Chk( 'usua_cada_iden' ), true );
+			if ( $vStatSess[ 'status' ] == 'aberto' ) {
+				Tracao::Inicia();
+
+				try {
+					self::$Conn->beginTransaction();
+
+					$GetRegTrac = str_replace(
+						':FILTRO',
+						'( amos_cada_iden = :amos_cada_iden )', 
+						self::$RotSql[ 'GetRegTrac' ]
+					);
+					
+					$Prepara = self::$Conn->prepare( $GetRegTrac );
+					$Prepara->bindValue( ':amos_cada_iden', $Parametros[ 'amos_cada_iden' ] );
+
+					$Prepara->execute();
+				
+					$Retorno = $Prepara->fetchAll( PDO::FETCH_ASSOC );
+
+					self::$Conn->commit();
+
+					return json_encode( array(
+						'sistema' => Core::config( 'system_apelido' ),
+						'modulo' => 'Tração',
+						'status' => 'sucesso',
+						'descricao' => 'Resultado Terceiro Tração',
+						'listreg' => $Retorno,
+					));
+				} catch ( PDOException $e ) {
+					return json_encode( array(
+						'sistema' => Core::config( 'system_apelido' ),
+						'modulo' => 'Tração',
+						'status' => 'invalido',
+						'descricao' => 'Terceiro Tração com erro </br> '.$e->getMessage(),
+						'listreg' => false,
+					));
+				};
+			} else {
+				return json_encode( $vStatSess );
 			};
 		}
 	}

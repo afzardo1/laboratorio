@@ -10,6 +10,7 @@
 	use Back\Modulos\Laboratorio\Fabricantes\Fabricantes;
 	use Back\Modulos\Laboratorio\Materiais\Materiais;
 	use Back\Modulos\Laboratorio\Areas\Areas;
+	use Back\Modulos\Laboratorio\Certificado\Certificado;
 
 	use PDO;
 	use PDOException;
@@ -258,6 +259,7 @@
 							$Botao = $Botao.'
 								<button id="EditBtnQuimi" type="button" class="btn btn-secondary" title="ALTERAR"><i class="'.$Figura.'"></i></button>
 								<button id="ImprBtnQuimi" type="button" class="btn btn-success" title="IMPRIMIR"><i class="fas fa-print"></i></button>
+								<button id="CertBtnQuimi" type="button" class="btn btn-primary" title="CERTIFICADO"><i class="fas fa-certificate"></i></button>
 							';
 						};
 						
@@ -438,60 +440,60 @@
 					$Prepara->bindValue( ':amos_quimi_cada_amos_iden', $Parametros[ 'IdenAmos' ] );
 					$Prepara->bindValue( ':amos_quimi_cada_qtde', str_replace( '.', '', $Parametros[ 'QtdeQuimi' ] ) );
 					$Prepara->bindValue( ':amos_quimi_cada_result', $Parametros[ 'ResulQuimi' ] );
-					$Prepara->bindValue( 'amos_quimi_cada_espe_C', $Parametros[ 'EspeCQuimi' ] );
-					$Prepara->bindValue( 'amos_quimi_cada_obti_C', $Parametros[ 'ObitCQuimi' ] );
-					$Prepara->bindValue( 'amos_quimi_cada_espe_Si', $Parametros[ 'EspeSiQuimi' ] );
-					$Prepara->bindValue( 'amos_quimi_cada_obti_Si', $Parametros[ 'ObitSiQuimi' ] );
-					$Prepara->bindValue( 'amos_quimi_cada_espe_Mn', $Parametros[ 'EspeMnQuimi' ] );
-					$Prepara->bindValue( 'amos_quimi_cada_obti_Mn', $Parametros[ 'ObitMnQuimi' ] );
-					$Prepara->bindValue( 'amos_quimi_cada_espe_P', $Parametros[ 'EspePQuimi' ] );
-					$Prepara->bindValue( 'amos_quimi_cada_obti_P', $Parametros[ 'ObitPQuimi' ] );
-					$Prepara->bindValue( 'amos_quimi_cada_espe_S', $Parametros[ 'EspeSQuimi' ] );
-					$Prepara->bindValue( 'amos_quimi_cada_obti_S', $Parametros[ 'ObitSQuimi' ] );
-					$Prepara->bindValue( 'amos_quimi_cada_espe_Cr', $Parametros[ 'EspeCrQuimi' ] );
-					$Prepara->bindValue( 'amos_quimi_cada_obti_Cr', $Parametros[ 'ObitCrQuimi' ] );
-					$Prepara->bindValue( 'amos_quimi_cada_espe_Ni', $Parametros[ 'EspeNiQuimi' ] );
-					$Prepara->bindValue( 'amos_quimi_cada_obti_Ni', $Parametros[ 'ObitNiQuimi' ] );
-					$Prepara->bindValue( 'amos_quimi_cada_espe_Mo', $Parametros[ 'EspeMoQuimi' ] );
-					$Prepara->bindValue( 'amos_quimi_cada_obti_Mo', $Parametros[ 'ObitMoQuimi' ] );
-					$Prepara->bindValue( 'amos_quimi_cada_espe_Cu', $Parametros[ 'EspeCuQuimi' ] );
-					$Prepara->bindValue( 'amos_quimi_cada_obti_Cu', $Parametros[ 'ObitCuQuimi' ] );
-					$Prepara->bindValue( 'amos_quimi_cada_espe_Al', $Parametros[ 'EspeAlQuimi' ] );
-					$Prepara->bindValue( 'amos_quimi_cada_obti_Al', $Parametros[ 'ObitAlQuimi' ] );
-					$Prepara->bindValue( 'amos_quimi_cada_espe_Fe', $Parametros[ 'EspeFeQuimi' ] );
-					$Prepara->bindValue( 'amos_quimi_cada_obti_Fe', $Parametros[ 'ObitFeQuimi' ] );
-					$Prepara->bindValue( 'amos_quimi_cada_espe_V', $Parametros[ 'EspeVQuimi' ] );
-					$Prepara->bindValue( 'amos_quimi_cada_obti_V', $Parametros[ 'ObitVQuimi' ] );
-					$Prepara->bindValue( 'amos_quimi_cada_espe_Co', $Parametros[ 'EspeCoQuimi' ] );
-					$Prepara->bindValue( 'amos_quimi_cada_obti_Co', $Parametros[ 'ObitCoQuimi' ] );
-					$Prepara->bindValue( 'amos_quimi_cada_espe_Nb', $Parametros[ 'EspeNbQuimi' ] );
-					$Prepara->bindValue( 'amos_quimi_cada_obti_Nb', $Parametros[ 'ObitNbQuimi' ] );
-					$Prepara->bindValue( 'amos_quimi_cada_espe_Ti', $Parametros[ 'EspeTiQuimi' ] );
-					$Prepara->bindValue( 'amos_quimi_cada_obti_Ti', $Parametros[ 'ObitTiQuimi' ] );
-					$Prepara->bindValue( 'amos_quimi_cada_espe_W', $Parametros[ 'EspeWQuimi' ] );
-					$Prepara->bindValue( 'amos_quimi_cada_obti_W', $Parametros[ 'ObitWQuimi' ] );
-					$Prepara->bindValue( 'amos_quimi_cada_espe_Mg', $Parametros[ 'EspeMgQuimi' ] );
-					$Prepara->bindValue( 'amos_quimi_cada_obti_Mg', $Parametros[ 'ObitMgQuimi' ] );
-					$Prepara->bindValue( 'amos_quimi_cada_espe_Zn', $Parametros[ 'EspeZnQuimi' ] );
-					$Prepara->bindValue( 'amos_quimi_cada_obti_Zn', $Parametros[ 'ObitZnQuimi' ] );
-					$Prepara->bindValue( 'amos_quimi_cada_espe_Pb', $Parametros[ 'EspePbQuimi' ] );
-					$Prepara->bindValue( 'amos_quimi_cada_obti_Pb', $Parametros[ 'ObitPbQuimi' ] );
-					$Prepara->bindValue( 'amos_quimi_cada_espe_Sb', $Parametros[ 'EspeSbQuimi' ] );
-					$Prepara->bindValue( 'amos_quimi_cada_obti_Sb', $Parametros[ 'ObitSbQuimi' ] );
-					$Prepara->bindValue( 'amos_quimi_cada_espe_Sn', $Parametros[ 'EspeSnQuimi' ] );
-					$Prepara->bindValue( 'amos_quimi_cada_obti_Sn', $Parametros[ 'ObitSnQuimi' ] );
-					$Prepara->bindValue( 'amos_quimi_cada_espe_Ca', $Parametros[ 'EspeCaQuimi' ] );
-					$Prepara->bindValue( 'amos_quimi_cada_obti_Ca', $Parametros[ 'ObitCaQuimi' ] );
-					$Prepara->bindValue( 'amos_quimi_cada_espe_Cl', $Parametros[ 'EspeClQuimi' ] );
-					$Prepara->bindValue( 'amos_quimi_cada_obti_Cl', $Parametros[ 'ObitClQuimi' ] );
-					$Prepara->bindValue( 'amos_quimi_cada_espe_N', $Parametros[ 'EspeNQuimi' ] );
-					$Prepara->bindValue( 'amos_quimi_cada_obti_N', $Parametros[ 'ObitNQuimi' ] );
-					$Prepara->bindValue( 'amos_quimi_cada_espe_Na', $Parametros[ 'EspeNaQuimi' ] );
-					$Prepara->bindValue( 'amos_quimi_cada_obti_Na', $Parametros[ 'ObitNaQuimi' ] );
-					$Prepara->bindValue( 'amos_quimi_cada_espe_Ceq', $Parametros[ 'EspeCeqQuimi' ] );
-					$Prepara->bindValue( 'amos_quimi_cada_obti_Ceq', $Parametros[ 'ObitCeqQuimi' ] );
-					$Prepara->bindValue( 'amos_quimi_cada_espe_Pb', $Parametros[ 'EspePbQuimi' ] );
-					$Prepara->bindValue( 'amos_quimi_cada_obti_Pb', $Parametros[ 'ObitPbQuimi' ] );
+					$Prepara->bindValue( 'amos_quimi_cada_espe_C', Core::UpperCase( $Parametros[ 'EspeCQuimi' ] ) );
+					$Prepara->bindValue( 'amos_quimi_cada_obti_C',  Core::UpperCase( $Parametros[ 'ObitCQuimi' ] ) );
+					$Prepara->bindValue( 'amos_quimi_cada_espe_Si',  Core::UpperCase( $Parametros[ 'EspeSiQuimi' ] ) );
+					$Prepara->bindValue( 'amos_quimi_cada_obti_Si',  Core::UpperCase( $Parametros[ 'ObitSiQuimi' ] ) );
+					$Prepara->bindValue( 'amos_quimi_cada_espe_Mn',  Core::UpperCase( $Parametros[ 'EspeMnQuimi' ] ) );
+					$Prepara->bindValue( 'amos_quimi_cada_obti_Mn',  Core::UpperCase( $Parametros[ 'ObitMnQuimi' ] ) );
+					$Prepara->bindValue( 'amos_quimi_cada_espe_P',  Core::UpperCase( $Parametros[ 'EspePQuimi' ] ) );
+					$Prepara->bindValue( 'amos_quimi_cada_obti_P',  Core::UpperCase( $Parametros[ 'ObitPQuimi' ] ) );
+					$Prepara->bindValue( 'amos_quimi_cada_espe_S',  Core::UpperCase( $Parametros[ 'EspeSQuimi' ] ) );
+					$Prepara->bindValue( 'amos_quimi_cada_obti_S',  Core::UpperCase( $Parametros[ 'ObitSQuimi' ] ) );
+					$Prepara->bindValue( 'amos_quimi_cada_espe_Cr',  Core::UpperCase( $Parametros[ 'EspeCrQuimi' ] ) );
+					$Prepara->bindValue( 'amos_quimi_cada_obti_Cr',  Core::UpperCase( $Parametros[ 'ObitCrQuimi' ] ) );
+					$Prepara->bindValue( 'amos_quimi_cada_espe_Ni',  Core::UpperCase( $Parametros[ 'EspeNiQuimi' ] ) );
+					$Prepara->bindValue( 'amos_quimi_cada_obti_Ni',  Core::UpperCase( $Parametros[ 'ObitNiQuimi' ] ) );
+					$Prepara->bindValue( 'amos_quimi_cada_espe_Mo',  Core::UpperCase( $Parametros[ 'EspeMoQuimi' ] ) );
+					$Prepara->bindValue( 'amos_quimi_cada_obti_Mo',  Core::UpperCase( $Parametros[ 'ObitMoQuimi' ] ) );
+					$Prepara->bindValue( 'amos_quimi_cada_espe_Cu',  Core::UpperCase( $Parametros[ 'EspeCuQuimi' ] ) );
+					$Prepara->bindValue( 'amos_quimi_cada_obti_Cu',  Core::UpperCase( $Parametros[ 'ObitCuQuimi' ] ) );
+					$Prepara->bindValue( 'amos_quimi_cada_espe_Al',  Core::UpperCase( $Parametros[ 'EspeAlQuimi' ] ) );
+					$Prepara->bindValue( 'amos_quimi_cada_obti_Al',  Core::UpperCase( $Parametros[ 'ObitAlQuimi' ] ) );
+					$Prepara->bindValue( 'amos_quimi_cada_espe_Fe',  Core::UpperCase( $Parametros[ 'EspeFeQuimi' ] ) );
+					$Prepara->bindValue( 'amos_quimi_cada_obti_Fe',  Core::UpperCase( $Parametros[ 'ObitFeQuimi' ] ) );
+					$Prepara->bindValue( 'amos_quimi_cada_espe_V',  Core::UpperCase( $Parametros[ 'EspeVQuimi' ] ) );
+					$Prepara->bindValue( 'amos_quimi_cada_obti_V',  Core::UpperCase( $Parametros[ 'ObitVQuimi' ] ) );
+					$Prepara->bindValue( 'amos_quimi_cada_espe_Co',  Core::UpperCase( $Parametros[ 'EspeCoQuimi' ] ) );
+					$Prepara->bindValue( 'amos_quimi_cada_obti_Co',  Core::UpperCase( $Parametros[ 'ObitCoQuimi' ] ) );
+					$Prepara->bindValue( 'amos_quimi_cada_espe_Nb',  Core::UpperCase( $Parametros[ 'EspeNbQuimi' ] ) );
+					$Prepara->bindValue( 'amos_quimi_cada_obti_Nb',  Core::UpperCase( $Parametros[ 'ObitNbQuimi' ] ) );
+					$Prepara->bindValue( 'amos_quimi_cada_espe_Ti',  Core::UpperCase( $Parametros[ 'EspeTiQuimi' ] ) );
+					$Prepara->bindValue( 'amos_quimi_cada_obti_Ti',  Core::UpperCase( $Parametros[ 'ObitTiQuimi' ] ) );
+					$Prepara->bindValue( 'amos_quimi_cada_espe_W',  Core::UpperCase( $Parametros[ 'EspeWQuimi' ] ) );
+					$Prepara->bindValue( 'amos_quimi_cada_obti_W',  Core::UpperCase( $Parametros[ 'ObitWQuimi' ] ) );
+					$Prepara->bindValue( 'amos_quimi_cada_espe_Mg',  Core::UpperCase( $Parametros[ 'EspeMgQuimi' ] ) );
+					$Prepara->bindValue( 'amos_quimi_cada_obti_Mg',  Core::UpperCase( $Parametros[ 'ObitMgQuimi' ] ) );
+					$Prepara->bindValue( 'amos_quimi_cada_espe_Zn',  Core::UpperCase( $Parametros[ 'EspeZnQuimi' ] ) );
+					$Prepara->bindValue( 'amos_quimi_cada_obti_Zn',  Core::UpperCase( $Parametros[ 'ObitZnQuimi' ] ) );
+					$Prepara->bindValue( 'amos_quimi_cada_espe_Pb',  Core::UpperCase( $Parametros[ 'EspePbQuimi' ] ) );
+					$Prepara->bindValue( 'amos_quimi_cada_obti_Pb',  Core::UpperCase( $Parametros[ 'ObitPbQuimi' ] ) );
+					$Prepara->bindValue( 'amos_quimi_cada_espe_Sb',  Core::UpperCase( $Parametros[ 'EspeSbQuimi' ] ) );
+					$Prepara->bindValue( 'amos_quimi_cada_obti_Sb',  Core::UpperCase( $Parametros[ 'ObitSbQuimi' ] ) );
+					$Prepara->bindValue( 'amos_quimi_cada_espe_Sn',  Core::UpperCase( $Parametros[ 'EspeSnQuimi' ] ) );
+					$Prepara->bindValue( 'amos_quimi_cada_obti_Sn',  Core::UpperCase( $Parametros[ 'ObitSnQuimi' ] ) );
+					$Prepara->bindValue( 'amos_quimi_cada_espe_Ca',  Core::UpperCase( $Parametros[ 'EspeCaQuimi' ] ) );
+					$Prepara->bindValue( 'amos_quimi_cada_obti_Ca',  Core::UpperCase( $Parametros[ 'ObitCaQuimi' ] ) );
+					$Prepara->bindValue( 'amos_quimi_cada_espe_Cl',  Core::UpperCase( $Parametros[ 'EspeClQuimi' ] ) );
+					$Prepara->bindValue( 'amos_quimi_cada_obti_Cl',  Core::UpperCase( $Parametros[ 'ObitClQuimi' ] ) );
+					$Prepara->bindValue( 'amos_quimi_cada_espe_N',  Core::UpperCase( $Parametros[ 'EspeNQuimi' ] ) );
+					$Prepara->bindValue( 'amos_quimi_cada_obti_N',  Core::UpperCase( $Parametros[ 'ObitNQuimi' ] ) );
+					$Prepara->bindValue( 'amos_quimi_cada_espe_Na',  Core::UpperCase( $Parametros[ 'EspeNaQuimi' ] ) );
+					$Prepara->bindValue( 'amos_quimi_cada_obti_Na',  Core::UpperCase( $Parametros[ 'ObitNaQuimi' ] ) );
+					$Prepara->bindValue( 'amos_quimi_cada_espe_Ceq',  Core::UpperCase( $Parametros[ 'EspeCeqQuimi' ] ) );
+					$Prepara->bindValue( 'amos_quimi_cada_obti_Ceq',  Core::UpperCase( $Parametros[ 'ObitCeqQuimi' ] ) );
+					$Prepara->bindValue( 'amos_quimi_cada_espe_Pb',  Core::UpperCase( $Parametros[ 'EspePbQuimi' ] ) );
+					$Prepara->bindValue( 'amos_quimi_cada_obti_Pb',  Core::UpperCase( $Parametros[ 'ObitPbQuimi' ] ) );
 					$Prepara->bindValue( ':amos_quimi_cada_obs',  Core::UpperCase( $Parametros[ 'ObseQuimi' ] ) );
 					$Prepara->bindValue( ':amos_quimi_cada_fina', str_replace( array( 'false', 'true' ), array( '0', '1' ), $Parametros[ 'FinaQuimi' ] ) );
 					if ( $Parametros[ 'FinaQuimi' ] == 'true' ){
@@ -750,10 +752,15 @@
 						</table>
 					';
 
+					$CabeLogo = '';
+					if( $Retorno[0]['sis_para_logo'] != '' ){
+						$CabeLogo = str_replace( array( 'Back\Modulos\Laboratorio\Quimico', 'Back/Modulos/Laboratorio/Quimico' ), '', __DIR__ ).'Imagem/'.$Retorno[0]['sis_para_logo'];
+					};
+
 					$listreg = Core::SetGeraPdf(
 						$Cabecalho,
 						$Corpo,
-						str_replace( array( 'Back\Modulos\Laboratorio\Quimico', 'Back/Modulos/Laboratorio/Quimico' ), '', __DIR__ ).'Imagem/'.$Retorno[0]['sis_para_logo'],
+						$CabeLogo,
 						'P',
 						'SIMPLES',
 						array( 10, 40, 10, 5 )
@@ -781,6 +788,23 @@
 		}
 
 		/**
+		 * Gera PDF a Quimica cadastrada
+		 *
+		 * @param Parametros array contendo os dados do filtro
+		 * 
+		 * @return arquivo
+		 * @access public
+		*/
+		public static function SetImprCertQuimi( $Parametros = array() ){
+			$vStatSess = json_decode( Core::Sessao()::Chk( 'usua_cada_iden' ), true );
+			if ( $vStatSess[ 'status' ] == 'aberto' ) {
+				return Certificado::SetImpreCert( $Parametros );
+			} else {
+				return json_encode( $vStatSess );
+			};
+		}
+		
+		/**
 		 * Exclui arquivos.
 		 *
 		 * @param Parametros array contendo os dados do filtro
@@ -806,6 +830,58 @@
 					'descricao' => 'Exclusão de Arquivo com erro </br> '.$e->getMessage(),
 					'listreg' => false,
 				));
+			};
+		}
+
+		/**
+	 	 * Retorna Todos Dados Para Terceiros.
+	 	 *
+		 * @param Parametros array contendo os dados do filtro
+		 * 
+		 * @return mixed
+	 	 * @access public
+	 	*/
+		public static function GetRegQuimiTerce( $Parametros = array() ){
+			$vStatSess = json_decode( Core::Sessao()::Chk( 'usua_cada_iden' ), true );
+			if ( $vStatSess[ 'status' ] == 'aberto' ) {
+				Quimico::Inicia();
+
+				try {
+					self::$Conn->beginTransaction();
+
+					$GetRegQuimi = str_replace(
+						':FILTRO',
+						'( amos_cada_iden = :amos_cada_iden )', 
+						self::$RotSql[ 'GetRegQuimi' ]
+					);
+					
+					$Prepara = self::$Conn->prepare( $GetRegQuimi );
+					$Prepara->bindValue( ':amos_cada_iden', $Parametros[ 'amos_cada_iden' ] );
+
+					$Prepara->execute();
+				
+					$Retorno = $Prepara->fetchAll( PDO::FETCH_ASSOC );
+
+					self::$Conn->commit();
+
+					return json_encode( array(
+						'sistema' => Core::config( 'system_apelido' ),
+						'modulo' => 'Quimico',
+						'status' => 'sucesso',
+						'descricao' => 'Resultado Terceiro Quimico',
+						'listreg' => $Retorno,
+					));
+				} catch ( PDOException $e ) {
+					return json_encode( array(
+						'sistema' => Core::config( 'system_apelido' ),
+						'modulo' => 'Quimico',
+						'status' => 'invalido',
+						'descricao' => 'Terceiro Quimico com erro </br> '.$e->getMessage(),
+						'listreg' => false,
+					));
+				};
+			} else {
+				return json_encode( $vStatSess );
 			};
 		}
 	}

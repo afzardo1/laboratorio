@@ -248,7 +248,13 @@ export default class Amostras {
 				break;
 			case 'amos_cada_forne_tracao_final':
 				return vResultado[ parseInt( vTabela.cell( vLinha, 53 ).data() ) + 1 ];
-				break;				
+				break;	
+			case 'amos_cada_concl_iden':
+				return vTabela.cell( vLinha, 54 ).data();
+				break;
+			case 'amos_cada_concl_livre':
+				return vTabela.cell( vLinha, 55 ).data();
+				break;	
 		};
 	};
 	
@@ -356,7 +362,9 @@ export default class Amostras {
 							{ data: 'amos_cada_campo_quimica_final', visible: false },
 							{ data: 'amos_cada_tracao_1_final', visible: false },
 							{ data: 'amos_cada_tracao_2_final', visible: false },
-							{ data: 'amos_cada_forne_tracao_final', visible: false },	
+							{ data: 'amos_cada_forne_tracao_final', visible: false },
+							{ data: 'amos_cada_concl_iden', visible: false },
+							{ data: 'amos_cada_concl_livre', visible: false },
 						], 
 						language: {
 							"decimal": ",",
@@ -771,6 +779,21 @@ export default class Amostras {
 							'</div>' +
 						'</div>' +
 					'</div>' +
+					'<div class="row p-3" >' +
+						'<div class="col-xl-4">' +
+							'<div class="input-group input-group-lg">' +
+								'<label class="input-group-text" for="ConclAobsAmos">Conclusões Padrão</label>' +
+								'<select class="form-select" id="ConclAobsAmos" aria-label="Floating label select example" uppercase>' +
+						  		'</select>' +
+							'</div>' +
+						'</div>' +
+						'<div class="col-xl-8">' +
+							'<div class="form-floating">' +
+  								'<textarea class="form-control" placeholder="" id="ConclAobsLivrAmos" style="height: 100px"></textarea>' +
+  								'<label for="ConclAobsLivrAmos">Conclusões / Observações Livre</label>' +
+							'</div>' +
+						'</div>' +
+					'</div>' +
 					'</br>' +
 					'</br>' +
 					'</br>' +
@@ -834,14 +857,21 @@ export default class Amostras {
 															area_cada_empre: $( ResObjPai ).find( '#EmpreAmos' ).val(),
 														  } }, '../../Laboratorio/Amostras/GetAreaAmos/', function( Resposta ){
 															Core.SetSele2( $( ResObjPai ).find( '#AreaAmos' ), Resposta.registros, function(){
-																Core.SetMask( $( ResObjPai ).find( '#EmisAmos, #CordeAmos' ), 'DATA' );
-																$( ResObjPai ).find( '#CadaPorAmos' ).attr( 'data-value', Core.Login.GetUsuaSess( 'usua_cada_iden' ) );
-																$( ResObjPai ).find( '#CadaPorAmos' ).val ( Core.Login.GetUsuaSess( 'usua_cada_nome' ) );
-																$( ResObjPai ).find( '#EmisAmos' ).val ( Core.Data().format('L') );
-																$( ResObjPai ).find( '#CordeAmos' ).val ( Core.Data().add( 10, 'days' ).format('L') );
-																setTimeout( function(){
-																	vResp( ResObjPai );
-																}, 300);
+																Core.SetAjax( { evento: {
+																	labo_amos_concl_tenan: $( ResObjPai ).find( '#TenanAmos' ).val(),
+																	labo_amos_concl_empre: $( ResObjPai ).find( '#EmpreAmos' ).val(),
+																} }, '../../Laboratorio/Amostras/GetConclAmos/', function( Resposta ){
+																	Core.SetSele2( $( ResObjPai ).find( '#ConclAobsAmos' ), Resposta.registros, function(){
+																		Core.SetMask( $( ResObjPai ).find( '#EmisAmos, #CordeAmos' ), 'DATA' );
+																		$( ResObjPai ).find( '#CadaPorAmos' ).attr( 'data-value', Core.Login.GetUsuaSess( 'usua_cada_iden' ) );
+																		$( ResObjPai ).find( '#CadaPorAmos' ).val ( Core.Login.GetUsuaSess( 'usua_cada_nome' ) );
+																		$( ResObjPai ).find( '#EmisAmos' ).val ( Core.Data().format('L') );
+																		$( ResObjPai ).find( '#CordeAmos' ).val ( Core.Data().add( 10, 'days' ).format('L') );
+																		setTimeout( function(){
+																			vResp( ResObjPai );
+																		}, 300);
+																	});
+																});
 															});
 														});
 													});
@@ -913,59 +943,68 @@ export default class Amostras {
 															area_cada_empre: $( ResObjPai ).find( '#EmpreAmos' ).val(),
 														  } }, '../../Laboratorio/Amostras/GetAreaAmos/', function( Resposta ){
 															Core.SetSele2( $( ResObjPai ).find( '#AreaAmos' ), Resposta.registros, function(){
-																Core.SetMask( $( ResObjPai ).find( '#EmisAmos, #CordeAmos' ), 'DATA' );
-																$( ResObjPai ).find( '#IdenAmos' ).val( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_iden' ) );
-																$( ResObjPai ).find( '#EmisAmos' ).val( Core.Data( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_emis' ) ).format('L') );
-																$( ResObjPai ).find( '#RGAmos' ).val( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_regi' ) );
-																$( ResObjPai ).find( '#OSAmos' ).val( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_orse' ) );
-																$( ResObjPai ).find( '#ClieAmos' ).val( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_clie_iden' ) ).trigger( 'change' );
-																$( ResObjPai ).find( '#FabrAmos' ).val( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_fabr_iden' ) ).trigger( 'change' );
-																$( ResObjPai ).find( '#MateAmos' ).val( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_mate_iden' ) ).trigger( 'change' );
-																$( ResObjPai ).find( '#AreaAmos' ).val( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_area_iden' ) ).trigger( 'change' );
-																$( ResObjPai ).find( '#DescrAmos' ).val( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_descr' ) );
-																$( ResObjPai ).find( '#PrioAmos' ).val( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_priori' ) );
-																$( ResObjPai ).find( '#CadaPorAmos' ).attr( 'data-value', Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_usua_iden' ) );
-																$( ResObjPai ).find( '#CadaPorAmos' ).val( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'usua_cada_nome' ) );
-																$( ResObjPai ).find( '#CordeAmos' ).val( Core.Data( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_corde' ) ).format('L') );
-																$( ResObjPai ).find( '#ContaAmos' ).val( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_conta' ) );
-																$( ResObjPai ).find( '#DistrAmos' ).val( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_distri' ) ),
-																$( ResObjPai ).find( '#ObsAmos' ).val( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_obser' ) ),
-																$( ResObjPai ).find( '#MetaEnsaAmos' ).prop( 'checked', Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_metalo' ) );
-																$( ResObjPai ).find( '#ResulMetaEnsaAmos' ).html( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_metalo_final' ) );
-																$( ResObjPai ).find( '#QuimiEnsaAmos' ).prop( 'checked', Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_quimica' ) );
-																$( ResObjPai ).find( '#ResulQuimiEnsaAmos' ).html( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_quimica_final' ) );
-																$( ResObjPai ).find( '#Trac1EnsaAmos' ).prop( 'checked', Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_tracao_1' ) );
-																$( ResObjPai ).find( '#ResulTrac1EnsaAmos' ).html( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_tracao_1_final' ) );
-																$( ResObjPai ).find( '#Trac2EnsaAmos' ).prop( 'checked', Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_tracao_2' ) );
-																$( ResObjPai ).find( '#ResulTrac2EnsaAmos' ).html( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_tracao_2_final' ) );
-																$( ResObjPai ).find( '#DureEnsaAmos' ).prop( 'checked', Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_dureza' ) );
-																$( ResObjPai ).find( '#ResulDureEnsaAmos' ).html( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_dureza_final' ) );
-																$( ResObjPai ).find( '#CharpEnsaAmos' ).prop( 'checked', Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_charp' ) );
-																$( ResObjPai ).find( '#ResulCharpEnsaAmos' ).html( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_charp_final' ) );
-																$( ResObjPai ).find( '#AchatExpanEnsaAmos' ).prop( 'checked', Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_achat_expan' ) );
-																$( ResObjPai ).find( '#ResulAchatEnsaAmos' ).html( 'Achatamento: ' + Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_achat_final' ) );
-																$( ResObjPai ).find( '#ResulExpanEnsaAmos' ).html( 'Expanção: ' + Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_expan_final' ) );
-																$( ResObjPai ).find( '#TPCEEnsaAmos' ).prop( 'checked', Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_pce' ) );
-																$( ResObjPai ).find( '#ResulTPCEEnsaAmos' ).html( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_pce_final' ) );
-																$( ResObjPai ).find( '#Dobram2EnsaAmos' ).prop( 'checked', Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_dobram_2cps' ) );
-																$( ResObjPai ).find( '#ResulDobram2EnsaAmos' ).html( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_dobram_2cps_final' ) );
-																$( ResObjPai ).find( '#Dobram4EnsaAmos' ).prop( 'checked', Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_dobram_4cps' ) );
-																$( ResObjPai ).find( '#ResulDobram4EnsaAmos' ).html( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_dobram_4cps_final' ) );
-																$( ResObjPai ).find( '#MacroEnsaAmos' ).prop( 'checked', Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_macrog' ) );
-																$( ResObjPai ).find( '#ResulMacroEnsaAmos' ).html( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_macrog_final' ) );
-																$( ResObjPai ).find( '#QuimiCampoEnsaAmos' ).prop( 'checked', Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_campo_quimica' ) );
-																$( ResObjPai ).find( '#ResulQuimiCampoEnsaAmos' ).html( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_campo_quimica_final' ) );
-																$( ResObjPai ).find( '#MetaCampoEnsaAmos' ).prop( 'checked', Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_campo_metalo' ) );
-																$( ResObjPai ).find( '#ResulMetaCampoEnsaAmos' ).html( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_campo_metalo_final' ) );
-																$( ResObjPai ).find( '#TracaForneEnsaAmos' ).prop( 'checked', Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_forne_tracao' ) );
-																$( ResObjPai ).find( '#ResulTracaForneEnsaAmos' ).html( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_forne_tracao_final' ) );
-																$( ResObjPai ).find( '#DureForneEnsaAmos' ).prop( 'checked', Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_forne_dureza' ) );
-																$( ResObjPai ).find( '#ResulDureForneEnsaAmos' ).html( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_forne_dureza_final' ) );
-																$( ResObjPai ).find( '#CharpForneEnsaAmos' ).prop( 'checked', Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_forne_charp' ) );
-																$( ResObjPai ).find( '#ResulCharpForneEnsaAmos' ).html( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_forne_charp_final' ) );	
-																setTimeout( function(){
-																	vResp( ResObjPai );
-																}, 300);
+																Core.SetAjax( { evento: {
+																	labo_amos_concl_tenan: $( ResObjPai ).find( '#TenanAmos' ).val(),
+																	labo_amos_concl_empre: $( ResObjPai ).find( '#EmpreAmos' ).val(),
+																} }, '../../Laboratorio/Amostras/GetConclAmos/', function( Resposta ){
+																	Core.SetSele2( $( ResObjPai ).find( '#ConclAobsAmos' ), Resposta.registros, function(){
+																		Core.SetMask( $( ResObjPai ).find( '#EmisAmos, #CordeAmos' ), 'DATA' );
+																		$( ResObjPai ).find( '#IdenAmos' ).val( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_iden' ) );
+																		$( ResObjPai ).find( '#EmisAmos' ).val( Core.Data( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_emis' ) ).format('L') );
+																		$( ResObjPai ).find( '#RGAmos' ).val( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_regi' ) );
+																		$( ResObjPai ).find( '#OSAmos' ).val( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_orse' ) );
+																		$( ResObjPai ).find( '#ClieAmos' ).val( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_clie_iden' ) ).trigger( 'change' );
+																		$( ResObjPai ).find( '#FabrAmos' ).val( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_fabr_iden' ) ).trigger( 'change' );
+																		$( ResObjPai ).find( '#MateAmos' ).val( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_mate_iden' ) ).trigger( 'change' );
+																		$( ResObjPai ).find( '#AreaAmos' ).val( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_area_iden' ) ).trigger( 'change' );
+																		$( ResObjPai ).find( '#DescrAmos' ).val( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_descr' ) );
+																		$( ResObjPai ).find( '#PrioAmos' ).val( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_priori' ) );
+																		$( ResObjPai ).find( '#CadaPorAmos' ).attr( 'data-value', Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_usua_iden' ) );
+																		$( ResObjPai ).find( '#CadaPorAmos' ).val( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'usua_cada_nome' ) );
+																		$( ResObjPai ).find( '#CordeAmos' ).val( Core.Data( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_corde' ) ).format('L') );
+																		$( ResObjPai ).find( '#ContaAmos' ).val( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_conta' ) );
+																		$( ResObjPai ).find( '#DistrAmos' ).val( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_distri' ) ),
+																		$( ResObjPai ).find( '#ObsAmos' ).val( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_obser' ) ),
+																		$( ResObjPai ).find( '#MetaEnsaAmos' ).prop( 'checked', Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_metalo' ) );
+																		$( ResObjPai ).find( '#ResulMetaEnsaAmos' ).html( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_metalo_final' ) );
+																		$( ResObjPai ).find( '#QuimiEnsaAmos' ).prop( 'checked', Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_quimica' ) );
+																		$( ResObjPai ).find( '#ResulQuimiEnsaAmos' ).html( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_quimica_final' ) );
+																		$( ResObjPai ).find( '#Trac1EnsaAmos' ).prop( 'checked', Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_tracao_1' ) );
+																		$( ResObjPai ).find( '#ResulTrac1EnsaAmos' ).html( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_tracao_1_final' ) );
+																		$( ResObjPai ).find( '#Trac2EnsaAmos' ).prop( 'checked', Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_tracao_2' ) );
+																		$( ResObjPai ).find( '#ResulTrac2EnsaAmos' ).html( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_tracao_2_final' ) );
+																		$( ResObjPai ).find( '#DureEnsaAmos' ).prop( 'checked', Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_dureza' ) );
+																		$( ResObjPai ).find( '#ResulDureEnsaAmos' ).html( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_dureza_final' ) );
+																		$( ResObjPai ).find( '#CharpEnsaAmos' ).prop( 'checked', Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_charp' ) );
+																		$( ResObjPai ).find( '#ResulCharpEnsaAmos' ).html( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_charp_final' ) );
+																		$( ResObjPai ).find( '#AchatExpanEnsaAmos' ).prop( 'checked', Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_achat_expan' ) );
+																		$( ResObjPai ).find( '#ResulAchatEnsaAmos' ).html( 'Achatamento: ' + Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_achat_final' ) );
+																		$( ResObjPai ).find( '#ResulExpanEnsaAmos' ).html( 'Expanção: ' + Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_expan_final' ) );
+																		$( ResObjPai ).find( '#TPCEEnsaAmos' ).prop( 'checked', Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_pce' ) );
+																		$( ResObjPai ).find( '#ResulTPCEEnsaAmos' ).html( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_pce_final' ) );
+																		$( ResObjPai ).find( '#Dobram2EnsaAmos' ).prop( 'checked', Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_dobram_2cps' ) );
+																		$( ResObjPai ).find( '#ResulDobram2EnsaAmos' ).html( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_dobram_2cps_final' ) );
+																		$( ResObjPai ).find( '#Dobram4EnsaAmos' ).prop( 'checked', Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_dobram_4cps' ) );
+																		$( ResObjPai ).find( '#ResulDobram4EnsaAmos' ).html( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_dobram_4cps_final' ) );
+																		$( ResObjPai ).find( '#MacroEnsaAmos' ).prop( 'checked', Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_macrog' ) );
+																		$( ResObjPai ).find( '#ResulMacroEnsaAmos' ).html( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_macrog_final' ) );
+																		$( ResObjPai ).find( '#QuimiCampoEnsaAmos' ).prop( 'checked', Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_campo_quimica' ) );
+																		$( ResObjPai ).find( '#ResulQuimiCampoEnsaAmos' ).html( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_campo_quimica_final' ) );
+																		$( ResObjPai ).find( '#MetaCampoEnsaAmos' ).prop( 'checked', Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_campo_metalo' ) );
+																		$( ResObjPai ).find( '#ResulMetaCampoEnsaAmos' ).html( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_campo_metalo_final' ) );
+																		$( ResObjPai ).find( '#TracaForneEnsaAmos' ).prop( 'checked', Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_forne_tracao' ) );
+																		$( ResObjPai ).find( '#ResulTracaForneEnsaAmos' ).html( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_forne_tracao_final' ) );
+																		$( ResObjPai ).find( '#DureForneEnsaAmos' ).prop( 'checked', Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_forne_dureza' ) );
+																		$( ResObjPai ).find( '#ResulDureForneEnsaAmos' ).html( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_forne_dureza_final' ) );
+																		$( ResObjPai ).find( '#CharpForneEnsaAmos' ).prop( 'checked', Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_forne_charp' ) );
+																		$( ResObjPai ).find( '#ResulCharpForneEnsaAmos' ).html( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_forne_charp_final' ) );
+																		$( ResObjPai ).find( '#ConclAobsAmos' ).val( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_concl_iden' ) ).trigger( 'change' );
+																		$( ResObjPai ).find( '#ConclAobsLivrAmos' ).val( Core.Amostras.GetDataTableAmos( '#TableAmos', vLinha, 'amos_cada_concl_livre' ) );
+																		setTimeout( function(){
+																			vResp( ResObjPai );
+																		}, 300);
+																	});
+																});
 															});
 														});
 													});
@@ -1084,6 +1123,8 @@ export default class Amostras {
 									TracaForneEnsaAmos: $( ResObjPai ).find( '#TracaForneEnsaAmos' ).is( ':checked' ),
 									DureForneEnsaAmos: $( ResObjPai ).find( '#DureForneEnsaAmos' ).is( ':checked' ),
 									CharpForneEnsaAmos: $( ResObjPai ).find( '#CharpForneEnsaAmos' ).is( ':checked' ),
+									ConclAobsAmos: $( ResObjPai ).find( '#ConclAobsAmos' ).val(),
+									ConclAobsLivrAmos: $( ResObjPai ).find( '#ConclAobsLivrAmos' ).val(),
 								}},
 								'../../Laboratorio/Amostras/SetSalvAmos/', function( vRespAjax ){
 									Core.SetMensMenu( vRespAjax.detalhes, vRespAjax.registros, 'AVISO')
@@ -1138,6 +1179,25 @@ export default class Amostras {
 	static SetImpreAmos( vFiltros, vResp ) {
 		Core.SetAjax( vFiltros,
 			'../../Laboratorio/Amostras/SetImpreAmos/', function( vRespAjax ){
+				setTimeout( function(){
+					vResp( vRespAjax );
+				}, 300);
+			},
+		);
+	};
+
+	/**
+	 * Método para imprimir certificado
+	 * no sistema
+	 * 
+	 * @param  vFiltros - Dados Para filtrar
+	 * @param  vResp - calback
+	 * @return calback
+	 * @access public
+	*/
+	static SetImpreCertAmos( vFiltros, vResp ) {
+		Core.SetAjax( vFiltros,
+			'../../Laboratorio/Amostras/SetImprCertAmos/', function( vRespAjax ){
 				setTimeout( function(){
 					vResp( vRespAjax );
 				}, 300);

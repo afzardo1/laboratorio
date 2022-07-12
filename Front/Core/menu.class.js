@@ -186,12 +186,33 @@ export default class Menu {
 				 		DadosMenu['icone'] = 'fas fa-briefcase';
 				 		DadosMenu['submenu'] = 'Áreas';
 			 		};
+					if ( ( ( vRespAjax.registros[i].usua_aces_cada_opca_iden == 139 ) || 
+						   ( vRespAjax.registros[i].usua_aces_cada_opca_iden == 140 ) ||
+						   ( vRespAjax.registros[i].usua_aces_cada_opca_iden == 141 ) ||
+						   ( vRespAjax.registros[i].usua_aces_cada_opca_iden == 142 ) ) &&
+				  		 ( vRespAjax.registros[i].usua_aces_cada_opca_stat == 1 ) ) {
+						DadosMenu['ordem'] = 6;
+						DadosMenu['menu'] = '#MenuCada';
+				 		DadosMenu['href'] = '#conclusoes';
+				 		DadosMenu['icone'] = 'fas fa-comments';
+				 		DadosMenu['submenu'] = 'Conclusões';
+			 		};
+					if ( ( ( vRespAjax.registros[i].usua_aces_cada_opca_iden == 143 ) || 
+						   ( vRespAjax.registros[i].usua_aces_cada_opca_iden == 144 ) ) &&
+				  		 ( vRespAjax.registros[i].usua_aces_cada_opca_stat == 1 ) ) {
+						DadosMenu['ordem'] = 7;
+						DadosMenu['menu'] = '#MenuCada';
+				 		DadosMenu['href'] = '#parametros';
+				 		DadosMenu['icone'] = 'fas fa-tools';
+				 		DadosMenu['submenu'] = 'Parâmetros';
+			 		};
+
 					if ( ( ( vRespAjax.registros[i].usua_aces_cada_opca_iden == 61 ) || 
 					       ( vRespAjax.registros[i].usua_aces_cada_opca_iden == 62 ) ||
 					       ( vRespAjax.registros[i].usua_aces_cada_opca_iden == 63 ) ||
 					       ( vRespAjax.registros[i].usua_aces_cada_opca_iden == 64 ) ) &&
 				         ( vRespAjax.registros[i].usua_aces_cada_opca_stat == 1 ) ) {
-						DadosMenu['ordem'] = 20;
+						DadosMenu['ordem'] = 18;
 						DadosMenu['menu'] = '#Materiais';
 				  		DadosMenu['href'] = '#materiais';
 				   		DadosMenu['html'] = 'Materiais';
@@ -203,7 +224,7 @@ export default class Menu {
 					  	   ( vRespAjax.registros[i].usua_aces_cada_opca_iden == 83 ) ||
 	 					   ( vRespAjax.registros[i].usua_aces_cada_opca_iden == 84 ) ) &&
 						 ( vRespAjax.registros[i].usua_aces_cada_opca_stat == 1 ) ) {
-						DadosMenu['ordem'] = 19;
+						DadosMenu['ordem'] = 17;
 						DadosMenu['menu'] = '#Amostras';
 					 	DadosMenu['href'] = '#amostras';
 					  	DadosMenu['html'] = 'Cad. Amostras';
@@ -215,7 +236,7 @@ export default class Menu {
 					   	   ( vRespAjax.registros[i].usua_aces_cada_opca_iden == 137 ) ||
 					  	   ( vRespAjax.registros[i].usua_aces_cada_opca_iden == 138 ) ) &&
 					 	 ( vRespAjax.registros[i].usua_aces_cada_opca_stat == 1 ) ) {
-				  		DadosMenu['ordem'] = 6;
+				  		DadosMenu['ordem'] = 8;
 				  		DadosMenu['menu'] = '#Tracao';
 				   		DadosMenu['href'] = '#tracao';
 						DadosMenu['html'] = 'Tração';
@@ -227,7 +248,7 @@ export default class Menu {
 					   	   ( vRespAjax.registros[i].usua_aces_cada_opca_iden == 133 ) ||
 					  	   ( vRespAjax.registros[i].usua_aces_cada_opca_iden == 134 ) ) &&
 					 	 ( vRespAjax.registros[i].usua_aces_cada_opca_stat == 1 ) ) {
-				  		DadosMenu['ordem'] = 7;
+				  		DadosMenu['ordem'] = 9;
 				  		DadosMenu['menu'] = '#Quimico';
 				   		DadosMenu['href'] = '#quimico';
 						DadosMenu['html'] = 'Quimíco';
@@ -239,7 +260,7 @@ export default class Menu {
 					   		( vRespAjax.registros[i].usua_aces_cada_opca_iden == 129 ) ||
 					  		( vRespAjax.registros[i].usua_aces_cada_opca_iden == 130 ) ) &&
 					 	  ( vRespAjax.registros[i].usua_aces_cada_opca_stat == 1 ) ) {
-				  		DadosMenu['ordem'] = 8;
+				  		DadosMenu['ordem'] = 10;
 				  		DadosMenu['menu'] = '#Pcend';
 				   		DadosMenu['href'] = '#pcend';
 						DadosMenu['html'] = 'P. Camada Endurecida';
@@ -251,7 +272,7 @@ export default class Menu {
 					  	   ( vRespAjax.registros[i].usua_aces_cada_opca_iden == 93 ) ||
 	 					   ( vRespAjax.registros[i].usua_aces_cada_opca_iden == 94 ) ) &&
 						 ( vRespAjax.registros[i].usua_aces_cada_opca_stat == 1 ) ) {
-						DadosMenu['ordem'] = 9;
+						DadosMenu['ordem'] = 11;
 						DadosMenu['menu'] = '#Metalografia';
 					 	DadosMenu['href'] = '#metalografia';
 					  	DadosMenu['html'] = 'Metalográfico';
@@ -263,7 +284,7 @@ export default class Menu {
 					   		( vRespAjax.registros[i].usua_aces_cada_opca_iden == 125 ) ||
 					  		( vRespAjax.registros[i].usua_aces_cada_opca_iden == 126 ) ) &&
 					 	  ( vRespAjax.registros[i].usua_aces_cada_opca_stat == 1 ) ) {
-				  		DadosMenu['ordem'] = 10;
+				  		DadosMenu['ordem'] = 12;
 				  		DadosMenu['menu'] = '#Macrografia';
 				   		DadosMenu['href'] = '#macrografia';
 						DadosMenu['html'] = 'Macrografia';
@@ -275,7 +296,7 @@ export default class Menu {
 					   		( vRespAjax.registros[i].usua_aces_cada_opca_iden == 117 ) ||
 					  		( vRespAjax.registros[i].usua_aces_cada_opca_iden == 118 ) ) &&
 					 	  ( vRespAjax.registros[i].usua_aces_cada_opca_stat == 1 ) ) {
-				  		DadosMenu['ordem'] = 11;
+				  		DadosMenu['ordem'] = 13;
 				  		DadosMenu['menu'] = '#Dureza';
 				   		DadosMenu['href'] = '#dureza';
 						DadosMenu['html'] = 'Dureza';
@@ -287,7 +308,7 @@ export default class Menu {
 					  	   ( vRespAjax.registros[i].usua_aces_cada_opca_iden == 113 ) ||
 	 					   ( vRespAjax.registros[i].usua_aces_cada_opca_iden == 114 ) ) &&
 						 ( vRespAjax.registros[i].usua_aces_cada_opca_stat == 1 ) ) {
-						DadosMenu['ordem'] = 12;
+						DadosMenu['ordem'] = 14;
 						DadosMenu['menu'] = '#Dobramento';
 					 	DadosMenu['href'] = '#dobramento';
 					  	DadosMenu['html'] = 'Dobramento';
@@ -299,7 +320,7 @@ export default class Menu {
 					   		( vRespAjax.registros[i].usua_aces_cada_opca_iden == 121 ) ||
 					  		( vRespAjax.registros[i].usua_aces_cada_opca_iden == 122 ) ) &&
 					 	  ( vRespAjax.registros[i].usua_aces_cada_opca_stat == 1 ) ) {
-				  		DadosMenu['ordem'] = 13;
+				  		DadosMenu['ordem'] = 15;
 				  		DadosMenu['menu'] = '#Charpy';
 				   		DadosMenu['href'] = '#charpy';
 						DadosMenu['html'] = 'Charpy';
@@ -311,7 +332,7 @@ export default class Menu {
 					  	   ( vRespAjax.registros[i].usua_aces_cada_opca_iden == 103 ) ||
 	 					   ( vRespAjax.registros[i].usua_aces_cada_opca_iden == 104 ) ) &&
 						 ( vRespAjax.registros[i].usua_aces_cada_opca_stat == 1 ) ) {
-						DadosMenu['ordem'] = 14;
+						DadosMenu['ordem'] = 16;
 						DadosMenu['menu'] = '#Achatamento';
 					 	DadosMenu['href'] = '#achatamento';
 					  	DadosMenu['html'] = 'Achatamento/Expansão';
@@ -385,7 +406,7 @@ export default class Menu {
 		Core.SetAjax(
 			{evento:'usua_cada_iden'},
 			'../../Sessao/Dst/', function( vRespAjax ){
-				location.href = '../../index.html';
+				location.href = '../../../index.html';
 			}
 		);
 	};

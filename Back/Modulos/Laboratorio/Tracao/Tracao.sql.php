@@ -18,6 +18,10 @@
 			IFNULL( amos_tracao_cada_iden, "Automatico" ) AS amos_tracao_cada_iden,
 			IFNULL( amos_tracao_cada_qtde, 1 ) AS amos_tracao_cada_qtde,
 			IFNULL( amos_tracao_cada_result, -1 ) AS amos_tracao_cada_result,
+			mate_cada_limi_resi,
+			mate_cada_limi_esco,
+			mate_cada_along,
+			mate_cada_redu_area,
 			amos_tracao_cada_limi_resist,			
 			amos_tracao_cada_limi_escoa,
 			amos_tracao_cada_along,
@@ -34,7 +38,8 @@
 			amos_tracao_cada_fina_data,
 			amos_tracao_cada_fina_usua_iden,
 			usua_cada_nome,
-			sis_para_logo,
+			amos_cada_concl_livre,
+			CONCAT( sist_para_tenant, "_", sist_para_empre, "_", sis_para_logo ) AS sis_para_logo,
 			sis_para_selo
 		FROM
 			labo_amos_cada

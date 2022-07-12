@@ -37,14 +37,15 @@
 	 	 * @access public
 	 	*/
 		public static function Inicia(){
-			include_once( 'Anexos.sql.php' );
+			
+			require( 'Anexos.sql.php' );
 
-			self::$RotSql[ 'GetRegAnex' ] = $GetRegAnex;
+				self::$RotSql[ 'GetRegAnex' ] = $GetRegAnex;
 
-			self::$RotSql[ 'InstRegAnex' ] = $InstRegAnex;
-			self::$RotSql[ 'UpdtRegAnex' ] = $UpdtRegAnex;
-			self::$RotSql[ 'DeleRegAnex' ] = $DeleRegAnex;
-		
+				self::$RotSql[ 'InstRegAnex' ] = $InstRegAnex;
+				self::$RotSql[ 'UpdtRegAnex' ] = $UpdtRegAnex;
+				self::$RotSql[ 'DeleRegAnex' ] = $DeleRegAnex;
+			
 			self::$Conn = Core::Conecta();
 		}
 
@@ -1202,6 +1203,452 @@
 					'descricao' => 'Download de Anexos com erro </br> Arquivo '.$Parametros['FileAnexLabe'].' não Encontrado',
 					'listreg' => null,
 				) );
+			};
+		}
+
+		/**
+	 	 * Retorna Todos Dados para Terceiros.
+	 	 *
+		 * @param Parametros array contendo os dados do filtro
+		 * 
+		 * @return mixed
+	 	 * @access public
+	 	*/
+		 public static function GetTercAnex( $Parametros = array() ){
+			$vStatSess = json_decode( Core::Sessao()::Chk( 'usua_cada_iden' ), true );
+			if ( $vStatSess[ 'status' ] == 'aberto' ) {
+				Anexos::Inicia();
+
+				if ( $Parametros[ 'anexo_ensa_tabe' ] == 'ACHATAMENTO' ){
+					$GetRegAnex =  str_replace(
+						array(
+							':CAMPOS_ANEXO',
+							':TABELA_ANEXO',
+							':FILTRO_ANEXO',
+							':ORDEM_ANEXO',
+						),
+						array(
+							'amos_achat_anexo_cada_iden,
+							 amos_achat_anexo_achat_iden,
+							 amos_achat_anexo_tipo,
+							 amos_achat_anexo_descr,
+							 amos_achat_anexo_arqui
+							',
+							'labo_amos_achat_anexo_cada',
+							'amos_achat_anexo_achat_iden = :anexo_ensa_iden',
+							'amos_achat_anexo_tipo DESC',
+						),
+						
+						self::$RotSql[ 'GetRegAnex' ]
+					);
+				};
+				
+				if ( $Parametros[ 'anexo_ensa_tabe' ] == 'DOBRAMENTO' ){
+					$GetRegAnex =  str_replace(
+						array(
+							':CAMPOS_ANEXO',
+							':TABELA_ANEXO',
+							':FILTRO_ANEXO',
+							':ORDEM_ANEXO',
+						),
+						array(
+							'amos_dobra_anexo_cada_iden,
+							 amos_dobra_anexo_dobra_iden,
+							 amos_dobra_anexo_tipo,
+							 amos_dobra_anexo_descr,
+							 amos_dobra_anexo_arqui
+							',
+							'labo_amos_dobra_anexo_cada',
+							'amos_dobra_anexo_dobra_iden = :anexo_ensa_iden',
+							'amos_dobra_anexo_tipo DESC',
+						),
+						
+						self::$RotSql[ 'GetRegAnex' ]
+					);
+				};
+
+				if ( $Parametros[ 'anexo_ensa_tabe' ] == 'DUREZA' ){
+					$GetRegAnex =  str_replace(
+						array(
+							':CAMPOS_ANEXO',
+							':TABELA_ANEXO',
+							':FILTRO_ANEXO',
+							':ORDEM_ANEXO',
+						),
+						array(
+							'amos_dure_anexo_cada_iden,
+							 amos_dure_anexo_dure_iden,
+							 amos_dure_anexo_tipo,
+							 amos_dure_anexo_descr,
+							 amos_dure_anexo_arqui
+							',
+							'labo_amos_dure_anexo_cada',
+							'amos_dure_anexo_dure_iden = :anexo_ensa_iden',
+							'amos_dure_anexo_tipo DESC',
+						),
+						
+						self::$RotSql[ 'GetRegAnex' ]
+					);
+				};
+
+				if ( $Parametros[ 'anexo_ensa_tabe' ] == 'CHARPY' ){
+					$GetRegAnex =  str_replace(
+						array(
+							':CAMPOS_ANEXO',
+							':TABELA_ANEXO',
+							':FILTRO_ANEXO',
+							':ORDEM_ANEXO',
+						),
+						array(
+							'amos_charpy_anexo_cada_iden,
+							 amos_charpy_anexo_charpy_iden,
+							 amos_charpy_anexo_tipo,
+							 amos_charpy_anexo_descr,
+							 amos_charpy_anexo_arqui
+							',
+							'labo_amos_charpy_anexo_cada',
+							'amos_charpy_anexo_charpy_iden = :anexo_ensa_iden',
+							'amos_charpy_anexo_tipo DESC',
+						),
+						
+						self::$RotSql[ 'GetRegAnex' ]
+					);
+				};
+
+				if ( $Parametros[ 'anexo_ensa_tabe' ] == 'MACROGRAFIA' ){
+					$GetRegAnex =  str_replace(
+						array(
+							':CAMPOS_ANEXO',
+							':TABELA_ANEXO',
+							':FILTRO_ANEXO',
+							':ORDEM_ANEXO',
+						),
+						array(
+							'amos_macro_anexo_cada_iden,
+							 amos_macro_anexo_macro_iden,
+							 amos_macro_anexo_tipo,
+							 amos_macro_anexo_descr,
+							 amos_macro_anexo_arqui
+							',
+							'labo_amos_macro_anexo_cada',
+							'amos_macro_anexo_macro_iden = :anexo_ensa_iden',
+							'amos_macro_anexo_tipo DESC',
+						),
+						
+						self::$RotSql[ 'GetRegAnex' ]
+					);
+				};
+
+				if ( $Parametros[ 'anexo_ensa_tabe' ] == 'METALOGRAFIA' ){
+					$GetRegAnex =  str_replace(
+						array(
+							':CAMPOS_ANEXO',
+							':TABELA_ANEXO',
+							':FILTRO_ANEXO',
+							':ORDEM_ANEXO',
+						),
+						array(
+							'amos_meta_anexo_cada_iden,
+							 amos_meta_anexo_meta_iden,
+							 amos_meta_anexo_tipo,
+							 amos_meta_anexo_descr,
+							 amos_meta_anexo_arqui
+							',
+							'labo_amos_meta_anexo_cada',
+							'amos_meta_anexo_meta_iden = :anexo_ensa_iden',
+							'amos_meta_anexo_tipo DESC',
+						),
+						
+						self::$RotSql[ 'GetRegAnex' ]
+					);
+				};
+
+				if ( $Parametros[ 'anexo_ensa_tabe' ] == 'PCEND' ){
+					$GetRegAnex =  str_replace(
+						array(
+							':CAMPOS_ANEXO',
+							':TABELA_ANEXO',
+							':FILTRO_ANEXO',
+							':ORDEM_ANEXO',
+						),
+						array(
+							'amos_pcend_anexo_cada_iden,
+							 amos_pcend_anexo_pcend_iden,
+							 amos_pcend_anexo_tipo,
+							 amos_pcend_anexo_descr,
+							 amos_pcend_anexo_arqui
+							',
+							'labo_amos_pcend_anexo_cada',
+							'amos_pcend_anexo_pcend_iden = :anexo_ensa_iden',
+							'amos_pcend_anexo_tipo DESC',
+						),
+						
+						self::$RotSql[ 'GetRegAnex' ]
+					);
+				};
+
+				if ( $Parametros[ 'anexo_ensa_tabe' ] == 'QUIMICO' ){
+					$GetRegAnex =  str_replace(
+						array(
+							':CAMPOS_ANEXO',
+							':TABELA_ANEXO',
+							':FILTRO_ANEXO',
+							':ORDEM_ANEXO',
+						),
+						array(
+							'amos_quimi_anexo_cada_iden,
+							 amos_quimi_anexo_quimi_iden,
+							 amos_quimi_anexo_tipo,
+							 amos_quimi_anexo_descr,
+							 amos_quimi_anexo_arqui
+							',
+							'labo_amos_quimi_anexo_cada',
+							'amos_quimi_anexo_quimi_iden = :anexo_ensa_iden',
+							'amos_quimi_anexo_tipo DESC',
+						),
+						
+						self::$RotSql[ 'GetRegAnex' ]
+					);
+				};
+
+				if ( $Parametros[ 'anexo_ensa_tabe' ] == 'TRACAO' ){
+					$GetRegAnex =  str_replace(
+						array(
+							':CAMPOS_ANEXO',
+							':TABELA_ANEXO',
+							':FILTRO_ANEXO',
+							':ORDEM_ANEXO',
+						),
+						array(
+							'amos_tracao_anexo_cada_iden,
+							 amos_tracao_anexo_tracao_iden,
+							 amos_tracao_anexo_tipo,
+							 amos_tracao_anexo_descr,
+							 amos_tracao_anexo_arqui
+							',
+							'labo_amos_tracao_anexo_cada',
+							'amos_tracao_anexo_tracao_iden = :anexo_ensa_iden',
+							'amos_tracao_anexo_tipo DESC',
+						),
+						
+						self::$RotSql[ 'GetRegAnex' ]
+					);
+				};
+
+				try {
+					self::$Conn->beginTransaction();
+
+					$Prepara = self::$Conn->prepare( $GetRegAnex );
+
+					$Prepara->bindValue( ':anexo_ensa_iden', $Parametros[ 'anexo_ensa_iden' ] );
+
+					$Prepara->execute();
+				
+					$Retorno = $Prepara->fetchAll( PDO::FETCH_ASSOC );
+
+					self::$Conn->commit();
+
+					$Retorno = array_map( function( $input ) {
+						$Botao = '';
+
+						if ( array_key_exists( 'amos_achat_anexo_cada_iden', $input ) ) {
+							$Campos = array ( 
+								0 => 'amos_achat_anexo_cada_iden',
+							 	1 => 'amos_achat_anexo_achat_iden',
+							 	2 => 'amos_achat_anexo_tipo',
+							 	3 => 'amos_achat_anexo_descr',
+							 	4 => 'amos_achat_anexo_arqui'
+							);
+
+							$ItemName = array(
+								0 => 'DeleAnexBtnAchat',
+								1 => 'DownAnexBtnAchat',
+								2 => 'TipoAnexAchat',
+								3 => 'DescrAnexAchat',
+								4 => 'FileAnexAchat',
+								5 => 'FileAnexLabeAchat',
+							);
+						};
+
+						if ( array_key_exists( 'amos_dobra_anexo_cada_iden', $input ) ) {
+							$Campos = array ( 
+								0 => 'amos_dobra_anexo_cada_iden',
+							 	1 => 'amos_dobra_anexo_dobra_iden',
+							 	2 => 'amos_dobra_anexo_tipo',
+							 	3 => 'amos_dobra_anexo_descr',
+							 	4 => 'amos_dobra_anexo_arqui'
+							);
+
+							$ItemName = array(
+								0 => 'DeleAnexBtnDobra',
+								1 => 'DownAnexBtnDobra',
+								2 => 'TipoAnexDobra',
+								3 => 'DescrAnexDobra',
+								4 => 'FileAnexDobra',
+								5 => 'FileAnexLabeDobra',
+							);
+						};
+
+						if ( array_key_exists( 'amos_dure_anexo_cada_iden', $input ) ) {
+							$Campos = array ( 
+								0 => 'amos_dure_anexo_cada_iden',
+							 	1 => 'amos_dure_anexo_dure_iden',
+							 	2 => 'amos_dure_anexo_tipo',
+							 	3 => 'amos_dure_anexo_descr',
+							 	4 => 'amos_dure_anexo_arqui'
+							);
+
+							$ItemName = array(
+								0 => 'DeleAnexBtnDure',
+								1 => 'DownAnexBtnDure',
+								2 => 'TipoAnexDure',
+								3 => 'DescrAnexDure',
+								4 => 'FileAnexDure',
+								5 => 'FileAnexLabeDure',
+							);
+						};
+
+						if ( array_key_exists( 'amos_charpy_anexo_cada_iden', $input ) ) {
+							$Campos = array ( 
+								0 => 'amos_charpy_anexo_cada_iden',
+							 	1 => 'amos_charpy_anexo_charpy_iden',
+							 	2 => 'amos_charpy_anexo_tipo',
+							 	3 => 'amos_charpy_anexo_descr',
+							 	4 => 'amos_charpy_anexo_arqui'
+							);
+
+							$ItemName = array(
+								0 => 'DeleAnexBtnCharp',
+								1 => 'DownAnexBtnCharp',
+								2 => 'TipoAnexCharp',
+								3 => 'DescrAnexCharp',
+								4 => 'FileAnexCharp',
+								5 => 'FileAnexLabeCharp',
+							);
+						};
+
+						if ( array_key_exists( 'amos_macro_anexo_cada_iden', $input ) ) {
+							$Campos = array ( 
+								0 => 'amos_macro_anexo_cada_iden',
+							 	1 => 'amos_macro_anexo_macro_iden',
+							 	2 => 'amos_macro_anexo_tipo',
+							 	3 => 'amos_macro_anexo_descr',
+							 	4 => 'amos_macro_anexo_arqui'
+							);
+
+							$ItemName = array(
+								0 => 'DeleAnexBtnMacro',
+								1 => 'DownAnexBtnMacro',
+								2 => 'TipoAnexMacro',
+								3 => 'DescrAnexMacro',
+								4 => 'FileAnexMacro',
+								5 => 'FileAnexLabeMacro',
+							);
+						};
+
+						if ( array_key_exists( 'amos_meta_anexo_cada_iden', $input ) ) {
+							$Campos = array ( 
+								0 => 'amos_meta_anexo_cada_iden',
+							 	1 => 'amos_meta_anexo_meta_iden',
+							 	2 => 'amos_meta_anexo_tipo',
+							 	3 => 'amos_meta_anexo_descr',
+							 	4 => 'amos_meta_anexo_arqui'
+							);
+
+							$ItemName = array(
+								0 => 'DeleAnexBtnMeta',
+								1 => 'DownAnexBtnMeta',
+								2 => 'TipoAnexMeta',
+								3 => 'DescrAnexMeta',
+								4 => 'FileAnexMeta',
+								5 => 'FileAnexLabeMeta',
+							);
+						};
+
+						if ( array_key_exists( 'amos_pcend_anexo_cada_iden', $input ) ) {
+							$Campos = array ( 
+								0 => 'amos_pcend_anexo_cada_iden',
+							 	1 => 'amos_pcend_anexo_pcend_iden',
+							 	2 => 'amos_pcend_anexo_tipo',
+							 	3 => 'amos_pcend_anexo_descr',
+							 	4 => 'amos_pcend_anexo_arqui'
+							);
+
+							$ItemName = array(
+								0 => 'DeleAnexBtnPcend',
+								1 => 'DownAnexBtnPcend',
+								2 => 'TipoAnexPcend',
+								3 => 'DescrAnexPcend',
+								4 => 'FileAnexPcend',
+								5 => 'FileAnexLabePcend',
+							);
+						};
+
+						if ( array_key_exists( 'amos_quimi_anexo_cada_iden', $input ) ) {
+							$Campos = array ( 
+								0 => 'amos_quimi_anexo_cada_iden',
+							 	1 => 'amos_quimi_anexo_quimi_iden',
+							 	2 => 'amos_quimi_anexo_tipo',
+							 	3 => 'amos_quimi_anexo_descr',
+							 	4 => 'amos_quimi_anexo_arqui'
+							);
+
+							$ItemName = array(
+								0 => 'DeleAnexBtnQuimi',
+								1 => 'DownAnexBtnQuimi',
+								2 => 'TipoAnexQuimi',
+								3 => 'DescrAnexQuimi',
+								4 => 'FileAnexQuimi',
+								5 => 'FileAnexLabeQuimi',
+							);
+						};
+
+						if ( array_key_exists( 'amos_tracao_anexo_cada_iden', $input ) ) {
+							$Campos = array ( 
+								0 => 'amos_tracao_anexo_cada_iden',
+							 	1 => 'amostracao_anexo_tracao_iden',
+							 	2 => 'amos_tracao_anexo_tipo',
+							 	3 => 'amos_tracao_anexo_descr',
+							 	4 => 'amos_tracao_anexo_arqui'
+							);
+
+							$ItemName = array(
+								0 => 'DeleAnexBtnTrac',
+								1 => 'DownAnexBtnTrac',
+								2 => 'TipoAnexTrac',
+								3 => 'DescrAnexTrac',
+								4 => 'FileAnexTrac',
+								5 => 'FileAnexLabeTrac',
+							);
+						};
+						
+						return array(
+							'anexo_cada_iden' => $input[ $Campos[0] ],
+							'anexo_tipo' => $input[ $Campos[2] ],
+							'anexo_descr' => $input[ $Campos[3] ],
+							'anexo_arqui' => $input[ $Campos[4] ],
+							'anexo_arqui_ante' => $input[ $Campos[4] ],
+						);
+					}, $Retorno );
+
+ 					return json_encode( array(
+						'sistema' => Core::config( 'system_apelido' ),
+						'modulo' => 'Anexos',
+						'status' => 'sucesso',
+						'descricao' => 'Resultado Pesquisa Anexos',
+						'listreg' => $Retorno,
+					));
+				} catch ( PDOException $e ) {
+					return json_encode( array(
+						'sistema' => Core::config( 'system_apelido' ),
+						'modulo' => 'Anexos',
+						'status' => 'invalido',
+						'descricao' => 'Pesquisa Anexos com erro </br> '.$e->getMessage(),
+						'listreg' => false,
+					));
+				};
+			} else {
+				return json_encode( $vStatSess );
 			};
 		}
 	}

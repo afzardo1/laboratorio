@@ -32,7 +32,7 @@
 			amos_dure_cada_fina_data,
 			amos_dure_cada_fina_usua_iden,
 			usua_cada_nome,
-			sis_para_logo,
+			CONCAT( sist_para_tenant, "_", sist_para_empre, "_", sis_para_logo ) AS sis_para_logo,
 			sis_para_selo
 		FROM
 			labo_amos_cada

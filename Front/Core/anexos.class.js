@@ -343,7 +343,7 @@ export default class Anexos {
 		var TabeData = Core.Anexos.AtuaTableAnex( vTabela );
 		TabeData.rows().every( function ( rowIdx, tableLoop, rowLoop ) {
 		  	var AnexosCamp = {};
-		  	AnexosCamp[ 'anexo_cada_iden' ] = TabeData.cell( rowIdx, 1 ).data().trim();
+		  	AnexosCamp[ 'anexo_cada_iden' ] = TabeData.cell( rowIdx, 1 ).data();
 	  		AnexosCamp[ 'anexo_tipo' ] = $( TabeData.row( rowIdx ).node() ).find( '#' + NomeIten[0] ).val().trim();
 	  		AnexosCamp[ 'anexo_descr' ] = $( TabeData.row( rowIdx ).node() ).find( '#' + NomeIten[1] ).val().trim();
 			AnexosCamp[ 'anexo_arqui' ] = $( TabeData.row( rowIdx ).node() ).find( '#' + NomeIten[3] ).html().trim();

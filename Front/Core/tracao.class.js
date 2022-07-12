@@ -708,4 +708,23 @@ export default class Tracao {
 			},
 		);
 	};
+
+	/**
+	 * Método para imprimir certificado
+	 * no sistema
+	 * 
+	 * @param  vFiltros - Dados Para filtrar
+	 * @param  vResp - calback
+	 * @return calback
+	 * @access public
+	*/
+	static SetImpreCertTrac( vFiltros, vResp ) {
+		Core.SetAjax( vFiltros,
+			'../../Laboratorio/Tracao/SetImprCertTrac/', function( vRespAjax ){
+				setTimeout( function(){
+					vResp( vRespAjax );
+				}, 300);
+			},
+		);
+	};
 };

@@ -28,8 +28,10 @@
 			usua_cada_nome,
 			amos_cada_tenan,
 			amos_cada_empre,
-			sis_para_logo,
-			sis_para_selo
+			amos_cada_concl_livre,
+			CONCAT( sist_para_tenant, "_", sist_para_empre, "_", sis_para_logo ) AS sis_para_logo,
+			sis_para_selo,
+			sis_para_cabe
 		FROM
 			labo_amos_cada
 		LEFT JOIN

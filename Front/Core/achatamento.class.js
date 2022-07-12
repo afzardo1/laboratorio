@@ -592,4 +592,23 @@ export default class Achatamento {
 			},
 		);
 	};
+
+	/**
+	 * Método para imprimir certificado
+	 * no sistema
+	 * 
+	 * @param  vFiltros - Dados Para filtrar
+	 * @param  vResp - calback
+	 * @return calback
+	 * @access public
+	*/
+	static SetImpreCertAchat( vFiltros, vResp ) {
+		Core.SetAjax( vFiltros,
+			'../../Laboratorio/Achatamento/SetImprCertAchat/', function( vRespAjax ){
+				setTimeout( function(){
+					vResp( vRespAjax );
+				}, 300);
+			},
+		);
+	};
 };

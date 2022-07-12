@@ -32,8 +32,14 @@ import Fabricantes from './fabricantes.class.js';
 /*CARREGA CLASSE MATERIAIS DO SISTEMA*/
 import Materiais from './materiais.class.js';
 
-/*CARREGA CLASSE MATERIAIS DO SISTEMA*/
+/*CARREGA CLASSE AREAS DO SISTEMA*/
 import Areas from './areas.class.js';
+
+/*CARREGA CLASSE CONCLUSÕES DO SISTEMA*/
+import Conclusoes from './conclusoes.class.js';
+
+/*CARREGA CLASSE PARÃMETROS DO SISTEMA*/
+import Parametros from './parametros.class.js';
 
 /*CARREGA CLASSE AMOSTRAS DO SISTEMA*/
 import Amostras from './amostras.class.js';
@@ -515,6 +521,17 @@ export default class Core {
 	}
 	
 	/**
+	 * Método de Conclusês chama e instancia a classe
+	 * conclusoes.class
+	 * 
+	 * @return classe
+	 * @access public
+	*/
+	static get Conclusoes(){
+		return Conclusoes;
+	}
+		
+	/**
 	 * Método de Amostras chama e instancia a classe
 	 * amostras.class
 	 * 
@@ -635,5 +652,16 @@ export default class Core {
 	*/
 	static get Tracao(){
 		return Tracao;
+	}
+	
+	/**
+	 * Método de Parametros chama e instancia a classe
+	 * parametros.class
+	 * 
+	 * @return classe
+	 * @access public
+	*/
+	static get Parametros(){
+		return Parametros;
 	}	
 };

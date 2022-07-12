@@ -532,10 +532,15 @@
 						</table>
 					';
 
+					$CabeLogo = '';
+					if( $Retorno[0]['sis_para_logo'] != '' ){
+						$CabeLogo = str_replace( array( 'Back\Modulos\Laboratorio\Pcend', 'Back/Modulos/Laboratorio/Pcend' ), '', __DIR__ ).'Imagem/'.$Retorno[0]['sis_para_logo'];
+					};
+
 					$listreg = Core::SetGeraPdf(
 						$Cabecalho,
 						$Corpo,
-						str_replace( array( 'Back\Modulos\Laboratorio\Pcend', 'Back/Modulos/Laboratorio/Pcend' ), '', __DIR__ ).'Imagem/'.$Retorno[0]['sis_para_logo'],
+						$CabeLogo,
 						'P',
 						'SIMPLES',
 						array( 10, 40, 10, 5 )

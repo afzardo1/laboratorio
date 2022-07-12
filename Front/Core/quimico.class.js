@@ -308,6 +308,12 @@ export default class Quimico {
 			case 'mate_cada_Ceq':
 				return vTabela.cell( vLinha, 96 ).data();
 				break;
+			case 'amos_cada_tenan':
+				return vTabela.cell( vLinha, 97 ).data();
+				break;
+			case 'amos_cada_empre':
+				return vTabela.cell( vLinha, 98 ).data();
+				break;
 		};
 	};
 
@@ -457,6 +463,8 @@ export default class Quimico {
 							{ data: 'mate_cada_N', visible: false },
 							{ data: 'mate_cada_Na', visible: false },
 							{ data: 'mate_cada_Ceq', visible: false },
+							{ data: 'amos_cada_tenan', visible: false },
+							{ data: 'amos_cada_empre', visible: false },
 						], 
 						language: {
 							"decimal": ",",
@@ -626,341 +634,527 @@ export default class Quimico {
 							'</div>' +
 						'</div>' +
 					'</div>' +
-					'<div class="row p-3" >' +
-						'<div class="col-xl-3">' +
-							'<div class="form-floating">' +
-								'<input type="text" class="form-control" id="EspeCQuimi" value="" placeholder="" maxlength="20">' +
-								'<label class="form-label" for="EspeCQuimi">Especificado C</label>' +
+					'<div class="border border-3">' +
+						'<div class="row p-3" >' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="EspeMinCQuimi" value="" placeholder="" maxlength="20">' +
+									'<label class="form-label" for="EspeMinCQuimi">Especificado C (min.)</label>' +
+								'</div>' +
+							'</div>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="EspeMinSiQuimi" value="" placeholder="" maxlength="20">' +
+									'<label class="form-label" for="EspeMinSiQuimi">Especificado Si (min.)</label>' +
+								'</div>' +
+							'</div>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="EspeMinMnQuimi" value="" placeholder="" maxlength="20">' +
+									'<label class="form-label" for="EspeMinMnQuimi">Especificado Mn (min.)</label>' +
+								'</div>' +
+							'</div>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="EspeMinPQuimi" value="" placeholder="" maxlength="20">' +
+									'<label class="form-label" for="EspeMinPQuimi">Especificado P (min.)</label>' +
+								'</div>' +
 							'</div>' +
 						'</div>' +
-						'<div class="col-xl-3">' +
-							'<div class="form-floating">' +
-								'<input type="text" class="form-control" id="ObitCQuimi" value="" placeholder="" maxlength="20">' +
-								'<label class="form-label" for="ObitCQuimi">Obtido C</label>' +
+						'<div class="row p-3" >' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="EspeMaxCQuimi" value="" placeholder="" maxlength="20">' +
+									'<label class="form-label" for="EspeMaxCQuimi">Especificado C (max.)</label>' +
+								'</div>' +
+							'</div>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="EspeMaxSiQuimi" value="" placeholder="" maxlength="20">' +
+									'<label class="form-label" for="EspeMaxSiQuimi">Especificado Si (max.)</label>' +
+								'</div>' +
+							'</div>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="EspeMaxMnQuimi" value="" placeholder="" maxlength="20">' +
+									'<label class="form-label" for="EspeMaxMnQuimi">Especificado Mn (max.)</label>' +
+								'</div>' +
+							'</div>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="EspeMaxPQuimi" value="" placeholder="" maxlength="20">' +
+									'<label class="form-label" for="EspeMaxPQuimi">Especificado P (max.)</label>' +
+								'</div>' +
 							'</div>' +
 						'</div>' +
-						'<div class="col-xl-3">' +
-							'<div class="form-floating">' +
-								'<input type="text" class="form-control" id="EspeSiQuimi" value="" placeholder="" maxlength="20">' +
-								'<label class="form-label" for="EspeSiQuimi">Especificado Si</label>' +
+						'<div class="row p-3" >' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="ObitCQuimi" value="" placeholder="" maxlength="20">' +
+									'<label class="form-label" for="ObitCQuimi">Obtido C</label>' +
+								'</div>' +
+							'</div>' +						
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="ObitSiQuimi" value="" placeholder="" maxlength="20">' +
+									'<label class="form-label" for="ObitSiQuimi">Obtido Si</label>' +
+								'</div>' +
 							'</div>' +
-						'</div>' +
-						'<div class="col-xl-3">' +
-							'<div class="form-floating">' +
-								'<input type="text" class="form-control" id="ObitSiQuimi" value="" placeholder="" maxlength="20">' +
-								'<label class="form-label" for="ObitSiQuimi">Obtido Si</label>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="ObitMnQuimi" value="" placeholder="" maxlength="20">' +
+									'<label class="form-label" for="ObitMnQuimi">Obtido Mn</label>' +
+								'</div>' +
 							'</div>' +
-						'</div>' +
-					'</div>' +
-					'<div class="row p-3" >' +
-						'<div class="col-xl-3">' +
-							'<div class="form-floating">' +
-								'<input type="text" class="form-control" id="EspeMnQuimi" value="" placeholder="" maxlength="20">' +
-								'<label class="form-label" for="EspeMnQuimi">Especificado Mn</label>' +
-							'</div>' +
-						'</div>' +
-						'<div class="col-xl-3">' +
-							'<div class="form-floating">' +
-								'<input type="text" class="form-control" id="ObitMnQuimi" value="" placeholder="" maxlength="20">' +
-								'<label class="form-label" for="ObitMnQuimi">Obtido Mn</label>' +
-							'</div>' +
-						'</div>' +
-						'<div class="col-xl-3">' +
-							'<div class="form-floating">' +
-								'<input type="text" class="form-control" id="EspePQuimi" value="" placeholder="" maxlength="20">' +
-								'<label class="form-label" for="EspePQuimi">Especificado P</label>' +
-							'</div>' +
-						'</div>' +
-						'<div class="col-xl-3">' +
-							'<div class="form-floating">' +
-								'<input type="text" class="form-control" id="ObitPQuimi" value="" placeholder="" maxlength="20">' +
-								'<label class="form-label" for="ObitPQuimi">Obtido P</label>' +
-							'</div>' +
-						'</div>' +
-					'</div>' +
-					'<div class="row p-3" >' +
-						'<div class="col-xl-3">' +
-							'<div class="form-floating">' +
-								'<input type="text" class="form-control" id="EspeSQuimi" value="" placeholder="" maxlength="20">' +
-								'<label class="form-label" for="EspeSQuimi">Especificado S</label>' +
-							'</div>' +
-						'</div>' +
-						'<div class="col-xl-3">' +
-							'<div class="form-floating">' +
-								'<input type="text" class="form-control" id="ObitSQuimi" value="" placeholder="" maxlength="20">' +
-								'<label class="form-label" for="ObitSQuimi">Obtido S</label>' +
-							'</div>' +
-						'</div>' +
-						'<div class="col-xl-3">' +
-							'<div class="form-floating">' +
-								'<input type="text" class="form-control" id="EspeCrQuimi" value="" placeholder="" maxlength="20">' +
-								'<label class="form-label" for="EspeCrQuimi">Especificado Cr</label>' +
-							'</div>' +
-						'</div>' +
-						'<div class="col-xl-3">' +
-							'<div class="form-floating">' +
-								'<input type="text" class="form-control" id="ObitCrQuimi" value="" placeholder="" maxlength="20">' +
-								'<label class="form-label" for="ObitCrQuimi">Obtido Cr</label>' +
-							'</div>' +
-						'</div>' +
-					'</div>' +
-					'<div class="row p-3" >' +
-						'<div class="col-xl-3">' +
-							'<div class="form-floating">' +
-								'<input type="text" class="form-control" id="EspeNiQuimi" value="" placeholder="" maxlength="20">' +
-								'<label class="form-label" for="EspeNiQuimi">Especificado Ni</label>' +
-							'</div>' +
-						'</div>' +
-						'<div class="col-xl-3">' +
-							'<div class="form-floating">' +
-								'<input type="text" class="form-control" id="ObitNiQuimi" value="" placeholder="" maxlength="20">' +
-								'<label class="form-label" for="ObitNiQuimi">Obtido Ni</label>' +
-							'</div>' +
-						'</div>' +
-						'<div class="col-xl-3">' +
-							'<div class="form-floating">' +
-								'<input type="text" class="form-control" id="EspeMoQuimi" value="" placeholder="" maxlength="20">' +
-								'<label class="form-label" for="EspeMoQuimi">Especificado Mo</label>' +
-							'</div>' +
-						'</div>' +
-						'<div class="col-xl-3">' +
-							'<div class="form-floating">' +
-								'<input type="text" class="form-control" id="ObitMoQuimi" value="" placeholder="" maxlength="20">' +
-								'<label class="form-label" for="ObitMoQuimi">Obtido Mo</label>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="ObitPQuimi" value="" placeholder="" maxlength="20">' +
+									'<label class="form-label" for="ObitPQuimi">Obtido P</label>' +
+								'</div>' +
 							'</div>' +
 						'</div>' +
 					'</div>' +
-					'<div class="row p-3" >' +						
-						'<div class="col-xl-3">' +
-							'<div class="form-floating">' +
-								'<input type="text" class="form-control" id="EspeCuQuimi" value="" placeholder="" maxlength="20">' +
-								'<label class="form-label" for="EspeCuQuimi">Especificado Cu</label>' +
+					'<div class="border border-3">' +
+						'<div class="row p-3" >' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="EspeMinSQuimi" value="" placeholder="" maxlength="20">' +
+									'<label class="form-label" for="EspeMinSQuimi">Especificado S (min.)</label>' +
+								'</div>' +
+							'</div>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="EspeMinCrQuimi" value="" placeholder="" maxlength="20">' +
+									'<label class="form-label" for="EspeMinCrQuimi">Especificado Cr (min.)</label>' +
+								'</div>' +
+							'</div>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="EspeMinNiQuimi" value="" placeholder="" maxlength="20">' +
+									'<label class="form-label" for="EspeMinNiQuimi">Especificado Ni (min.)</label>' +
+								'</div>' +
+							'</div>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="EspeMinMoQuimi" value="" placeholder="" maxlength="20">' +
+									'<label class="form-label" for="EspeMinMoQuimi">Especificado Mo (min.)</label>' +
+								'</div>' +
 							'</div>' +
 						'</div>' +
-						'<div class="col-xl-3">' +
-							'<div class="form-floating">' +
-								'<input type="text" class="form-control" id="ObitCuQuimi" value="" placeholder="" maxlength="20">' +
-								'<label class="form-label" for="ObitCuQuimi">Obtido Cu</label>' +
+						'<div class="row p-3" >' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="EspeMaxSQuimi" value="" placeholder="" maxlength="20">' +
+									'<label class="form-label" for="EspeMaxSQuimi">Especificado S (max.)</label>' +
+								'</div>' +
 							'</div>' +
-						'</div>' +					
-						'<div class="col-xl-3">' +
-							'<div class="form-floating">' +
-								'<input type="text" class="form-control" id="EspeAlQuimi" value="" placeholder="" maxlength="20">' +
-								'<label class="form-label" for="EspeAlQuimi">Especificado Al</label>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="EspeMaxCrQuimi" value="" placeholder="" maxlength="20">' +
+									'<label class="form-label" for="EspeMaxCrQuimi">Especificado Cr (max.)</label>' +
+								'</div>' +
 							'</div>' +
-						'</div>' +
-						'<div class="col-xl-3">' +
-							'<div class="form-floating">' +
-								'<input type="text" class="form-control" id="ObitAlQuimi" value="" placeholder="" maxlength="20">' +
-								'<label class="form-label" for="ObitAlQuimi">Obtido Al</label>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="EspeMaxNiQuimi" value="" placeholder="" maxlength="20">' +
+									'<label class="form-label" for="EspeMaxNiQuimi">Especificado Ni (max.)</label>' +
+								'</div>' +
 							'</div>' +
-						'</div>' +
-					'</div>' +
-					'<div class="row p-3" >' +
-						'<div class="col-xl-3">' +
-							'<div class="form-floating">' +
-								'<input type="text" class="form-control" id="EspeFeQuimi" value="" placeholder="" maxlength="20">' +
-								'<label class="form-label" for="EspeFeQuimi">Especificado Fe</label>' +
-							'</div>' +
-						'</div>' +
-						'<div class="col-xl-3">' +
-							'<div class="form-floating">' +
-								'<input type="text" class="form-control" id="ObitFeQuimi" value="" placeholder="" maxlength="20">' +
-								'<label class="form-label" for="ObitFeQuimi">Obtido Fe</label>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="EspeMaxMoQuimi" value="" placeholder="" maxlength="20">' +
+									'<label class="form-label" for="EspeMaxMoQuimi">Especificado Mo (max.)</label>' +
+								'</div>' +
 							'</div>' +
 						'</div>' +
-						'<div class="col-xl-3">' +
-							'<div class="form-floating">' +
-								'<input type="text" class="form-control" id="EspeVQuimi" value="" placeholder="" maxlength="20">' +
-								'<label class="form-label" for="EspeVQuimi">Especificado V</label>' +
+						'<div class="row p-3" >' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="ObitSQuimi" value="" placeholder="" maxlength="20">' +
+									'<label class="form-label" for="ObitSQuimi">Obtido S</label>' +
+								'</div>' +
+							'</div>' +						
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="ObitCrQuimi" value="" placeholder="" maxlength="20">' +
+									'<label class="form-label" for="ObitCrQuimi">Obtido Cr</label>' +
+								'</div>' +
 							'</div>' +
-						'</div>' +
-						'<div class="col-xl-3">' +
-							'<div class="form-floating">' +
-								'<input type="text" class="form-control" id="ObitVQuimi" value="" placeholder="" maxlength="20">' +
-								'<label class="form-label" for="ObitVQuimi">Obtido V</label>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="ObitNiQuimi" value="" placeholder="" maxlength="20">' +
+									'<label class="form-label" for="ObitNiQuimi">Obtido Ni</label>' +
+								'</div>' +
 							'</div>' +
-						'</div>' +
-					'</div>' +
-					'<div class="row p-3" >' +	
-						'<div class="col-xl-3">' +
-							'<div class="form-floating">' +
-								'<input type="text" class="form-control" id="EspeCoQuimi" value="" placeholder="" maxlength="20">' +
-								'<label class="form-label" for="EspeCoQuimi">Especificado Co</label>' +
-							'</div>' +
-						'</div>' +
-						'<div class="col-xl-3">' +
-							'<div class="form-floating">' +
-								'<input type="text" class="form-control" id="ObitCoQuimi" value="" placeholder="" maxlength="20">' +
-								'<label class="form-label" for="ObitCoQuimi">Obtido Co</label>' +
-							'</div>' +
-						'</div>' +
-						'<div class="col-xl-3">' +
-							'<div class="form-floating">' +
-								'<input type="text" class="form-control" id="EspeNbQuimi" value="" placeholder="" maxlength="20">' +
-								'<label class="form-label" for="EspeNbQuimi">Especificado Nb</label>' +
-							'</div>' +
-						'</div>' +
-						'<div class="col-xl-3">' +
-							'<div class="form-floating">' +
-								'<input type="text" class="form-control" id="ObitNbQuimi" value="" placeholder="" maxlength="20">' +
-								'<label class="form-label" for="ObitNbQuimi">Obtido Nb</label>' +
-							'</div>' +
-						'</div>' +
-					'</div>' +
-					'<div class="row p-3" >' +
-						'<div class="col-xl-3">' +
-							'<div class="form-floating">' +
-								'<input type="text" class="form-control" id="EspeTiQuimi" value="" placeholder="" maxlength="20">' +
-								'<label class="form-label" for="EspeTiQuimi">Especificado Ti</label>' +
-							'</div>' +
-						'</div>' +
-						'<div class="col-xl-3">' +
-							'<div class="form-floating">' +
-								'<input type="text" class="form-control" id="ObitTiQuimi" value="" placeholder="" maxlength="20">' +
-								'<label class="form-label" for="ObitTiQuimi">Obtido Ti</label>' +
-							'</div>' +
-						'</div>' +
-						'<div class="col-xl-3">' +
-							'<div class="form-floating">' +
-								'<input type="text" class="form-control" id="EspeWQuimi" value="" placeholder="" maxlength="20">' +
-								'<label class="form-label" for="EspeWQuimi">Especificado W</label>' +
-							'</div>' +
-						'</div>' +
-						'<div class="col-xl-3">' +
-							'<div class="form-floating">' +
-								'<input type="text" class="form-control" id="ObitWQuimi" value="" placeholder="" maxlength="20">' +
-								'<label class="form-label" for="ObitWQuimi">Obtido W</label>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="ObitMoQuimi" value="" placeholder="" maxlength="20">' +
+									'<label class="form-label" for="ObitMoQuimi">Obtido Mo</label>' +
+								'</div>' +
 							'</div>' +
 						'</div>' +
 					'</div>' +
-					'<div class="row p-3" >' +
-						'<div class="col-xl-3">' +
-							'<div class="form-floating">' +
-								'<input type="text" class="form-control" id="EspeMgQuimi" value="" placeholder="" maxlength="20">' +
-								'<label class="form-label" for="EspeMgQuimi">Especificado Mg</label>' +
+					'<div class="border border-3">' +
+						'<div class="row p-3" >' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="EspeMinCuQuimi" value="" placeholder="" maxlength="20">' +
+									'<label class="form-label" for="EspeMinCuQuimi">Especificado Cu (min.)</label>' +
+								'</div>' +
+							'</div>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="EspeMinAlQuimi" value="" placeholder="" maxlength="20">' +
+									'<label class="form-label" for="EspeMinAlQuimi">Especificado Al (min.)</label>' +
+								'</div>' +
+							'</div>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="EspeMinFeQuimi" value="" placeholder="" maxlength="20">' +
+									'<label class="form-label" for="EspeMinFeQuimi">Especificado Fe (min.)</label>' +
+								'</div>' +
+							'</div>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="EspeMinVQuimi" value="" placeholder="" maxlength="20">' +
+									'<label class="form-label" for="EspeMinVQuimi">Especificado V (min.)</label>' +
+								'</div>' +
 							'</div>' +
 						'</div>' +
-						'<div class="col-xl-3">' +
-							'<div class="form-floating">' +
-								'<input type="text" class="form-control" id="ObitMgQuimi" value="" placeholder="" maxlength="20">' +
-								'<label class="form-label" for="ObitMgQuimi">Obtido Mg</label>' +
+						'<div class="row p-3" >' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="EspeMaxCuQuimi" value="" placeholder="" maxlength="20">' +
+									'<label class="form-label" for="EspeMaxCuQuimi">Especificado Cu (max.)</label>' +
+								'</div>' +
+							'</div>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="EspeMaxAlQuimi" value="" placeholder="" maxlength="20">' +
+									'<label class="form-label" for="EspeMaxAlQuimi">Especificado Al (max.)</label>' +
+								'</div>' +
+							'</div>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="EspeMaxFeQuimi" value="" placeholder="" maxlength="20">' +
+									'<label class="form-label" for="EspeMaxFeQuimi">Especificado Fe (max.)</label>' +
+								'</div>' +
+							'</div>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="EspeMaxVQuimi" value="" placeholder="" maxlength="20">' +
+									'<label class="form-label" for="EspeMaxVQuimi">Especificado V (max.)</label>' +
+								'</div>' +
 							'</div>' +
 						'</div>' +
-						'<div class="col-xl-3">' +
-							'<div class="form-floating">' +
-								'<input type="text" class="form-control" id="EspeZnQuimi" value="" placeholder="" maxlength="20">' +
-								'<label class="form-label" for="EspeZnQuimi">Especificado Zn</label>' +
+						'<div class="row p-3" >' +	
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="ObitCuQuimi" value="" placeholder="" maxlength="20">' +
+									'<label class="form-label" for="ObitCuQuimi">Obtido Cu</label>' +
+								'</div>' +
 							'</div>' +
-						'</div>' +
-						'<div class="col-xl-3">' +
-							'<div class="form-floating">' +
-								'<input type="text" class="form-control" id="ObitZnQuimi" value="" placeholder="" maxlength="20">' +
-								'<label class="form-label" for="ObitZnQuimi">Obtido Zn</label>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="ObitAlQuimi" value="" placeholder="" maxlength="20">' +
+									'<label class="form-label" for="ObitAlQuimi">Obtido Al</label>' +
+								'</div>' +
 							'</div>' +
-						'</div>' +
-					'</div>' +
-					'<div class="row p-3">' +
-						'<div class="col-xl-3">' +
-							'<div class="form-floating">' +
-								'<input type="text" class="form-control" id="EspeSbQuimi" value="" placeholder="" maxlength="20">' +
-								'<label class="form-label" for="EspeSbQuimi">Especificado Sb</label>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="ObitFeQuimi" value="" placeholder="" maxlength="20">' +
+									'<label class="form-label" for="ObitFeQuimi">Obtido Fe</label>' +
+								'</div>' +
 							'</div>' +
-						'</div>' +
-						'<div class="col-xl-3">' +
-							'<div class="form-floating">' +
-								'<input type="text" class="form-control" id="ObitSbQuimi" value="" placeholder="" maxlength="20">' +
-								'<label class="form-label" for="ObitSbQuimi">Obtido Sb</label>' +
-							'</div>' +
-						'</div>' +
-						'<div class="col-xl-3">' +
-							'<div class="form-floating">' +
-								'<input type="text" class="form-control" id="EspeSnQuimi" value="" placeholder="" maxlength="20">' +
-								'<label class="form-label" for="EspeSnQuimi">Especificado Sn</label>' +
-							'</div>' +
-						'</div>' +
-						'<div class="col-xl-3">' +
-							'<div class="form-floating">' +
-								'<input type="text" class="form-control" id="ObitSnQuimi" value="" placeholder="" maxlength="20">' +
-								'<label class="form-label" for="ObitSnQuimi">Obtido Sn</label>' +
-							'</div>' +
-						'</div>' +
-					'</div>' +
-					'<div class="row p-3">' +
-						'<div class="col-xl-3">' +
-							'<div class="form-floating">' +
-								'<input type="text" class="form-control" id="EspeCaQuimi" value="" placeholder="" maxlength="20">' +
-								'<label class="form-label" for="EspeCaQuimi">Especificado Ca</label>' +
-							'</div>' +
-						'</div>' +
-						'<div class="col-xl-3">' +
-							'<div class="form-floating">' +
-								'<input type="text" class="form-control" id="ObitCaQuimi" value="" placeholder="" maxlength="20">' +
-								'<label class="form-label" for="ObitCaQuimi">Obtido Ca</label>' +
-							'</div>' +
-						'</div>' +
-						'<div class="col-xl-3">' +
-							'<div class="form-floating">' +
-								'<input type="text" class="form-control" id="EspeClQuimi" value="" placeholder="" maxlength="20">' +
-								'<label class="form-label" for="EspeClQuimi">Especificado Cl</label>' +
-							'</div>' +
-						'</div>' +
-						'<div class="col-xl-3">' +
-							'<div class="form-floating">' +
-								'<input type="text" class="form-control" id="ObitClQuimi" value="" placeholder="" maxlength="20">' +
-								'<label class="form-label" for="ObitClQuimi">Obtido Cl</label>' +
-							'</div>' +
-						'</div>' +
-					'</div>' +
-					'<div class="row p-3">' +
-						'<div class="col-xl-3">' +
-							'<div class="form-floating">' +
-								'<input type="text" class="form-control" id="EspeNQuimi" value="" placeholder="" maxlength="20">' +
-								'<label class="form-label" for="EspeNQuimi">Especificado N</label>' +
-							'</div>' +
-						'</div>' +
-						'<div class="col-xl-3">' +
-							'<div class="form-floating">' +
-								'<input type="text" class="form-control" id="ObitNQuimi" value="" placeholder="" maxlength="20">' +
-								'<label class="form-label" for="ObitNQuimi">Obtido N</label>' +
-							'</div>' +
-						'</div>' +
-						'<div class="col-xl-3">' +
-							'<div class="form-floating">' +
-								'<input type="text" class="form-control" id="EspeNaQuimi" value="" placeholder="" maxlength="20">' +
-								'<label class="form-label" for="EspeNaQuimi">Especificado Na</label>' +
-							'</div>' +
-						'</div>' +
-						'<div class="col-xl-3">' +
-							'<div class="form-floating">' +
-								'<input type="text" class="form-control" id="ObitNaQuimi" value="" placeholder="" maxlength="20">' +
-								'<label class="form-label" for="ObitNaQuimi">Obtido Na</label>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="ObitVQuimi" value="" placeholder="" maxlength="20">' +
+									'<label class="form-label" for="ObitVQuimi">Obtido V</label>' +
+								'</div>' +
 							'</div>' +
 						'</div>' +
 					'</div>' +
-					'<div class="row p-3">' +
-						'<div class="col-xl-3">' +
-							'<div class="form-floating">' +
-								'<input type="text" class="form-control" id="EspeCeqQuimi" value="" placeholder="" maxlength="20">' +
-								'<label class="form-label" for="EspeCeqQuimi">Especificado Ceq</label>' +
+					'<div class="border border-3">' +
+						'<div class="row p-3" >' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="EspeMinCoQuimi" value="" placeholder="" maxlength="20">' +
+									'<label class="form-label" for="EspeMinCoQuimi">Especificado Co (min.)</label>' +
+								'</div>' +
+							'</div>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="EspeMinNbQuimi" value="" placeholder="" maxlength="20">' +
+									'<label class="form-label" for="EspeMinNbQuimi">Especificado Nb (min.)</label>' +
+								'</div>' +
+							'</div>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="EspeMinTiQuimi" value="" placeholder="" maxlength="20">' +
+									'<label class="form-label" for="EspeMinTiQuimi">Especificado Ti (min.)</label>' +
+								'</div>' +
+							'</div>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="EspeMinWQuimi" value="" placeholder="" maxlength="20">' +
+									'<label class="form-label" for="EspeMinWQuimi">Especificado W (min.)</label>' +
+								'</div>' +
 							'</div>' +
 						'</div>' +
-						'<div class="col-xl-3">' +
-							'<div class="form-floating">' +
-								'<input type="text" class="form-control" id="ObitCeqQuimi" value="" placeholder="" maxlength="20">' +
-								'<label class="form-label" for="ObitCeqQuimi">Obtido Ceq</label>' +
+						'<div class="row p-3" >' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="EspeMaxCoQuimi" value="" placeholder="" maxlength="20">' +
+									'<label class="form-label" for="EspeMaxCoQuimi">Especificado Co (max.)</label>' +
+								'</div>' +
+							'</div>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="EspeMaxNbQuimi" value="" placeholder="" maxlength="20">' +
+									'<label class="form-label" for="EspeMaxNbQuimi">Especificado Nb (max.)</label>' +
+								'</div>' +
+							'</div>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="EspeMaxTiQuimi" value="" placeholder="" maxlength="20">' +
+									'<label class="form-label" for="EspeMaxTiQuimi">Especificado Ti (max.)</label>' +
+								'</div>' +
+							'</div>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="EspeMaxWQuimi" value="" placeholder="" maxlength="20">' +
+									'<label class="form-label" for="EspeMaxWQuimi">Especificado W (max.)</label>' +
+								'</div>' +
 							'</div>' +
 						'</div>' +
-						'<div class="col-xl-3">' +
-							'<div class="form-floating">' +
-								'<input type="text" class="form-control" id="EspePbQuimi" value="" placeholder="" maxlength="20">' +
-								'<label class="form-label" for="EspeCeqQuimi">Especificado Pb</label>' +
+						'<div class="row p-3" >' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="ObitCoQuimi" value="" placeholder="" maxlength="20">' +
+									'<label class="form-label" for="ObitCoQuimi">Obtido Co</label>' +
+								'</div>' +
+							'</div>' +						
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="ObitNbQuimi" value="" placeholder="" maxlength="20">' +
+									'<label class="form-label" for="ObitNbQuimi">Obtido Nb</label>' +
+								'</div>' +
+							'</div>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="ObitTiQuimi" value="" placeholder="" maxlength="20">' +
+									'<label class="form-label" for="ObitTiQuimi">Obtido Ti</label>' +
+								'</div>' +
+							'</div>' +						
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="ObitWQuimi" value="" placeholder="" maxlength="20">' +
+									'<label class="form-label" for="ObitWQuimi">Obtido W</label>' +
+								'</div>' +
 							'</div>' +
 						'</div>' +
-						'<div class="col-xl-3">' +
-							'<div class="form-floating">' +
-								'<input type="text" class="form-control" id="ObitPbQuimi" value="" placeholder="" maxlength="20">' +
-								'<label class="form-label" for="ObitPbQuimi">Obtido Pb</label>' +
+					'</div>' +
+					'<div class="border border-3">' +
+						'<div class="row p-3" >' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="EspeMinMgQuimi" value="" placeholder="" maxlength="20">' +
+									'<label class="form-label" for="EspeMinMgQuimi">Especificado Mg (min.)</label>' +
+								'</div>' +
+							'</div>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="EspeMinZnQuimi" value="" placeholder="" maxlength="20">' +
+									'<label class="form-label" for="EspeMinZnQuimi">Especificado Zn (min.)</label>' +
+								'</div>' +
+							'</div>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="EspeMinSbQuimi" value="" placeholder="" maxlength="20">' +
+									'<label class="form-label" for="EspeMinSbQuimi">Especificado Sb (min.)</label>' +
+								'</div>' +
+							'</div>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="EspeMinSnQuimi" value="" placeholder="" maxlength="20">' +
+									'<label class="form-label" for="EspeMinSnQuimi">Especificado Sn (min.)</label>' +
+								'</div>' +
+							'</div>' +
+						'</div>' +
+						'<div class="row p-3" >' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="EspeMaxMgQuimi" value="" placeholder="" maxlength="20">' +
+									'<label class="form-label" for="EspeMaxMgQuimi">Especificado Mg (max.)</label>' +
+								'</div>' +
+							'</div>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="EspeMaxZnQuimi" value="" placeholder="" maxlength="20">' +
+									'<label class="form-label" for="EspeMaxZnQuimi">Especificado Zn (max.)</label>' +
+								'</div>' +
+							'</div>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="EspeMaxSbQuimi" value="" placeholder="" maxlength="20">' +
+									'<label class="form-label" for="EspeMaxSbQuimi">Especificado Sb (max.)</label>' +
+								'</div>' +
+							'</div>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="EspeMaxSnQuimi" value="" placeholder="" maxlength="20">' +
+									'<label class="form-label" for="EspeMaxSnQuimi">Especificado Sn (max.)</label>' +
+								'</div>' +
+							'</div>' +
+						'</div>' +
+						'<div class="row p-3" >' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="ObitMgQuimi" value="" placeholder="" maxlength="20">' +
+									'<label class="form-label" for="ObitMgQuimi">Obtido Mg</label>' +
+								'</div>' +
+							'</div>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="ObitZnQuimi" value="" placeholder="" maxlength="20">' +
+									'<label class="form-label" for="ObitZnQuimi">Obtido Zn</label>' +
+								'</div>' +
+							'</div>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="ObitSbQuimi" value="" placeholder="" maxlength="20">' +
+									'<label class="form-label" for="ObitSbQuimi">Obtido Sb</label>' +
+								'</div>' +
+							'</div>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="ObitSnQuimi" value="" placeholder="" maxlength="20">' +
+									'<label class="form-label" for="ObitSnQuimi">Obtido Sn</label>' +
+								'</div>' +
+							'</div>' +
+						'</div>' +
+					'</div>' +
+					'<div class="border border-3">' +
+						'<div class="row p-3">' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="EspeMinCaQuimi" value="" placeholder="" maxlength="20">' +
+									'<label class="form-label" for="EspeMinCaQuimi">Especificado Ca (min.)</label>' +
+								'</div>' +
+							'</div>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="EspeMinNQuimi" value="" placeholder="" maxlength="20">' +
+									'<label class="form-label" for="EspeMinNQuimi">Especificado N (min.)</label>' +
+								'</div>' +
+							'</div>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="EspeMinClQuimi" value="" placeholder="" maxlength="20">' +
+									'<label class="form-label" for="EspeMinClQuimi">Especificado Cl (min.)</label>' +
+								'</div>' +
+							'</div>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="EspeMinNaQuimi" value="" placeholder="" maxlength="20">' +
+									'<label class="form-label" for="EspeMinNaQuimi">Especificado Na (min.)</label>' +
+								'</div>' +
+							'</div>' +
+						'</div>' +
+						'<div class="row p-3">' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="EspeMaxCaQuimi" value="" placeholder="" maxlength="20">' +
+									'<label class="form-label" for="EspeMaxCaQuimi">Especificado Ca (max.)</label>' +
+								'</div>' +
+							'</div>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="EspeMaxNQuimi" value="" placeholder="" maxlength="20">' +
+									'<label class="form-label" for="EspeMaxNQuimi">Especificado N (max.)</label>' +
+								'</div>' +
+							'</div>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="EspeMaxClQuimi" value="" placeholder="" maxlength="20">' +
+									'<label class="form-label" for="EspeMaxClQuimi">Especificado Cl (max.)</label>' +
+								'</div>' +
+							'</div>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="EspeMaxNaQuimi" value="" placeholder="" maxlength="20">' +
+									'<label class="form-label" for="EspeMaxNaQuimi">Especificado Na (max.)</label>' +
+								'</div>' +
+							'</div>' +
+						'</div>' +
+						'<div class="row p-3">' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="ObitCaQuimi" value="" placeholder="" maxlength="20">' +
+									'<label class="form-label" for="ObitCaQuimi">Obtido Ca</label>' +
+								'</div>' +
+							'</div>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="ObitNQuimi" value="" placeholder="" maxlength="20">' +
+									'<label class="form-label" for="ObitNQuimi">Obtido N</label>' +
+								'</div>' +
+							'</div>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="ObitClQuimi" value="" placeholder="" maxlength="20">' +
+									'<label class="form-label" for="ObitClQuimi">Obtido Cl</label>' +
+								'</div>' +
+							'</div>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="ObitNaQuimi" value="" placeholder="" maxlength="20">' +
+									'<label class="form-label" for="ObitNaQuimi">Obtido Na</label>' +
+								'</div>' +
+							'</div>' +
+						'</div>' +
+					'</div>' +
+					'<div class="border border-3">' +
+						'<div class="row p-3">' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="EspeMinCeqQuimi" value="" placeholder="" maxlength="20">' +
+									'<label class="form-label" for="EspeMinCeqQuimi">Especificado Ceq (min.)</label>' +
+								'</div>' +
+							'</div>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="EspeMinPbQuimi" value="" placeholder="" maxlength="20">' +
+									'<label class="form-label" for="EspeMinPbQuimi">Especificado Pb (min.)</label>' +
+								'</div>' +
+							'</div>' +
+						'</div>' +
+						'<div class="row p-3">' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="EspeMaxCeqQuimi" value="" placeholder="" maxlength="20">' +
+									'<label class="form-label" for="EspeMaxCeqQuimi">Especificado Ceq (max.)</label>' +
+								'</div>' +
+							'</div>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="EspeMaxPbQuimi" value="" placeholder="" maxlength="20">' +
+									'<label class="form-label" for="EspeMaxPbQuimi">Especificado Pb (max.)</label>' +
+								'</div>' +
+							'</div>' +
+						'</div>' +
+						'<div class="row p-3">' +	
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="ObitCeqQuimi" value="" placeholder="" maxlength="20">' +
+									'<label class="form-label" for="ObitCeqQuimi">Obtido Ceq</label>' +
+								'</div>' +
+							'</div>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="ObitPbQuimi" value="" placeholder="" maxlength="20">' +
+									'<label class="form-label" for="ObitPbQuimi">Obtido Pb</label>' +
+								'</div>' +
 							'</div>' +
 						'</div>' +
 					'</div>' +
@@ -1071,59 +1265,111 @@ export default class Quimico {
 						$( ResObjPai ).find( '#ResulQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'amos_quimi_cada_result' ) ).trigger( 'change' );
 						$( ResObjPai ).find( '#QtdeQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'amos_quimi_cada_qtde' ) );
 						Core.SetMask( $( ResObjPai ).find( '#QtdeQuimi' ), 'INTEIRO' );
-						$( ResObjPai ).find( '#EspeCQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'amos_quimi_cada_espe_C' ) );
-						$( ResObjPai ).find( '#EspeSiQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'amos_quimi_cada_espe_Si' ) );
-						$( ResObjPai ).find( '#EspeMnQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'amos_quimi_cada_espe_Mn' ) );
-						$( ResObjPai ).find( '#EspePQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'amos_quimi_cada_espe_P' ) );
-						$( ResObjPai ).find( '#EspeSQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'amos_quimi_cada_espe_S' ) );
-						$( ResObjPai ).find( '#EspeCrQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'amos_quimi_cada_espe_Cr' ) );
-						$( ResObjPai ).find( '#EspeNiQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'amos_quimi_cada_espe_Ni' ) );
-						$( ResObjPai ).find( '#EspeMoQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'amos_quimi_cada_espe_Mo' ) );
-						$( ResObjPai ).find( '#EspeCuQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'amos_quimi_cada_espe_Cu' ) );
-						$( ResObjPai ).find( '#EspeAlQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'amos_quimi_cada_espe_Al' ) );
-						$( ResObjPai ).find( '#EspeFeQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'amos_quimi_cada_espe_Fe' ) );
-						$( ResObjPai ).find( '#EspeVQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'amos_quimi_cada_espe_V' ) );
-						$( ResObjPai ).find( '#EspeCoQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'amos_quimi_cada_espe_Co' ) );
-						$( ResObjPai ).find( '#EspeNbQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'amos_quimi_cada_espe_Nb' ) );
-						$( ResObjPai ).find( '#EspeTiQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'amos_quimi_cada_espe_Ti' ) );
-						$( ResObjPai ).find( '#EspeWQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'amos_quimi_cada_espe_W' ) );
-						$( ResObjPai ).find( '#EspeMgQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'amos_quimi_cada_espe_Mg' ) );
-						$( ResObjPai ).find( '#EspeZnQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'amos_quimi_cada_espe_Zn' ) );
-						$( ResObjPai ).find( '#EspeSbQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'amos_quimi_cada_espe_Sb' ) );
-						$( ResObjPai ).find( '#EspeSnQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'amos_quimi_cada_espe_Sn' ) );
-						$( ResObjPai ).find( '#EspeCaQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'amos_quimi_cada_espe_Ca' ) );
-						$( ResObjPai ).find( '#EspeClQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'amos_quimi_cada_espe_Cl' ) );
-						$( ResObjPai ).find( '#EspeNQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'amos_quimi_cada_espe_N' ) );
-						$( ResObjPai ).find( '#EspeNaQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'amos_quimi_cada_espe_Na' ) );
-						$( ResObjPai ).find( '#EspeCeqQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'amos_quimi_cada_espe_Ceq' ) );
-						$( ResObjPai ).find( '#EspePbQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'amos_quimi_cada_espe_Pb' ) );
+						$( ResObjPai ).find( '#EspeMinCQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'amos_quimi_cada_espe_C' ).split( '-' )[0] );
+						$( ResObjPai ).find( '#EspeMinSiQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'amos_quimi_cada_espe_Si' ).split( '-' )[0] );
+						$( ResObjPai ).find( '#EspeMinMnQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'amos_quimi_cada_espe_Mn' ).split( '-' )[0] );
+						$( ResObjPai ).find( '#EspeMinPQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'amos_quimi_cada_espe_P' ).split( '-' )[0] );
+						$( ResObjPai ).find( '#EspeMinSQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'amos_quimi_cada_espe_S' ).split( '-' )[0] );
+						$( ResObjPai ).find( '#EspeMinCrQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'amos_quimi_cada_espe_Cr' ).split( '-' )[0] );
+						$( ResObjPai ).find( '#EspeMinNiQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'amos_quimi_cada_espe_Ni' ).split( '-' )[0] );
+						$( ResObjPai ).find( '#EspeMinMoQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'amos_quimi_cada_espe_Mo' ).split( '-' )[0] );
+						$( ResObjPai ).find( '#EspeMinCuQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'amos_quimi_cada_espe_Cu' ).split( '-' )[0] );
+						$( ResObjPai ).find( '#EspeMinAlQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'amos_quimi_cada_espe_Al' ).split( '-' )[0] );
+						$( ResObjPai ).find( '#EspeMinFeQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'amos_quimi_cada_espe_Fe' ).split( '-' )[0] );
+						$( ResObjPai ).find( '#EspeMinVQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'amos_quimi_cada_espe_V' ).split( '-' )[0] );
+						$( ResObjPai ).find( '#EspeMinCoQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'amos_quimi_cada_espe_Co' ).split( '-' )[0] );
+						$( ResObjPai ).find( '#EspeMinNbQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'amos_quimi_cada_espe_Nb' ).split( '-' )[0] );
+						$( ResObjPai ).find( '#EspeMinTiQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'amos_quimi_cada_espe_Ti' ).split( '-' )[0] );
+						$( ResObjPai ).find( '#EspeMinWQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'amos_quimi_cada_espe_W' ).split( '-' )[0] );
+						$( ResObjPai ).find( '#EspeMinMgQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'amos_quimi_cada_espe_Mg' ).split( '-' )[0] );
+						$( ResObjPai ).find( '#EspeMinZnQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'amos_quimi_cada_espe_Zn' ).split( '-' )[0] );
+						$( ResObjPai ).find( '#EspeMinSbQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'amos_quimi_cada_espe_Sb' ).split( '-' )[0] );
+						$( ResObjPai ).find( '#EspeMinSnQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'amos_quimi_cada_espe_Sn' ).split( '-' )[0] );
+						$( ResObjPai ).find( '#EspeMinCaQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'amos_quimi_cada_espe_Ca' ).split( '-' )[0] );
+						$( ResObjPai ).find( '#EspeMinClQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'amos_quimi_cada_espe_Cl' ).split( '-' )[0] );
+						$( ResObjPai ).find( '#EspeMinNQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'amos_quimi_cada_espe_N' ).split( '-' )[0] );
+						$( ResObjPai ).find( '#EspeMinNaQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'amos_quimi_cada_espe_Na' ).split( '-' )[0] );
+						$( ResObjPai ).find( '#EspeMinCeqQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'amos_quimi_cada_espe_Ceq' ).split( '-' )[0] );
+						$( ResObjPai ).find( '#EspeMinPbQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'amos_quimi_cada_espe_Pb' ).split( '-' )[0] );
+						$( ResObjPai ).find( '#EspeMaxCQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'amos_quimi_cada_espe_C' ).split( '-' )[1] );
+						$( ResObjPai ).find( '#EspeMaxSiQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'amos_quimi_cada_espe_Si' ).split( '-' )[1] );
+						$( ResObjPai ).find( '#EspeMaxMnQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'amos_quimi_cada_espe_Mn' ).split( '-' )[1] );
+						$( ResObjPai ).find( '#EspeMaxPQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'amos_quimi_cada_espe_P' ).split( '-' )[1] );
+						$( ResObjPai ).find( '#EspeMaxSQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'amos_quimi_cada_espe_S' ).split( '-' )[1] );
+						$( ResObjPai ).find( '#EspeMaxCrQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'amos_quimi_cada_espe_Cr' ).split( '-' )[1] );
+						$( ResObjPai ).find( '#EspeMaxNiQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'amos_quimi_cada_espe_Ni' ).split( '-' )[1] );
+						$( ResObjPai ).find( '#EspeMaxMoQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'amos_quimi_cada_espe_Mo' ).split( '-' )[1] );
+						$( ResObjPai ).find( '#EspeMaxCuQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'amos_quimi_cada_espe_Cu' ).split( '-' )[1] );
+						$( ResObjPai ).find( '#EspeMaxAlQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'amos_quimi_cada_espe_Al' ).split( '-' )[1] );
+						$( ResObjPai ).find( '#EspeMaxFeQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'amos_quimi_cada_espe_Fe' ).split( '-' )[1] );
+						$( ResObjPai ).find( '#EspeMaxVQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'amos_quimi_cada_espe_V' ).split( '-' )[1] );
+						$( ResObjPai ).find( '#EspeMaxCoQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'amos_quimi_cada_espe_Co' ).split( '-' )[1] );
+						$( ResObjPai ).find( '#EspeMaxNbQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'amos_quimi_cada_espe_Nb' ).split( '-' )[1] );
+						$( ResObjPai ).find( '#EspeMaxTiQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'amos_quimi_cada_espe_Ti' ).split( '-' )[1] );
+						$( ResObjPai ).find( '#EspeMaxWQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'amos_quimi_cada_espe_W' ).split( '-' )[1] );
+						$( ResObjPai ).find( '#EspeMaxMgQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'amos_quimi_cada_espe_Mg' ).split( '-' )[1] );
+						$( ResObjPai ).find( '#EspeMaxZnQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'amos_quimi_cada_espe_Zn' ).split( '-' )[1] );
+						$( ResObjPai ).find( '#EspeMaxSbQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'amos_quimi_cada_espe_Sb' ).split( '-' )[1] );
+						$( ResObjPai ).find( '#EspeMaxSnQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'amos_quimi_cada_espe_Sn' ).split( '-' )[1] );
+						$( ResObjPai ).find( '#EspeMaxCaQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'amos_quimi_cada_espe_Ca' ).split( '-' )[1] );
+						$( ResObjPai ).find( '#EspeMaxClQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'amos_quimi_cada_espe_Cl' ).split( '-' )[1] );
+						$( ResObjPai ).find( '#EspeMaxNQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'amos_quimi_cada_espe_N' ).split( '-' )[1] );
+						$( ResObjPai ).find( '#EspeMaxNaQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'amos_quimi_cada_espe_Na' ).split( '-' )[1] );
+						$( ResObjPai ).find( '#EspeMaxCeqQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'amos_quimi_cada_espe_Ceq' ).split( '-' )[1] );
+						$( ResObjPai ).find( '#EspeMaxPbQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'amos_quimi_cada_espe_Pb' ).split( '-' )[1] );
 						if ( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'amos_quimi_cada_iden' ) == 'Automatico' ){
-							$( ResObjPai ).find( '#EspeCQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'mate_cada_C' ) );
-							$( ResObjPai ).find( '#EspeSiQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'mate_cada_Si' ) );
-							$( ResObjPai ).find( '#EspeMnQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'mate_cada_Mn' ) );
-							$( ResObjPai ).find( '#EspePQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'mate_cada_P' ) );
-							$( ResObjPai ).find( '#EspeSQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'mate_cada_S' ) );
-							$( ResObjPai ).find( '#EspeCrQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'mate_cada_Cr' ) );
-							$( ResObjPai ).find( '#EspeNiQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'mate_cada_Ni' ) );
-							$( ResObjPai ).find( '#EspeMoQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'mate_cada_Mo' ) );
-							$( ResObjPai ).find( '#EspeCuQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'mate_cada_Cu' ) );
-							$( ResObjPai ).find( '#EspeAlQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'mate_cada_Al' ) );
-							$( ResObjPai ).find( '#EspeFeQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'mate_cada_Fe' ) );
-							$( ResObjPai ).find( '#EspeVQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'mate_cada_V' ) );
-							$( ResObjPai ).find( '#EspeCoQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'mate_cada_Co' ) );
-							$( ResObjPai ).find( '#EspeNbQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'mate_cada_Nb' ) );
-							$( ResObjPai ).find( '#EspeTiQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'mate_cada_Ti' ) );
-							$( ResObjPai ).find( '#EspeWQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'mate_cada_W' ) );
-							$( ResObjPai ).find( '#EspeMgQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'mate_cada_Mg' ) );
-							$( ResObjPai ).find( '#EspeZnQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'mate_cada_Zn' ) );
-							$( ResObjPai ).find( '#EspePbQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'mate_cada_Pb' ) );
-							$( ResObjPai ).find( '#EspeSbQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'mate_cada_Sb' ) );
-							$( ResObjPai ).find( '#EspeSnQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'mate_cada_Sn' ) );
-							$( ResObjPai ).find( '#EspeCaQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'mate_cada_Ca' ) );
-							$( ResObjPai ).find( '#EspeClQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'mate_cada_Cl' ) );
-							$( ResObjPai ).find( '#EspeNQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'mate_cada_N' ) );
-							$( ResObjPai ).find( '#EspeNaQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'mate_cada_Na' ) );
-							$( ResObjPai ).find( '#EspeCeqQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'mate_cada_Ceq' ) );
+							$( ResObjPai ).find( '#EspeMinCQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'mate_cada_C' ).split( '-' )[0] );
+							$( ResObjPai ).find( '#EspeMinSiQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'mate_cada_Si' ).split( '-' )[0] );
+							$( ResObjPai ).find( '#EspeMinMnQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'mate_cada_Mn' ).split( '-' )[0] );
+							$( ResObjPai ).find( '#EspeMinPQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'mate_cada_P' ).split( '-' )[0] );
+							$( ResObjPai ).find( '#EspeMinSQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'mate_cada_S' ).split( '-' )[0] );
+							$( ResObjPai ).find( '#EspeMinCrQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'mate_cada_Cr' ).split( '-' )[0] );
+							$( ResObjPai ).find( '#EspeMinNiQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'mate_cada_Ni' ).split( '-' )[0] );
+							$( ResObjPai ).find( '#EspeMinMoQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'mate_cada_Mo' ).split( '-' )[0] );
+							$( ResObjPai ).find( '#EspeMinCuQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'mate_cada_Cu' ).split( '-' )[0] );
+							$( ResObjPai ).find( '#EspeMinAlQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'mate_cada_Al' ).split( '-' )[0] );
+							$( ResObjPai ).find( '#EspeMinFeQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'mate_cada_Fe' ).split( '-' )[0] );
+							$( ResObjPai ).find( '#EspeMinVQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'mate_cada_V' ).split( '-' )[0] );
+							$( ResObjPai ).find( '#EspeMinCoQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'mate_cada_Co' ).split( '-' )[0] );
+							$( ResObjPai ).find( '#EspeMinNbQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'mate_cada_Nb' ).split( '-' )[0] );
+							$( ResObjPai ).find( '#EspeMinTiQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'mate_cada_Ti' ).split( '-' )[0] );
+							$( ResObjPai ).find( '#EspeMinWQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'mate_cada_W' ).split( '-' )[0] );
+							$( ResObjPai ).find( '#EspeMinMgQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'mate_cada_Mg' ).split( '-' )[0] );
+							$( ResObjPai ).find( '#EspeMinZnQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'mate_cada_Zn' ).split( '-' )[0] );
+							$( ResObjPai ).find( '#EspeMinPbQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'mate_cada_Pb' ).split( '-' )[0] );
+							$( ResObjPai ).find( '#EspeMinSbQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'mate_cada_Sb' ).split( '-' )[0] );
+							$( ResObjPai ).find( '#EspeMinSnQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'mate_cada_Sn' ).split( '-' )[0] );
+							$( ResObjPai ).find( '#EspeMinCaQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'mate_cada_Ca' ).split( '-' )[0] );
+							$( ResObjPai ).find( '#EspeMinClQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'mate_cada_Cl' ).split( '-' )[0] );
+							$( ResObjPai ).find( '#EspeMinNQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'mate_cada_N' ).split( '-' )[0] );
+							$( ResObjPai ).find( '#EspeMinNaQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'mate_cada_Na' ).split( '-' )[0] );
+							$( ResObjPai ).find( '#EspeMinCeqQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'mate_cada_Ceq' ).split( '-' )[0] );
+							$( ResObjPai ).find( '#EspeMaxCQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'mate_cada_C' ).split( '-' )[1] );
+							$( ResObjPai ).find( '#EspeMaxSiQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'mate_cada_Si' ).split( '-' )[1] );
+							$( ResObjPai ).find( '#EspeMaxMnQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'mate_cada_Mn' ).split( '-' )[1] );
+							$( ResObjPai ).find( '#EspeMaxPQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'mate_cada_P' ).split( '-' )[1] );
+							$( ResObjPai ).find( '#EspeMaxSQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'mate_cada_S' ).split( '-' )[1] );
+							$( ResObjPai ).find( '#EspeMaxCrQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'mate_cada_Cr' ).split( '-' )[1] );
+							$( ResObjPai ).find( '#EspeMaxNiQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'mate_cada_Ni' ).split( '-' )[1] );
+							$( ResObjPai ).find( '#EspeMaxMoQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'mate_cada_Mo' ).split( '-' )[1] );
+							$( ResObjPai ).find( '#EspeMaxCuQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'mate_cada_Cu' ).split( '-' )[1] );
+							$( ResObjPai ).find( '#EspeMaxAlQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'mate_cada_Al' ).split( '-' )[1] );
+							$( ResObjPai ).find( '#EspeMaxFeQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'mate_cada_Fe' ).split( '-' )[1] );
+							$( ResObjPai ).find( '#EspeMaxVQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'mate_cada_V' ).split( '-' )[1] );
+							$( ResObjPai ).find( '#EspeMaxCoQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'mate_cada_Co' ).split( '-' )[1] );
+							$( ResObjPai ).find( '#EspeMaxNbQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'mate_cada_Nb' ).split( '-' )[1] );
+							$( ResObjPai ).find( '#EspeMaxTiQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'mate_cada_Ti' ).split( '-' )[1] );
+							$( ResObjPai ).find( '#EspeMaxWQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'mate_cada_W' ).split( '-' )[1] );
+							$( ResObjPai ).find( '#EspeMaxMgQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'mate_cada_Mg' ).split( '-' )[1] );
+							$( ResObjPai ).find( '#EspeMaxZnQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'mate_cada_Zn' ).split( '-' )[1] );
+							$( ResObjPai ).find( '#EspeMaxPbQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'mate_cada_Pb' ).split( '-' )[1] );
+							$( ResObjPai ).find( '#EspeMaxSbQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'mate_cada_Sb' ).split( '-' )[1] );
+							$( ResObjPai ).find( '#EspeMaxSnQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'mate_cada_Sn' ).split( '-' )[1] );
+							$( ResObjPai ).find( '#EspeMaxCaQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'mate_cada_Ca' ).split( '-' )[1] );
+							$( ResObjPai ).find( '#EspeMaxClQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'mate_cada_Cl' ).split( '-' )[1] );
+							$( ResObjPai ).find( '#EspeMaxNQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'mate_cada_N' ).split( '-' )[1] );
+							$( ResObjPai ).find( '#EspeMaxNaQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'mate_cada_Na' ).split( '-' )[1] );
+							$( ResObjPai ).find( '#EspeMaxCeqQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'mate_cada_Ceq' ).split( '-' )[1] );
 						};
 						$( ResObjPai ).find( '#ObitCQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'amos_quimi_cada_obti_C' ) );
 						$( ResObjPai ).find( '#ObitSiQuimi' ).val( Core.Quimico.GetDataTableQuimi( '#TableQuimi', vLinha, 'amos_quimi_cada_obti_Si' ) );
@@ -1246,57 +1492,57 @@ export default class Quimico {
 								IdenQuimi: $( ResObjPai ).find( '#IdenQuimi' ).val(),
 								ResulQuimi: $( ResObjPai ).find( '#ResulQuimi' ).val(),
 								QtdeQuimi: $( ResObjPai ).find( '#QtdeQuimi' ).val(),
-								EspeCQuimi: $( ResObjPai ).find( '#EspeCQuimi' ).val(),
+								EspeCQuimi: $( ResObjPai ).find( '#EspeMinCQuimi' ).val() + '-' + $( ResObjPai ).find( '#EspeMaxCQuimi' ).val(),
 								ObitCQuimi: $( ResObjPai ).find( '#ObitCQuimi' ).val(),
-								EspeSiQuimi: $( ResObjPai ).find( '#EspeSiQuimi' ).val(),
+								EspeSiQuimi: $( ResObjPai ).find( '#EspeMinSiQuimi' ).val() + '-' + $( ResObjPai ).find( '#EspeMaxSiQuimi' ).val(),
 								ObitSiQuimi: $( ResObjPai ).find( '#ObitSiQuimi' ).val(),
-								EspeMnQuimi: $( ResObjPai ).find( '#EspeMnQuimi' ).val(),
+								EspeMnQuimi: $( ResObjPai ).find( '#EspeMinMnQuimi' ).val() + '-' + $( ResObjPai ).find( '#EspeMaxMnQuimi' ).val(),
 								ObitMnQuimi: $( ResObjPai ).find( '#ObitMnQuimi' ).val(),
-								EspePQuimi: $( ResObjPai ).find( '#EspePQuimi' ).val(),
+								EspePQuimi: $( ResObjPai ).find( '#EspeMinPQuimi' ).val() + '-' + $( ResObjPai ).find( '#EspeMaxPQuimi' ).val(),
 								ObitPQuimi: $( ResObjPai ).find( '#ObitPQuimi' ).val(),
-								EspeSQuimi: $( ResObjPai ).find( '#EspeSQuimi' ).val(),
+								EspeSQuimi: $( ResObjPai ).find( '#EspeMinSQuimi' ).val() + '-' + $( ResObjPai ).find( '#EspeMaxSQuimi' ).val(),
 								ObitSQuimi: $( ResObjPai ).find( '#ObitSQuimi' ).val(),
-								EspeCrQuimi: $( ResObjPai ).find( '#EspeCrQuimi' ).val(),
+								EspeCrQuimi: $( ResObjPai ).find( '#EspeMinCrQuimi' ).val() + '-' + $( ResObjPai ).find( '#EspeMaxCrQuimi' ).val(),
 								ObitCrQuimi: $( ResObjPai ).find( '#ObitCrQuimi' ).val(),
-								EspeNiQuimi: $( ResObjPai ).find( '#EspeNiQuimi' ).val(),
+								EspeNiQuimi: $( ResObjPai ).find( '#EspeMinNiQuimi' ).val() + '-' + $( ResObjPai ).find( '#EspeMaxNiQuimi' ).val(),
 								ObitNiQuimi: $( ResObjPai ).find( '#ObitNiQuimi' ).val(),
-								EspeMoQuimi: $( ResObjPai ).find( '#EspeMoQuimi' ).val(),
+								EspeMoQuimi: $( ResObjPai ).find( '#EspeMinMoQuimi' ).val() + '-' + $( ResObjPai ).find( '#EspeMaxMoQuimi' ).val(),
 								ObitMoQuimi: $( ResObjPai ).find( '#ObitMoQuimi' ).val(),
-								EspeCuQuimi: $( ResObjPai ).find( '#EspeCuQuimi' ).val(),
+								EspeCuQuimi: $( ResObjPai ).find( '#EspeMinCuQuimi' ).val() + '-' + $( ResObjPai ).find( '#EspeMaxCuQuimi' ).val(),
 								ObitCuQuimi: $( ResObjPai ).find( '#ObitCuQuimi' ).val(),
-								EspeAlQuimi: $( ResObjPai ).find( '#EspeAlQuimi' ).val(),
+								EspeAlQuimi: $( ResObjPai ).find( '#EspeMinAlQuimi' ).val() + '-' + $( ResObjPai ).find( '#EspeMaxAlQuimi' ).val(),
 								ObitAlQuimi: $( ResObjPai ).find( '#ObitAlQuimi' ).val(),
-								EspeFeQuimi: $( ResObjPai ).find( '#EspeFeQuimi' ).val(),
+								EspeFeQuimi: $( ResObjPai ).find( '#EspeMinFeQuimi' ).val() + '-' + $( ResObjPai ).find( '#EspeMaxFeQuimi' ).val(),
 								ObitFeQuimi: $( ResObjPai ).find( '#ObitFeQuimi' ).val(),
-								EspeVQuimi: $( ResObjPai ).find( '#EspeVQuimi' ).val(),
+								EspeVQuimi: $( ResObjPai ).find( '#EspeMinVQuimi' ).val() + '-' + $( ResObjPai ).find( '#EspeMaxVQuimi' ).val(),
 								ObitVQuimi: $( ResObjPai ).find( '#ObitVQuimi' ).val(),
-								EspeCoQuimi: $( ResObjPai ).find( '#EspeCoQuimi' ).val(),
+								EspeCoQuimi: $( ResObjPai ).find( '#EspeMinCoQuimi' ).val() + '-' + $( ResObjPai ).find( '#EspeMaxCoQuimi' ).val(),
 								ObitCoQuimi: $( ResObjPai ).find( '#ObitCoQuimi' ).val(),
-								EspeNbQuimi: $( ResObjPai ).find( '#EspeNbQuimi' ).val(),
+								EspeNbQuimi: $( ResObjPai ).find( '#EspeMinNbQuimi' ).val() + '-' + $( ResObjPai ).find( '#EspeMaxNbQuimi' ).val(),
 								ObitNbQuimi: $( ResObjPai ).find( '#ObitNbQuimi' ).val(),
-								EspeTiQuimi: $( ResObjPai ).find( '#EspeTiQuimi' ).val(),
+								EspeTiQuimi: $( ResObjPai ).find( '#EspeMinTiQuimi' ).val() + '-' + $( ResObjPai ).find( '#EspeMaxTiQuimi' ).val(),
 								ObitTiQuimi: $( ResObjPai ).find( '#ObitTiQuimi' ).val(),
-								EspeWQuimi: $( ResObjPai ).find( '#EspeWQuimi' ).val(),
+								EspeWQuimi: $( ResObjPai ).find( '#EspeMinWQuimi' ).val() + '-' + $( ResObjPai ).find( '#EspeMaxWQuimi' ).val(),
 								ObitWQuimi: $( ResObjPai ).find( '#ObitWQuimi' ).val(),
-								EspeMgQuimi: $( ResObjPai ).find( '#EspeMgQuimi' ).val(),
+								EspeMgQuimi: $( ResObjPai ).find( '#EspeMinMgQuimi' ).val() + '-' + $( ResObjPai ).find( '#EspeMaxMgQuimi' ).val(),
 								ObitMgQuimi: $( ResObjPai ).find( '#ObitMgQuimi' ).val(),
-								EspeZnQuimi: $( ResObjPai ).find( '#EspeZnQuimi' ).val(),
+								EspeZnQuimi: $( ResObjPai ).find( '#EspeMinZnQuimi' ).val() + '-' + $( ResObjPai ).find( '#EspeMaxZnQuimi' ).val(),
 								ObitZnQuimi: $( ResObjPai ).find( '#ObitZnQuimi' ).val(),
-								EspeSbQuimi: $( ResObjPai ).find( '#EspeSbQuimi' ).val(),
+								EspeSbQuimi: $( ResObjPai ).find( '#EspeMinSbQuimi' ).val() + '-' + $( ResObjPai ).find( '#EspeMaxSbQuimi' ).val(),
 								ObitSbQuimi: $( ResObjPai ).find( '#ObitSbQuimi' ).val(),
-								EspePbQuimi: $( ResObjPai ).find( '#EspePbQuimi' ).val(),
+								EspePbQuimi: $( ResObjPai ).find( '#EspeMinPbQuimi' ).val() + '-' + $( ResObjPai ).find( '#EspeMaxPbQuimi' ).val(),
 								ObitPbQuimi: $( ResObjPai ).find( '#ObitPbQuimi' ).val(),
-								EspeSnQuimi: $( ResObjPai ).find( '#EspeSnQuimi' ).val(),
+								EspeSnQuimi: $( ResObjPai ).find( '#EspeMinSnQuimi' ).val() + '-' + $( ResObjPai ).find( '#EspeMaxSnQuimi' ).val(),
 								ObitSnQuimi: $( ResObjPai ).find( '#ObitSnQuimi' ).val(),
-								EspeCaQuimi: $( ResObjPai ).find( '#EspeCaQuimi' ).val(),
+								EspeCaQuimi: $( ResObjPai ).find( '#EspeMinCaQuimi' ).val() + '-' + $( ResObjPai ).find( '#EspeMaxCaQuimi' ).val(),
 								ObitCaQuimi: $( ResObjPai ).find( '#ObitCaQuimi' ).val(),
-								EspeClQuimi: $( ResObjPai ).find( '#EspeClQuimi' ).val(),
+								EspeClQuimi: $( ResObjPai ).find( '#EspeMinClQuimi' ).val() + '-' + $( ResObjPai ).find( '#EspeMaxClQuimi' ).val(),
 								ObitClQuimi: $( ResObjPai ).find( '#ObitClQuimi' ).val(),
-								EspeNQuimi: $( ResObjPai ).find( '#EspeNQuimi' ).val(),
+								EspeNQuimi: $( ResObjPai ).find( '#EspeMinNQuimi' ).val() + '-' + $( ResObjPai ).find( '#EspeMaxNQuimi' ).val(),
 								ObitNQuimi: $( ResObjPai ).find( '#ObitNQuimi' ).val(),
-								EspeNaQuimi: $( ResObjPai ).find( '#EspeNaQuimi' ).val(),
+								EspeNaQuimi: $( ResObjPai ).find( '#EspeMinNaQuimi' ).val() + '-' + $( ResObjPai ).find( '#EspeMaxNaQuimi' ).val(),
 								ObitNaQuimi: $( ResObjPai ).find( '#ObitNaQuimi' ).val(),
-								EspeCeqQuimi: $( ResObjPai ).find( '#EspeCeqQuimi' ).val(),
+								EspeCeqQuimi: $( ResObjPai ).find( '#EspeMinCeqQuimi' ).val() + '-' + $( ResObjPai ).find( '#EspeMaxCeqQuimi' ).val(),
 								ObitCeqQuimi: $( ResObjPai ).find( '#ObitCeqQuimi' ).val(),
 								ObseQuimi: $( ResObjPai ).find( '#ObseQuimi' ).val(),
 								FinaQuimi: $( ResObjPai ).find( '#FinaQuimi' ).is( ':checked' ),
@@ -1331,6 +1577,25 @@ export default class Quimico {
 	static SetImpreQuimi( vFiltros, vResp ) {
 		Core.SetAjax( vFiltros,
 			'../../Laboratorio/Quimico/SetImpreQuimi/', function( vRespAjax ){
+				setTimeout( function(){
+					vResp( vRespAjax );
+				}, 300);
+			},
+		);
+	};
+
+	/**
+	 * Método para imprimir certificado
+	 * no sistema
+	 * 
+	 * @param  vFiltros - Dados Para filtrar
+	 * @param  vResp - calback
+	 * @return calback
+	 * @access public
+	*/
+	static SetImpreCertQuimi( vFiltros, vResp ) {
+		Core.SetAjax( vFiltros,
+			'../../Laboratorio/Quimico/SetImprCertQuimi/', function( vRespAjax ){
 				setTimeout( function(){
 					vResp( vRespAjax );
 				}, 300);

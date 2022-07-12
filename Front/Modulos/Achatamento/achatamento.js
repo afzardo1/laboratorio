@@ -1,5 +1,5 @@
 /*CARREGA CLASSE CORE DO SISTEMA*/
-import Core from '../Core/Core.class.js';
+import Core from '../../Core/Core.class.js';
 
 $(document).ready(function( ) {
     var vFocuAchat = '';
@@ -252,6 +252,47 @@ $(document).ready(function( ) {
             evento:{
                 IdenAchat: Core.Achatamento.GetDataTableAchat( '#TableAchat', vLinha, 'amos_cada_iden' ),
 				RGAchat: Core.Achatamento.GetDataTableAchat( '#TableAchat', vLinha, 'amos_cada_regi' ), 
+            }
+        }, function( vRespLogi ){
+            if ( vRespLogi.status != 'sucesso' ){
+                $( '#AlertMenuCont' ).html(
+                    '<div id="AlertMenu" class="alert alert-warning alert-dismissible fade" role="alert">' +
+                        '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>' +
+                    '</div>'
+                );
+                $( '#AlertMenu' ).removeClass('alert alert-warning');
+                $( '#AlertMenu' ).removeClass('alert alert-danger');
+                if ( vRespLogi.status == 'invalido'){
+                    $( '#AlertMenu' ).addClass('alert alert-warning');
+                } else if ( vRespLogi.status == 'erro'){
+                    $( '#AlertMenu' ).addClass('alert alert-danger');
+                };
+                $( '#AlertMenu' ).prepend( vRespLogi.detalhes );
+                $( '#AlertMenu' ).addClass('show');
+                $( '#AlertMenu' ).show();
+            } else {
+                window.open( vRespLogi.registros );
+                Core.SetAjax({
+			        evento:{
+				        ArquiExcl: vRespLogi.registros,
+			        }},
+			      '../../Laboratorio/Achatamento/SetExclArqu/', function( vRespAjax ){
+                });
+            };            
+            $( '#FiltBtnAchat' ).click();
+        });
+    });
+    /*--IMPRIMIR CERTIFICADO*/
+    $(document).off( 'click', '#CertBtnTrac' );
+    $(document).on( 'click', '#CertBtnTrac', function(event){
+        var vLinha = $( this ).parent().parent();
+        Core.LoadMenu.show()
+        Core.Achatamento.SetImpreCertAchat( { 
+            evento:{
+                sist_para_tenant: Core.Achatamento.GetDataTableAchat( '#TableAchat', vLinha, 'amos_cada_tenan' ),
+				sist_para_empre: Core.Achatamento.GetDataTableAchat( '#TableAchat', vLinha, 'amos_cada_empre' ), 
+                amos_cada_iden: Core.Achatamento.GetDataTableAchat( '#TableAchat', vLinha, 'amos_cada_iden' ),
+                amos_cada_cert: 'ACHAT', 
             }
         }, function( vRespLogi ){
             if ( vRespLogi.status != 'sucesso' ){

@@ -716,6 +716,31 @@ export default class Usuarios {
 					'</ul>' +
 				'</div>' +
 			'</div>' +
+			'<div class="col-xl-4">' +
+				'<div class="card">' +
+					'<div class="card-header"> '+
+						'<i class="far fa-comments"></i> Modulo: Conclusões' +
+					'</div>' +
+					'<ul class="list-group list-group-flush">' +
+						'<li class="list-group-item ps-5">' +
+							'<input id="139_PermUsua" class="form-check-input me-1" type="checkbox" value="139" aria-label="...">' +
+							'Acessar' +
+						'</li>' +
+						'<li class="list-group-item ps-5">' +
+							'<input id="140_PermUsua" class="form-check-input me-1" type="checkbox" value="140" aria-label="...">' +
+							'Incluir' +
+						'</li>' +
+						'<li class="list-group-item ps-5">' +
+							'<input id="141_PermUsua" class="form-check-input me-1" type="checkbox" value="141" aria-label="...">' +
+							'Alterar' +
+						'</li>' +
+						'<li class="list-group-item ps-5">' +
+							'<input id="142_PermUsua" class="form-check-input me-1" type="checkbox" value="142" aria-label="...">' +
+							'Excluir' +
+						'</li>' +
+					'</ul>' +
+				'</div>' +
+			'</div>' +
 		'</div>';
 	}
 
@@ -749,6 +774,23 @@ export default class Usuarios {
 						'<li class="list-group-item ps-5">' +
 							'<input id="24_PermUsua" class="form-check-input me-1" type="checkbox" value="24" aria-label="...">' +
 							'Excluir' +
+						'</li>' +
+					'</ul>' +
+				'</div>' +
+			'</div>' + 
+			'<div class="col-xl-4">' +
+				'<div class="card">' +
+					'<div class="card-header"> '+
+						'<i class="fas fa-tools"></i> Modulo: Parâmetros' +
+					'</div>' +
+					'<ul class="list-group list-group-flush">' +
+						'<li class="list-group-item ps-5">' +
+							'<input id="143_PermUsua" class="form-check-input me-1" type="checkbox" value="143" aria-label="...">' +
+							'Acessar' +
+						'</li>' +
+						'<li class="list-group-item ps-5">' +
+							'<input id="144_PermUsua" class="form-check-input me-1" type="checkbox" value="144" aria-label="...">' +
+							'Alterar' +
 						'</li>' +
 					'</ul>' +
 				'</div>' +

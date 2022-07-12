@@ -166,7 +166,7 @@
 		 * @return mixed
 	 	 * @access public
 	 	*/
-		 public static function GetUsuaMacro( $Parametros = array() ){
+		public static function GetUsuaMacro( $Parametros = array() ){
 			$vStatSess = json_decode( Core::Sessao()::Chk( 'usua_cada_iden' ), true );
 			if ( $vStatSess[ 'status' ] == 'aberto' ) {
 				return Usuarios::GetRegUsuaTerce( $Parametros );
@@ -532,10 +532,15 @@
 						</table>
 					';
 
+					$CabeLogo = '';
+					if( $Retorno[0]['sis_para_logo'] != '' ){
+						$CabeLogo = str_replace( array( 'Back\Modulos\Laboratorio\Macrografia', 'Back/Modulos/Laboratorio/Macrografia' ), '', __DIR__ ).'Imagem/'.$Retorno[0]['sis_para_logo'];
+					};
+
 					$listreg = Core::SetGeraPdf(
 						$Cabecalho,
 						$Corpo,
-						str_replace( array( 'Back\Modulos\Laboratorio\Macrografia', 'Back/Modulos/Laboratorio/Macrografia' ), '', __DIR__ ).'Imagem/'.$Retorno[0]['sis_para_logo'],
+						$CabeLogo,
 						'P',
 						'SIMPLES',
 						array( 10, 40, 10, 5 )

@@ -33,6 +33,7 @@
 	 	 * @var    string
 	 	*/		
 		public static $config = array();
+		public static $CabeSelo = '';
 				
 		/**
 	 	 * Método implementado para manipular dados
@@ -54,7 +55,7 @@
 	 	 * @return class
 	 	 * @access public
 	 	*/
-		 public static function Usuarios (){
+		public static function Usuarios (){
 			return new Usuarios;
 		}
 
@@ -447,6 +448,7 @@
 			$RelaPdf->SetAutoPageBreak( true, PDF_MARGIN_BOTTOM );
 			$RelaPdf->CabeHtml = $vCabecalho;
 			$RelaPdf->CabeLogo = $vImagLogo;
+			$RelaPdf->CabeSelo = self::$CabeSelo;
 
 			if ( $vTipo == 'COLUNAS' ) {
 				$RelaPdf->SetMargins( $vMargem[0], $vMargem[1], $vMargem[2] );
@@ -465,7 +467,7 @@
 			$RelaPdf->lastPage();
 			$RelaPdf->Output( str_replace( array( 'Back\Core', 'Back/Core' ), '', __DIR__ ).'Arquivos/'.$ArqvPdf, 'F' );
 
-			return '../../Arquivos/'.$ArqvPdf;
+			return '../../../Arquivos/'.$ArqvPdf;
 		}
 		
 		/**
@@ -523,8 +525,8 @@
 	 	*/
 		public static function GetExclArqu( $vArquivo ){
 			sleep( 15 );
-			if( file_exists( str_replace( array( 'Back\Core', 'Back/Core' ), '', __DIR__ ).str_replace( array( '../..', '' ), '', $vArquivo ) ) ){
-				return unlink( str_replace( array( 'Back\Core', 'Back/Core' ), '', __DIR__).str_replace( array( '../..', '' ), '', $vArquivo ) );
+			if( file_exists( str_replace( array( 'Back\Core', 'Back/Core' ), '', __DIR__ ).str_replace( array( '../../..', '' ), '', $vArquivo ) ) ){
+				return unlink( str_replace( array( 'Back\Core', 'Back/Core' ), '', __DIR__).str_replace( array( '../../..', '' ), '', $vArquivo ) );
 			};
 			return false;
 		}

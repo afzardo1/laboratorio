@@ -343,199 +343,411 @@ export default class Materiais {
 							'</div>' +
 						'</div>' +
 					'</div>' +
-					'<div class="row p-3" >' +	
-						'<div class="col-xl-3">' +
-							'<div class="form-floating">' +
-								'<input type="text" class="form-control" id="LimiResiMate" value="" placeholder="" maxlength="80">' +
-								'<label for="LimiResiMate">Lim. Resistência</label>' +
+					'<div class="border border-3">' +
+						'<div class="row p-3" >' +	
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="LimiResiMinMate" value="" placeholder="" maxlength="80">' +
+									'<label for="LimiResiMinMate">Lim. Resistência (min.)</label>' +
+								'</div>' +
+							'</div>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="LimiEscoMinMate" value="" placeholder="" maxlength="80">' +
+									'<label for="LimiEscoMinMate">Lim. Escoamento (min.)</label>' +
+								'</div>' +
+							'</div>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="AlongMinMate" value="" placeholder="" maxlength="80">' +
+									'<label for="AlongMinMate">Alongamento (min.)</label>' +
+								'</div>' +
+							'</div>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="ReduAreaMinMate" value="" placeholder="" maxlength="80">' +
+									'<label for="ReduAreaMinMate">Redu. Área (min.)</label>' +
+								'</div>' +
 							'</div>' +
 						'</div>' +
-						'<div class="col-xl-3">' +
-							'<div class="form-floating">' +
-								'<input type="text" class="form-control" id="LimiEscoMate" value="" placeholder="" maxlength="80">' +
-								'<label for="LimiEscoMate">Lim. Escoamento</label>' +
+						'<div class="row p-3" >' +	
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="LimiResiMaxMate" value="" placeholder="" maxlength="80">' +
+									'<label for="LimiResiMaxMate">Lim. Resistência (max.)</label>' +
+								'</div>' +
 							'</div>' +
-						'</div>' +
-						'<div class="col-xl-3">' +
-							'<div class="form-floating">' +
-								'<input type="text" class="form-control" id="AlongMate" value="" placeholder="" maxlength="80">' +
-								'<label for="AlongMate">Alongamento</label>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="LimiEscoMaxMate" value="" placeholder="" maxlength="80">' +
+									'<label for="LimiEscoMaxMate">Lim. Escoamento (max.)</label>' +
+								'</div>' +
 							'</div>' +
-						'</div>' +
-						'<div class="col-xl-3">' +
-							'<div class="form-floating">' +
-								'<input type="text" class="form-control" id="ReduAreaMate" value="" placeholder="" maxlength="80">' +
-								'<label for="ReduAreaMate">Redu. Área</label>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="AlongMaxMate" value="" placeholder="" maxlength="80">' +
+									'<label for="AlongMaxMate">Alongamento (max.)</label>' +
+								'</div>' +
 							'</div>' +
-						'</div>' +
-					'</div>' +
-					'<div class="row p-3" >' +
-						'<div class="col-xl-3">' +
-							'<div class="form-floating">' +
-								'<input type="text" class="form-control" id="C_Mate" value="" placeholder="" maxlength="80">' +
-								'<label for="C_Mate">C</label>' +
-							'</div>' +
-						'</div>' +
-						'<div class="col-xl-3">' +
-							'<div class="form-floating">' +
-								'<input type="text" class="form-control" id="Si_Mate" value="" placeholder="" maxlength="80">' +
-								'<label for="Si_Mate">Si</label>' +
-							'</div>' +
-						'</div>' +
-						'<div class="col-xl-3">' +
-							'<div class="form-floating">' +
-								'<input type="text" class="form-control" id="Mn_Mate" value="" placeholder="" maxlength="80">' +
-								'<label for="Mn_Mate">Mn</label>' +
-							'</div>' +
-						'</div>' +
-						'<div class="col-xl-3">' +
-							'<div class="form-floating">' +
-								'<input type="text" class="form-control" id="P_Mate" value="" placeholder="" maxlength="80">' +
-								'<label for="P_Mate">P</label>' +
-							'</div>' +
-						'</div>' +
-					'</div>' +
-					'<div class="row p-3" >' +
-						'<div class="col-xl-3">' +
-							'<div class="form-floating">' +
-								'<input type="text" class="form-control" id="S_Mate" value="" placeholder="" maxlength="80">' +
-								'<label for="S_Mate">S</label>' +
-							'</div>' +
-						'</div>' +	
-						'<div class="col-xl-3">' +
-							'<div class="form-floating">' +
-								'<input type="text" class="form-control" id="Cr_Mate" value="" placeholder="" maxlength="80">' +
-								'<label for="Si_Mate">Cr</label>' +
-							'</div>' +
-						'</div>' +
-						'<div class="col-xl-3">' +
-							'<div class="form-floating">' +
-								'<input type="text" class="form-control" id="Ni_Mate" value="" placeholder="" maxlength="80">' +
-								'<label for="Ni_Mate">Ni</label>' +
-							'</div>' +
-						'</div>' +
-						'<div class="col-xl-3">' +
-							'<div class="form-floating">' +
-								'<input type="text" class="form-control" id="Mo_Mate" value="" placeholder="" maxlength="80">' +
-								'<label for="Mo_Mate">Mo</label>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="ReduAreaMaxMate" value="" placeholder="" maxlength="80">' +
+									'<label for="ReduAreaMaxMate">Redu. Área (max.)</label>' +
+								'</div>' +
 							'</div>' +
 						'</div>' +
 					'</div>' +
-					'<div class="row p-3" >' +
-						'<div class="col-xl-3">' +
-							'<div class="form-floating">' +
-								'<input type="text" class="form-control" id="Cu_Mate" value="" placeholder="" maxlength="80">' +
-								'<label for="Cu_Mate">Cu</label>' +
+					'<div class="border border-3">' +
+						'<div class="row p-3" >' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="C_MinMate" value="" placeholder="" maxlength="80">' +
+									'<label for="C_MinMate">C (min.)</label>' +
+								'</div>' +
+							'</div>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="Si_MinMate" value="" placeholder="" maxlength="80">' +
+									'<label for="Si_MinMate">Si (min.)</label>' +
+								'</div>' +
+							'</div>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="Mn_MinMate" value="" placeholder="" maxlength="80">' +
+									'<label for="Mn_MinMate">Mn (min.)</label>' +
+								'</div>' +
+							'</div>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="P_MinMate" value="" placeholder="" maxlength="80">' +
+									'<label for="P_MinMate">P (min.)</label>' +
+								'</div>' +
 							'</div>' +
 						'</div>' +
-						'<div class="col-xl-3">' +
-							'<div class="form-floating">' +
-								'<input type="text" class="form-control" id="Al_Mate" value="" placeholder="" maxlength="80">' +
-								'<label for="Al_Mate">Al</label>' +
+						'<div class="row p-3" >' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="C_MaxMate" value="" placeholder="" maxlength="80">' +
+									'<label for="C_MaxMate">C (max.)</label>' +
+								'</div>' +
 							'</div>' +
-						'</div>' +
-						'<div class="col-xl-3">' +
-							'<div class="form-floating">' +
-								'<input type="text" class="form-control" id="Fe_Mate" value="" placeholder="" maxlength="80">' +
-								'<label for="Fe_Mate">Fe</label>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="Si_MaxMate" value="" placeholder="" maxlength="80">' +
+									'<label for="Si_MaxMate">Si (max.)</label>' +
+								'</div>' +
 							'</div>' +
-						'</div>' +
-						'<div class="col-xl-3">' +
-							'<div class="form-floating">' +
-								'<input type="text" class="form-control" id="V_Mate" value="" placeholder="" maxlength="80">' +
-								'<label for="V_Mate">V</label>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="Mn_MaxMate" value="" placeholder="" maxlength="80">' +
+									'<label for="Mn_MaxMate">Mn (max.)</label>' +
+								'</div>' +
 							'</div>' +
-						'</div>' +
-					'</div>' +
-					'<div class="row p-3" >' +
-						'<div class="col-xl-3">' +
-							'<div class="form-floating">' +
-								'<input type="text" class="form-control" id="Co_Mate" value="" placeholder="" maxlength="80">' +
-								'<label for="Co_Mate">Co</label>' +
-							'</div>' +
-						'</div>' +
-						'<div class="col-xl-3">' +
-							'<div class="form-floating">' +
-								'<input type="text" class="form-control" id="Nb_Mate" value="" placeholder="" maxlength="80">' +
-								'<label for="Nb_Mate">Nb</label>' +
-							'</div>' +
-						'</div>' +
-						'<div class="col-xl-3">' +
-							'<div class="form-floating">' +
-								'<input type="text" class="form-control" id="Ti_Mate" value="" placeholder="" maxlength="80">' +
-								'<label for="Ti_Mate">Ti</label>' +
-							'</div>' +
-						'</div>' +
-						'<div class="col-xl-3">' +
-							'<div class="form-floating">' +
-								'<input type="text" class="form-control" id="W_Mate" value="" placeholder="" maxlength="80">' +
-								'<label for="W_Mate">W</label>' +
-							'</div>' +
-						'</div>' +
-					'</div>' +
-					'<div class="row p-3" >' +
-						'<div class="col-xl-3">' +
-							'<div class="form-floating">' +
-								'<input type="text" class="form-control" id="Mg_Mate" value="" placeholder="" maxlength="80">' +
-								'<label for="Mg_Mate">Mg</label>' +
-							'</div>' +
-						'</div>' +	
-						'<div class="col-xl-3">' +
-							'<div class="form-floating">' +
-								'<input type="text" class="form-control" id="Zn_Mate" value="" placeholder="" maxlength="80">' +
-								'<label for="Zn_Mate">Zn</label>' +
-							'</div>' +
-						'</div>' +
-						'<div class="col-xl-3">' +
-							'<div class="form-floating">' +
-								'<input type="text" class="form-control" id="Pb_Mate" value="" placeholder="" maxlength="80">' +
-								'<label for="Pb_Mate">Pb</label>' +
-							'</div>' +
-						'</div>' +
-						'<div class="col-xl-3">' +
-							'<div class="form-floating">' +
-								'<input type="text" class="form-control" id="Sb_Mate" value="" placeholder="" maxlength="80">' +
-								'<label for="Sb_Mate">Sb</label>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="P_MaxMate" value="" placeholder="" maxlength="80">' +
+									'<label for="P_MaxMate">P (max.)</label>' +
+								'</div>' +
 							'</div>' +
 						'</div>' +
 					'</div>' +
-					'<div class="row p-3" >' +
-						'<div class="col-xl-3">' +
-							'<div class="form-floating">' +
-								'<input type="text" class="form-control" id="Sn_Mate" value="" placeholder="" maxlength="80">' +
-								'<label for="Sn_Mate">Sn</label>' +
+					'<div class="border border-3">' +
+						'<div class="row p-3" >' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="S_MinMate" value="" placeholder="" maxlength="80">' +
+									'<label for="S_MinMate">S (min.)</label>' +
+								'</div>' +
+							'</div>' +	
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="Cr_MinMate" value="" placeholder="" maxlength="80">' +
+									'<label for="Cr_MinMate">Cr (min.)</label>' +
+								'</div>' +
+							'</div>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="Ni_MinMate" value="" placeholder="" maxlength="80">' +
+									'<label for="Ni_MinMate">Ni (min.)</label>' +
+								'</div>' +
+							'</div>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="Mo_MinMate" value="" placeholder="" maxlength="80">' +
+									'<label for="Mo_MinMate">Mo (min.)</label>' +
+								'</div>' +
 							'</div>' +
 						'</div>' +
-						'<div class="col-xl-3">' +
-							'<div class="form-floating">' +
-								'<input type="text" class="form-control" id="Ca_Mate" value="" placeholder="" maxlength="80">' +
-								'<label for="Ca_Mate">Ca</label>' +
+						'<div class="row p-3" >' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="S_MaxMate" value="" placeholder="" maxlength="80">' +
+									'<label for="S_MaxMate">S (max.)</label>' +
+								'</div>' +
+							'</div>' +	
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="Cr_MaxMate" value="" placeholder="" maxlength="80">' +
+									'<label for="Cr_MaxMate">Cr (max.)</label>' +
+								'</div>' +
 							'</div>' +
-						'</div>' +
-						'<div class="col-xl-3">' +
-							'<div class="form-floating">' +
-								'<input type="text" class="form-control" id="Cl_Mate" value="" placeholder="" maxlength="80">' +
-								'<label for="Cl_Mate">Cl</label>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="Ni_MaxMate" value="" placeholder="" maxlength="80">' +
+									'<label for="Ni_MaxMate">Ni (max.)</label>' +
+								'</div>' +
 							'</div>' +
-						'</div>' +
-						'<div class="col-xl-3">' +
-							'<div class="form-floating">' +
-								'<input type="text" class="form-control" id="N_Mate" value="" placeholder="" maxlength="80">' +
-								'<label for="N_Mate">N</label>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="Mo_MaxMate" value="" placeholder="" maxlength="80">' +
+									'<label for="Mo_MaxMate">Mo (max.)</label>' +
+								'</div>' +
 							'</div>' +
 						'</div>' +
 					'</div>' +
-					'<div class="row p-3" >' +
-						'<div class="col-xl-3">' +
-							'<div class="form-floating">' +
-								'<input type="text" class="form-control" id="Na_Mate" value="" placeholder="" maxlength="80">' +
-								'<label for="Na_Mate">Na</label>' +
+					'<div class="border border-3">' +
+						'<div class="row p-3" >' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="Cu_MinMate" value="" placeholder="" maxlength="80">' +
+									'<label for="Cu_MinMate">Cu (min.)</label>' +
+								'</div>' +
 							'</div>' +
-						'</div>' +	
-						'<div class="col-xl-3">' +
-							'<div class="form-floating">' +
-								'<input type="text" class="form-control" id="Ceq_Mate" value="" placeholder="" maxlength="80">' +
-								'<label for="Ceq_Mate">Ceq</label>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="Al_MinMate" value="" placeholder="" maxlength="80">' +
+									'<label for="Al_MinMate">Al (min.)</label>' +
+								'</div>' +
+							'</div>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="Fe_MinMate" value="" placeholder="" maxlength="80">' +
+									'<label for="Fe_MinMate">Fe (min.)</label>' +
+								'</div>' +
+							'</div>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="V_MinMate" value="" placeholder="" maxlength="80">' +
+									'<label for="V_MinMate">V (min.)</label>' +
+								'</div>' +
+							'</div>' +
+						'</div>' +
+						'<div class="row p-3" >' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="Cu_MaxMate" value="" placeholder="" maxlength="80">' +
+									'<label for="Cu_MaxMate">Cu (max.)</label>' +
+								'</div>' +
+							'</div>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="Al_MaxMate" value="" placeholder="" maxlength="80">' +
+									'<label for="Al_MaxMate">Al (max.)</label>' +
+								'</div>' +
+							'</div>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="Fe_MaxMate" value="" placeholder="" maxlength="80">' +
+									'<label for="Fe_MaxMate">Fe (max.)</label>' +
+								'</div>' +
+							'</div>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="V_MaxMate" value="" placeholder="" maxlength="80">' +
+									'<label for="V_MaxMate">V (max.)</label>' +
+								'</div>' +
+							'</div>' +
+						'</div>' +
+					'</div>' +
+					'<div class="border border-3">' +
+						'<div class="row p-3" >' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="Co_MinMate" value="" placeholder="" maxlength="80">' +
+									'<label for="Co_MinMate">Co (min.)</label>' +
+								'</div>' +
+							'</div>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="Nb_MinMate" value="" placeholder="" maxlength="80">' +
+									'<label for="Nb_MinMate">Nb (min.)</label>' +
+								'</div>' +
+							'</div>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="Ti_MinMate" value="" placeholder="" maxlength="80">' +
+									'<label for="Ti_MinMate">Ti (min.)</label>' +
+								'</div>' +
+							'</div>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="W_MinMate" value="" placeholder="" maxlength="80">' +
+									'<label for="W_MinMate">W (min.)</label>' +
+								'</div>' +
+							'</div>' +
+						'</div>' +
+						'<div class="row p-3" >' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="Co_MaxMate" value="" placeholder="" maxlength="80">' +
+									'<label for="Co_MaxMate">Co (max.)</label>' +
+								'</div>' +
+							'</div>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="Nb_MaxMate" value="" placeholder="" maxlength="80">' +
+									'<label for="Nb_MaxMate">Nb (max.)</label>' +
+								'</div>' +
+							'</div>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="Ti_MaxMate" value="" placeholder="" maxlength="80">' +
+									'<label for="Ti_MaxMate">Ti (max.)</label>' +
+								'</div>' +
+							'</div>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="W_MaxMate" value="" placeholder="" maxlength="80">' +
+									'<label for="W_MaxMate">W (max.)</label>' +
+								'</div>' +
+							'</div>' +
+						'</div>' +
+					'</div>' +
+					'<div class="border border-3">' +
+						'<div class="row p-3" >' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="Mg_MinMate" value="" placeholder="" maxlength="80">' +
+									'<label for="Mg_MinMate">Mg (min.)</label>' +
+								'</div>' +
+							'</div>' +	
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="Zn_MinMate" value="" placeholder="" maxlength="80">' +
+									'<label for="Zn_MinMate">Zn (min.)</label>' +
+								'</div>' +
+							'</div>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="Pb_MinMate" value="" placeholder="" maxlength="80">' +
+									'<label for="Pb_MinMate">Pb (min.)</label>' +
+								'</div>' +
+							'</div>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="Sb_MinMate" value="" placeholder="" maxlength="80">' +
+									'<label for="Sb_MinMate">Sb (min.)</label>' +
+								'</div>' +
+							'</div>' +
+						'</div>' +
+						'<div class="row p-3" >' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="Mg_MaxMate" value="" placeholder="" maxlength="80">' +
+									'<label for="Mg_MaxMate">Mg (max.)</label>' +
+								'</div>' +
+							'</div>' +	
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="Zn_MaxMate" value="" placeholder="" maxlength="80">' +
+									'<label for="Zn_MaxMate">Zn (max.)</label>' +
+								'</div>' +
+							'</div>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="Pb_MaxMate" value="" placeholder="" maxlength="80">' +
+									'<label for="Pb_MaxMate">Pb (max.)</label>' +
+								'</div>' +
+							'</div>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="Sb_MaxMate" value="" placeholder="" maxlength="80">' +
+									'<label for="Sb_MaxMate">Sb (max.)</label>' +
+								'</div>' +
+							'</div>' +
+						'</div>' +
+					'</div>' +
+					'<div class="border border-3">' +
+						'<div class="row p-3" >' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="Sn_MinMate" value="" placeholder="" maxlength="80">' +
+									'<label for="Sn_MinMate">Sn (min.)</label>' +
+								'</div>' +
+							'</div>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="Ca_MinMate" value="" placeholder="" maxlength="80">' +
+									'<label for="Ca_MinMate">Ca (min.)</label>' +
+								'</div>' +
+							'</div>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="Cl_MinMate" value="" placeholder="" maxlength="80">' +
+									'<label for="Cl_MinMate">Cl (min.)</label>' +
+								'</div>' +
+							'</div>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="N_MinMate" value="" placeholder="" maxlength="80">' +
+									'<label for="N_MinMate">N (min.)</label>' +
+								'</div>' +
+							'</div>' +
+						'</div>' +
+						'<div class="row p-3" >' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="Sn_MaxMate" value="" placeholder="" maxlength="80">' +
+									'<label for="Sn_MaxMate">Sn (max.)</label>' +
+								'</div>' +
+							'</div>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="Ca_MaxMate" value="" placeholder="" maxlength="80">' +
+									'<label for="Ca_MaxMate">Ca (max.)</label>' +
+								'</div>' +
+							'</div>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="Cl_MaxMate" value="" placeholder="" maxlength="80">' +
+									'<label for="Cl_MaxMate">Cl (max.)</label>' +
+								'</div>' +
+							'</div>' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="N_MaxMate" value="" placeholder="" maxlength="80">' +
+									'<label for="N_MaxMate">N (max.)</label>' +
+								'</div>' +
+							'</div>' +
+						'</div>' +
+					'</div>' +
+					'<div class="border border-3">' +
+						'<div class="row p-3" >' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="Na_MinMate" value="" placeholder="" maxlength="80">' +
+									'<label for="Na_MinMate">Na (min.)</label>' +
+								'</div>' +
+							'</div>' +	
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="Ceq_MinMate" value="" placeholder="" maxlength="80">' +
+									'<label for="Ceq_MinMate">Ceq (min.)</label>' +
+								'</div>' +
+							'</div>' +
+						'</div>' +
+						'<div class="row p-3" >' +
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="Na_MaxMate" value="" placeholder="" maxlength="80">' +
+									'<label for="Na_MaxMate">Na (max.)</label>' +
+								'</div>' +
+							'</div>' +	
+							'<div class="col-xl-3">' +
+								'<div class="form-floating">' +
+									'<input type="text" class="form-control" id="Ceq_MaxMate" value="" placeholder="" maxlength="80">' +
+									'<label for="Ceq_MaxMate">Ceq (max.)</label>' +
+								'</div>' +
 							'</div>' +
 						'</div>' +
 					'</div>' +
@@ -633,41 +845,71 @@ export default class Materiais {
 								$( ResObjPai ).find( '#IdenMate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_iden' ) );
 								$( ResObjPai ).find( '#DescrMate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_descr' ) );
 								$( ResObjPai ).find( '#FabrMate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_forne' ) );
-								$( ResObjPai ).find( '#LimiResiMate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_limi_resi' ) );
-								$( ResObjPai ).find( '#LimiEscoMate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_limi_esco' ) );
-								$( ResObjPai ).find( '#AlongMate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_along' ) );
-								$( ResObjPai ).find( '#ReduAreaMate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_redu_area' ) );
+								$( ResObjPai ).find( '#LimiResiMinMate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_limi_resi' ).split( '-' )[0] );
+								$( ResObjPai ).find( '#LimiEscoMinMate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_limi_esco' ).split( '-' )[0] );
+								$( ResObjPai ).find( '#AlongMinMate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_along' ).split( '-' )[0] );
+								$( ResObjPai ).find( '#ReduAreaMinMate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_redu_area' ).split( '-' )[0] );
+								$( ResObjPai ).find( '#LimiResiMaxMate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_limi_resi' ).split( '-' )[1] );
+								$( ResObjPai ).find( '#LimiEscoMaxMate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_limi_esco' ).split( '-' )[1] );
+								$( ResObjPai ).find( '#AlongMaxMate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_along' ).split( '-' )[1] );
+								$( ResObjPai ).find( '#ReduAreaMaxMate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_redu_area' ).split( '-' )[1] );
 								$( ResObjPai ).find( '#DureMate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_dure' ) );
 								$( ResObjPai ).find( '#SuperDureMate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_dure_super' ) );
 								$( ResObjPai ).find( '#NucleDureMate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_dure_nucle' ) );
 								$( ResObjPai ).find( '#ImpactoMate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_impa' ) );
 								$( ResObjPai ).find( '#ProfCamaEnduMate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_prof_cama_endu' ) );
-								$( ResObjPai ).find( '#C_Mate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_C' ) );
-								$( ResObjPai ).find( '#Si_Mate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_Si' ) );
-								$( ResObjPai ).find( '#Mn_Mate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_Mn' ) );
-								$( ResObjPai ).find( '#P_Mate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_P' ) );
-								$( ResObjPai ).find( '#S_Mate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_S' ) );
-								$( ResObjPai ).find( '#Cr_Mate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_Cr' ) );
-								$( ResObjPai ).find( '#Ni_Mate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_Ni' ) );
-								$( ResObjPai ).find( '#Mo_Mate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_Mo' ) );
-								$( ResObjPai ).find( '#Cu_Mate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_Cu' ) );
-								$( ResObjPai ).find( '#Al_Mate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_Al' ) );
-								$( ResObjPai ).find( '#Fe_Mate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_Fe' ) );
-								$( ResObjPai ).find( '#V_Mate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_V' ) );
-								$( ResObjPai ).find( '#Co_Mate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_Co' ) );
-								$( ResObjPai ).find( '#Nb_Mate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_Nb' ) );
-								$( ResObjPai ).find( '#Ti_Mate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_Ti' ) );
-								$( ResObjPai ).find( '#W_Mate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_W' ) );
-								$( ResObjPai ).find( '#Mg_Mate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_Mg' ) );
-								$( ResObjPai ).find( '#Zn_Mate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_Zn' ) );
-								$( ResObjPai ).find( '#Pb_Mate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_Pb' ) );
-								$( ResObjPai ).find( '#Sb_Mate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_Sb' ) );
-								$( ResObjPai ).find( '#Sn_Mate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_Sn' ) );
-								$( ResObjPai ).find( '#Ca_Mate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_Ca' ) );
-								$( ResObjPai ).find( '#Cl_Mate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_Cl' ) );
-								$( ResObjPai ).find( '#N_Mate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_N' ) );
-								$( ResObjPai ).find( '#Na_Mate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_Na' ) );
-								$( ResObjPai ).find( '#Ceq_Mate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_Ceq' ) );
+								$( ResObjPai ).find( '#C_MinMate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_C' ).split( '-' )[0] );
+								$( ResObjPai ).find( '#Si_MinMate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_Si' ).split( '-' )[0] );
+								$( ResObjPai ).find( '#Mn_MinMate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_Mn' ).split( '-' )[0] );
+								$( ResObjPai ).find( '#P_MinMate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_P' ).split( '-' )[0] );
+								$( ResObjPai ).find( '#C_MaxMate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_C' ).split( '-' )[1] );
+								$( ResObjPai ).find( '#Si_MaxMate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_Si' ).split( '-' )[1] );
+								$( ResObjPai ).find( '#Mn_MaxMate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_Mn' ).split( '-' )[1] );
+								$( ResObjPai ).find( '#P_MaxMate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_P' ).split( '-' )[1] );
+								$( ResObjPai ).find( '#S_MinMate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_S' ).split( '-' )[0] );
+								$( ResObjPai ).find( '#Cr_MinMate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_Cr' ).split( '-' )[0] );
+								$( ResObjPai ).find( '#Ni_MinMate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_Ni' ).split( '-' )[0] );
+								$( ResObjPai ).find( '#Mo_MinMate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_Mo' ).split( '-' )[0] );
+								$( ResObjPai ).find( '#S_MaxMate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_S' ).split( '-' )[1] );
+								$( ResObjPai ).find( '#Cr_MaxMate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_Cr' ).split( '-' )[1] );
+								$( ResObjPai ).find( '#Ni_MaxMate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_Ni' ).split( '-' )[1] );
+								$( ResObjPai ).find( '#Mo_MaxMate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_Mo' ).split( '-' )[1] );
+								$( ResObjPai ).find( '#Cu_MinMate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_Cu' ).split( '-' )[0] );
+								$( ResObjPai ).find( '#Al_MinMate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_Al' ).split( '-' )[0] );
+								$( ResObjPai ).find( '#Fe_MinMate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_Fe' ).split( '-' )[0] );
+								$( ResObjPai ).find( '#V_MinMate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_V' ).split( '-' )[0] );
+								$( ResObjPai ).find( '#Cu_MaxMate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_Cu' ).split( '-' )[1] );
+								$( ResObjPai ).find( '#Al_MaxMate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_Al' ).split( '-' )[1] );
+								$( ResObjPai ).find( '#Fe_MaxMate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_Fe' ).split( '-' )[1] );
+								$( ResObjPai ).find( '#V_MaxMate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_V' ).split( '-' )[1] );	
+								$( ResObjPai ).find( '#Co_MinMate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_Co' ).split( '-' )[0] );
+								$( ResObjPai ).find( '#Nb_MinMate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_Nb' ).split( '-' )[0] );
+								$( ResObjPai ).find( '#Ti_MinMate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_Ti' ).split( '-' )[0] );
+								$( ResObjPai ).find( '#W_MinMate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_W' ).split( '-' )[0] );
+								$( ResObjPai ).find( '#Co_MaxMate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_Co' ).split( '-' )[1] );
+								$( ResObjPai ).find( '#Nb_MaxMate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_Nb' ).split( '-' )[1] );
+								$( ResObjPai ).find( '#Ti_MaxMate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_Ti' ).split( '-' )[1] );
+								$( ResObjPai ).find( '#W_MaxMate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_W' ).split( '-' )[1] );
+								$( ResObjPai ).find( '#Mg_MinMate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_Mg' ).split( '-' )[0] );
+								$( ResObjPai ).find( '#Zn_MinMate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_Zn' ).split( '-' )[0] );
+								$( ResObjPai ).find( '#Pb_MinMate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_Pb' ).split( '-' )[0] );
+								$( ResObjPai ).find( '#Sb_MinMate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_Sb' ).split( '-' )[0] );
+								$( ResObjPai ).find( '#Mg_MaxMate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_Mg' ).split( '-' )[1] );
+								$( ResObjPai ).find( '#Zn_MaxMate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_Zn' ).split( '-' )[1] );
+								$( ResObjPai ).find( '#Pb_MaxMate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_Pb' ).split( '-' )[1] );
+								$( ResObjPai ).find( '#Sb_MaxMate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_Sb' ).split( '-' )[1] );
+								$( ResObjPai ).find( '#Sn_MinMate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_Sn' ).split( '-' )[0] );
+								$( ResObjPai ).find( '#Ca_MinMate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_Ca' ).split( '-' )[0] );
+								$( ResObjPai ).find( '#Cl_MinMate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_Cl' ).split( '-' )[0] );
+								$( ResObjPai ).find( '#N_MinMate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_N' ).split( '-' )[0] );
+								$( ResObjPai ).find( '#Sn_MaxMate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_Sn' ).split( '-' )[1] );
+								$( ResObjPai ).find( '#Ca_MaxMate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_Ca' ).split( '-' )[1] );
+								$( ResObjPai ).find( '#Cl_MaxMate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_Cl' ).split( '-' )[1] );
+								$( ResObjPai ).find( '#N_MaxMate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_N' ).split( '-' )[1] );
+								$( ResObjPai ).find( '#Na_MinMate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_Na' ).split( '-' )[0] );
+								$( ResObjPai ).find( '#Ceq_MinMate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_Ceq' ).split( '-' )[0] );
+								$( ResObjPai ).find( '#Na_MaxMate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_Na' ).split( '-' )[1] );
+								$( ResObjPai ).find( '#Ceq_MaxMate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_Ceq' ).split( '-' )[1] );								
 								$( ResObjPai ).find( '#EmpreMate' ).val( Core.Materiais.GetDataTableMate( '#TableMate', vLinha, 'mate_cada_empre_iden' ) ).trigger( 'change' );
 								if ( Core.Login.GetUsuaSess( 'usua_cada_tenant' ) != 0 ){
 									$( ResObjPai ).find( '#EmpreMate' ).prop( 'disabled', true );
@@ -727,41 +969,41 @@ export default class Materiais {
 							IdenMate: $( ResObjPai ).find( '#IdenMate' ).val(),
 							DescrMate: $( ResObjPai ).find( '#DescrMate' ).val(),
 							FabrMate: $( ResObjPai ).find( '#FabrMate' ).val(),
-							LimiResiMate: $( ResObjPai ).find( '#LimiResiMate' ).val(),
-							LimiEscoMate: $( ResObjPai ).find( '#LimiEscoMate' ).val(),
-							AlongMate: $( ResObjPai ).find( '#AlongMate' ).val(),
-							ReduAreaMate: $( ResObjPai ).find( '#ReduAreaMate' ).val(),
+							LimiResiMate: $( ResObjPai ).find( '#LimiResiMinMate' ).val() + '-' + $( ResObjPai ).find( '#LimiResiMaxMate' ).val(),
+							LimiEscoMate: $( ResObjPai ).find( '#LimiEscoMinMate' ).val() + '-' + $( ResObjPai ).find( '#LimiEscoMaxMate' ).val(),
+							AlongMate: $( ResObjPai ).find( '#AlongMinMate' ).val() + '-' + $( ResObjPai ).find( '#AlongMaxMate' ).val(),
+							ReduAreaMate: $( ResObjPai ).find( '#ReduAreaMinMate' ).val() + '-' + $( ResObjPai ).find( '#ReduAreaMaxMate' ).val(),
 							DureMate: $( ResObjPai ).find( '#DureMate' ).val(),
 							SuperDureMate: $( ResObjPai ).find( '#SuperDureMate' ).val(),
 							NucleDureMate: $( ResObjPai ).find( '#NucleDureMate' ).val(),
 							ImpactoMate: $( ResObjPai ).find( '#ImpactoMate' ).val(),
 							ProfCamaEnduMate: $( ResObjPai ).find( '#ProfCamaEnduMate' ).val(),
-							C_Mate: $( ResObjPai ).find( '#C_Mate' ).val(),
-							Si_Mate: $( ResObjPai ).find( '#Si_Mate' ).val(),
-							Mn_Mate: $( ResObjPai ).find( '#Mn_Mate' ).val(),
-							P_Mate: $( ResObjPai ).find( '#P_Mate' ).val(),
-							S_Mate: $( ResObjPai ).find( '#S_Mate' ).val(),
-							Cr_Mate: $( ResObjPai ).find( '#Cr_Mate' ).val(),
-							Ni_Mate: $( ResObjPai ).find( '#Ni_Mate' ).val(),
-							Mo_Mate: $( ResObjPai ).find( '#Mo_Mate' ).val(),
-							Cu_Mate: $( ResObjPai ).find( '#Cu_Mate' ).val(),
-							Al_Mate: $( ResObjPai ).find( '#Al_Mate' ).val(),
-							Fe_Mate: $( ResObjPai ).find( '#Fe_Mate' ).val(),
-							V_Mate: $( ResObjPai ).find( '#V_Mate' ).val(),
-							Co_Mate: $( ResObjPai ).find( '#Co_Mate' ).val(),
-							Nb_Mate: $( ResObjPai ).find( '#Nb_Mate' ).val(),
-							Ti_Mate: $( ResObjPai ).find( '#Ti_Mate' ).val(),
-							W_Mate: $( ResObjPai ).find( '#W_Mate' ).val(),
-							Mg_Mate: $( ResObjPai ).find( '#Mg_Mate' ).val(),
-							Zn_Mate: $( ResObjPai ).find( '#Zn_Mate' ).val(),
-							Pb_Mate: $( ResObjPai ).find( '#Pb_Mate' ).val(),
-							Sb_Mate: $( ResObjPai ).find( '#Sb_Mate' ).val(),
-							Sn_Mate: $( ResObjPai ).find( '#Sn_Mate' ).val(),
-							Ca_Mate: $( ResObjPai ).find( '#Ca_Mate' ).val(),
-							Cl_Mate: $( ResObjPai ).find( '#Cl_Mate' ).val(),
-							N_Mate: $( ResObjPai ).find( '#N_Mate' ).val(),
-							Na_Mate: $( ResObjPai ).find( '#Na_Mate' ).val(),
-							Ceq_Mate: $( ResObjPai ).find( '#Ceq_Mate' ).val(),
+							C_Mate: $( ResObjPai ).find( '#C_MinMate' ).val() + '-' + $( ResObjPai ).find( '#C_MaxMate' ).val(),
+							Si_Mate: $( ResObjPai ).find( '#Si_MinMate' ).val() + '-' + $( ResObjPai ).find( '#Si_MaxMate' ).val(),
+							Mn_Mate: $( ResObjPai ).find( '#Mn_MinMate' ).val() + '-' + $( ResObjPai ).find( '#Mn_MaxMate' ).val(),
+							P_Mate: $( ResObjPai ).find( '#P_MinMate' ).val() + '-' + $( ResObjPai ).find( '#P_MaxMate' ).val(),
+							S_Mate: $( ResObjPai ).find( '#S_MinMate' ).val() + '-' + $( ResObjPai ).find( '#S_MaxMate' ).val(),
+							Cr_Mate: $( ResObjPai ).find( '#Cr_MinMate' ).val() + '-' + $( ResObjPai ).find( '#Cr_MaxMate' ).val(),
+							Ni_Mate: $( ResObjPai ).find( '#Ni_MinMate' ).val() + '-' + $( ResObjPai ).find( '#Ni_MaxMate' ).val(),
+							Mo_Mate: $( ResObjPai ).find( '#Mo_MinMate' ).val() + '-' + $( ResObjPai ).find( '#Mo_MaxMate' ).val(),
+							Cu_Mate: $( ResObjPai ).find( '#Cu_MinMate' ).val() + '-' + $( ResObjPai ).find( '#Cu_MaxMate' ).val(),
+							Al_Mate: $( ResObjPai ).find( '#Al_MinMate' ).val() + '-' + $( ResObjPai ).find( '#Al_MaxMate' ).val(),
+							Fe_Mate: $( ResObjPai ).find( '#Fe_MinMate' ).val() + '-' + $( ResObjPai ).find( '#Fe_MaxMate' ).val(),
+							V_Mate: $( ResObjPai ).find( '#V_MinMate' ).val() + '-' + $( ResObjPai ).find( '#V_MaxMate' ).val(),
+							Co_Mate: $( ResObjPai ).find( '#Co_MinMate' ).val() + '-' + $( ResObjPai ).find( '#Co_MaxMate' ).val(),
+							Nb_Mate: $( ResObjPai ).find( '#Nb_MinMate' ).val() + '-' + $( ResObjPai ).find( '#Nb_MaxMate' ).val(),
+							Ti_Mate: $( ResObjPai ).find( '#Ti_MinMate' ).val() + '-' + $( ResObjPai ).find( '#Ti_MaxMate' ).val(),
+							W_Mate: $( ResObjPai ).find( '#W_MinMate' ).val() + '-' + $( ResObjPai ).find( '#W_MaxMate' ).val(),
+							Mg_Mate: $( ResObjPai ).find( '#Mg_MinMate' ).val() + '-' + $( ResObjPai ).find( '#Mg_MaxMate' ).val(),
+							Zn_Mate: $( ResObjPai ).find( '#Zn_MinMate' ).val() + '-' + $( ResObjPai ).find( '#Zn_MaxMate' ).val(),
+							Pb_Mate: $( ResObjPai ).find( '#Pb_MinMate' ).val() + '-' + $( ResObjPai ).find( '#Pb_MaxMate' ).val(),
+							Sb_Mate: $( ResObjPai ).find( '#Sb_MinMate' ).val() + '-' + $( ResObjPai ).find( '#Sb_MaxMate' ).val(),
+							Sn_Mate: $( ResObjPai ).find( '#Sn_MinMate' ).val() + '-' + $( ResObjPai ).find( '#Sn_MaxMate' ).val(),
+							Ca_Mate: $( ResObjPai ).find( '#Ca_MinMate' ).val() + '-' + $( ResObjPai ).find( '#Ca_MaxMate' ).val(),
+							Cl_Mate: $( ResObjPai ).find( '#Cl_MinMate' ).val() + '-' + $( ResObjPai ).find( '#Cl_MaxMate' ).val(),
+							N_Mate: $( ResObjPai ).find( '#N_MinMate' ).val() + '-' + $( ResObjPai ).find( '#N_MaxMate' ).val(),
+							Na_Mate: $( ResObjPai ).find( '#Na_MinMate' ).val() + '-' + $( ResObjPai ).find( '#Na_MaxMate' ).val(),
+							Ceq_Mate: $( ResObjPai ).find( '#Ceq_MinMate' ).val() + '-' + $( ResObjPai ).find( '#Ceq_MaxMate' ).val(),
 							TenanMate: $( ResObjPai ).find( '#TenanMate' ).val(),
 							EmpreMate: $( ResObjPai ).find( '#EmpreMate' ).val(),
 						}},
