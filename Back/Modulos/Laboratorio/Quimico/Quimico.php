@@ -580,7 +580,7 @@
         					<tr>
           						<td width="100" height="100" align="center"></td>
 	          					<td width="580" align="center">
-    	        					<span style="font-size: 15pt"><b> DUREZA </b></span>
+    	        					<span style="font-size: 15pt"><b> QUIMICO </b></span>
         	  					</td>
               				</tr>
 							<tr>
@@ -635,88 +635,116 @@
 						<br>
 						<table border="1" cellpadding="1" style="border-collapse: collapse; font-size: 10pt">		
 							<tr>
-								<td width="170"> <b>Especificado </b> </td>
-								<td width="170"> <b>Obtido </b> </td>
-								<td width="170"> <b>Especificado </b> </td>
-								<td width="170"> <b>Obtido </b> </td>
+								<td width="120"> <b>Especificado (min.)</b> </td>
+								<td width="120"> <b>Especificado (max.)</b> </td>
+								<td width="100"> <b>Obtido </b> </td>
+								<td width="120"> <b>Especificado (min.)</b> </td>
+								<td width="120"> <b>Especificado (max.)</b> </td>
+								<td width="100"> <b>Obtido </b> </td>
 							</tr>
 							<tr>
-								<td width="170"> <b>C: </b>'.$Retorno[0]['amos_quimi_cada_espe_C'].'</td>
-								<td width="170"> <b>C: </b>'.$Retorno[0]['amos_quimi_cada_obti_C'].'</td>
-								<td width="170"> <b>Si: </b>'.$Retorno[0]['amos_quimi_cada_espe_Si'].'</td>
-								<td width="170"> <b>Si: </b>'.$Retorno[0]['amos_quimi_cada_obti_Si'].'</td>
+								<td width="120"> <b>C: </b>'.explode( '-', $Retorno[0]['amos_quimi_cada_espe_C'] )[0].'</td>
+								<td width="120"> <b>C: </b>'.explode( '-', $Retorno[0]['amos_quimi_cada_espe_C'] )[1].'</td>
+								<td width="100"> <b>C: </b>'.$Retorno[0]['amos_quimi_cada_obti_C'].'</td>
+								<td width="120"> <b>Si: </b>'.explode( '-', $Retorno[0]['amos_quimi_cada_espe_Si'] )[0].'</td>
+								<td width="120"> <b>Si: </b>'.explode( '-', $Retorno[0]['amos_quimi_cada_espe_Si'] )[1].'</td>
+								<td width="100"> <b>Si: </b>'.$Retorno[0]['amos_quimi_cada_obti_Si'].'</td>
 							</tr>
 							<tr>
-								<td width="170"> <b>Mn: </b>'.$Retorno[0]['amos_quimi_cada_espe_Mn'].'</td>
-								<td width="170"> <b>Mn: </b>'.$Retorno[0]['amos_quimi_cada_obti_Mn'].'</td>
-								<td width="170"> <b>P: </b>'.$Retorno[0]['amos_quimi_cada_espe_P'].'</td>
-								<td width="170"> <b>P: </b>'.$Retorno[0]['amos_quimi_cada_obti_P'].'</td>
+								<td width="120"> <b>C: </b>'.explode( '-', $Retorno[0]['amos_quimi_cada_espe_Mn'] )[0].'</td>
+								<td width="120"> <b>C: </b>'.explode( '-', $Retorno[0]['amos_quimi_cada_espe_Mn'] )[1].'</td>
+								<td width="100"> <b>C: </b>'.$Retorno[0]['amos_quimi_cada_obti_Mn'].'</td>
+								<td width="120"> <b>Si: </b>'.explode( '-', $Retorno[0]['amos_quimi_cada_espe_P'] )[0].'</td>
+								<td width="120"> <b>Si: </b>'.explode( '-', $Retorno[0]['amos_quimi_cada_espe_P'] )[1].'</td>
+								<td width="100"> <b>Si: </b>'.$Retorno[0]['amos_quimi_cada_obti_P'].'</td>
 							</tr>
 							<tr>
-								<td width="170"> <b>S: </b>'.$Retorno[0]['amos_quimi_cada_espe_S'].'</td>
-								<td width="170"> <b>S: </b>'.$Retorno[0]['amos_quimi_cada_obti_S'].'</td>
-								<td width="170"> <b>Cr: </b>'.$Retorno[0]['amos_quimi_cada_espe_Cr'].'</td>
-								<td width="170"> <b>Cr: </b>'.$Retorno[0]['amos_quimi_cada_obti_Cr'].'</td>
+								<td width="120"> <b>C: </b>'.explode( '-', $Retorno[0]['amos_quimi_cada_espe_S'] )[0].'</td>
+								<td width="120"> <b>C: </b>'.explode( '-', $Retorno[0]['amos_quimi_cada_espe_S'] )[1].'</td>
+								<td width="100"> <b>C: </b>'.$Retorno[0]['amos_quimi_cada_obti_S'].'</td>
+								<td width="120"> <b>Si: </b>'.explode( '-', $Retorno[0]['amos_quimi_cada_espe_Cr'] )[0].'</td>
+								<td width="120"> <b>Si: </b>'.explode( '-', $Retorno[0]['amos_quimi_cada_espe_Cr'] )[1].'</td>
+								<td width="100"> <b>Si: </b>'.$Retorno[0]['amos_quimi_cada_obti_Cr'].'</td>
 							</tr>
 							<tr>
-								<td width="170"> <b>Ni: </b>'.$Retorno[0]['amos_quimi_cada_espe_Ni'].'</td>
-								<td width="170"> <b>Ni: </b>'.$Retorno[0]['amos_quimi_cada_obti_Ni'].'</td>
-								<td width="170"> <b>Mo: </b>'.$Retorno[0]['amos_quimi_cada_espe_Mo'].'</td>
-								<td width="170"> <b>Mo: </b>'.$Retorno[0]['amos_quimi_cada_obti_Mo'].'</td>
+								<td width="120"> <b>C: </b>'.explode( '-', $Retorno[0]['amos_quimi_cada_espe_Ni'] )[0].'</td>
+								<td width="120"> <b>C: </b>'.explode( '-', $Retorno[0]['amos_quimi_cada_espe_Ni'] )[1].'</td>
+								<td width="100"> <b>C: </b>'.$Retorno[0]['amos_quimi_cada_obti_Ni'].'</td>
+								<td width="120"> <b>Si: </b>'.explode( '-', $Retorno[0]['amos_quimi_cada_espe_Mo'] )[0].'</td>
+								<td width="120"> <b>Si: </b>'.explode( '-', $Retorno[0]['amos_quimi_cada_espe_Mo'] )[1].'</td>
+								<td width="100"> <b>Si: </b>'.$Retorno[0]['amos_quimi_cada_obti_Mo'].'</td>
 							</tr>
 							<tr>
-								<td width="170"> <b>Cu: </b>'.$Retorno[0]['amos_quimi_cada_espe_Cu'].'</td>
-								<td width="170"> <b>Cu: </b>'.$Retorno[0]['amos_quimi_cada_obti_Cu'].'</td>
-								<td width="170"> <b>Al: </b>'.$Retorno[0]['amos_quimi_cada_espe_Al'].'</td>
-								<td width="170"> <b>Al: </b>'.$Retorno[0]['amos_quimi_cada_obti_Al'].'</td>
+								<td width="120"> <b>C: </b>'.explode( '-', $Retorno[0]['amos_quimi_cada_espe_Cu'] )[0].'</td>
+								<td width="120"> <b>C: </b>'.explode( '-', $Retorno[0]['amos_quimi_cada_espe_Cu'] )[1].'</td>
+								<td width="100"> <b>C: </b>'.$Retorno[0]['amos_quimi_cada_obti_Cu'].'</td>
+								<td width="120"> <b>Si: </b>'.explode( '-', $Retorno[0]['amos_quimi_cada_espe_Al'] )[0].'</td>
+								<td width="120"> <b>Si: </b>'.explode( '-', $Retorno[0]['amos_quimi_cada_espe_Al'] )[1].'</td>
+								<td width="100"> <b>Si: </b>'.$Retorno[0]['amos_quimi_cada_obti_Al'].'</td>
 							</tr>
 							<tr>
-								<td width="170"> <b>Fe: </b>'.$Retorno[0]['amos_quimi_cada_espe_Fe'].'</td>
-								<td width="170"> <b>Fe: </b>'.$Retorno[0]['amos_quimi_cada_obti_Fe'].'</td>
-								<td width="170"> <b>V: </b>'.$Retorno[0]['amos_quimi_cada_espe_V'].'</td>
-								<td width="170"> <b>V: </b>'.$Retorno[0]['amos_quimi_cada_obti_V'].'</td>
+								<td width="120"> <b>C: </b>'.explode( '-', $Retorno[0]['amos_quimi_cada_espe_Fe'] )[0].'</td>
+								<td width="120"> <b>C: </b>'.explode( '-', $Retorno[0]['amos_quimi_cada_espe_Fe'] )[1].'</td>
+								<td width="100"> <b>C: </b>'.$Retorno[0]['amos_quimi_cada_obti_Fe'].'</td>
+								<td width="120"> <b>Si: </b>'.explode( '-', $Retorno[0]['amos_quimi_cada_espe_V'] )[0].'</td>
+								<td width="120"> <b>Si: </b>'.explode( '-', $Retorno[0]['amos_quimi_cada_espe_V'] )[1].'</td>
+								<td width="100"> <b>Si: </b>'.$Retorno[0]['amos_quimi_cada_obti_V'].'</td>
 							</tr>
 							<tr>
-								<td width="170"> <b>Co: </b>'.$Retorno[0]['amos_quimi_cada_espe_Co'].'</td>
-								<td width="170"> <b>Co: </b>'.$Retorno[0]['amos_quimi_cada_obti_Co'].'</td>
-								<td width="170"> <b>Nb: </b>'.$Retorno[0]['amos_quimi_cada_espe_Nb'].'</td>
-								<td width="170"> <b>Nb: </b>'.$Retorno[0]['amos_quimi_cada_obti_Nb'].'</td>
+								<td width="120"> <b>C: </b>'.explode( '-', $Retorno[0]['amos_quimi_cada_espe_Co'] )[0].'</td>
+								<td width="120"> <b>C: </b>'.explode( '-', $Retorno[0]['amos_quimi_cada_espe_Co'] )[1].'</td>
+								<td width="100"> <b>C: </b>'.$Retorno[0]['amos_quimi_cada_obti_Co'].'</td>
+								<td width="120"> <b>Si: </b>'.explode( '-', $Retorno[0]['amos_quimi_cada_espe_Nb'] )[0].'</td>
+								<td width="120"> <b>Si: </b>'.explode( '-', $Retorno[0]['amos_quimi_cada_espe_Nb'] )[1].'</td>
+								<td width="100"> <b>Si: </b>'.$Retorno[0]['amos_quimi_cada_obti_Nb'].'</td>
 							</tr>
 							<tr>
-								<td width="170"> <b>Ti: </b>'.$Retorno[0]['amos_quimi_cada_espe_Ti'].'</td>
-								<td width="170"> <b>Ti: </b>'.$Retorno[0]['amos_quimi_cada_obti_Ti'].'</td>
-								<td width="170"> <b>W: </b>'.$Retorno[0]['amos_quimi_cada_espe_W'].'</td>
-								<td width="170"> <b>W: </b>'.$Retorno[0]['amos_quimi_cada_obti_W'].'</td>
+								<td width="120"> <b>C: </b>'.explode( '-', $Retorno[0]['amos_quimi_cada_espe_Ti'] )[0].'</td>
+								<td width="120"> <b>C: </b>'.explode( '-', $Retorno[0]['amos_quimi_cada_espe_Ti'] )[1].'</td>
+								<td width="100"> <b>C: </b>'.$Retorno[0]['amos_quimi_cada_obti_Ti'].'</td>
+								<td width="120"> <b>Si: </b>'.explode( '-', $Retorno[0]['amos_quimi_cada_espe_W'] )[0].'</td>
+								<td width="120"> <b>Si: </b>'.explode( '-', $Retorno[0]['amos_quimi_cada_espe_W'] )[1].'</td>
+								<td width="100"> <b>Si: </b>'.$Retorno[0]['amos_quimi_cada_obti_W'].'</td>
 							</tr>
 							<tr>
-								<td width="170"> <b>Mg: </b>'.$Retorno[0]['amos_quimi_cada_espe_Mg'].'</td>
-								<td width="170"> <b>Mg: </b>'.$Retorno[0]['amos_quimi_cada_obti_Mg'].'</td>
-								<td width="170"> <b>Zn: </b>'.$Retorno[0]['amos_quimi_cada_espe_Zn'].'</td>
-								<td width="170"> <b>Zn: </b>'.$Retorno[0]['amos_quimi_cada_obti_Zn'].'</td>
+								<td width="120"> <b>C: </b>'.explode( '-', $Retorno[0]['amos_quimi_cada_espe_Mg'] )[0].'</td>
+								<td width="120"> <b>C: </b>'.explode( '-', $Retorno[0]['amos_quimi_cada_espe_Mg'] )[1].'</td>
+								<td width="100"> <b>C: </b>'.$Retorno[0]['amos_quimi_cada_obti_Mg'].'</td>
+								<td width="120"> <b>Si: </b>'.explode( '-', $Retorno[0]['amos_quimi_cada_espe_Zn'] )[0].'</td>
+								<td width="120"> <b>Si: </b>'.explode( '-', $Retorno[0]['amos_quimi_cada_espe_Zn'] )[1].'</td>
+								<td width="100"> <b>Si: </b>'.$Retorno[0]['amos_quimi_cada_obti_Zn'].'</td>
 							</tr>
 							<tr>
-								<td width="170"> <b>Sb: </b>'.$Retorno[0]['amos_quimi_cada_espe_Sb'].'</td>
-								<td width="170"> <b>Sb: </b>'.$Retorno[0]['amos_quimi_cada_obti_Sb'].'</td>
-								<td width="170"> <b>Sn: </b>'.$Retorno[0]['amos_quimi_cada_espe_Sn'].'</td>
-								<td width="170"> <b>Sn: </b>'.$Retorno[0]['amos_quimi_cada_obti_Sn'].'</td>
+								<td width="120"> <b>C: </b>'.explode( '-', $Retorno[0]['amos_quimi_cada_espe_Sb'] )[0].'</td>
+								<td width="120"> <b>C: </b>'.explode( '-', $Retorno[0]['amos_quimi_cada_espe_Sb'] )[1].'</td>
+								<td width="100"> <b>C: </b>'.$Retorno[0]['amos_quimi_cada_obti_Sb'].'</td>
+								<td width="120"> <b>Si: </b>'.explode( '-', $Retorno[0]['amos_quimi_cada_espe_Sn'] )[0].'</td>
+								<td width="120"> <b>Si: </b>'.explode( '-', $Retorno[0]['amos_quimi_cada_espe_Sn'] )[1].'</td>
+								<td width="100"> <b>Si: </b>'.$Retorno[0]['amos_quimi_cada_obti_Sn'].'</td>
 							</tr>
 							<tr>
-								<td width="170"> <b>Ca: </b>'.$Retorno[0]['amos_quimi_cada_espe_Ca'].'</td>
-								<td width="170"> <b>Ca: </b>'.$Retorno[0]['amos_quimi_cada_obti_Ca'].'</td>
-								<td width="170"> <b>Cl: </b>'.$Retorno[0]['amos_quimi_cada_espe_Cl'].'</td>
-								<td width="170"> <b>Cl: </b>'.$Retorno[0]['amos_quimi_cada_obti_Cl'].'</td>
+								<td width="120"> <b>C: </b>'.explode( '-', $Retorno[0]['amos_quimi_cada_espe_Ca'] )[0].'</td>
+								<td width="120"> <b>C: </b>'.explode( '-', $Retorno[0]['amos_quimi_cada_espe_Ca'] )[1].'</td>
+								<td width="100"> <b>C: </b>'.$Retorno[0]['amos_quimi_cada_obti_Ca'].'</td>
+								<td width="120"> <b>Si: </b>'.explode( '-', $Retorno[0]['amos_quimi_cada_espe_Cl'] )[0].'</td>
+								<td width="120"> <b>Si: </b>'.explode( '-', $Retorno[0]['amos_quimi_cada_espe_Cl'] )[1].'</td>
+								<td width="100"> <b>Si: </b>'.$Retorno[0]['amos_quimi_cada_obti_Cl'].'</td>
 							</tr>
 							<tr>
-								<td width="170"> <b>N: </b>'.$Retorno[0]['amos_quimi_cada_espe_N'].'</td>
-								<td width="170"> <b>N: </b>'.$Retorno[0]['amos_quimi_cada_obti_N'].'</td>
-								<td width="170"> <b>Na: </b>'.$Retorno[0]['amos_quimi_cada_espe_Na'].'</td>
-								<td width="170"> <b>Na: </b>'.$Retorno[0]['amos_quimi_cada_obti_Na'].'</td>
+								<td width="120"> <b>C: </b>'.explode( '-', $Retorno[0]['amos_quimi_cada_espe_N'] )[0].'</td>
+								<td width="120"> <b>C: </b>'.explode( '-', $Retorno[0]['amos_quimi_cada_espe_N'] )[1].'</td>
+								<td width="100"> <b>C: </b>'.$Retorno[0]['amos_quimi_cada_obti_N'].'</td>
+								<td width="120"> <b>Si: </b>'.explode( '-', $Retorno[0]['amos_quimi_cada_espe_Na'] )[0].'</td>
+								<td width="120"> <b>Si: </b>'.explode( '-', $Retorno[0]['amos_quimi_cada_espe_Na'] )[1].'</td>
+								<td width="100"> <b>Si: </b>'.$Retorno[0]['amos_quimi_cada_obti_Na'].'</td>
 							</tr>
 							<tr>
-								<td width="170"> <b>Ceq: </b>'.$Retorno[0]['amos_quimi_cada_espe_Ceq'].'</td>
-								<td width="170"> <b>Ceq: </b>'.$Retorno[0]['amos_quimi_cada_obti_Ceq'].'</td>
-								<td width="170"> <b>Pb: </b>'.$Retorno[0]['amos_quimi_cada_espe_Pb'].'</td>
-								<td width="170"> <b>Pb: </b>'.$Retorno[0]['amos_quimi_cada_obti_Pb'].'</td>
+								<td width="120"> <b>C: </b>'.explode( '-', $Retorno[0]['amos_quimi_cada_espe_Ceq'] )[0].'</td>
+								<td width="120"> <b>C: </b>'.explode( '-', $Retorno[0]['amos_quimi_cada_espe_Ceq'] )[1].'</td>
+								<td width="100"> <b>C: </b>'.$Retorno[0]['amos_quimi_cada_obti_Ceq'].'</td>
+								<td width="120"> <b>Si: </b>'.explode( '-', $Retorno[0]['amos_quimi_cada_espe_Pb'] )[0].'</td>
+								<td width="120"> <b>Si: </b>'.explode( '-', $Retorno[0]['amos_quimi_cada_espe_Pb'] )[1].'</td>
+								<td width="100"> <b>Si: </b>'.$Retorno[0]['amos_quimi_cada_obti_Pb'].'</td>
 							</tr>
 						</table>
 						<br>

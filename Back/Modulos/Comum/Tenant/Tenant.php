@@ -49,6 +49,8 @@
 
 			self::$RotSql[ 'GetRegTenanTerce' ] = $GetRegTenanTerce;
 
+			self::$RotSql[ 'GetRegTenanCertiPerso' ] = $GetRegTenanCertiPerso;
+
 			self::$Conn = Core::Conecta();
 		}
 
@@ -99,6 +101,7 @@
 							'tenant_cada_bairo' => $input['tenant_cada_bairo'],
 							'tenant_cada_cida' => $input['tenant_cada_cida'],
 							'tenant_cada_esta' => $input['tenant_cada_esta'],
+							'tenant_cada_perso_certi' => $input['tenant_cada_perso_certi'],
 							'tenant_cada_usua_iden' => $input['tenant_cada_usua_iden'],
 							'tenant_cada_usua_nome_iden' => $input['tenant_cada_usua_nome_iden'],
 							'tenant_cada_stat' => $input['tenant_cada_stat'],
@@ -199,6 +202,7 @@
 						$Prepara->bindValue( ':tenant_cada_bairo', Core::UpperCase( $Parametros[ 'BairroTenan' ] ) );
 						$Prepara->bindValue( ':tenant_cada_cida', Core::UpperCase( $Parametros[ 'CidaTenan' ] ) );
 						$Prepara->bindValue( ':tenant_cada_esta', Core::UpperCase( $Parametros[ 'EstTenan' ] ) );
+						$Prepara->bindValue( ':tenant_cada_perso_certi', $Parametros[ 'PersoTenan' ] );
 						$Prepara->bindValue( ':tenant_cada_usua_iden', $Parametros[ 'RespTenan' ] );
 						$Prepara->bindValue( ':tenant_cada_stat', $Parametros[ 'StatTenan' ] );
 
@@ -358,7 +362,7 @@
 		 * @return mixed
 	 	 * @access public
 	 	*/
-		 public static function GetRegTenanTerce( $Parametros = array() ){
+		public static function GetRegTenanTerce( $Parametros = array() ){
 			$vStatSess = json_decode( Core::Sessao()::Chk( 'usua_cada_iden' ), true );
 			if ( $vStatSess[ 'status' ] == 'aberto' ) {
 				Tenant::Inicia();
@@ -396,6 +400,61 @@
 						'modulo' => 'Tenant',
 						'status' => 'invalido',
 						'descricao' => 'Terceiro Tenant com erro </br> '.$e->getMessage(),
+						'listreg' => false,
+					));
+				};
+			} else {
+				return json_encode( $vStatSess );
+			};
+		}
+
+		/**
+	 	 * Retorna Todos Dados Para Certificados Personalizados.
+	 	 *
+		 * @param Parametros array contendo os dados do filtro
+		 * 
+		 * @return mixed
+	 	 * @access public
+	 	*/
+		 public static function GetRegTenanCertiPerso( $Parametros = array() ){
+			$vStatSess = json_decode( Core::Sessao()::Chk( 'usua_cada_iden' ), true );
+			if ( $vStatSess[ 'status' ] == 'aberto' ) {
+				Tenant::Inicia();
+
+				try {
+					self::$Conn->beginTransaction();
+
+					$Prepara = self::$Conn->prepare( self::$RotSql[ 'GetRegTenanCertiPerso' ] );
+
+					$Prepara->bindValue( ':tenant_cada_iden', $Parametros[ 'sist_para_tenant' ] );
+
+					$Prepara->execute();
+				
+					$Retorno = $Prepara->fetchAll( PDO::FETCH_ASSOC );
+
+					self::$Conn->commit();
+
+					$Retorno = array_map( function( $input ) {
+						return array(
+							'tenant_cada_iden' => $input['tenant_cada_iden'],
+							'tenant_cada_docu' => $input['tenant_cada_docu'],
+							'tenant_cada_perso_certi' => $input['tenant_cada_perso_certi'],
+						);
+					}, $Retorno );
+
+					return json_encode( array(
+						'sistema' => Core::config( 'system_apelido' ),
+						'modulo' => 'Tenant',
+						'status' => 'sucesso',
+						'descricao' => 'Resultado Certificado Personalizado Tenant',
+						'listreg' => $Retorno,
+					));
+				} catch ( PDOException $e ) {
+					return json_encode( array(
+						'sistema' => Core::config( 'system_apelido' ),
+						'modulo' => 'Tenant',
+						'status' => 'invalido',
+						'descricao' => 'Terceiro Certificado Personalizado com erro </br> '.$e->getMessage(),
 						'listreg' => false,
 					));
 				};

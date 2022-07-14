@@ -13,6 +13,7 @@
 			tenant_cada_cida,
 			tenant_cada_esta,
 			tenant_cada_usua_iden,
+			tenant_cada_perso_certi,
 			CONCAT( usua_cada_nome, " - ", tenant_cada_usua_iden ) AS tenant_cada_usua_nome_iden,
 			tenant_cada_stat
 		FROM
@@ -64,6 +65,7 @@
 			tenant_cada_bairo,
 			tenant_cada_cida,
 			tenant_cada_esta,
+			tenant_cada_perso_certi,
 			tenant_cada_usua_iden,
 			tenant_cada_stat
 		) VALUES (
@@ -93,6 +95,7 @@
 			tenant_cada_bairo = :tenant_cada_bairo,
 			tenant_cada_cida = :tenant_cada_cida,
 			tenant_cada_esta = :tenant_cada_esta,
+			tenant_cada_perso_certi = :tenant_cada_perso_certi,
 			tenant_cada_usua_iden = :tenant_cada_usua_iden,
 			tenant_cada_stat = :tenant_cada_stat
 		WHERE
@@ -117,4 +120,17 @@
 		WHERE
 			tenant_cada_stat LIKE :tenant_cada_stat
 	';
+
+/*SELECIONA CERTIFICADOP PERSONALIZADO*/
+	$GetRegTenanCertiPerso = '
+		SELECT
+			tenant_cada_iden,
+			tenant_cada_docu,
+			tenant_cada_perso_certi
+		FROM
+			sist_tenant_cada
+		WHERE
+			tenant_cada_iden = :tenant_cada_iden
+	';
+
 ?>

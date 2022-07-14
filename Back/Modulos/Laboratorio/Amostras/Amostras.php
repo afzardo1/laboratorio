@@ -660,13 +660,15 @@
 
 					$Ensaios = str_replace( ':RESULT', '', $Ensaios );
 
+					$Prioridade = str_replace( array( '0', '1', '2' ), array( 'ALTA', 'MÉDIA', 'BAIXA' ), $Retorno[0]['amos_cada_priori'] );
+					
 					$Corpo = '
 						<table border="1" cellpadding="1" style="border-collapse: collapse; font-size: 10pt">
         					<tr>
           						<td width="170"> <b>R.G.: </b>'.$Retorno[0]['amos_cada_regi'].'</td>
 	          					<td width="170"> <b>O.S.: </b>'.$Retorno[0]['amos_cada_orse'].'</td>
           						<td width="170"> <b>Emissão: </b>'.date( Core::config( 'date_format' ), strtotime($Retorno[0]['amos_cada_emis'] ) ).'</td>
-	          					<td width="170" align="center" style="background-color:#d5d6d8; font-size: 13pt"> <b>Prioridade: '.$Retorno[0]['amos_cada_priori'].'</b></td>
+	          					<td width="170" align="center" style="background-color:#d5d6d8; font-size: 13pt"> <b>Prioridade: '.$Prioridade.'</b></td>
               				</tr>
 							<tr>
 							  <td width="340"> <b>Cliente: </b>'.$Retorno[0]['clie_cada_nome'].'</td>

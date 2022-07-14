@@ -60,6 +60,9 @@ export default class Tenant {
 			case 'tenant_cada_usua_iden':
 				return vTabela.cell( vLinha, 13 ).data();
 				break;
+			case 'tenant_cada_perso_certi':
+				return vTabela.cell( vLinha, 14 ).data();
+				break;
 		};
 	};
 	
@@ -108,6 +111,7 @@ export default class Tenant {
 							{ data: 'tenant_cada_cida', visible: false },
 							{ data: 'tenant_cada_esta', visible: false },
 							{ data: 'tenant_cada_usua_iden', visible: false },
+							{ data: 'tenant_cada_perso_certi', visible: false },
 						], 
 						language: {
 							"decimal": ",",
@@ -263,7 +267,7 @@ export default class Tenant {
 						'</div>' +
 					'</div>' +
 					'<div class="row p-3" >' +
-						'<div class="col-xl-4">' +
+						'<div class="col-xl-2">' +
 							'<div class="form-floating">' +
 								'<select class="form-select" id="EstTenan" aria-label="Floating label select example">' +
 									'<option value="AC">AC</option>' +
@@ -295,6 +299,15 @@ export default class Tenant {
 									'<option value="TO">TO</option>' +
 						  		'</select>' +
 								'<label for="EstTenan">Estado</label>' +
+							'</div>' +
+						'</div>' +
+						'<div class="col-xl-2">' +
+							'<div class="form-floating">' +
+								'<select class="form-select" id="PersoTenan" aria-label="Floating label select example">' +
+									'<option value="0" selected>PADRÃO</option>' +
+									'<option value="1">PERSONALIZADO</option>' +
+						  		'</select>' +
+								'<label for="PersoTenan">Certificado</label>' +
 							'</div>' +
 						'</div>' +
 						'<div class="col-xl-8">' +
@@ -371,6 +384,7 @@ export default class Tenant {
 						$( ResObjPai ).find( '#StatTenan' ).val(  Core.Tenant.GetDataTableTenan( '#TableTenan', vLinha, 'tenant_cada_stat' ) ).trigger( 'change' );
 						$( ResObjPai ).find( '#RespTenan' ).val(  Core.Tenant.GetDataTableTenan( '#TableTenan', vLinha, 'tenant_cada_usua_iden' ) ).trigger( 'change' );
 						$( ResObjPai ).find( '#EstTenan' ).val(  Core.Tenant.GetDataTableTenan( '#TableTenan', vLinha, 'tenant_cada_esta' ) ).trigger( 'change' );
+						$( ResObjPai ).find( '#PersoTenan' ).val(  Core.Tenant.GetDataTableTenan( '#TableTenan', vLinha, 'tenant_cada_perso_certi' ) ).trigger( 'change' );
 						Core.SetMask( '#CepTenan', 'CEP' );
 						setTimeout( function(){
 							vResp( ResObjPai );
@@ -432,6 +446,7 @@ export default class Tenant {
 							CidaTenan: $( ResObjPai ).find( '#CidaTenan' ).val(),
 							BairroTenan: $( ResObjPai ).find( '#BairroTenan' ).val(),
 							EstTenan: $( ResObjPai ).find( '#EstTenan' ).val(),
+							PersoTenan: $( ResObjPai ).find( '#PersoTenan' ).val(),
 							RespTenan: $( ResObjPai ).find( '#RespTenan' ).val(),
 						}},
 						'../../Comum/Tenant/SetSalvTenan/', function( vRespAjax ){

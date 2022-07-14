@@ -11,7 +11,7 @@
 	use Back\Modulos\Laboratorio\Materiais\Materiais;
 	use Back\Modulos\Laboratorio\Areas\Areas;
 	use Back\Modulos\Laboratorio\Certificado\Certificado;
-
+	
 	use PDO;
 	use PDOException;
 	
@@ -591,7 +591,7 @@
 		public static function SetImprCertAchat( $Parametros = array() ){
 			$vStatSess = json_decode( Core::Sessao()::Chk( 'usua_cada_iden' ), true );
 			if ( $vStatSess[ 'status' ] == 'aberto' ) {
-				return Certificado::SetImpreCert( $Parametros );
+ 				return Certificado::SetImpreCert( $Parametros );
 			} else {
 				return json_encode( $vStatSess );
 			};

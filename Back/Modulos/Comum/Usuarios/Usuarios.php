@@ -297,7 +297,7 @@
 											APOS O ACESSO VOCÊ SERÁ DIRECIONADO PARA ALTERAR A SENHA<br><br><br>
 											<br><br><br>
 											CLIQUE NO LINK ABAIXO E UTILIZE OS DADOS DE LOGIN E SENHA PARA ACESSAR<br>
-											'.str_replace('/Front/Menu/menu.html', '', $_SERVER[ 'HTTP_REFERER' ] ).'/index.html<br><br><br>
+											'.str_replace('/Front/Modulos/Menu/menu.html', '', $_SERVER[ 'HTTP_REFERER' ] ).'/index.html<br><br><br>
 											<br>
 											LOGIN: '.Core::LowerCase( $Parametros[ 'LogiUsua' ] ).'<br>
 											<br>
@@ -432,7 +432,7 @@
 								APOS O ACESSO VOCÊ SERÁ DIRECIONADO PARA ALTERAR A SENHA<br><br><br>
 								<br><br><br>
 								CLIQUE NO LINK ABAIXO E UTILIZE OS DADOS DE LOGIN E SENHA PARA ACESSAR<br>
-								'.str_replace('/Front/Menu/menu.html', '', $_SERVER[ 'HTTP_REFERER' ] ).'/index.html<br><br><br>
+								'.str_replace('/Front/Modulos/Menu/menu.html', '', $_SERVER[ 'HTTP_REFERER' ] ).'/index.html<br><br><br>
 								<br>
 								LOGIN: '.Core::LowerCase( $Parametros[ 'LogiUsua' ] ).'<br>
 								<br>
