@@ -155,7 +155,7 @@
 		}
 
 		/**
-		 * Gera Achatamento Expansão
+		 * Gera Certificado Achatamento Expansão
 		 *
 		 * @param Parametros array contendo os dados do filtro
 		 * 
@@ -239,14 +239,51 @@
 			$Corpo = '
 				<table border="0" cellpadding="1" style="border-collapse: collapse; font-size: 12pt;">
 					<tr>
-						<td width="340" style="text-align: left; vertical-align: middle;"> <b>Amostra Nº: '.$Retorno[ 'listreg' ][0]['amos_cada_regi'].'</b> </td>
-						<td width="340" style="text-align: right; vertical-align: middle;"> <b>Certificado Nº: '.$Retorno[ 'listreg' ][0]['amos_achat_cada_iden'].'</b> </td>
+						<td width="340" style="text-align: left; vertical-align: middle;"> <b>Certificado Nº: '.$Retorno[ 'listreg' ][0]['amos_achat_cada_iden'].'</b> </td>
+						<td width="340" style="text-align: right; vertical-align: middle;"> <b>Amostra Nº: '.$Retorno[ 'listreg' ][0]['amos_cada_regi'].'</b> </td>
 				  	</tr>
 				</table>
 				<br>
-				<table border="0" cellpadding="1" style="border-collapse: collapse; font-size: 10pt;">
+				<table border="0" cellpadding="1" style="border-collapse: collapse; font-size: 15pt; border-bottom: 2pt solid black; border-top: 2pt solid black">
 					<tr>
-						<td width="680" style="vertical-align: middle;"> <b>Solicitante: </b>'.$Retorno[ 'listreg' ][0]['clie_cada_nome'].'</td>
+						<td width="680" style="text-align: center; vertical-align: middle;"> <b> ANÁLISE ACHATAMENTO / EXPANSÃO </b> </td>
+				  	</tr>
+				</table>
+				<br>
+				<table border="0" cellpadding="1" style="border-collapse: collapse; font-size: 10pt; page-break-inside: avoid;">
+					<tr>
+						<td><br></td>
+					</tr>
+					'.$Fotos.'
+				</table>
+				<table border="0" cellpadding="1" style="border-collapse: collapse; font-size: 12pt; page-break-inside: avoid; border-top: 2pt solid black">
+					<tr>
+						<td width="680" style="text-align: left; vertical-align: middle;"><b>OBSERVAÇÃO</b></td>
+					</tr>
+				</table>
+				<table border="0" cellpadding="1" style="border-collapse: collapse; font-size: 10pt; page-break-inside: avoid;">
+					<tr>
+						<td width="680" style="vertical-align: middle; height: 100px;">'.nl2br( $Retorno[ 'listreg' ][0]['amos_achat_cada_obs'] ).'</td>
+					</tr>
+				</table>
+				<table border="0" cellpadding="1" style="border-collapse: collapse; font-size: 12pt; page-break-inside: avoid;">
+					<tr>
+						<td width="680" style="text-align: left; vertical-align: middle;"><b>CONCLUSÃO</b></td>
+					</tr>
+				</table>
+				<table border="0" cellpadding="1" style="border-collapse: collapse; font-size: 10pt; page-break-inside: avoid; border-bottom: 2pt solid black;">
+					<tr>
+						<td width="680" style="vertical-align: middle; height: 165px;">'.nl2br( $Retorno[ 'listreg' ][0]['amos_cada_concl_livre'] ).'</td>
+					</tr>
+				</table>
+				<table border="0" cellpadding="1" style="border-collapse: collapse; font-size: 15pt; page-break-inside: avoid; border-bottom: 2pt solid black">
+					<tr>
+						<td width="680" style="text-align: center; vertical-align: middle;"><b>SOLICITANTE</b></td>
+					</tr>
+				</table>
+				<table border="0" cellpadding="1" style="border-collapse: collapse; font-size: 10pt; page-break-inside: avoid; border-bottom: 2pt solid black">
+					<tr>
+						<td width="680" style="vertical-align: middle;"> <b>Cliente: </b>'.$Retorno[ 'listreg' ][0]['clie_cada_nome'].'</td>
 				  	</tr>
 					<tr>
 						<td width="680" style="vertical-align: middle;"> <b>Amostra: </b>'.$Retorno[ 'listreg' ][0]['amos_cada_descr'].'</td>
@@ -257,49 +294,13 @@
 					<tr>
 						<td width="680" style="vertical-align: middle;"> <b>Fabricante: </b>'.$Retorno[ 'listreg' ][0]['fabr_cada_nome'].'</td>
 				  	</tr>
-					<tr>
-						<td width="680" style="vertical-align: middle;"> <b>Ensaio: </b>ANÁLISE ACHATAMENTO / EXPANSÃO </td>
-				  	</tr>
 				</table>
-				<table border="0" cellpadding="1" style="border-collapse: collapse; font-size: 12pt">
+				<table border="0" cellpadding="1" style="border-collapse: collapse; font-size: 12pt; border-bottom: 2pt solid black; page-break-inside: avoid;">
 					<tr>
-						<td width="680" style="text-align: center; vertical-align: middle;"> <b>RESULTADOS</b> </td>
-				  	</tr>
-				</table>
-				<table border="0" cellpadding="1" style="border-collapse: collapse; font-size: 10pt; page-break-inside: avoid;">
-					<tr>
-						<td><br></td>
+						<td width="200" style="text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240); border-bottom: 2pt solid black"> <b>Data Recepção</b> </td>
+						<td width="200" style="text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240); border-bottom: 2pt solid black"> <b>Data Conclusão</b> </td>
+						<td width="280" style="text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240); border-bottom: 2pt solid black"> <b></b> </td>
 					</tr>
-					'.$Fotos.'
-				</table>
-				<table border="0" cellpadding="1" style="border-collapse: collapse; font-size: 18pt; border-bottom: 2pt solid black; border-top: 2pt solid black; page-break-inside: avoid;">
-					<tr>
-						<td width="680" style="text-align: center; vertical-align: middle;"> <b> OBSERVAÇÃO ACHATAMENTO / EXPANSÃO</b> </td>
-					</tr>
-				</table>
-				<table border="0" cellpadding="1" style="border-collapse: collapse; font-size: 10pt; page-break-inside: avoid;">
-					<tr>
-						<td width="680" style="vertical-align: middle; height: 100px;">'.nl2br( $Retorno[ 'listreg' ][0]['amos_achat_cada_obs'] ).'</td>
-					</tr>
-				</table>
-				<table border="0" cellpadding="1" style="border-collapse: collapse; font-size: 18pt; border-bottom: 2pt solid black; border-top: 2pt solid black; page-break-inside: avoid;">
-					<tr>
-						<td width="680" style="text-align: center; vertical-align: middle;"> <b> CONCLUSÃO / OBSERVAÇÃO </b> </td>
-					</tr>
-				</table>
-				<table border="0" cellpadding="1" style="border-collapse: collapse; font-size: 10pt; page-break-inside: avoid;">
-					<tr>
-						<td width="680" style="vertical-align: middle; height: 184px;">'.nl2br( $Retorno[ 'listreg' ][0]['amos_cada_concl_livre'] ).'</td>
-					</tr>
-				</table>
-				<table border="0" cellpadding="1" style="border-collapse: collapse; font-size: 12pt; border-bottom: 2pt solid black; border-top: 2pt solid black; page-break-inside: avoid;">
-					<tr>
-						<td width="200" style="text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240)"> <b>Data Recepção</b> </td>
-						<td width="200" style="text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240)"> <b>Data Conclusão</b> </td>
-						<td width="280" style="text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240)"> <b></b> </td>
-					</tr>
-				</table>
-				<table border="0" cellpadding="1" style="border-collapse: collapse; font-size: 12pt; border-bottom: 2pt solid black; border-top: 2pt solid black; page-break-inside: avoid;">
 					<tr>
 						<td width="200" style="text-align: center; vertical-align: middle; height: 55px"> <br><br>'.date( 'd/m/Y', strtotime( $Retorno[ 'listreg' ][0]['amos_cada_emis'] ) ).' </td>
 						<td width="200" style="text-align: center; vertical-align: middle; height: 55px"> <br><br>'.$amos_achat_cada_fina_data.' </td>
@@ -318,7 +319,194 @@
 		}
 
 		/**
-		 * Gera Metalografia
+		 * Gera Certificado Charpy
+		 *
+		 * @param Parametros array contendo os dados do filtro
+		 * 
+		 * @return charpy
+		 * @access public
+		*/
+		public static function GetCertCharp( $Parametros = array() ){
+			
+			$Retorno = json_decode( Metalografia::GetRegMetaTerce( $Parametros ), true );
+
+			$RetoFoto = json_decode( Anexos::GetTercAnex( array(
+				'anexo_ensa_iden' => $Retorno[ 'listreg' ][0][ 'amos_meta_cada_iden' ],
+				'anexo_ensa_tabe' => 'METALOGRAFIA',
+			) ), true );
+
+			$AnexCami = str_replace( array( 'Back\Modulos\Laboratorio\Certificado\Padrao', 'Back/Modulos/Laboratorio/Certificado/Padrao' ), '', __DIR__ ).'Anexos/METALOGRAFIA_'.$Retorno[ 'listreg' ][0]['amos_meta_cada_iden'].'_';
+
+			$Fotos = '';
+			$FotosL = '';
+			$FotosR = '';
+			$DescrL = '';
+			$DescrR = '';
+			foreach ( $RetoFoto[ 'listreg' ] as $Lin => $Val ){
+				if( $Val[ 'anexo_tipo' ] == 1 ){
+					
+					if ( $FotosL != '' ){
+						$FotosR = '<img src="'.$AnexCami.$Val[ 'anexo_arqui' ].'" style="max-width: 300px !important; height: auto;">';
+						$DescrR = $Val[ 'anexo_descr' ];
+					} else {
+						$FotosL = '<img src="'.$AnexCami.$Val[ 'anexo_arqui' ].'" style="max-width: 300px !important; height: auto;">';
+						$DescrL = $Val[ 'anexo_descr' ];
+					};
+
+					if ( $FotosL != '' && $FotosR != '' ){
+						$Fotos = $Fotos.'
+							<tr style="page-break-inside: avoid;">
+								<td width="340" style="text-align: center; vertical-align: middle; height: 200px">'.$FotosL.'</td>
+								<td width="340" style="text-align: center; vertical-align: middle; height: 200px">'.$FotosR.'</td>
+		  					</tr>
+							<tr style="page-break-inside: avoid;">
+							  <td width="340" style="text-align: center; vertical-align: middle; height: 50px">'.$DescrL.'</td>
+							  <td width="340" style="text-align: center; vertical-align: middle; height: 50px">'.$DescrR.'</td>
+							</tr>
+						';
+
+						$FotosR = '';
+						$FotosL = '';
+						$DescrL = '';
+						$DescrR = '';
+					};
+				};
+			};
+
+			if( count( $RetoFoto[ 'listreg' ] ) % 2 != 0){
+				$Fotos = $Fotos.'
+					<tr style="page-break-inside: avoid;">
+						<td width="340" style="text-align: center; vertical-align: middle; height: 200px">'.$FotosL.'</td>
+						<td width="340" style="text-align: center; vertical-align: middle; height: 200px">'.$FotosR.'</td>
+		  			</tr>
+					<tr style="page-break-inside: avoid;">
+					  <td width="340" style="text-align: center; vertical-align: middle; height: 50px">'.$DescrL.'</td>
+					  <td width="340" style="text-align: center; vertical-align: middle; height: 50px">'.$DescrR.'</td>
+					</tr>
+				';
+			};
+
+			if( $Fotos == '' ){
+				$Fotos = '
+					<tr>
+						<td width="340" style="text-align: center; vertical-align: middle; height: 250px"></td>
+						<td width="340" style="text-align: center; vertical-align: middle; height: 250px"></td>
+		  			</tr>
+				';
+			}
+
+			$amos_meta_cada_fina_data = '';
+			if( $Retorno[ 'listreg' ][0]['amos_meta_cada_fina'] == 1){
+				$amos_meta_cada_fina_data = date( 'd/m/Y', strtotime( $Retorno[ 'listreg' ][0]['amos_meta_cada_fina_data'] ) );
+			};
+
+			$Corpo = '
+				<table border="0" cellpadding="1" style="border-collapse: collapse; font-size: 12pt; border-bottom: 2pt solid black">
+					<tr>
+						<td width="340" style="text-align: left; vertical-align: middle;"> <b>Certificado Nº: '.$Retorno[ 'listreg' ][0]['amos_meta_cada_iden'].'</b> </td>
+						<td width="340" style="text-align: right; vertical-align: middle;"> <b>Amostra Nº: '.$Retorno[ 'listreg' ][0]['amos_cada_regi'].'</b> </td>
+				  	</tr>
+				</table>
+				<br>
+				<table border="0" cellpadding="1" style="border-collapse: collapse; font-size: 15pt; border-bottom: 2pt solid black; border-top: 2pt solid black">
+					<tr>
+						<td width="680" style="text-align: center; vertical-align: middle;"> <b> ANÁLISE METALOGRAFICA </b> </td>
+				  	</tr>
+				</table>
+				<br>
+				<table border="0" cellpadding="1" style="border-collapse: collapse; font-size: 10pt; page-break-inside: avoid; ">
+					<tr>
+						<td><br></td>
+					</tr>
+					'.$Fotos.'
+				</table>
+				<br>
+				<table border="0" cellpadding="1" style="border-collapse: collapse; font-size: 10pt; page-break-inside: avoid;">
+					<tr>
+						<td width="680" style="text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240); border-bottom: 2pt solid black; border-top: 2pt solid black">
+							<b>Reagente Quimico: </b>'.$Retorno[ 'listreg' ][0]['amos_meta_cada_reag'].' 
+						</td>
+					</tr>
+				</table>
+				<br>
+				<table border="0" cellpadding="1" style="border-collapse: collapse; font-size: 10pt; border-bottom: 2pt solid black; page-break-inside: avoid;">
+					<tr>
+						<td width="680" style="vertical-align: middle;"> <b>Matriz: </b>'.$Retorno[ 'listreg' ][0]['amos_meta_cada_matriz'].' </td>
+					</tr>
+					<tr>
+						<td width="680" style="vertical-align: middle;"> <b>Tamanho de Grãos: </b>'.$Retorno[ 'listreg' ][0]['amos_meta_cada_graos'].' </td>
+					</tr>
+					<tr>
+						<td width="680" style="vertical-align: middle;"> <b>Particularidades: </b>'.$Retorno[ 'listreg' ][0]['amos_meta_cada_parti'].' </td>
+					</tr>
+					<tr>
+						<td width="680" style="vertical-align: middle;"> <b>Características: </b>'.$Retorno[ 'listreg' ][0]['amos_meta_cada_caract'].' </td>
+					</tr>
+				</table>
+				<table border="0" cellpadding="1" style="border-collapse: collapse; font-size: 12pt; page-break-inside: avoid; border-top: 2pt solid black">
+					<tr>
+						<td width="680" style="text-align: left; vertical-align: middle;"><b>OBSERVAÇÃO</b></td>
+					</tr>
+				</table>
+				<table border="0" cellpadding="1" style="border-collapse: collapse; font-size: 10pt; page-break-inside: avoid;">
+					<tr>
+						<td width="680" style="vertical-align: middle; height: 80px;">'.nl2br( $Retorno[ 'listreg' ][0]['amos_meta_cada_obs'] ).'</td>
+					</tr>
+				</table>
+				<table border="0" cellpadding="1" style="border-collapse: collapse; font-size: 12pt; page-break-inside: avoid;">
+					<tr>
+						<td width="680" style="text-align: left; vertical-align: middle;"><b>CONCLUSÃO</b></td>
+					</tr>
+				</table>
+				<table border="0" cellpadding="1" style="border-collapse: collapse; font-size: 10pt; page-break-inside: avoid;">
+					<tr>
+						<td width="680" style="vertical-align: middle; height: 100px;">'.nl2br( $Retorno[ 'listreg' ][0]['amos_cada_concl_livre'] ).'</td>
+					</tr>
+				</table>
+				<table border="0" cellpadding="1" style="border-collapse: collapse; font-size: 15pt; page-break-inside: avoid; border-bottom: 2pt solid black">
+					<tr>
+						<td width="680" style="text-align: center; vertical-align: middle;"><b>SOLICITANTE</b></td>
+					</tr>
+				</table>
+				<table border="0" cellpadding="1" style="border-collapse: collapse; font-size: 10pt; page-break-inside: avoid; border-bottom: 2pt solid black">
+					<tr>
+						<td width="680" style="vertical-align: middle;"> <b>Cliente: </b>'.$Retorno[ 'listreg' ][0]['clie_cada_nome'].'</td>
+				  	</tr>
+					<tr>
+						<td width="680" style="vertical-align: middle;"> <b>Amostra: </b>'.$Retorno[ 'listreg' ][0]['amos_cada_descr'].'</td>
+				  	</tr>
+					<tr>
+						<td width="680" style="vertical-align: middle;"> <b>Material: </b>'.$Retorno[ 'listreg' ][0]['mate_cada_descr'].'</td>
+				  	</tr>
+					<tr>
+						<td width="680" style="vertical-align: middle;"> <b>Fabricante: </b>'.$Retorno[ 'listreg' ][0]['fabr_cada_nome'].'</td>
+				  	</tr>
+				</table>
+				<table border="0" cellpadding="1" style="border-collapse: collapse; font-size: 12pt; border-bottom: 2pt solid black; page-break-inside: avoid;">
+					<tr>
+						<td width="200" style="text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240); border-bottom: 2pt solid black"> <b>Data Recepção</b> </td>
+						<td width="200" style="text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240); border-bottom: 2pt solid black"> <b>Data Conclusão</b> </td>
+						<td width="280" style="text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240); border-bottom: 2pt solid black"> <b></b> </td>
+					</tr>
+					<tr>
+						<td width="200" style="text-align: center; vertical-align: middle; height: 55px"> <br><br>'.date( 'd/m/Y', strtotime( $Retorno[ 'listreg' ][0]['amos_cada_emis'] ) ).' </td>
+						<td width="200" style="text-align: center; vertical-align: middle; height: 55px"> <br><br>'.$amos_meta_cada_fina_data.' </td>
+						<td width="280" style="text-align: center; vertical-align: middle; height: 55px"> <br><br> </td>
+					</tr>
+				</table>
+			';
+
+			return array(
+				'sistema' => Core::config( 'system_apelido' ),
+				'modulo' => 'Carti_Metalo',
+				'status' => $Retorno[ 'status' ],
+				'descricao' => 'Resultado Certificado Metalografia',
+				'listreg' => $Corpo,
+			);
+		}
+
+		/**
+		 * Gera Certificado Metalografia
 		 *
 		 * @param Parametros array contendo os dados do filtro
 		 * 
@@ -400,47 +588,35 @@
 			};
 
 			$Corpo = '
-				<table border="0" cellpadding="1" style="border-collapse: collapse; font-size: 12pt;">
+				<table border="0" cellpadding="1" style="border-collapse: collapse; font-size: 12pt; border-bottom: 2pt solid black">
 					<tr>
-						<td width="340" style="text-align: left; vertical-align: middle;"> <b>Amostra Nº: '.$Retorno[ 'listreg' ][0]['amos_cada_regi'].'</b> </td>
-						<td width="340" style="text-align: right; vertical-align: middle;"> <b>Certificado Nº: '.$Retorno[ 'listreg' ][0]['amos_meta_cada_iden'].'</b> </td>
+						<td width="340" style="text-align: left; vertical-align: middle;"> <b>Certificado Nº: '.$Retorno[ 'listreg' ][0]['amos_meta_cada_iden'].'</b> </td>
+						<td width="340" style="text-align: right; vertical-align: middle;"> <b>Amostra Nº: '.$Retorno[ 'listreg' ][0]['amos_cada_regi'].'</b> </td>
 				  	</tr>
 				</table>
 				<br>
-				<table border="0" cellpadding="1" style="border-collapse: collapse; font-size: 10pt;">
+				<table border="0" cellpadding="1" style="border-collapse: collapse; font-size: 15pt; border-bottom: 2pt solid black; border-top: 2pt solid black">
 					<tr>
-						<td width="680" style="vertical-align: middle;"> <b>Solicitante: </b>'.$Retorno[ 'listreg' ][0]['clie_cada_nome'].'</td>
-				  	</tr>
-					<tr>
-						<td width="680" style="vertical-align: middle;"> <b>Amostra: </b>'.$Retorno[ 'listreg' ][0]['amos_cada_descr'].'</td>
-				  	</tr>
-					<tr>
-						<td width="680" style="vertical-align: middle;"> <b>Material: </b>'.$Retorno[ 'listreg' ][0]['mate_cada_descr'].'</td>
-				  	</tr>
-					<tr>
-						<td width="680" style="vertical-align: middle;"> <b>Fabricante: </b>'.$Retorno[ 'listreg' ][0]['fabr_cada_nome'].'</td>
-				  	</tr>
-					<tr>
-						<td width="680" style="vertical-align: middle;"> <b>Ensaio: </b>ANÁLISE METALOGRAFICA </td>
+						<td width="680" style="text-align: center; vertical-align: middle;"> <b> ANÁLISE METALOGRAFICA </b> </td>
 				  	</tr>
 				</table>
-				<table border="0" cellpadding="1" style="border-collapse: collapse; font-size: 12pt">
-					<tr>
-						<td width="680" style="text-align: center; vertical-align: middle;"> <b>RESULTADOS</b> </td>
-				  	</tr>
-				</table>
-				<table border="1" cellpadding="1" style="border-collapse: collapse; font-size: 10pt;">
-					<tr>
-						<td width="680" style="text-align: right; vertical-align: middle; background-color: rgb(240, 240, 240)"> <b>Reagente Quimico: </b>'.$Retorno[ 'listreg' ][0]['amos_meta_cada_reag'].' </td>
-				  	</tr>
-				</table>
-				<table border="0" cellpadding="1" style="border-collapse: collapse; font-size: 10pt; page-break-inside: avoid;">
+				<br>
+				<table border="0" cellpadding="1" style="border-collapse: collapse; font-size: 10pt; page-break-inside: avoid; ">
 					<tr>
 						<td><br></td>
 					</tr>
 					'.$Fotos.'
 				</table>
-				<table border="0" cellpadding="1" style="border-collapse: collapse; font-size: 10pt; border-bottom: 2pt solid black; border-top: 2pt solid black; page-break-inside: avoid;">
+				<br>
+				<table border="0" cellpadding="1" style="border-collapse: collapse; font-size: 10pt; page-break-inside: avoid;">
+					<tr>
+						<td width="680" style="text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240); border-bottom: 2pt solid black; border-top: 2pt solid black">
+							<b>Reagente Quimico: </b>'.$Retorno[ 'listreg' ][0]['amos_meta_cada_reag'].' 
+						</td>
+					</tr>
+				</table>
+				<br>
+				<table border="0" cellpadding="1" style="border-collapse: collapse; font-size: 10pt; border-bottom: 2pt solid black; page-break-inside: avoid;">
 					<tr>
 						<td width="680" style="vertical-align: middle;"> <b>Matriz: </b>'.$Retorno[ 'listreg' ][0]['amos_meta_cada_matriz'].' </td>
 					</tr>
@@ -453,28 +629,52 @@
 					<tr>
 						<td width="680" style="vertical-align: middle;"> <b>Características: </b>'.$Retorno[ 'listreg' ][0]['amos_meta_cada_caract'].' </td>
 					</tr>
-					<tr>
-						<td width="680" style="vertical-align: middle;"> <b>Observação: </b>'.nl2br( $Retorno[ 'listreg' ][0]['amos_meta_cada_obs'] ).' </td>
-					</tr>
 				</table>
-				<table border="0" cellpadding="1" style="border-collapse: collapse; font-size: 18pt; border-bottom: 2pt solid black; border-top: 2pt solid black; page-break-inside: avoid;">
+				<table border="0" cellpadding="1" style="border-collapse: collapse; font-size: 12pt; page-break-inside: avoid; border-top: 2pt solid black">
 					<tr>
-						<td width="680" style="text-align: center; vertical-align: middle;"> <b> CONCLUSÃO / OBSERVAÇÃO </b> </td>
+						<td width="680" style="text-align: left; vertical-align: middle;"><b>OBSERVAÇÃO</b></td>
 					</tr>
 				</table>
 				<table border="0" cellpadding="1" style="border-collapse: collapse; font-size: 10pt; page-break-inside: avoid;">
 					<tr>
-						<td width="680" style="vertical-align: middle; height: 194px;">'.nl2br( $Retorno[ 'listreg' ][0]['amos_cada_concl_livre'] ).'</td>
+						<td width="680" style="vertical-align: middle; height: 80px;">'.nl2br( $Retorno[ 'listreg' ][0]['amos_meta_cada_obs'] ).'</td>
 					</tr>
 				</table>
-				<table border="0" cellpadding="1" style="border-collapse: collapse; font-size: 12pt; border-bottom: 2pt solid black; border-top: 2pt solid black; page-break-inside: avoid;">
+				<table border="0" cellpadding="1" style="border-collapse: collapse; font-size: 12pt; page-break-inside: avoid;">
 					<tr>
-						<td width="200" style="text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240)"> <b>Data Recepção</b> </td>
-						<td width="200" style="text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240)"> <b>Data Conclusão</b> </td>
-						<td width="280" style="text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240)"> <b></b> </td>
+						<td width="680" style="text-align: left; vertical-align: middle;"><b>CONCLUSÃO</b></td>
 					</tr>
 				</table>
-				<table border="0" cellpadding="1" style="border-collapse: collapse; font-size: 12pt; border-bottom: 2pt solid black; border-top: 2pt solid black; page-break-inside: avoid;">
+				<table border="0" cellpadding="1" style="border-collapse: collapse; font-size: 10pt; page-break-inside: avoid;">
+					<tr>
+						<td width="680" style="vertical-align: middle; height: 100px;">'.nl2br( $Retorno[ 'listreg' ][0]['amos_cada_concl_livre'] ).'</td>
+					</tr>
+				</table>
+				<table border="0" cellpadding="1" style="border-collapse: collapse; font-size: 15pt; page-break-inside: avoid; border-bottom: 2pt solid black; border-top: 2pt solid black">
+					<tr>
+						<td width="680" style="text-align: center; vertical-align: middle;"><b>SOLICITANTE</b></td>
+					</tr>
+				</table>
+				<table border="0" cellpadding="1" style="border-collapse: collapse; font-size: 10pt; page-break-inside: avoid; border-bottom: 2pt solid black">
+					<tr>
+						<td width="680" style="vertical-align: middle;"> <b>Cliente: </b>'.$Retorno[ 'listreg' ][0]['clie_cada_nome'].'</td>
+				  	</tr>
+					<tr>
+						<td width="680" style="vertical-align: middle;"> <b>Amostra: </b>'.$Retorno[ 'listreg' ][0]['amos_cada_descr'].'</td>
+				  	</tr>
+					<tr>
+						<td width="680" style="vertical-align: middle;"> <b>Material: </b>'.$Retorno[ 'listreg' ][0]['mate_cada_descr'].'</td>
+				  	</tr>
+					<tr>
+						<td width="680" style="vertical-align: middle;"> <b>Fabricante: </b>'.$Retorno[ 'listreg' ][0]['fabr_cada_nome'].'</td>
+				  	</tr>
+				</table>
+				<table border="0" cellpadding="1" style="border-collapse: collapse; font-size: 12pt; border-bottom: 2pt solid black; page-break-inside: avoid;">
+					<tr>
+						<td width="200" style="text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240); border-bottom: 2pt solid black"> <b>Data Recepção</b> </td>
+						<td width="200" style="text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240); border-bottom: 2pt solid black"> <b>Data Conclusão</b> </td>
+						<td width="280" style="text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240); border-bottom: 2pt solid black"> <b></b> </td>
+					</tr>
 					<tr>
 						<td width="200" style="text-align: center; vertical-align: middle; height: 55px"> <br><br>'.date( 'd/m/Y', strtotime( $Retorno[ 'listreg' ][0]['amos_cada_emis'] ) ).' </td>
 						<td width="200" style="text-align: center; vertical-align: middle; height: 55px"> <br><br>'.$amos_meta_cada_fina_data.' </td>
@@ -493,11 +693,11 @@
 		}
 		
 		/**
-		 * Gera Quimica
+		 * Gera Certificado Quimica
 		 *
 		 * @param Parametros array contendo os dados do filtro
 		 * 
-		 * @return metalografia
+		 * @return Quimica
 		 * @access public
 		*/
 		public static function GetCertQuimi( $Parametros = array() ){
@@ -577,15 +777,209 @@
 			$Corpo = '
 				<table border="0" cellpadding="1" style="border-collapse: collapse; font-size: 12pt;">
 					<tr>
-						<td width="340" style="text-align: left; vertical-align: middle;"> <b>Amostra Nº: '.$Retorno[ 'listreg' ][0]['amos_cada_regi'].'</b> </td>
-						<td width="340" style="text-align: right; vertical-align: middle;"> <b>Certificado Nº: '.$Retorno[ 'listreg' ][0]['amos_quimi_cada_iden'].'</b> </td>
+						<td width="340" style="text-align: left; vertical-align: middle;"> <b>Certificado Nº: '.$Retorno[ 'listreg' ][0]['amos_quimi_cada_iden'].'</b> </td>
+						<td width="340" style="text-align: right; vertical-align: middle;"> <b>Amostra Nº: '.$Retorno[ 'listreg' ][0]['amos_cada_regi'].'</b> </td>
 				  	</tr>
 				</table>
 				<br>
-				<table border="0" cellpadding="1" style="border-collapse: collapse; font-size: 10pt;">
+				<table border="0" cellpadding="1" style="border-collapse: collapse; font-size: 15pt; border-bottom: 2pt solid black; border-top: 2pt solid black">
+					<tr>
+						<td width="680" style="text-align: center; vertical-align: middle;"> <b> ANÁLISE QUÍMICA </b> </td>
+				  	</tr>
+				</table>
+				<br>
+				<br>
+				<table border="0" cellpadding="1" style="border-collapse: collapse; font-size: 10pt">		
+					<tr>
+						<td width="70" rowspan="2" style="border: 1px solid black; text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240)"> <b>Elemento</b> </td>
+						<td width="140" style="border: 1px solid black; text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240)"> <b>Especificado</b> </td>
+						<td width="80" rowspan="2" style="border: 1px solid black; text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240)"> <b>Obtido </b> </td>
+						<td width="100" rowspan="2" style="text-align: center; vertical-align: middle;"> </td>
+						<td width="70" rowspan="2" style="border: 1px solid black; text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240)"> <b>Elemento</b> </td>
+						<td width="140" style="border: 1px solid black; text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240)"> <b>Especificado</b> </td>
+						<td width="80" rowspan="2" style="border: 1px solid black; text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240)"> <b>Obtido </b> </td>
+					</tr>
+					<tr>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240)"> <b>(min.)</b> </td>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240)"> <b>(max.)</b> </td>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240)"> <b>(min.)</b> </td>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240)"> <b>(max.)</b> </td>
+					</tr>
+					<tr>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240)"> <b>C</b> </td>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.explode( '-', $Retorno[ 'listreg' ][0]['amos_quimi_cada_espe_C'] )[0].'</td>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.explode( '-', $Retorno[ 'listreg' ][0]['amos_quimi_cada_espe_C'] )[1].'</td>
+						<td width="80" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.$Retorno[ 'listreg' ][0]['amos_quimi_cada_obti_C'].'</td>
+						<td width="100" style="text-align: center; vertical-align: middle;"> </td>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240)"> <b>Si</b> </td>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.explode( '-', $Retorno[ 'listreg' ][0]['amos_quimi_cada_espe_Si'] )[0].'</td>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.explode( '-', $Retorno[ 'listreg' ][0]['amos_quimi_cada_espe_Si'] )[1].'</td>
+						<td width="80" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.$Retorno[ 'listreg' ][0]['amos_quimi_cada_obti_Si'].'</td>
+					</tr>
+					<tr>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240)"> <b>Mn</b> </td>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.explode( '-', $Retorno[ 'listreg' ][0]['amos_quimi_cada_espe_Mn'] )[0].'</td>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.explode( '-', $Retorno[ 'listreg' ][0]['amos_quimi_cada_espe_Mn'] )[1].'</td>
+						<td width="80" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.$Retorno[ 'listreg' ][0]['amos_quimi_cada_obti_Mn'].'</td>
+						<td width="100" style="text-align: center; vertical-align: middle;"> </td>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240)"> <b>P</b> </td>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.explode( '-', $Retorno[ 'listreg' ][0]['amos_quimi_cada_espe_P'] )[0].'</td>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.explode( '-', $Retorno[ 'listreg' ][0]['amos_quimi_cada_espe_P'] )[1].'</td>
+						<td width="80" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.$Retorno[ 'listreg' ][0]['amos_quimi_cada_obti_P'].'</td>
+					</tr>
+					<tr>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240)"> <b>S</b> </td>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.explode( '-', $Retorno[ 'listreg' ][0]['amos_quimi_cada_espe_S'] )[0].'</td>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.explode( '-', $Retorno[ 'listreg' ][0]['amos_quimi_cada_espe_S'] )[1].'</td>
+						<td width="80" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.$Retorno[ 'listreg' ][0]['amos_quimi_cada_obti_S'].'</td>
+						<td width="100" style="text-align: center; vertical-align: middle;"> </td>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240)"> <b>Cr</b> </td>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.explode( '-', $Retorno[ 'listreg' ][0]['amos_quimi_cada_espe_Cr'] )[0].'</td>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.explode( '-', $Retorno[ 'listreg' ][0]['amos_quimi_cada_espe_Cr'] )[1].'</td>
+						<td width="80" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.$Retorno[ 'listreg' ][0]['amos_quimi_cada_obti_Cr'].'</td>
+					</tr>
+					<tr>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240)"> <b>Ni</b> </td>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.explode( '-', $Retorno[ 'listreg' ][0]['amos_quimi_cada_espe_Ni'] )[0].'</td>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.explode( '-', $Retorno[ 'listreg' ][0]['amos_quimi_cada_espe_Ni'] )[1].'</td>
+						<td width="80" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.$Retorno[ 'listreg' ][0]['amos_quimi_cada_obti_Ni'].'</td>
+						<td width="100" style="text-align: center; vertical-align: middle;"> </td>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240)"> <b>Mo</b> </td>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.explode( '-', $Retorno[ 'listreg' ][0]['amos_quimi_cada_espe_Mo'] )[0].'</td>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.explode( '-', $Retorno[ 'listreg' ][0]['amos_quimi_cada_espe_Mo'] )[1].'</td>
+						<td width="80" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.$Retorno[ 'listreg' ][0]['amos_quimi_cada_obti_Mo'].'</td>
+					</tr>
+					<tr>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240)"> <b>Cu</b> </td>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.explode( '-', $Retorno[ 'listreg' ][0]['amos_quimi_cada_espe_Cu'] )[0].'</td>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.explode( '-', $Retorno[ 'listreg' ][0]['amos_quimi_cada_espe_Cu'] )[1].'</td>
+						<td width="80" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.$Retorno[ 'listreg' ][0]['amos_quimi_cada_obti_Cu'].'</td>
+						<td width="100" style="text-align: center; vertical-align: middle;"> </td>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240)"> <b>Al</b> </td>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.explode( '-', $Retorno[ 'listreg' ][0]['amos_quimi_cada_espe_Al'] )[0].'</td>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.explode( '-', $Retorno[ 'listreg' ][0]['amos_quimi_cada_espe_Al'] )[1].'</td>
+						<td width="80" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.$Retorno[ 'listreg' ][0]['amos_quimi_cada_obti_Al'].'</td>
+					</tr>
+					<tr>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240)"> <b>Fe</b> </td>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.explode( '-', $Retorno[ 'listreg' ][0]['amos_quimi_cada_espe_Fe'] )[0].'</td>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.explode( '-', $Retorno[ 'listreg' ][0]['amos_quimi_cada_espe_Fe'] )[1].'</td>
+						<td width="80" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.$Retorno[ 'listreg' ][0]['amos_quimi_cada_obti_Fe'].'</td>
+						<td width="100" style="text-align: center; vertical-align: middle;"> </td>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240)"> <b>V</b> </td>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.explode( '-', $Retorno[ 'listreg' ][0]['amos_quimi_cada_espe_V'] )[0].'</td>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.explode( '-', $Retorno[ 'listreg' ][0]['amos_quimi_cada_espe_V'] )[1].'</td>
+						<td width="80" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.$Retorno[ 'listreg' ][0]['amos_quimi_cada_obti_V'].'</td>
+					</tr>
+					<tr>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240)"> <b>Co</b> </td>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.explode( '-', $Retorno[ 'listreg' ][0]['amos_quimi_cada_espe_Co'] )[0].'</td>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.explode( '-', $Retorno[ 'listreg' ][0]['amos_quimi_cada_espe_Co'] )[1].'</td>
+						<td width="80" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.$Retorno[ 'listreg' ][0]['amos_quimi_cada_obti_Co'].'</td>
+						<td width="100" style="text-align: center; vertical-align: middle;"> </td>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240)"> <b>Nb</b> </td>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.explode( '-', $Retorno[ 'listreg' ][0]['amos_quimi_cada_espe_Nb'] )[0].'</td>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.explode( '-', $Retorno[ 'listreg' ][0]['amos_quimi_cada_espe_Nb'] )[1].'</td>
+						<td width="80" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.$Retorno[ 'listreg' ][0]['amos_quimi_cada_obti_Nb'].'</td>
+					</tr>
+					<tr>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240)"> <b>Ti</b> </td>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.explode( '-', $Retorno[ 'listreg' ][0]['amos_quimi_cada_espe_Ti'] )[0].'</td>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.explode( '-', $Retorno[ 'listreg' ][0]['amos_quimi_cada_espe_Ti'] )[1].'</td>
+						<td width="80" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.$Retorno[ 'listreg' ][0]['amos_quimi_cada_obti_Ti'].'</td>
+						<td width="100" style="text-align: center; vertical-align: middle;"> </td>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240)"> <b>W</b> </td>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.explode( '-', $Retorno[ 'listreg' ][0]['amos_quimi_cada_espe_W'] )[0].'</td>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.explode( '-', $Retorno[ 'listreg' ][0]['amos_quimi_cada_espe_W'] )[1].'</td>
+						<td width="80" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.$Retorno[ 'listreg' ][0]['amos_quimi_cada_obti_W'].'</td>
+					</tr>
+					<tr>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240)"> <b>Mg</b> </td>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.explode( '-', $Retorno[ 'listreg' ][0]['amos_quimi_cada_espe_Mg'] )[0].'</td>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.explode( '-', $Retorno[ 'listreg' ][0]['amos_quimi_cada_espe_Mg'] )[1].'</td>
+						<td width="80" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.$Retorno[ 'listreg' ][0]['amos_quimi_cada_obti_Mg'].'</td>
+						<td width="100" style="text-align: center; vertical-align: middle;"> </td>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240)"> <b>Zn</b> </td>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.explode( '-', $Retorno[ 'listreg' ][0]['amos_quimi_cada_espe_Zn'] )[0].'</td>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.explode( '-', $Retorno[ 'listreg' ][0]['amos_quimi_cada_espe_Zn'] )[1].'</td>
+						<td width="80" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.$Retorno[ 'listreg' ][0]['amos_quimi_cada_obti_Zn'].'</td>
+					</tr>
+					<tr>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240)"> <b>Sb</b> </td>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.explode( '-', $Retorno[ 'listreg' ][0]['amos_quimi_cada_espe_Sb'] )[0].'</td>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.explode( '-', $Retorno[ 'listreg' ][0]['amos_quimi_cada_espe_Sb'] )[1].'</td>
+						<td width="80" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.$Retorno[ 'listreg' ][0]['amos_quimi_cada_obti_Sb'].'</td>
+						<td width="100" style="text-align: center; vertical-align: middle;"> </td>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240)"> <b>Sn</b> </td>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.explode( '-', $Retorno[ 'listreg' ][0]['amos_quimi_cada_espe_Sn'] )[0].'</td>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.explode( '-', $Retorno[ 'listreg' ][0]['amos_quimi_cada_espe_Sn'] )[1].'</td>
+						<td width="80" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.$Retorno[ 'listreg' ][0]['amos_quimi_cada_obti_Sn'].'</td>
+					</tr>
+					<tr>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240)"> <b>Ca</b> </td>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.explode( '-', $Retorno[ 'listreg' ][0]['amos_quimi_cada_espe_Ca'] )[0].'</td>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.explode( '-', $Retorno[ 'listreg' ][0]['amos_quimi_cada_espe_Ca'] )[1].'</td>
+						<td width="80" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.$Retorno[ 'listreg' ][0]['amos_quimi_cada_obti_Ca'].'</td>
+						<td width="100" style="text-align: center; vertical-align: middle;"> </td>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240)"> <b>Cl</b> </td>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.explode( '-', $Retorno[ 'listreg' ][0]['amos_quimi_cada_espe_Cl'] )[0].'</td>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.explode( '-', $Retorno[ 'listreg' ][0]['amos_quimi_cada_espe_Cl'] )[1].'</td>
+						<td width="80" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.$Retorno[ 'listreg' ][0]['amos_quimi_cada_obti_Cl'].'</td>
+					</tr>
+					<tr>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240)"> <b>N</b> </td>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.explode( '-', $Retorno[ 'listreg' ][0]['amos_quimi_cada_espe_N'] )[0].'</td>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.explode( '-', $Retorno[ 'listreg' ][0]['amos_quimi_cada_espe_N'] )[1].'</td>
+						<td width="80" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.$Retorno[ 'listreg' ][0]['amos_quimi_cada_obti_N'].'</td>
+						<td width="100" style="text-align: center; vertical-align: middle;"> </td>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240)"> <b>Na</b> </td>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.explode( '-', $Retorno[ 'listreg' ][0]['amos_quimi_cada_espe_Na'] )[0].'</td>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.explode( '-', $Retorno[ 'listreg' ][0]['amos_quimi_cada_espe_Na'] )[1].'</td>
+						<td width="80" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.$Retorno[ 'listreg' ][0]['amos_quimi_cada_obti_Na'].'</td>
+					</tr>
+					<tr>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240)"> <b>Ceq</b> </td>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.explode( '-', $Retorno[ 'listreg' ][0]['amos_quimi_cada_espe_Ceq'] )[0].'</td>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.explode( '-', $Retorno[ 'listreg' ][0]['amos_quimi_cada_espe_Ceq'] )[1].'</td>
+						<td width="80" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.$Retorno[ 'listreg' ][0]['amos_quimi_cada_obti_Ceq'].'</td>
+						<td width="100" style="text-align: center; vertical-align: middle;"> </td>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240)"> <b>Pb</b> </td>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.explode( '-', $Retorno[ 'listreg' ][0]['amos_quimi_cada_espe_Pb'] )[0].'</td>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.explode( '-', $Retorno[ 'listreg' ][0]['amos_quimi_cada_espe_Pb'] )[1].'</td>
+						<td width="80" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.$Retorno[ 'listreg' ][0]['amos_quimi_cada_obti_Pb'].'</td>
+					</tr>
+				</table>
+				<br>
+				<br>
+				<table border="0" cellpadding="1" style="border-collapse: collapse; font-size: 12pt; page-break-inside: avoid; border-top: 2pt solid black">
+					<tr>
+						<td width="680" style="text-align: left; vertical-align: middle;"><b></b></td>
+					</tr>
+				</table>
+				<table border="0" cellpadding="1" style="border-collapse: collapse; font-size: 10pt; page-break-inside: avoid;">
+					<tr>
+						<td width="680" style="vertical-align: middle; height: 40px;"></td>
+					</tr>
+				</table>
+				<table border="0" cellpadding="1" style="border-collapse: collapse; font-size: 12pt; page-break-inside: avoid;">
+					<tr>
+						<td width="680" style="text-align: left; vertical-align: middle;"><b>CONCLUSÃO</b></td>
+					</tr>
+				</table>
+				<table border="0" cellpadding="1" style="border-collapse: collapse; font-size: 10pt; page-break-inside: avoid;">
+					<tr>
+						<td width="680" style="vertical-align: middle; height: 215px;">'.nl2br( $Retorno[ 'listreg' ][0]['amos_cada_concl_livre'] ).'</td>
+					</tr>
+				</table>
+				<table border="0" cellpadding="1" style="border-collapse: collapse; font-size: 15pt; page-break-inside: avoid; border-bottom: 2pt solid black; border-top: 2pt solid black">
+					<tr>
+						<td width="680" style="text-align: center; vertical-align: middle;"><b>SOLICITANTE</b></td>
+					</tr>
+				</table>
+				<table border="0" cellpadding="1" style="border-collapse: collapse; font-size: 10pt; border-bottom: 2pt solid black;">
 					<tr>
 						<td width="680" style="vertical-align: middle;"> <b>Solicitante: </b>'.$Retorno[ 'listreg' ][0]['clie_cada_nome'].'</td>
-				  	</tr>
+					</tr>
 					<tr>
 						<td width="680" style="vertical-align: middle;"> <b>Amostra: </b>'.$Retorno[ 'listreg' ][0]['amos_cada_descr'].'</td>
 				  	</tr>
@@ -595,93 +989,15 @@
 					<tr>
 						<td width="680" style="vertical-align: middle;"> <b>Fabricante: </b>'.$Retorno[ 'listreg' ][0]['fabr_cada_nome'].'</td>
 				  	</tr>
-					<tr>
-						<td width="680" style="vertical-align: middle;"> <b>Ensaio: </b>ANÁLISE QUIMICA </td>
-				  	</tr>
 				</table>
-				<table border="0" cellpadding="1" style="border-collapse: collapse; font-size: 12pt">
+				<table border="0" cellpadding="1" style="border-collapse: collapse; font-size: 12pt; page-break-inside: avoid;">
 					<tr>
-						<td width="680" style="text-align: center; vertical-align: middle;"> <b>RESULTADOS</b> </td>
-				  	</tr>
-				</table>
-				<table border="1" cellpadding="1" style="border-collapse: collapse; font-size: 10pt; border-bottom: 2pt solid black; border-top: 2pt solid black; page-break-inside: avoid;">
-					<tr>
-						<td width="180" colspan="2" style="vertical-align: middle; background-color: rgb(240, 240, 240)"> <b>Composição (% peso) </b> </td>
-						<td width="50" style="text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240)"> <b> C </b> </td>
-						<td width="50" style="text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240)"> <b> Si </b> </td>
-						<td width="50" style="text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240)"> <b> Mn </b> </td>
-						<td width="50" style="text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240)"> <b> P </b> </td>
-						<td width="50" style="text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240)"> <b> S </b> </td>
-						<td width="50" style="text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240)"> <b> Cr </b> </td>
-						<td width="50" style="text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240)"> <b> Ni </b> </td>
-						<td width="50" style="text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240)"> <b> Mo </b> </td>
-						<td width="50" style="text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240)"> <b> Al </b> </td>
-						<td width="50" style="text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240)"> <b> Cu </b> </td>
-					</tr>
-					<tr>
-						<td width="130" rowspan="2" style="vertical-align: middle; "> <b>Especificado </b> </td>
-						<td width="50" style="text-align: center; vertical-align: middle; "> <b> (min.) </b> </td>
-						<td width="50" style="text-align: center; vertical-align: middle; "> '.explode( '-', $Retorno[ 'listreg' ][0]['amos_quimi_cada_espe_C'] )[0].' </td>
-						<td width="50" style="text-align: center; vertical-align: middle; "> '.explode( '-', $Retorno[ 'listreg' ][0]['amos_quimi_cada_espe_Si'] )[0].' </td>
-						<td width="50" style="text-align: center; vertical-align: middle; "> '.explode( '-', $Retorno[ 'listreg' ][0]['amos_quimi_cada_espe_Mn'] )[0].' </td>
-						<td width="50" style="text-align: center; vertical-align: middle; "> '.explode( '-', $Retorno[ 'listreg' ][0]['amos_quimi_cada_espe_P'] )[0].' </td>
-						<td width="50" style="text-align: center; vertical-align: middle; "> '.explode( '-', $Retorno[ 'listreg' ][0]['amos_quimi_cada_espe_S'] )[0].' </td>
-						<td width="50" style="text-align: center; vertical-align: middle; "> '.explode( '-', $Retorno[ 'listreg' ][0]['amos_quimi_cada_espe_Cr'] )[0].' </td>
-						<td width="50" style="text-align: center; vertical-align: middle; "> '.explode( '-', $Retorno[ 'listreg' ][0]['amos_quimi_cada_espe_Ni'] )[0].' </td>
-						<td width="50" style="text-align: center; vertical-align: middle; "> '.explode( '-', $Retorno[ 'listreg' ][0]['amos_quimi_cada_espe_Mo'] )[0].' </td>
-						<td width="50" style="text-align: center; vertical-align: middle; "> '.explode( '-', $Retorno[ 'listreg' ][0]['amos_quimi_cada_espe_Al'] )[0].' </td>
-						<td width="50" style="text-align: center; vertical-align: middle; "> '.explode( '-', $Retorno[ 'listreg' ][0]['amos_quimi_cada_espe_Cu'] )[0].' </td>
-					</tr>
-					<tr>
-						<td width="50" style="text-align: center; vertical-align: middle; "> <b> (max.) </b> </td>
-						<td width="50" style="text-align: center; vertical-align: middle; "> '.explode( '-', $Retorno[ 'listreg' ][0]['amos_quimi_cada_espe_C'] )[1].' </td>
-						<td width="50" style="text-align: center; vertical-align: middle; "> '.explode( '-', $Retorno[ 'listreg' ][0]['amos_quimi_cada_espe_Si'] )[1].' </td>
-						<td width="50" style="text-align: center; vertical-align: middle; "> '.explode( '-', $Retorno[ 'listreg' ][0]['amos_quimi_cada_espe_Mn'] )[1].' </td>
-						<td width="50" style="text-align: center; vertical-align: middle; "> '.explode( '-', $Retorno[ 'listreg' ][0]['amos_quimi_cada_espe_P'] )[1].' </td>
-						<td width="50" style="text-align: center; vertical-align: middle; "> '.explode( '-', $Retorno[ 'listreg' ][0]['amos_quimi_cada_espe_S'] )[1].' </td>
-						<td width="50" style="text-align: center; vertical-align: middle; "> '.explode( '-', $Retorno[ 'listreg' ][0]['amos_quimi_cada_espe_Cr'] )[1].' </td>
-						<td width="50" style="text-align: center; vertical-align: middle; "> '.explode( '-', $Retorno[ 'listreg' ][0]['amos_quimi_cada_espe_Ni'] )[1].' </td>
-						<td width="50" style="text-align: center; vertical-align: middle; "> '.explode( '-', $Retorno[ 'listreg' ][0]['amos_quimi_cada_espe_Mo'] )[1].' </td>
-						<td width="50" style="text-align: center; vertical-align: middle; "> '.explode( '-', $Retorno[ 'listreg' ][0]['amos_quimi_cada_espe_Al'] )[1].' </td>
-						<td width="50" style="text-align: center; vertical-align: middle; "> '.explode( '-', $Retorno[ 'listreg' ][0]['amos_quimi_cada_espe_Cu'] )[1].' </td>
-					</tr>
-					<tr>
-						<td width="180" colspan="2" style="vertical-align: middle; "> <b>Obtido</b> </td>
-						<td width="50" style="text-align: center; vertical-align: middle; "> '.$Retorno[ 'listreg' ][0]['amos_quimi_cada_obti_C'].' </td>
-						<td width="50" style="text-align: center; vertical-align: middle; "> '.$Retorno[ 'listreg' ][0]['amos_quimi_cada_obti_Si'].' </td>
-						<td width="50" style="text-align: center; vertical-align: middle; "> '.$Retorno[ 'listreg' ][0]['amos_quimi_cada_obti_Mn'].' </td>
-						<td width="50" style="text-align: center; vertical-align: middle; "> '.$Retorno[ 'listreg' ][0]['amos_quimi_cada_obti_P'].' </td>
-						<td width="50" style="text-align: center; vertical-align: middle; "> '.$Retorno[ 'listreg' ][0]['amos_quimi_cada_obti_S'].' </td>
-						<td width="50" style="text-align: center; vertical-align: middle; "> '.$Retorno[ 'listreg' ][0]['amos_quimi_cada_obti_Cr'].' </td>
-						<td width="50" style="text-align: center; vertical-align: middle; "> '.$Retorno[ 'listreg' ][0]['amos_quimi_cada_obti_Ni'].' </td>
-						<td width="50" style="text-align: center; vertical-align: middle; "> '.$Retorno[ 'listreg' ][0]['amos_quimi_cada_obti_Mo'].' </td>
-						<td width="50" style="text-align: center; vertical-align: middle; "> '.$Retorno[ 'listreg' ][0]['amos_quimi_cada_obti_Al'].' </td>
-						<td width="50" style="text-align: center; vertical-align: middle; "> '.$Retorno[ 'listreg' ][0]['amos_quimi_cada_obti_Cu'].' </td>
-					</tr>
-				</table>	
-				<table border="0" cellpadding="1" style="border-collapse: collapse; font-size: 10pt; border-bottom: 2pt solid black; page-break-inside: avoid;">		
-					<tr>
-						<td width="180" style="vertical-align: middle; height: 300px;"></td>
+						<td width="200" style="text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240); border-bottom: 2pt solid black"> <b>Data Recepção</b> </td>
+						<td width="200" style="text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240); border-bottom: 2pt solid black"> <b>Data Conclusão</b> </td>
+						<td width="280" style="text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240); border-bottom: 2pt solid black"> <b></b> </td>
 					</tr>
 				</table>
-				<table border="0" cellpadding="1" style="border-collapse: collapse; font-size: 18pt; border-bottom: 2pt solid black; border-top: 2pt solid black; page-break-inside: avoid;">
-					<tr>
-						<td width="680" style="text-align: center; vertical-align: middle;"> <b> CONCLUSÃO / OBSERVAÇÃO </b> </td>
-					</tr>
-				</table>
-				<table border="0" cellpadding="1" style="border-collapse: collapse; font-size: 10pt; page-break-inside: avoid;">
-					<tr>
-						<td width="680" style="vertical-align: middle; height: 215px;">'.nl2br( $Retorno[ 'listreg' ][0]['amos_cada_concl_livre'] ).'</td>
-					</tr>
-				</table>
-				<table border="0" cellpadding="1" style="border-collapse: collapse; font-size: 12pt; border-bottom: 2pt solid black; border-top: 2pt solid black; page-break-inside: avoid;">
-					<tr>
-						<td width="200" style="text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240)"> <b>Data Recepção</b> </td>
-						<td width="200" style="text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240)"> <b>Data Conclusão</b> </td>
-						<td width="280" style="text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240)"> <b></b> </td>
-					</tr>
-				</table>
-				<table border="0" cellpadding="1" style="border-collapse: collapse; font-size: 12pt; border-bottom: 2pt solid black; border-top: 2pt solid black; page-break-inside: avoid;">
+				<table border="0" cellpadding="1" style="border-collapse: collapse; font-size: 12pt; border-bottom: 2pt solid black; page-break-inside: avoid;">
 					<tr>
 						<td width="200" style="text-align: center; vertical-align: middle; height: 55px"> <br><br>'.date( 'd/m/Y', strtotime( $Retorno[ 'listreg' ][0]['amos_cada_emis'] ) ).' </td>
 						<td width="200" style="text-align: center; vertical-align: middle; height: 55px"> <br><br>'.$amos_quimi_cada_fina_data.' </td>
@@ -700,11 +1016,11 @@
 		}
 
 		/**
-		 * Gera Tração
+		 * Gera Certificado Tração
 		 *
 		 * @param Parametros array contendo os dados do filtro
 		 * 
-		 * @return metalografia
+		 * @return Tração
 		 * @access public
 		*/
 		public static function GetCertTrac( $Parametros = array() ){
@@ -784,12 +1100,81 @@
 			$Corpo = '
 				<table border="0" cellpadding="1" style="border-collapse: collapse; font-size: 12pt;">
 					<tr>
-						<td width="340" style="text-align: left; vertical-align: middle;"> <b>Amostra Nº: '.$Retorno[ 'listreg' ][0]['amos_cada_regi'].'</b> </td>
-						<td width="340" style="text-align: right; vertical-align: middle;"> <b>Certificado Nº: '.$Retorno[ 'listreg' ][0]['amos_tracao_cada_iden'].'</b> </td>
+						<td width="340" style="text-align: left; vertical-align: middle;"> <b>Certificado Nº: '.$Retorno[ 'listreg' ][0]['amos_tracao_cada_iden'].'</b> </td>
+						<td width="340" style="text-align: right; vertical-align: middle;"> <b>Amostra Nº: '.$Retorno[ 'listreg' ][0]['amos_cada_regi'].'</b> </td>
 				  	</tr>
 				</table>
+				<table border="0" cellpadding="1" style="border-collapse: collapse; font-size: 15pt; border-bottom: 2pt solid black; border-top: 2pt solid black">
+					<tr>
+						<td width="680" style="text-align: center; vertical-align: middle;"> <b> ANÁLISE TRAÇÃO </b> </td>
+					  </tr>
+				</table>
 				<br>
-				<table border="0" cellpadding="1" style="border-collapse: collapse; font-size: 10pt;">
+				<br>
+				<table border="0" cellpadding="1" style="border-collapse: collapse; font-size: 10pt">		
+					<tr>
+						<td width="140"></td>
+						<td width="150" rowspan="2" style="border: 1px solid black; text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240)"> <b>Propriedades Mecânicas</b> </td>
+						<td width="140" style="border: 1px solid black; text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240)"> <b>Especificado</b> </td>
+						<td width="80" rowspan="2" style="border: 1px solid black; text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240)"> <b>Obtido </b> </td>
+					</tr>
+					<tr>
+						<td width="140"></td>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240)"> <b>(min.)</b> </td>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240)"> <b>(max.)</b> </td>
+					</tr>
+					<tr>
+						<td width="140"></td>
+						<td width="150" style="border: 1px solid black; text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240)"> <b>Limite Resistencia <br> (MPa)</b> </td>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.explode( '-', $Retorno[ 'listreg' ][0]['mate_cada_limi_resi'] )[0].'</td>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.explode( '-', $Retorno[ 'listreg' ][0]['mate_cada_limi_resi'] )[1].'</td>
+						<td width="80" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.$Retorno[ 'listreg' ][0]['amos_tracao_cada_limi_resist'].'</td>
+					</tr>
+					<tr>
+						<td width="140"></td>
+						<td width="150" style="border: 1px solid black; text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240)"> <b>Limite Escoamento <br> (MPa)</b> </td>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.explode( '-', $Retorno[ 'listreg' ][0]['mate_cada_limi_esco'] )[0].'</td>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.explode( '-', $Retorno[ 'listreg' ][0]['mate_cada_limi_esco'] )[1].'</td>
+						<td width="80" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.$Retorno[ 'listreg' ][0]['amos_tracao_cada_limi_escoa'].'</td>
+					</tr>
+					<tr>
+						<td width="140"></td>
+						<td width="150" style="border: 1px solid black; text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240)"> <b>Alongamento (%)</b> </td>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.explode( '-', $Retorno[ 'listreg' ][0]['mate_cada_along'] )[0].'</td>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.explode( '-', $Retorno[ 'listreg' ][0]['mate_cada_along'] )[1].'</td>
+						<td width="80" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.$Retorno[ 'listreg' ][0]['amos_tracao_cada_along'].'</td>
+					</tr>
+					<tr>
+						<td width="140"></td>
+						<td width="150" style="border: 1px solid black; text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240)"> <b>Redução Área (%)</b> </td>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.explode( '-', $Retorno[ 'listreg' ][0]['mate_cada_redu_area'] )[0].'</td>
+						<td width="70" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.explode( '-', $Retorno[ 'listreg' ][0]['mate_cada_redu_area'] )[1].'</td>
+						<td width="80" style="border: 1px solid black; text-align: center; vertical-align: middle;"> '.$Retorno[ 'listreg' ][0]['amos_tracao_cada_redu_area'].'</td>
+					</tr>
+				</table>
+				<br>
+				<br>
+				<table border="0" cellpadding="1" style="border-collapse: collapse; font-size: 10pt; border-bottom: 2pt solid black; page-break-inside: avoid;">		
+					<tr>
+						<td width="680" style="vertical-align: middle; height: 150px;"></td>
+					</tr>
+				</table>
+				<table border="0" cellpadding="1" style="border-collapse: collapse; font-size: 12pt; page-break-inside: avoid;">
+					<tr>
+						<td width="680" style="text-align: left; vertical-align: middle;"><b>CONCLUSÃO</b></td>
+					</tr>
+				</table>
+				<table border="0" cellpadding="1" style="border-collapse: collapse; font-size: 10pt; page-break-inside: avoid;">
+					<tr>
+						<td width="680" style="vertical-align: middle; height: 255px;">'.nl2br( $Retorno[ 'listreg' ][0]['amos_cada_concl_livre'] ).'</td>
+					</tr>
+				</table>
+				<table border="0" cellpadding="1" style="border-collapse: collapse; font-size: 15pt; page-break-inside: avoid; border-bottom: 2pt solid black; border-top: 2pt solid black">
+					<tr>
+						<td width="680" style="text-align: center; vertical-align: middle;"><b>SOLICITANTE</b></td>
+					</tr>
+				</table>
+				<table border="0" cellpadding="1" style="border-collapse: collapse; font-size: 10pt; border-bottom: 2pt solid black">
 					<tr>
 						<td width="680" style="vertical-align: middle;"> <b>Solicitante: </b>'.$Retorno[ 'listreg' ][0]['clie_cada_nome'].'</td>
 				  	</tr>
@@ -802,66 +1187,12 @@
 					<tr>
 						<td width="680" style="vertical-align: middle;"> <b>Fabricante: </b>'.$Retorno[ 'listreg' ][0]['fabr_cada_nome'].'</td>
 				  	</tr>
-					<tr>
-						<td width="680" style="vertical-align: middle;"> <b>Ensaio: </b>ENSAIO DE TRAÇÃO</td>
-				  	</tr>
 				</table>
-				<table border="0" cellpadding="1" style="border-collapse: collapse; font-size: 12pt">
+				<table border="0" cellpadding="1" style="border-collapse: collapse; font-size: 12pt; page-break-inside: avoid;">
 					<tr>
-						<td width="680" style="text-align: center; vertical-align: middle;"> <b>RESULTADOS</b> </td>
-				  	</tr>
-				</table>
-				<table border="1" cellpadding="1" style="border-collapse: collapse; font-size: 10pt; border-bottom: 2pt solid black; border-top: 2pt solid black; page-break-inside: avoid;">
-					<tr>
-						<td width="280" colspan="2" style="vertical-align: middle; background-color: rgb(240, 240, 240)"> <b>Propriedades Mecânicas</b> </td>
-						<td width="100" style="text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240)"> <b>Limite Resistencia <br> (MPa)</b> </td>
-						<td width="100" style="text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240)"> <b>Limite Escoamento <br> (MPa)</b> </td>
-						<td width="100" style="text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240)"> <b>Alongamento (%)</b> </td>
-						<td width="100" style="text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240)"> <b>Redução Área (%)</b> </td>
-					</tr>
-					<tr>
-						<td width="200" rowspan="2" style="vertical-align: middle; "> <b>Especificado </b> </td>
-						<td width="80" style="text-align: center; vertical-align: middle; "> <b> (min.) </b> </td>
-						<td width="100" style="text-align: center; vertical-align: middle; "> '.explode( '-', $Retorno[ 'listreg' ][0]['mate_cada_limi_resi'] )[0].' </td>
-						<td width="100" style="text-align: center; vertical-align: middle; "> '.explode( '-', $Retorno[ 'listreg' ][0]['mate_cada_limi_esco'] )[0].' </td>
-						<td width="100" style="text-align: center; vertical-align: middle; "> '.explode( '-', $Retorno[ 'listreg' ][0]['mate_cada_along'] )[0].' </td>
-						<td width="100" style="text-align: center; vertical-align: middle; "> '.explode( '-', $Retorno[ 'listreg' ][0]['mate_cada_redu_area'] )[0].' </td>
-					</tr>
-					<tr>
-						<td width="80" style="text-align: center; vertical-align: middle; "> <b> (max.) </b> </td>
-						<td width="100" style="text-align: center; vertical-align: middle; "> '.explode( '-', $Retorno[ 'listreg' ][0]['mate_cada_limi_resi'] )[1].' </td>
-						<td width="100" style="text-align: center; vertical-align: middle; "> '.explode( '-', $Retorno[ 'listreg' ][0]['mate_cada_limi_esco'] )[1].' </td>
-						<td width="100" style="text-align: center; vertical-align: middle; "> '.explode( '-', $Retorno[ 'listreg' ][0]['mate_cada_along'] )[1].' </td>
-						<td width="100" style="text-align: center; vertical-align: middle; "> '.explode( '-', $Retorno[ 'listreg' ][0]['mate_cada_redu_area'] )[1].' </td>
-					</tr>
-					<tr>
-						<td width="280" colspan="2" style="vertical-align: middle; "> <b>Obtido</b> </td>
-						<td width="100" style="text-align: center; vertical-align: middle; "> '.$Retorno[ 'listreg' ][0]['amos_tracao_cada_limi_resist'].' </td>
-						<td width="100" style="text-align: center; vertical-align: middle; "> '.$Retorno[ 'listreg' ][0]['amos_tracao_cada_limi_escoa'].' </td>
-						<td width="100" style="text-align: center; vertical-align: middle; "> '.$Retorno[ 'listreg' ][0]['amos_tracao_cada_along'].' </td>
-						<td width="100" style="text-align: center; vertical-align: middle; "> '.$Retorno[ 'listreg' ][0]['amos_tracao_cada_redu_area'].' </td>
-					</tr>
-				</table>	
-				<table border="0" cellpadding="1" style="border-collapse: collapse; font-size: 10pt; border-bottom: 2pt solid black; page-break-inside: avoid;">		
-					<tr>
-						<td width="680" style="vertical-align: middle; height: 268px;"></td>
-					</tr>
-				</table>
-				<table border="0" cellpadding="1" style="border-collapse: collapse; font-size: 18pt; border-bottom: 2pt solid black; border-top: 2pt solid black; page-break-inside: avoid;">
-					<tr>
-						<td width="680" style="text-align: center; vertical-align: middle;"> <b> CONCLUSÃO / OBSERVAÇÃO </b> </td>
-					</tr>
-				</table>
-				<table border="0" cellpadding="1" style="border-collapse: collapse; font-size: 10pt; page-break-inside: avoid;">
-					<tr>
-						<td width="680" style="vertical-align: middle; height: 215px;">'.nl2br( $Retorno[ 'listreg' ][0]['amos_cada_concl_livre'] ).'</td>
-					</tr>
-				</table>
-				<table border="0" cellpadding="1" style="border-collapse: collapse; font-size: 12pt; border-bottom: 2pt solid black; border-top: 2pt solid black; page-break-inside: avoid;">
-					<tr>
-						<td width="200" style="text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240)"> <b>Data Recepção</b> </td>
-						<td width="200" style="text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240)"> <b>Data Conclusão</b> </td>
-						<td width="280" style="text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240)"> <b></b> </td>
+						<td width="200" style="text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240); border-bottom: 2pt solid black"> <b>Data Recepção</b> </td>
+						<td width="200" style="text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240); border-bottom: 2pt solid black"> <b>Data Conclusão</b> </td>
+						<td width="280" style="text-align: center; vertical-align: middle; background-color: rgb(240, 240, 240); border-bottom: 2pt solid black"> <b></b> </td>
 					</tr>
 				</table>
 				<table border="0" cellpadding="1" style="border-collapse: collapse; font-size: 12pt; border-bottom: 2pt solid black; border-top: 2pt solid black; page-break-inside: avoid;">
@@ -883,7 +1214,7 @@
 		}
 		
 		/**
-		 * Gera PDF a Certificado cadastrada
+		 * Gera PDF Certificado cadastrada
 		 *
 		 * @param Parametros array contendo os dados do filtro
 		 * 
